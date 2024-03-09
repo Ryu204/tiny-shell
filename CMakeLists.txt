@@ -10,7 +10,10 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/source/core/config.h.in" "${CMAKE_CU
 file(GLOB_RECURSE ${PROJECT_NAME}_SOURCE CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.[ch]")
 
 # Formatter and linter
-include(cmake/format.cmake)
+option(ENABLE_FORMAT "Use clang-format as formatter" off)
+if (ENABLE_FORMAT)
+    include(cmake/format.cmake)
+endif()
 
 option(ENABLE_LINTER "Use clang-tidy as linter" off)
 if (ENABLE_LINTER)
