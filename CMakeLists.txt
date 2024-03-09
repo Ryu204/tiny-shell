@@ -17,3 +17,5 @@ endif()
 
 # Executable
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCE})
+# Microsoft specifics
+target_compile_definitions(${PROJECT_NAME} PRIVATE "_CRT_SECURE_NO_DEPRECATE ")
