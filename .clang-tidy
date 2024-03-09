@@ -1,0 +1,13 @@
+Checks: >
+    bugprone-*,
+    concurrency-*,
+    cppcoreguidelines-*,
+    misc-*,
+    -misc-no-recursion,
+    modernize-*,
+    -modernize-use-trailing-return-type,
+    performance-*,
+    portability-*,
+    readibility-*
+WarningsAsErrors: '*'
+UseColor: true
