@@ -1,6 +1,6 @@
 #include "core/config.h"
-#include "core/io.h"
-#include "runner/select.h"
+#include "core/io_wrap.h"
+#include "runner/invoke.h"
 
 #include <stdbool.h>
 #include <string.h>
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 
     while(true) {
         struct cmd *cmd = scan_input();
-        enum run_result res = select_runner(cmd);
+        enum run_result res = invoke_runner(cmd);
         io_set_last_status(res);
         cmd_del(cmd);
 

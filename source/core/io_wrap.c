@@ -1,4 +1,4 @@
-#include "io.h"
+#include "io_wrap.h"
 #include "config.h"
 
 #include <assert.h>
@@ -24,7 +24,7 @@ struct cmd *scan_input() {
 }
 
 void format_output(char *fmt, ...) {
-    va_list argptr = NULL;
+    va_list argptr; // NOLINT
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);

@@ -3,4 +3,4 @@
 #include "../core/cmd.h"
 #include "res.h"
 
-enum run_result select_runner(const struct cmd *cmd);
+enum run_result invoke_runner(const struct cmd *cmd);

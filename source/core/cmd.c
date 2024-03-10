@@ -25,7 +25,7 @@ struct cmd *cmd_from_str(const char *str) {
     for(int i = 1; true; ++i) {
         if(is_whitespace(trimmed[i])) {
             name = malloc(i + 1);
-            memcpy_s(name, i, trimmed, i);
+            memcpy(name, trimmed, i);
             name[i] = '\0';
             break;
         }
@@ -79,7 +79,7 @@ char *trim_whitespaces(const char *str) {
         return NULL;
     const unsigned int length = last - first + 1;
     char *res = malloc(length + 1);
-    memcpy_s(res, length, str + first, length);
+    memcpy(res, str + first, length);
     res[length] = '\0';
     return res;
 }
