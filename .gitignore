@@ -1,7 +1,0 @@
-.vscode/*
-build/*
-.venv/*
-.cache/*
-
-# config file
-source/core/config.h
