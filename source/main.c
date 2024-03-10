@@ -6,7 +6,8 @@
 
 #define SHELL_BUFSIZE 1024
 #define SHELL_BUFEXTRA 512
-#define SHELL_DELIM " "
+
+char SHELL_DELIM[] = " \t";
 
 int shell_help(int argc, char **argv);
 int shell_exit(int argc, char **argv);
@@ -122,7 +123,40 @@ int shell_execute(int argc, char **argv) {
     return 0;
 }
 
-char **shell_split_line(char *line, int *argc) {
+bool is_delim(char c) {
+    for (int i = 0, siz = strlen(SHELL_DELIM); i < siz; ++i) {
+        if (c == SHELL_DELIM[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+char *tokenize(char **line) {
+    while (*(*line) != '\0' && is_delim(*(*line))) {
+        ++(*line);
+    }
+    if (*(*line) == '\0') {
+        return NULL;
+    }
+    int bufsize = SHELL_BUFSIZE;
+    int pos = 0;
+    char *token = malloc(bufsize * sizeof(char));
+    while (*(*line) != '\0' && !is_delim(*(*line))) {
+        token[pos] = *(*line);
+        ++pos;
+        if (pos >= bufsize) {
+            bufsize += SHELL_BUFEXTRA;
+            token = realloc(token, bufsize * sizeof(char));
+        }
+        ++(*line);
+    }
+    token[pos] = '\0';
+    return token;
+}
+
+char **shell_split_line(char *line_, int *argc) {
+    char *line = line_;
     int bufsize = SHELL_BUFSIZE;
     int pos = 0;
     char **tokens = malloc(bufsize * sizeof(char *));
@@ -134,7 +168,7 @@ char **shell_split_line(char *line, int *argc) {
         exit(EXIT_FAILURE);
     }
 
-    token = strtok(line, SHELL_DELIM);
+    token = tokenize(&line);
     while (token != NULL) {
         tokens[pos] = token;
         ++pos;
@@ -149,7 +183,7 @@ char **shell_split_line(char *line, int *argc) {
             }
         }
 
-        token = strtok(NULL, SHELL_DELIM);
+        token = tokenize(&line);
     }
     
     tokens[pos] = NULL;
