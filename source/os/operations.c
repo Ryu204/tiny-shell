@@ -40,8 +40,7 @@ void report_error_code(DWORD error) {
 void clear_screen() {
     // From: https://learn.microsoft.com/en-us/windows/console/clearing-the-screen#example-2
     // NOLINTBEGIN
-    HANDLE hStdout;
-    hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     SMALL_RECT scrollRect;
     COORD scrollTarget;
