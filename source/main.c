@@ -32,21 +32,25 @@ int shell_cnt_builtin_func() {
 int shell_help(int argc, char **argv) {
     if (argc > 1) {
         printf("help: unkown option");
+        fflush(stdout);
         return 0;
     }
     printf("List of all commands.\n");
     for (int i = 0; i < shell_cnt_builtin_func(); ++i) {
         printf("%s: %s\n", builtin_str[i], builtin_help[i]);
     }
+    fflush(stdout);
     return 0;
 }
 
 int shell_exit(int argc, char **argv) {
     if (argc > 1) {
         printf("help: unkown option");
+        fflush(stdout);
         return 0;
     }
     printf("shell: Good bye!");
+    fflush(stdout);
     exit(0);
 }
 
@@ -72,6 +76,7 @@ char **shell_split_line(char *line, int *argc) {
 
     if (!tokens) {
         printf("shell: allocation error\n");
+        fflush(stdout);
         exit(0);
     }
 
@@ -85,6 +90,7 @@ char **shell_split_line(char *line, int *argc) {
             tokens = realloc(tokens, bufsize * sizeof(char *));
             if (!tokens) {
                 printf("shell: allocation error\n");
+                fflush(stdout);
                 exit(0);
             }
         }
@@ -105,6 +111,7 @@ char *shell_read_line() {
 
     if (!buffer) {
         printf("shell: allocation error\n");
+        fflush(stdout);
         exit(0);
     }
 
@@ -125,6 +132,7 @@ char *shell_read_line() {
             buffer = realloc(buffer, bufsize * sizeof(char));
             if (!buffer) {
                 printf("shell: allocation error\n");
+                fflush(stdout);
                 exit(0);
             }
         }
