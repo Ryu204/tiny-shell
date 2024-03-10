@@ -1,4 +1,5 @@
 #include "io_wrap.h"
+#include "../os/operations.h"
 #include "config.h"
 
 #include <assert.h>
@@ -28,18 +29,21 @@ void format_output(char *fmt, ...) {
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
+    printf("\n");
 }
 
 void prompt_input() {
+    static os_char buffer[CWD_BUFFER_SIZE];
+    get_cwd(CWD_BUFFER_SIZE, buffer);
+
     switch(*last_run_status()) {
     case RUN_OK:
-        printf(":) --> ");
+        printf("%s\n-> ", buffer);
         break;
     case RUN_EXIT:
-        printf(":(( --> ");
         break;
     case RUN_FAILED:
-        printf(":( --> ");
+        printf("%s\n:( -> ", buffer);
         break;
     default:
         assert(false && "unimplemented");
