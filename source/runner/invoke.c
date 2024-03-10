@@ -18,6 +18,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_UNKNOWN:
         format_output("%s", "Unknown command. Use \"help\" for more information\n");
         return RUN_FAILED;
+    case CMD_NOOP:
+        return RUN_OK;
     case CMD_INVALID_SYNTAX:
         format_output("%s", "Invalid syntax. Use \"help\" for more information\n");
         return RUN_FAILED;

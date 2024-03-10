@@ -14,10 +14,10 @@ struct cmd *cmd_from_str(const char *str) {
     res->type = CMD_UNKNOWN;
 
     char *trimmed = trim_whitespaces(str);
-    const int trimmed_len = (int)strlen(trimmed);
 
-    if(trimmed == NULL || trimmed_len == 0) {
+    if(trimmed == NULL || strlen(trimmed) == 0) {
         free(trimmed);
+        res->type = CMD_NOOP;
         return res;
     }
 
@@ -64,6 +64,11 @@ void cmd_del(struct cmd *obj) {
     case CMD_CHANGE_DIR:
         free(obj->val.new_dir);
         break;
+    case CMD_LAUNCH_FOREGROUND:
+        for(int i = 0; i < obj->val.args.argc; ++i) {
+            free(obj->val.args.argv[i]);
+        }
+        free(obj->val.args.argv);
     default:
         break;
     }

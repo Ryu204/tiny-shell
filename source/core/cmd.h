@@ -9,8 +9,10 @@ enum cmd_type {
     CMD_HELP,
     CMD_UNKNOWN,
     CMD_INVALID_SYNTAX,
-    CMD_CHANGE_DIR,
     CMD_EXIT,
+    CMD_NOOP,
+
+    CMD_CHANGE_DIR
 };
 
 /**
@@ -20,6 +22,10 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
+        struct {
+            int argc;
+            os_char **argv;
+        } args;
     } val;
 };
 
