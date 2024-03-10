@@ -66,9 +66,11 @@ jobs:
       run: cmake --build build -j
 
     - name: Test (non-MSVC)
+      if: contains(matrix.platform.name, 'MSVC') == "false"
       run: build/tiny-shell -f test/script1 && build/tiny-shell -f test/script2
 
     - name: Test (MSVC)
+      if: contains(matrix.platform.name, 'MSVC')
       run: |
         build/${{ matrix.buildType }}/tiny-shell -f test/script1
         build/${{ matrix.buildType }}/tiny-shell -f test/script2
