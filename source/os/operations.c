@@ -3,7 +3,6 @@
 
 #ifdef _WIN32
 #    include <WinBase.h>
-#include <conio.h>
 
 void report_error_code(DWORD err);
 
@@ -39,13 +38,49 @@ void report_error_code(DWORD error) {
 }
 
 void clear_screen() {
-    clrscr();
+    // From: https://learn.microsoft.com/en-us/windows/console/clearing-the-screen#example-2
+    // NOLINTBEGIN
+    HANDLE hStdout;
+    hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    SMALL_RECT scrollRect;
+    COORD scrollTarget;
+    CHAR_INFO fill;
+
+    // Get the number of character cells in the current buffer.
+    if(!GetConsoleScreenBufferInfo(hConsole, &csbi)) {
+        return;
+    }
+
+    // Scroll the rectangle of the entire buffer.
+    scrollRect.Left = 0;
+    scrollRect.Top = 0;
+    scrollRect.Right = csbi.dwSize.X;
+    scrollRect.Bottom = csbi.dwSize.Y;
+
+    // Scroll it upwards off the top of the buffer with a magnitude of the entire height.
+    scrollTarget.X = 0;
+    scrollTarget.Y = (SHORT)(0 - csbi.dwSize.Y);
+
+    // Fill with empty spaces with the buffer's default text attribute.
+    fill.Char.UnicodeChar = TEXT(' ');
+    fill.Attributes = csbi.wAttributes;
+
+    // Do the scroll
+    ScrollConsoleScreenBuffer(hConsole, &scrollRect, NULL, scrollTarget, &fill);
+
+    // Move the cursor to the top left corner too.
+    csbi.dwCursorPosition.X = 0;
+    csbi.dwCursorPosition.Y = 0;
+
+    SetConsoleCursorPosition(hConsole, csbi.dwCursorPosition);
+    // NOLINTEND
 }
 
 #elif defined(__linux__)
 #    include <errno.h>
+#    include <stdio.h>
 #    include <unistd.h>
-#include <stdio.h>
 
 void get_cwd(unsigned int buffer_size, os_char *buffer) {
     if(!getcwd(buffer, buffer_size)) {
