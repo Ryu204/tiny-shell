@@ -7,8 +7,8 @@
 
 int main(int argc, char *argv[]) {
     // Version report
-    if(argc >= 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))  {
-        format_output("%s, version %s", APP_NAME, APP_VERSION);
+    if(argc >= 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0)) {
+        format_output("%s, version %s\n", APP_NAME, APP_VERSION);
         return 0;
     }
 

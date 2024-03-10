@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Result of the execution of a command line 
+ * @brief Result of the execution of a command line
  */
 enum run_result {
     RUN_OK,
