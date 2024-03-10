@@ -4,6 +4,8 @@ BUILD="build"
 COMPILER_CALL="gcc -std=c11"
 C_OBJECTS=""
 
+mkdir -p build/
+
 for C_SOURCE in $(find ${SOURCE} -name "*.c")
 do
     # echo ${C_SOURCE}
@@ -21,3 +23,4 @@ ${COMPILER_CALL} ${C_OBJECTS} -o main
 ./main.exe
 
 rm -rf build/*
+rm -rf main.exe
