@@ -20,7 +20,7 @@ done
 
 ${COMPILER_CALL} ${C_OBJECTS} -o main
 
-./main.exe
+# ./main.exe
 
 rm -rf build/*
-rm -rf main.exe
+# rm -rf main.exe

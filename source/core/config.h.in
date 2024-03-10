@@ -1,5 +1,0 @@
-#pragma once
-
-#define APP_VERSION "@PROJECT_VERSION@"
-#define APP_NAME "@PROJECT_NAME@"
-#define INPUT_BUFFER_SIZE 256
