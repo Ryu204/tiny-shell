@@ -29,5 +29,6 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_FAILED;
     default:
         assert(false && "unimplemented command");
+        return RUN_FAILED;
     }
 }
