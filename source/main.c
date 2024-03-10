@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <windows.h>
 
 #define SHELL_BUFSIZE 1024
 #define SHELL_BUFEXTRA 512
@@ -9,20 +10,24 @@
 
 int shell_help(int argc, char **argv);
 int shell_exit(int argc, char **argv);
+int shell_date(int argc, char **argv);
 
 char *builtin_str[] = {
     "help",
-    "exit"
+    "exit",
+    "date"
 };
 
 char *builtin_help[] = {
     "print all commands.",
-    "exit shell."
+    "exit shell.",
+    "print current date"
 };
 
 int (*builtin_func[]) (int argc, char **argv) = {
     &shell_help,
-    &shell_exit
+    &shell_exit,
+    &shell_date
 };
 
 int shell_cnt_builtin_func() {
@@ -54,6 +59,55 @@ int shell_exit(int argc, char **argv) {
     exit(0);
 }
 
+char *day_of_week[] = {
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+};
+
+char *month[] = {
+    "",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+};
+
+int shell_date(int argc, char **argv) {
+    if (argc > 1) {
+        printf("date: unkown option");
+        fflush(stdout);
+        return 0;
+    }
+    SYSTEMTIME lt;
+
+    GetLocalTime(&lt);
+
+    printf("%s, %s %02d, %04d %02d:%02d:%02d\n", 
+        day_of_week[lt.wDayOfWeek], 
+        month[lt.wMonth],
+        lt.wDay,
+        lt.wYear,
+        lt.wHour,
+        lt.wMinute,
+        lt.wSecond
+    );
+    fflush(stdout);
+    return 0;
+}
+
 int shell_execute(int argc, char **argv) {
     if (!argc) {
         return 0;
@@ -77,7 +131,7 @@ char **shell_split_line(char *line, int *argc) {
     if (!tokens) {
         printf("shell: allocation error\n");
         fflush(stdout);
-        exit(0);
+        exit(EXIT_FAILURE);
     }
 
     token = strtok(line, SHELL_DELIM);
@@ -91,7 +145,7 @@ char **shell_split_line(char *line, int *argc) {
             if (!tokens) {
                 printf("shell: allocation error\n");
                 fflush(stdout);
-                exit(0);
+                exit(EXIT_FAILURE);
             }
         }
 
@@ -112,7 +166,7 @@ char *shell_read_line() {
     if (!buffer) {
         printf("shell: allocation error\n");
         fflush(stdout);
-        exit(0);
+        exit(EXIT_FAILURE);
     }
 
     while (true) {
@@ -133,7 +187,7 @@ char *shell_read_line() {
             if (!buffer) {
                 printf("shell: allocation error\n");
                 fflush(stdout);
-                exit(0);
+                exit(EXIT_FAILURE);
             }
         }
     }
