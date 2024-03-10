@@ -12,3 +12,6 @@ void get_cwd(unsigned int buffer_size, os_char *buffer);
  * @return Result of the operation
  */
 bool change_cwd(const os_char *new_dir);
+
+/*! @brief Clear the console */
+void clear_screen();

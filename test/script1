@@ -1,0 +1,11 @@
+this_is_an_error_command
+
+cd ../
+cd build
+cd to_non_existence
+
+help
+
+exit
+
+cd ../

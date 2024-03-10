@@ -1,5 +1,6 @@
 #include "invoke.h"
 #include "../core/io_wrap.h"
+#include "../os/operations.h"
 #include "cd.h"
 #include "help.h"
 
@@ -15,6 +16,9 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_EXIT;
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
+    case CMD_CLEAR:
+        clear_screen();
+        return RUN_OK;
     case CMD_UNKNOWN:
         format_output("%s", "Unknown command. Use \"help\" for more information\n");
         return RUN_FAILED;

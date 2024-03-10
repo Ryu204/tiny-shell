@@ -6,13 +6,16 @@
  * @brief Possible command types the shell can understand
  */
 enum cmd_type {
-    CMD_HELP,
     CMD_UNKNOWN,
     CMD_INVALID_SYNTAX,
-    CMD_EXIT,
     CMD_NOOP,
 
-    CMD_CHANGE_DIR
+    CMD_CHANGE_DIR,
+    CMD_HELP,
+    CMD_EXIT,
+    CMD_CLEAR,
+
+    CMD_LAUNCH_FOREGROUND,
 };
 
 /**

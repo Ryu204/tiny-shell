@@ -45,6 +45,8 @@ struct cmd *cmd_from_str(const char *str) {
             res->type = CMD_INVALID_SYNTAX;
             free(res->val.new_dir);
         }
+    } else if(strcmp(name, "clear") == 0) {
+        res->type = CMD_CLEAR;
     }
 
     free(name);

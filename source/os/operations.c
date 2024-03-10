@@ -3,6 +3,7 @@
 
 #ifdef _WIN32
 #    include <WinBase.h>
+#include <conio.h>
 
 void report_error_code(DWORD err);
 
@@ -37,9 +38,14 @@ void report_error_code(DWORD error) {
     }
 }
 
+void clear_screen() {
+    clrscr();
+}
+
 #elif defined(__linux__)
 #    include <errno.h>
 #    include <unistd.h>
+#include <stdio.h>
 
 void get_cwd(unsigned int buffer_size, os_char *buffer) {
     if(!getcwd(buffer, buffer_size)) {
@@ -71,6 +77,10 @@ bool change_cwd(const os_char *new_dir) {
         format_error("System error code: %d\n", errno);
     }
     return false;
+}
+
+void clear_screen() {
+    printf("\e[1;1H\e[2J");
 }
 
 #endif
