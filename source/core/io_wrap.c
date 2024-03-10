@@ -29,7 +29,14 @@ void format_output(char *fmt, ...) {
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
-    printf("\n");
+}
+
+void format_error(char *fmt, ...) {
+    printf("ERROR: ");
+    va_list argptr; // NOLINT
+    va_start(argptr, fmt);
+    vfprintf(stdout, fmt, argptr);
+    va_end(argptr);
 }
 
 void prompt_input() {

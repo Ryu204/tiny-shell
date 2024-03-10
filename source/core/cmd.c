@@ -14,28 +14,37 @@ struct cmd *cmd_from_str(const char *str) {
     res->type = CMD_UNKNOWN;
 
     char *trimmed = trim_whitespaces(str);
-    const int str_len = (int)strlen(trimmed);
+    const int trimmed_len = (int)strlen(trimmed);
 
-    if(trimmed == NULL || str_len == 0) {
+    if(trimmed == NULL || trimmed_len == 0) {
         free(trimmed);
         return res;
     }
 
     char *name = NULL;
+    int name_len = 0;
     for(int i = 1; true; ++i) {
         if(is_whitespace(trimmed[i])) {
             name = malloc(i + 1);
             memcpy(name, trimmed, i);
             name[i] = '\0';
+            name_len = i;
             break;
         }
     }
-    assert(name != NULL && strlen(name) > 0);
+    assert(name != NULL && name_len > 0);
 
     if(strcmp(name, "help") == 0) {
         res->type = CMD_HELP;
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
+    } else if(strcmp(name, "cd") == 0) {
+        res->type = CMD_CHANGE_DIR;
+        res->val.new_dir = trim_whitespaces(trimmed + name_len);
+        if(res->val.new_dir == NULL || strlen(res->val.new_dir) == 0) {
+            res->type = CMD_INVALID_SYNTAX;
+            free(res->val.new_dir);
+        }
     }
 
     free(name);
@@ -51,6 +60,13 @@ void to_lower(char *str) {
 }
 
 void cmd_del(struct cmd *obj) {
+    switch(obj->type) {
+    case CMD_CHANGE_DIR:
+        free(obj->val.new_dir);
+        break;
+    default:
+        break;
+    }
     free(obj);
 }
 

@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         enum run_result res = invoke_runner(cmd);
         io_set_last_status(res);
         cmd_del(cmd);
-
+        format_output("\n");
         if(res == RUN_EXIT)
             return 0;
     }
