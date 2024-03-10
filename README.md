@@ -1,8 +1,13 @@
-# Build by git bash terminal
+# Run command in the project's root directory on git bash terminal
 
 ```sh
-# Run this command in git bash terminal of the project's root directory
+# Run this command to build
 ./compile.sh
+```
+
+```sh
+# Run this command to execute
+./execute/main.exe
 ```
 
 # Usage
