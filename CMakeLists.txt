@@ -20,7 +20,7 @@ if (ENABLE_LINTER)
     include(cmake/tidy.cmake)
 endif()
 
-option(ENABLE_DOCS "Generate documentation" off)
+option(ENABLE_DOCS "Generate documentation with doxygen" off)
 if (ENABLE_DOCS)
     include(cmake/docs.cmake)
 endif()
