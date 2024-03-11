@@ -1,0 +1,15 @@
+<map id="cmd" name="cmd">
+<area shape="rect" id="Node000001" title="Resulting struct after parsing the input." alt="" coords="278,94,325,120"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,118,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,35,178,67,279,97,277,102,176,73,99,40"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,5,217,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,41,227,68,253,83,279,95,277,100,251,88,224,72,195,45"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="241,5,279,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="275,44,298,92,293,95,270,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="304,5,384,31"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="334,46,310,95,305,92,329,44"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="408,5,523,31"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="430,41,326,96,323,91,428,36"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="548,5,655,31"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="545,38,426,73,326,101,325,96,425,67,544,33"/>
+</map>

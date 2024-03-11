@@ -1,0 +1,14 @@
+<map id="invoke_runner" name="invoke_runner">
+<area shape="rect" id="Node000001" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="5,81,108,107"/>
+<area shape="rect" id="Node000002" href="$operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="156,5,251,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,78,162,36,165,41,85,83"/>
+<area shape="rect" id="Node000003" href="$io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="299,81,400,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,92,283,92,283,97,108,97"/>
+<area shape="rect" id="Node000004" href="$cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="173,156,234,182"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="85,105,164,146,161,151,82,110"/>
+<area shape="rect" id="Node000006" href="$help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="168,107,239,132"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="109,100,153,108,152,113,108,106"/>
+<area shape="rect" id="Node000005" href="$operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="303,156,397,182"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,166,287,166,287,172,234,172"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="239,111,283,103,284,108,240,116"/>
+</map>

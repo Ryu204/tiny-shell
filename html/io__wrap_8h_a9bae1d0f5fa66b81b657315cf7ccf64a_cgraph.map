@@ -1,0 +1,18 @@
+<map id="scan_input" name="scan_input">
+<area shape="rect" id="Node000001" title="Ask and convert user&#39;s input into command." alt="" coords="5,80,90,106"/>
+<area shape="rect" id="Node000002" href="$cmd_8c.html#a1cf741a42c09ec3014d42a2cd6eacbbf" title="Build command from raw input." alt="" coords="138,31,239,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,77,134,60,136,65,87,82"/>
+<area shape="rect" id="Node000005" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="140,104,237,130"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="91,97,125,103,124,109,90,103"/>
+<area shape="rect" id="Node000003" href="$cmd_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="458,5,563,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="231,27,287,16,368,10,443,11,443,16,368,15,287,21,232,33"/>
+<area shape="rect" id="Node000004" href="$cmd_8c.html#aad74ba4259532367eb295786aeef7abc" title=" " alt="" coords="287,31,410,56"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="240,41,272,41,272,46,240,46"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="410,31,443,26,444,31,411,36"/>
+<area shape="rect" id="Node000006" href="$operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="314,80,384,106"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="237,107,298,98,299,103,237,112"/>
+<area shape="rect" id="Node000007" href="$io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="288,129,410,155"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="237,122,273,127,272,133,237,127"/>
+<area shape="rect" id="Node000008" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="294,179,404,204"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="215,128,288,165,299,170,297,175,286,170,213,133"/>
+</map>

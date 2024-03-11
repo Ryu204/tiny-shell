@@ -1,0 +1,5 @@
+<map id="io_set_last_status" name="io_set_last_status">
+<area shape="rect" id="Node000001" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="5,5,133,31"/>
+<area shape="rect" id="Node000002" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="181,5,291,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+</map>

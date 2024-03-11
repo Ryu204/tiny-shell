@@ -1,0 +1,12 @@
+<map id="is_prompt_visible" name="is_prompt_visible">
+<area shape="rect" id="Node000001" title=" " alt="" coords="451,29,574,55"/>
+<area shape="rect" id="Node000002" href="$io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,5,259,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,39,259,26,260,21,436,34"/>
+<area shape="rect" id="Node000004" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="307,55,403,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,57,404,62,403,57,436,52"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,37,56,42,55,37,87,31"/>
+<area shape="rect" id="Node000005" href="$io__wrap_8c.html#a9bae1d0f5fa66b81b657315cf7ccf64a" title="Ask and convert user&#39;s input into command." alt="" coords="139,55,223,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,70,224,70,224,65,291,65"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="123,61,55,50,56,45,124,56"/>
+</map>

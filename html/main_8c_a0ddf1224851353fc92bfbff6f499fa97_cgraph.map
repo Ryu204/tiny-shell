@@ -1,0 +1,44 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,205,55,231"/>
+<area shape="rect" id="Node000002" href="$cmd_8c.html#a4354ba80f6dc3475d24f16545320d3db" title=" " alt="" coords="146,56,216,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,204,55,150,75,118,101,91,129,76,132,80,104,95,79,121,60,152,38,206"/>
+<area shape="rect" id="Node000003" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="135,105,227,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="38,203,64,172,101,140,120,131,122,135,104,144,68,175,42,207"/>
+<area shape="rect" id="Node000004" href="$io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="493,155,595,180"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,213,478,171,478,177,56,218"/>
+<area shape="rect" id="Node000005" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="130,155,232,180"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="54,208,125,183,127,188,56,213"/>
+<area shape="rect" id="Node000010" href="$io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="307,305,434,331"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="56,223,311,298,309,303,54,228"/>
+<area shape="rect" id="Node000012" href="$io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,380,259,406"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="39,230,63,283,82,314,105,343,139,370,136,374,101,347,77,317,58,285,34,233"/>
+<area shape="rect" id="Node000014" href="$io__wrap_8c.html#a9bae1d0f5fa66b81b657315cf7ccf64a" title="Ask and convert user&#39;s input into command." alt="" coords="139,307,223,332"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="44,230,70,257,104,285,127,298,124,302,101,290,66,261,40,233"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="232,165,478,165,478,170,232,170"/>
+<area shape="rect" id="Node000006" href="$operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="323,5,418,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="231,156,257,141,268,130,275,118,281,93,287,67,294,53,305,40,308,37,312,41,309,44,298,56,292,69,286,94,280,120,273,133,261,146,234,161"/>
+<area shape="rect" id="Node000007" href="$cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="341,55,401,80"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="231,153,258,141,272,129,281,116,290,103,305,89,325,79,327,84,309,94,294,106,285,119,276,133,260,146,234,158"/>
+<area shape="rect" id="Node000009" href="$help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="336,104,406,130"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="231,151,319,128,321,133,233,157"/>
+<area shape="rect" id="Node000008" href="$operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="497,55,591,80"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="401,65,481,65,481,70,401,70"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="407,124,484,147,482,152,405,130"/>
+<area shape="rect" id="Node000011" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="489,307,599,332"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="435,316,473,316,473,322,435,321"/>
+<area shape="rect" id="Node000013" href="$io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="483,405,605,431"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="260,396,468,410,468,416,259,401"/>
+<area shape="rect" id="Node000015" href="$cmd_8c.html#a1cf741a42c09ec3014d42a2cd6eacbbf" title="Build command from raw input." alt="" coords="320,256,421,282"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="223,306,304,284,306,289,224,311"/>
+<area shape="rect" id="Node000018" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="323,355,419,380"/>
+<area shape="poly" id="edge20_Node000014_Node000018" title=" " alt="" coords="224,327,308,349,307,354,223,333"/>
+<area shape="rect" id="Node000016" href="$cmd_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="654,231,758,256"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="422,262,638,246,638,251,422,268"/>
+<area shape="rect" id="Node000017" href="$cmd_8c.html#aad74ba4259532367eb295786aeef7abc" title=" " alt="" coords="482,205,606,231"/>
+<area shape="poly" id="edge18_Node000015_Node000017" title=" " alt="" coords="417,253,482,233,484,238,418,258"/>
+<area shape="poly" id="edge19_Node000017_Node000016" title=" " alt="" coords="606,225,639,230,638,236,606,230"/>
+<area shape="poly" id="edge23_Node000018_Node000011" title=" " alt="" coords="418,352,480,334,481,339,420,357"/>
+<area shape="poly" id="edge22_Node000018_Node000013" title=" " alt="" coords="418,378,484,398,482,403,417,384"/>
+<area shape="rect" id="Node000019" href="$operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="509,356,579,382"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="419,365,493,366,493,371,419,371"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="prompt_input" name="prompt_input">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,102,80"/>
+<area shape="rect" id="Node000002" href="$operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="176,5,246,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,51,160,31,162,36,98,57"/>
+<area shape="rect" id="Node000003" href="$io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="150,55,272,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,65,134,65,134,70,102,70"/>
+<area shape="rect" id="Node000004" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="156,104,266,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="98,78,154,96,152,101,96,84"/>
+</map>
