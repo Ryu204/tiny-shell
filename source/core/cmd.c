@@ -1,8 +1,8 @@
 #include "cmd.h"
 #include <assert.h>
 #include <ctype.h>
-#include <malloc.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include <string.h>
 
 void to_lower(char *str);
@@ -14,28 +14,39 @@ struct cmd *cmd_from_str(const char *str) {
     res->type = CMD_UNKNOWN;
 
     char *trimmed = trim_whitespaces(str);
-    const int str_len = (int)strlen(trimmed);
 
-    if(trimmed == NULL || str_len == 0) {
+    if(trimmed == NULL || strlen(trimmed) == 0) {
         free(trimmed);
+        res->type = CMD_NOOP;
         return res;
     }
 
     char *name = NULL;
+    int name_len = 0;
     for(int i = 1; true; ++i) {
         if(is_whitespace(trimmed[i])) {
             name = malloc(i + 1);
             memcpy(name, trimmed, i);
             name[i] = '\0';
+            name_len = i;
             break;
         }
     }
-    assert(name != NULL && strlen(name) > 0);
+    assert(name != NULL && name_len > 0);
 
     if(strcmp(name, "help") == 0) {
         res->type = CMD_HELP;
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
+    } else if(strcmp(name, "cd") == 0) {
+        res->type = CMD_CHANGE_DIR;
+        res->val.new_dir = trim_whitespaces(trimmed + name_len);
+        if(res->val.new_dir == NULL || strlen(res->val.new_dir) == 0) {
+            res->type = CMD_INVALID_SYNTAX;
+            free(res->val.new_dir);
+        }
+    } else if(strcmp(name, "clear") == 0) {
+        res->type = CMD_CLEAR;
     }
 
     free(name);
@@ -51,6 +62,18 @@ void to_lower(char *str) {
 }
 
 void cmd_del(struct cmd *obj) {
+    switch(obj->type) {
+    case CMD_CHANGE_DIR:
+        free(obj->val.new_dir);
+        break;
+    case CMD_LAUNCH_FOREGROUND:
+        for(int i = 0; i < obj->val.args.argc; ++i) {
+            free(obj->val.args.argv[i]);
+        }
+        free(obj->val.args.argv);
+    default:
+        break;
+    }
     free(obj);
 }
 

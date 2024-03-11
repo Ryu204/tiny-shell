@@ -4,6 +4,7 @@ Checks: >
     cppcoreguidelines-*,
     misc-*,
     -misc-no-recursion,
+    -misc-include-cleaner,
     modernize-*,
     -modernize-use-trailing-return-type,
     performance-*,

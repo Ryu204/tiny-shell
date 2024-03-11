@@ -5,3 +5,7 @@ build/*
 
 # config file
 source/core/config.h
+
+# documentation
+docs/*
+!docs/config.in

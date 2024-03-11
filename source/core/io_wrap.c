@@ -1,4 +1,5 @@
 #include "io_wrap.h"
+#include "../os/operations.h"
 #include "config.h"
 
 #include <assert.h>
@@ -15,11 +16,22 @@ void io_set_last_status(enum run_result result) {
     *last_run_status() = result;
 }
 
+bool *is_prompt_visible() {
+    static bool visible = true;
+    return &visible;
+}
+
+void io_set_prompt_visibility(bool visible) {
+    *is_prompt_visible() = visible;
+}
+
 void prompt_input();
 struct cmd *scan_input() {
     prompt_input();
     static char buffer[INPUT_BUFFER_SIZE] = {0};
-    fgets(buffer, INPUT_BUFFER_SIZE, stdin);
+    if(!fgets(buffer, INPUT_BUFFER_SIZE, stdin)) {
+        return cmd_from_str("exit");
+    }
     return cmd_from_str(buffer);
 }
 
@@ -30,16 +42,29 @@ void format_output(char *fmt, ...) {
     va_end(argptr);
 }
 
+void format_error(char *fmt, ...) {
+    printf("ERROR: ");
+    va_list argptr; // NOLINT
+    va_start(argptr, fmt);
+    vfprintf(stdout, fmt, argptr);
+    va_end(argptr);
+}
+
 void prompt_input() {
+    static os_char buffer[CWD_BUFFER_SIZE];
+    get_cwd(CWD_BUFFER_SIZE, buffer);
+    if(!*is_prompt_visible()) {
+        return;
+    }
+
     switch(*last_run_status()) {
     case RUN_OK:
-        printf(":) --> ");
+        printf("%s\n-> ", buffer);
         break;
     case RUN_EXIT:
-        printf(":(( --> ");
         break;
     case RUN_FAILED:
-        printf(":( --> ");
+        printf("%s\n:( -> ", buffer);
         break;
     default:
         assert(false && "unimplemented");
