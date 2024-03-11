@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 
 project(tiny-shell LANGUAGES C VERSION 0.1)
 
-set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED true)
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/source/core/config.h.in" "${CMAKE_CURRENT_SOURCE_DIR}/source/core/config.h")
