@@ -1,7 +1,7 @@
 # From: https://github.com/satu0king/Github-Documentation-With-Doxygen/blob/master/.github/workflows/main.yml
 # This is a basic workflow to help you get started with Actions
 
-name: Doxygen Action
+name: deploy page
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -38,4 +38,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
+        publish_dir: ./docs/html
