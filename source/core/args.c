@@ -1,6 +1,7 @@
 #include "args.h"
 #include "../core/io_wrap.h"
 
+#include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -45,7 +46,7 @@ os_char *transform_quotes(const os_char *str) {
     }
 }
 
-struct args *split_by_whitespaces(const os_char *str) {
+void split_by_whitespaces(const os_char *str, struct args *buffer) {
     static const unsigned int MAX_ARGC = 128;
 
     os_char **argv = malloc(MAX_ARGC * sizeof(os_char *));
@@ -60,6 +61,7 @@ struct args *split_by_whitespaces(const os_char *str) {
         if(is_space && !was_space) {
             if(argc >= MAX_ARGC) {
                 format_error("Too many arguments, max number is %u\n", MAX_ARGC);
+                break;
             }
             const unsigned int len = (i - 1) - start + 1;
             argv[argc] = malloc(len + 1);
@@ -76,10 +78,8 @@ struct args *split_by_whitespaces(const os_char *str) {
         }
     }
 
-    struct args *res = malloc(sizeof(struct args));
-    res->argc = argc;
-    res->argv = argv;
-    return res;
+    buffer->argc = argc;
+    buffer->argv = argv;
 }
 
 /**! @brief Transform `MAGIC_TOKEN` inside `arg` into space */
@@ -92,23 +92,20 @@ void re_transform_arg(os_char *arg) {
     }
 }
 
-struct args *args_from_str(const os_char *input) {
-    if(!input) {
-        return NULL;
-    }
+void args_init_from_str(struct args *obj, const os_char *input) {
+    assert(obj && "NULL input");
     os_char *quote_transformed = transform_quotes(input);
     if(!quote_transformed) {
-        return NULL;
+        return;
     }
-    struct args *splitted = split_by_whitespaces(quote_transformed);
+    split_by_whitespaces(quote_transformed, obj);
     free(quote_transformed);
-    for(int i = 0; i < splitted->argc; ++i) {
-        re_transform_arg(splitted->argv[i]);
+    for(int i = 0; i < obj->argc; ++i) {
+        re_transform_arg(obj->argv[i]);
     }
-    return splitted;
 }
 
-void args_del(struct args *obj) {
+void args_destroy(struct args *obj) {
     if(!obj) {
         return;
     }
@@ -116,7 +113,6 @@ void args_del(struct args *obj) {
         free(obj->argv[i]);
     }
     free(obj->argv);
-    free(obj);
 }
 
 bool is_whitespace(char c) {

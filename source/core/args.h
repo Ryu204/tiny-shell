@@ -17,8 +17,8 @@ struct args {
  * @note Caller is responsible to free the result
  * @return `NULL` if `input` is empty, real data otherwise
  */
-struct args *args_from_str(const os_char *input);
-void args_del(struct args *obj);
+void args_init_from_str(struct args *obj, const os_char *input);
+void args_destroy(struct args *obj);
 
 /**! @brief Helper function */
 bool is_whitespace(os_char c);

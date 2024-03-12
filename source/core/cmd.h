@@ -33,5 +33,5 @@ struct cmd {
 };
 
 /*! @brief Build command from raw input */
-struct cmd *cmd_from_str(const char *str);
-void cmd_del(struct cmd *obj);
+void cmd_init_from_str(struct cmd *obj, const char *str);
+void cmd_destroy(struct cmd *obj);

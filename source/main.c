@@ -28,13 +28,14 @@ int main(int argc, char *argv[]) {
 
     while(true) {
         // Scan the input line and convert it to `cmd`
-        struct cmd *cmd = scan_input();
+        struct cmd cmd;
+        scan_input(&cmd);
         // Invoke the corresponding function
-        enum run_result res = invoke_runner(cmd);
+        enum run_result res = invoke_runner(&cmd);
         // Set status indicator
         io_set_last_status(res);
         // Deallocate the command
-        cmd_del(cmd);
+        cmd_destroy(&cmd);
 
         format_output("\n");
         if(res == RUN_EXIT)

@@ -2,24 +2,25 @@
 #include "args.h"
 #include "io_wrap.h"
 
-#include <ctype.h>
+#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
-struct cmd *cmd_from_str(const char *str) {
-    struct cmd *res = malloc(sizeof(struct cmd));
+void cmd_init_from_str(struct cmd *res, const char *str) {
+    assert(res && "NULL input");
     res->type = CMD_UNKNOWN;
 
-    struct args *arguments = args_from_str(str);
+    struct args arguments;
+    args_init_from_str(&arguments, str);
 
-    if(arguments == NULL || arguments->argc == 0) {
-        args_del(arguments);
+    if(arguments.argc == 0) {
+        args_destroy(&arguments);
         res->type = CMD_NOOP;
-        return res;
+        return;
     }
 
-    const char *name = arguments->argv[0];
+    const char *name = arguments.argv[0];
 
     if(strcmp(name, "help") == 0) {
         res->type = CMD_HELP;
@@ -27,31 +28,23 @@ struct cmd *cmd_from_str(const char *str) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {
         res->type = CMD_CHANGE_DIR;
-        if(arguments->argc != 2) {
-            format_error("Expected directory name, got %d argument(s)\n", (int)(arguments->argc - 1));
+        if(arguments.argc != 2) {
+            format_error("Expected directory name, got %d argument(s)\n", (int)(arguments.argc - 1));
             res->type = CMD_INVALID_SYNTAX;
         } else {
-            const unsigned int len = strlen(arguments->argv[1]);
+            const unsigned int len = strlen(arguments.argv[1]);
             res->val.new_dir = malloc(len + 1);
-            memcpy(res->val.new_dir, arguments->argv[1], len);
+            memcpy(res->val.new_dir, arguments.argv[1], len);
             res->val.new_dir[len] = '\0';
         }
     } else if(strcmp(name, "clear") == 0) {
         res->type = CMD_CLEAR;
     }
 
-    args_del(arguments);
-    return res;
+    args_destroy(&arguments);
 }
 
-void to_lower(char *str) {
-    for(int i = 0; str[i] != '\0'; ++i) {
-        if(isalpha(str[i]))
-            str[i] = (char)tolower(str[i]);
-    }
-}
-
-void cmd_del(struct cmd *obj) {
+void cmd_destroy(struct cmd *obj) {
     switch(obj->type) {
     case CMD_CHANGE_DIR:
         free(obj->val.new_dir);
@@ -64,5 +57,4 @@ void cmd_del(struct cmd *obj) {
     default:
         break;
     }
-    free(obj);
 }

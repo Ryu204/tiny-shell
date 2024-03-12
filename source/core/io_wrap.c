@@ -26,13 +26,13 @@ void io_set_prompt_visibility(bool visible) {
 }
 
 void prompt_input();
-struct cmd *scan_input() {
+void scan_input(struct cmd *obj) {
     prompt_input();
     static char buffer[INPUT_BUFFER_SIZE] = {0};
     if(!fgets(buffer, INPUT_BUFFER_SIZE, stdin)) {
-        return cmd_from_str("exit");
+        return cmd_init_from_str(obj, "exit");
     }
-    return cmd_from_str(buffer);
+    return cmd_init_from_str(obj, buffer);
 }
 
 void format_output(char *fmt, ...) {
