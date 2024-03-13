@@ -1,5 +1,10 @@
 <map id="source/core/cmd.h" name="source/core/cmd.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,134,31"/>
-<area shape="rect" id="Node000002" href="$type_8h.html" title=" " alt="" coords="28,79,111,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,31,72,63,67,63,67,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,143,31"/>
+<area shape="rect" id="Node000002" href="$type_8h.html" title=" " alt="" coords="5,153,89,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,32,56,138,50,137,74,31"/>
+<area shape="rect" id="Node000003" href="$args_8h.html" title=" " alt="" coords="84,79,141,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,30,103,64,98,66,82,32"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="104,107,70,143,66,139,100,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,153,186,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="121,104,139,138,134,140,116,106"/>
 </map>

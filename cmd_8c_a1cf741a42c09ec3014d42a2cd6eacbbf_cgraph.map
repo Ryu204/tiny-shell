@@ -1,8 +1,0 @@
-<map id="cmd_from_str" name="cmd_from_str">
-<area shape="rect" id="Node000001" title="Build command from raw input." alt="" coords="5,5,107,31"/>
-<area shape="rect" id="Node000002" href="$cmd_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="326,5,430,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,16,311,16,311,21,107,21"/>
-<area shape="rect" id="Node000003" href="$cmd_8c.html#aad74ba4259532367eb295786aeef7abc" title=" " alt="" coords="155,31,278,56"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,24,140,29,139,34,107,29"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="278,31,310,26,311,31,279,36"/>
-</map>
