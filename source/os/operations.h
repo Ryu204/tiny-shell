@@ -15,3 +15,6 @@ bool change_cwd(const os_char *new_dir);
 
 /*! @brief Clear the console */
 void clear_screen();
+
+/*! @brief Run the executable foreground */
+bool fore(const os_char *command_line);

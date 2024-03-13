@@ -76,6 +76,51 @@ void clear_screen() {
     // NOLINTEND
 }
 
+//#include <stdio.h>
+
+bool fore(const os_char *command_line) {
+    //printf("DEBUG: %s:%llu\n", command_line, strlen(command_line));
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
+
+    const unsigned int len = strlen(command_line);
+    os_char *tmp_command_line = malloc((len + 1) * sizeof(os_char));
+    memcpy(tmp_command_line, command_line, len * sizeof(os_char));
+    tmp_command_line[len] = '\0';
+
+    if(!CreateProcess(
+           NULL,         // No module name (use command line)
+           tmp_command_line, // Command line
+           NULL,         // Process handle not inheritable
+           NULL,         // Thread handle not inheritable
+           FALSE,        // Set handle inheritance to FALSE
+           0,            // No creation flags
+           NULL,         // Use parent's environment block
+           NULL,         // Use parent's starting directory
+           &si,          // Pointer to STARTUPINFO structure
+           &pi           // Pointer to PROCESS_INFORMATION structure
+           )) {
+        free(tmp_command_line);
+        report_error_code(GetLastError());
+        return false;
+    }
+
+    free(tmp_command_line);
+
+    // Wait until child process exits.
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
+    // Close process and thread handles.
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    return true;
+}
+
 #elif defined(__linux__)
 #    include <errno.h>
 #    include <stdio.h>
