@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]]
+  ['prompt_5finput_0',['prompt_input',['../io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7',1,'io_wrap.c']]]
 ];

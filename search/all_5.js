@@ -9,5 +9,5 @@ var searchData=
   ['io_5fwrap_2ec_6',['io_wrap.c',['../io__wrap_8c.html',1,'']]],
   ['io_5fwrap_2eh_7',['io_wrap.h',['../io__wrap_8h.html',1,'']]],
   ['is_5fprompt_5fvisible_8',['is_prompt_visible',['../io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1',1,'io_wrap.c']]],
-  ['is_5fwhitespace_9',['is_whitespace',['../args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe',1,'is_whitespace(char c):&#160;args.c'],['../args_8h.html#a631add08e4b4b7b6a1d3354cfbb63084',1,'is_whitespace(os_char c):&#160;args.h']]]
+  ['is_5fwhitespace_9',['is_whitespace',['../cmd_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe',1,'cmd.c']]]
 ];

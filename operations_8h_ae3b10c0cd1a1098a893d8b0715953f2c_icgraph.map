@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Fetch current working directory and copy them into buffer" alt="" coords="379,5,450,31"/>
 <area shape="rect" id="Node000002" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="235,5,331,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="363,21,332,21,332,16,363,16"/>
-<area shape="rect" id="Node000003" href="$io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="103,5,187,31"/>
+<area shape="rect" id="Node000003" href="$io__wrap_8c.html#a9bae1d0f5fa66b81b657315cf7ccf64a" title="Ask and convert user&#39;s input into command." alt="" coords="103,5,187,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,21,187,21,187,16,219,16"/>
 <area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
