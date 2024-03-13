@@ -1,38 +1,26 @@
 #include "cmd.h"
+#include "args.h"
+#include "io_wrap.h"
+
 #include <assert.h>
-#include <ctype.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
-void to_lower(char *str);
-bool is_whitespace(char c);
-char *trim_whitespaces(const char *str);
-
-struct cmd *cmd_from_str(const char *str) {
-    struct cmd *res = malloc(sizeof(struct cmd));
+void cmd_init_from_str(struct cmd *res, const char *str) {
+    assert(res && "NULL input");
     res->type = CMD_UNKNOWN;
 
-    char *trimmed = trim_whitespaces(str);
+    struct args arguments;
+    args_init_from_str(&arguments, str);
 
-    if(trimmed == NULL || strlen(trimmed) == 0) {
-        free(trimmed);
+    if(arguments.argc == 0) {
+        args_destroy(&arguments);
         res->type = CMD_NOOP;
-        return res;
+        return;
     }
 
-    char *name = NULL;
-    int name_len = 0;
-    for(int i = 1; true; ++i) {
-        if(is_whitespace(trimmed[i])) {
-            name = malloc(i + 1);
-            memcpy(name, trimmed, i);
-            name[i] = '\0';
-            name_len = i;
-            break;
-        }
-    }
-    assert(name != NULL && name_len > 0);
+    const char *name = arguments.argv[0];
 
     if(strcmp(name, "help") == 0) {
         res->type = CMD_HELP;
@@ -40,28 +28,23 @@ struct cmd *cmd_from_str(const char *str) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {
         res->type = CMD_CHANGE_DIR;
-        res->val.new_dir = trim_whitespaces(trimmed + name_len);
-        if(res->val.new_dir == NULL || strlen(res->val.new_dir) == 0) {
+        if(arguments.argc != 2) {
+            format_error("Expected directory name, got %d argument(s)\n", (int)(arguments.argc - 1));
             res->type = CMD_INVALID_SYNTAX;
-            free(res->val.new_dir);
+        } else {
+            const unsigned int len = strlen(arguments.argv[1]);
+            res->val.new_dir = malloc(len + 1);
+            memcpy(res->val.new_dir, arguments.argv[1], len);
+            res->val.new_dir[len] = '\0';
         }
     } else if(strcmp(name, "clear") == 0) {
         res->type = CMD_CLEAR;
     }
 
-    free(name);
-    free(trimmed);
-    return res;
+    args_destroy(&arguments);
 }
 
-void to_lower(char *str) {
-    for(int i = 0; str[i] != '\0'; ++i) {
-        if(isalpha(str[i]))
-            str[i] = (char)tolower(str[i]);
-    }
-}
-
-void cmd_del(struct cmd *obj) {
+void cmd_destroy(struct cmd *obj) {
     switch(obj->type) {
     case CMD_CHANGE_DIR:
         free(obj->val.new_dir);
@@ -74,35 +57,4 @@ void cmd_del(struct cmd *obj) {
     default:
         break;
     }
-    free(obj);
-}
-
-bool is_whitespace(char c) {
-    return c == ' ' || c == '\t' || c == '\n' || c == '\0';
-}
-
-char *trim_whitespaces(const char *str) {
-    const int n = (int)strlen(str);
-    int first = -1;
-    int last = -1;
-
-    for(int i = 0; i < n; ++i) {
-        if(!is_whitespace(str[i])) {
-            first = i;
-            break;
-        }
-    }
-    for(int i = n - 1; i >= 0; --i) {
-        if(!is_whitespace(str[i])) {
-            last = i;
-            break;
-        }
-    }
-    if(first < 0 || last < 0 || first > last)
-        return NULL;
-    const unsigned int length = last - first + 1;
-    char *res = malloc(length + 1);
-    memcpy(res, str + first, length);
-    res[length] = '\0';
-    return res;
 }
