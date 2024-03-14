@@ -39,27 +39,16 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else if(strcmp(name, "clear") == 0) {
         res->type = CMD_CLEAR;
-    } else if(strcmp(name, "fore") == 0) {
-        res->type = CMD_LAUNCH_FOREGROUND;
-
-        const char *tmp_str = strstr(str, "fore") + 4;
-
-        // format_output("DEBUG: tmp_str=%s:%d", tmp_str, strlen(tmp_str));
-
-        while(*tmp_str != '\0' && is_whitespace(*tmp_str)) {
-            ++tmp_str;
+    } else {
+        res->type = CMD_LAUNCH_EXECUTABLE;
+        res->val.args.argc = arguments.argc;
+        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
+        for(int i = 0; i < arguments.argc; ++i) {
+            size_t len = strlen(arguments.argv[i]);
+            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+            res->val.args.argv[i][len] = '\0';
         }
-
-        size_t len = strlen(tmp_str);
-        while(len > 0 && is_whitespace(*(tmp_str + len - 1))) {
-            --len;
-        }
-
-        res->val.command_line = malloc((len + 1) * sizeof(os_char));
-        for(int i = 0; i < len; ++i) {
-            res->val.command_line[i] = tmp_str[i];
-        }
-        res->val.command_line[len] = '\0';
     }
 
     args_destroy(&arguments);
@@ -70,8 +59,9 @@ void cmd_destroy(struct cmd *obj) {
     case CMD_CHANGE_DIR:
         free(obj->val.new_dir);
         break;
-    case CMD_LAUNCH_FOREGROUND:
-        free(obj->val.command_line);
+    case CMD_LAUNCH_EXECUTABLE:
+        args_destroy(&(obj->val.args));
+        break;
     default:
         break;
     }

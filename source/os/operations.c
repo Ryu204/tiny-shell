@@ -76,10 +76,7 @@ void clear_screen() {
     // NOLINTEND
 }
 
-// #include <stdio.h>
-
-bool fore(const os_char *command_line) {
-    // printf("DEBUG: %s:%llu\n", command_line, strlen(command_line));
+bool launch_executable(const os_char *command_line, bool wait) {
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
 
@@ -112,7 +109,9 @@ bool fore(const os_char *command_line) {
     free(tmp_command_line);
 
     // Wait until child process exits.
-    WaitForSingleObject(pi.hProcess, INFINITE);
+    if(wait) {
+        WaitForSingleObject(pi.hProcess, INFINITE);
+    }
 
     // Close process and thread handles.
     CloseHandle(pi.hProcess);

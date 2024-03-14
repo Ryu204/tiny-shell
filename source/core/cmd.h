@@ -16,8 +16,7 @@ enum cmd_type {
     CMD_EXIT,
     CMD_CLEAR,
 
-    CMD_LAUNCH_FOREGROUND,
-    CMD_LAUNCH_BACKGROUND,
+    CMD_LAUNCH_EXECUTABLE,
 };
 
 /**
@@ -26,7 +25,6 @@ enum cmd_type {
 struct cmd {
     enum cmd_type type;
     union {
-        os_char *command_line;
         os_char *new_dir;
         struct args args;
     } val;

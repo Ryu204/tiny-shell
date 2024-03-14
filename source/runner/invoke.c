@@ -2,8 +2,8 @@
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
 #include "cd.h"
-#include "fore.h"
 #include "help.h"
+#include "launch_executable.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -20,8 +20,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
-    case CMD_LAUNCH_FOREGROUND:
-        return run_fore(cmd->val.command_line);
+    case CMD_LAUNCH_EXECUTABLE:
+        return run_launch_executable(cmd->val.args);
     case CMD_UNKNOWN:
         format_output("%s", "Unknown command. Use \"help\" for more information\n");
         return RUN_FAILED;
