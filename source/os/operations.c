@@ -32,6 +32,9 @@ void report_error_code(DWORD error) {
     case ERROR_DIRECTORY:
         format_error("Directory name is invalid\n");
         break;
+    case ERROR_PATH_NOT_FOUND:
+        format_error("Cannot find the path specified\n");
+        break;
     default:
         format_error("System error code: %d\n", error);
     }

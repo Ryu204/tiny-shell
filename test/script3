@@ -3,3 +3,4 @@ cd build
 cd 
 cd many args
 cd '../build'
+cd "wrong_quote_cound""

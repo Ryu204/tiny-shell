@@ -6,8 +6,10 @@
 #include <string.h>
 
 enum {
-    MAGIC_TOKEN = '~'
+    MAGIC_TOKEN = '!',
+    QUOTATION_MARK = '\"',
 };
+#define QUOTATION_MARK_STR "\""
 
 /**! @brief Transform whitespaces inside quotes into `MAGIC_TOKEN` */
 os_char *transform_quotes(const os_char *str) {
@@ -15,7 +17,7 @@ os_char *transform_quotes(const os_char *str) {
     os_char *res = malloc(strlen(str) + 1);
     bool quote_opened = false;
     for(int i = 0; str[i] != '\0'; ++i) {
-        if(str[i] == '\'') {
+        if(str[i] == QUOTATION_MARK) {
             quote_opened = !quote_opened;
         } else if(quote_opened) {
             if(is_whitespace(str[i]))
@@ -30,7 +32,7 @@ os_char *transform_quotes(const os_char *str) {
     }
 
     if(quote_opened) {
-        format_error("Number of \' character is odd\n");
+        format_error("Number of " QUOTATION_MARK_STR " character is odd\n");
         free(res);
         return NULL;
     }
@@ -92,17 +94,20 @@ void re_transform_arg(os_char *arg) {
     }
 }
 
-void args_init_from_str(struct args *obj, const os_char *input) {
+bool args_init_from_str(struct args *obj, const os_char *input) {
     assert(obj && "NULL input");
+    obj->argc = 0;
+    obj->argv = NULL;
     os_char *quote_transformed = transform_quotes(input);
     if(!quote_transformed) {
-        return;
+        return false;
     }
     split_by_whitespaces(quote_transformed, obj);
     free(quote_transformed);
     for(int i = 0; i < obj->argc; ++i) {
         re_transform_arg(obj->argv[i]);
     }
+    return true;
 }
 
 void args_destroy(struct args *obj) {
