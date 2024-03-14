@@ -181,16 +181,16 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   36</span>        <a class="code hl_function" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a>(res);</div>
 <div class="line"><span class="lineno">   37</span>        <span class="comment">// Deallocate the command</span></div>
 <div class="line"><span class="lineno">   38</span>        <a class="code hl_function" href="cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132">cmd_destroy</a>(&amp;<a class="code hl_struct" href="structcmd.html">cmd</a>);</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">if</span>(res == <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>)</div>
-<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"><span class="lineno">   39</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">if</span>(res == <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>){</div>
+<div class="line"><span class="lineno">   41</span>            <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"><span class="lineno">   42</span>        }</div>
 <div class="line"><span class="lineno">   43</span>    }</div>
 <div class="line"><span class="lineno">   44</span>}</div>
-<div class="ttc" id="acmd_8c_html_ab8b62b7e9578f01597cb1500c2c3f132"><div class="ttname"><a href="cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132">cmd_destroy</a></div><div class="ttdeci">void cmd_destroy(struct cmd *obj)</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00052">cmd.c:52</a></div></div>
+<div class="ttc" id="acmd_8c_html_ab8b62b7e9578f01597cb1500c2c3f132"><div class="ttname"><a href="cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132">cmd_destroy</a></div><div class="ttdeci">void cmd_destroy(struct cmd *obj)</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00062">cmd.c:62</a></div></div>
 <div class="ttc" id="aconfig_8h_html_a92673e33f27532767749b79edb8ef806"><div class="ttname"><a href="config_8h.html#a92673e33f27532767749b79edb8ef806">APP_VERSION</a></div><div class="ttdeci">#define APP_VERSION</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00003">config.h:3</a></div></div>
 <div class="ttc" id="aconfig_8h_html_af0b5cfa4242ae7f98ba80fd23ef8afa9"><div class="ttname"><a href="config_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a></div><div class="ttdeci">#define APP_NAME</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00004">config.h:4</a></div></div>
-<div class="ttc" id="ainvoke_8c_html_a4fe088a3ed0e78e3fec69efe1c4f0196"><div class="ttname"><a href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196">invoke_runner</a></div><div class="ttdeci">enum run_result invoke_runner(const struct cmd *cmd)</div><div class="ttdoc">Invoke corresponding functions based on cmd's type and value.</div><div class="ttdef"><b>Definition</b> <a href="invoke_8c_source.html#l00010">invoke.c:10</a></div></div>
+<div class="ttc" id="ainvoke_8c_html_a4fe088a3ed0e78e3fec69efe1c4f0196"><div class="ttname"><a href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196">invoke_runner</a></div><div class="ttdeci">enum run_result invoke_runner(const struct cmd *cmd)</div><div class="ttdoc">Invoke corresponding functions based on cmd's type and value.</div><div class="ttdef"><b>Definition</b> <a href="invoke_8c_source.html#l00011">invoke.c:11</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00038">io_wrap.c:38</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a4f415323e0a26da0f47e59d3b549411c"><div class="ttname"><a href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a></div><div class="ttdeci">void scan_input(struct cmd *obj)</div><div class="ttdoc">Ask and convert user's input into command.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00029">io_wrap.c:29</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00045">io_wrap.c:45</a></div></div>
@@ -200,65 +200,72 @@ Functions</h2></td></tr>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
 <div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00025">cmd.h:25</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="config_8h_source.html#l00004">APP_NAME</a>, <a class="el" href="config_8h_source.html#l00003">APP_VERSION</a>, <a class="el" href="cmd_8c_source.html#l00052">cmd_destroy()</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="io__wrap_8c_source.html#l00038">format_output()</a>, <a class="el" href="invoke_8c_source.html#l00010">invoke_runner()</a>, <a class="el" href="io__wrap_8c_source.html#l00015">io_set_last_status()</a>, <a class="el" href="io__wrap_8c_source.html#l00024">io_set_prompt_visibility()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, and <a class="el" href="io__wrap_8c_source.html#l00029">scan_input()</a>.</p>
+<p class="reference">References <a class="el" href="config_8h_source.html#l00004">APP_NAME</a>, <a class="el" href="config_8h_source.html#l00003">APP_VERSION</a>, <a class="el" href="cmd_8c_source.html#l00062">cmd_destroy()</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="io__wrap_8c_source.html#l00038">format_output()</a>, <a class="el" href="invoke_8c_source.html#l00011">invoke_runner()</a>, <a class="el" href="io__wrap_8c_source.html#l00015">io_set_last_status()</a>, <a class="el" href="io__wrap_8c_source.html#l00024">io_set_prompt_visibility()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, and <a class="el" href="io__wrap_8c_source.html#l00029">scan_input()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,304,55,330"/>
-<area shape="rect" href="cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132" title=" " alt="" coords="133,5,229,31"/>
-<area shape="poly" title=" " alt="" coords="28,304,30,257,39,190,48,153,60,115,78,80,101,48,118,34,121,39,105,52,82,83,65,117,53,154,44,191,35,258,34,304"/>
-<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="854,133,945,159"/>
-<area shape="poly" title=" " alt="" coords="38,302,81,243,115,205,155,165,202,127,253,96,309,74,338,68,368,66,544,66,629,72,712,87,787,106,848,125,846,130,786,111,711,92,628,77,544,71,368,71,339,74,311,79,256,101,205,132,159,169,119,208,85,247,42,305"/>
-<area shape="rect" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="492,556,594,582"/>
-<area shape="poly" title=" " alt="" coords="36,329,43,361,56,404,76,450,105,491,151,535,195,560,244,576,307,592,353,598,399,597,483,583,484,589,399,602,353,603,307,597,242,582,193,565,148,539,101,495,71,452,51,406,38,363,31,331"/>
-<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="130,455,232,480"/>
-<area shape="poly" title=" " alt="" coords="46,328,105,390,157,442,153,446,101,393,42,332"/>
-<area shape="rect" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="117,304,245,330"/>
-<area shape="poly" title=" " alt="" coords="55,314,102,314,102,320,55,320"/>
-<area shape="rect" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,353,259,379"/>
-<area shape="poly" title=" " alt="" coords="56,323,104,340,122,346,120,351,102,345,54,328"/>
-<area shape="rect" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="139,253,223,279"/>
-<area shape="poly" title=" " alt="" coords="54,306,102,289,123,282,125,287,104,294,56,311"/>
-<area shape="poly" title=" " alt="" coords="231,478,481,549,479,554,229,484"/>
-<area shape="rect" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="322,455,417,480"/>
-<area shape="poly" title=" " alt="" coords="233,465,306,465,306,470,233,470"/>
-<area shape="rect" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="340,405,400,431"/>
-<area shape="poly" title=" " alt="" coords="232,452,324,427,325,432,233,457"/>
-<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="335,556,405,582"/>
-<area shape="poly" title=" " alt="" coords="207,479,308,534,330,546,328,551,306,539,205,483"/>
-<area shape="rect" href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="496,405,590,431"/>
-<area shape="poly" title=" " alt="" coords="400,416,480,416,480,421,400,421"/>
-<area shape="poly" title=" " alt="" coords="405,566,477,566,477,572,405,572"/>
-<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="488,305,598,331"/>
-<area shape="poly" title=" " alt="" coords="245,314,472,315,472,321,245,320"/>
-<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="482,355,604,380"/>
-<area shape="poly" title=" " alt="" coords="259,364,466,365,466,370,259,369"/>
-<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="307,180,432,206"/>
-<area shape="poly" title=" " alt="" coords="215,250,319,209,321,214,217,255"/>
-<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="322,253,418,279"/>
-<area shape="poly" title=" " alt="" coords="223,264,306,264,306,269,223,269"/>
-<area shape="poly" title=" " alt="" coords="393,177,432,158,480,142,577,129,676,126,766,129,839,136,838,141,765,134,676,131,578,134,481,147,434,163,395,182"/>
-<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="495,207,591,232"/>
-<area shape="poly" title=" " alt="" coords="433,200,481,207,480,213,432,205"/>
-<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="480,157,606,183"/>
-<area shape="poly" title=" " alt="" coords="432,182,465,178,465,183,433,187"/>
-<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="!" alt="" coords="667,256,786,282"/>
-<area shape="poly" title=" " alt="" coords="587,181,607,192,622,205,632,218,641,230,655,243,663,247,660,252,652,247,637,234,627,221,618,209,604,196,585,186"/>
-<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="654,207,799,232"/>
-<area shape="poly" title=" " alt="" coords="594,181,662,200,661,205,593,186"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="665,157,788,183"/>
-<area shape="poly" title=" " alt="" coords="606,168,650,168,650,173,606,173"/>
-<area shape="poly" title=" " alt="" coords="771,204,798,193,846,168,854,164,856,169,848,173,800,198,772,208"/>
-<area shape="rect" href="args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="847,183,951,208"/>
-<area shape="poly" title=" " alt="" coords="799,207,831,202,832,208,800,212"/>
-<area shape="poly" title=" " alt="" coords="788,159,838,152,838,157,789,164"/>
-<area shape="poly" title=" " alt="" coords="789,177,832,183,831,188,788,182"/>
-<area shape="poly" title=" " alt="" coords="416,277,484,298,483,303,414,282"/>
-<area shape="poly" title=" " alt="" coords="389,277,430,308,482,341,491,346,488,350,479,346,427,313,386,282"/>
-<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="508,256,578,282"/>
-<area shape="poly" title=" " alt="" coords="418,264,492,265,492,271,418,270"/>
+<area shape="rect" title=" " alt="" coords="5,383,55,408"/>
+<area shape="rect" href="cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132" title=" " alt="" coords="133,320,229,346"/>
+<area shape="poly" title=" " alt="" coords="54,383,133,350,135,354,56,388"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="885,308,976,334"/>
+<area shape="poly" title=" " alt="" coords="36,408,43,436,56,472,76,508,104,537,140,559,173,572,203,579,234,580,300,574,382,569,574,569,630,562,684,543,735,515,781,481,822,444,858,407,909,345,913,348,862,410,826,448,784,485,738,519,686,548,631,567,574,574,382,574,300,579,234,585,203,584,171,577,138,564,101,542,71,511,51,474,38,438,31,410"/>
+<area shape="rect" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="522,155,623,180"/>
+<area shape="poly" title=" " alt="" coords="36,381,61,343,79,322,101,305,151,281,196,269,237,265,278,265,361,265,407,258,459,241,505,216,543,188,547,192,508,221,461,246,408,263,361,270,278,270,238,270,197,274,153,286,104,310,83,326,65,346,40,384"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="130,129,232,155"/>
+<area shape="poly" title=" " alt="" coords="35,381,61,323,100,249,157,166,162,169,105,252,66,325,39,383"/>
+<area shape="rect" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="117,445,245,471"/>
+<area shape="poly" title=" " alt="" coords="56,403,135,437,133,441,54,408"/>
+<area shape="rect" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,501,259,527"/>
+<area shape="poly" title=" " alt="" coords="41,407,66,444,104,481,123,492,120,497,101,486,62,447,37,410"/>
+<area shape="rect" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="139,383,223,408"/>
+<area shape="poly" title=" " alt="" coords="55,393,123,393,123,398,55,398"/>
+<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="525,257,620,283"/>
+<area shape="poly" title=" " alt="" coords="229,323,509,277,510,283,230,328"/>
+<area shape="poly" title=" " alt="" coords="233,143,506,161,506,166,232,148"/>
+<area shape="rect" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="336,205,431,231"/>
+<area shape="poly" title=" " alt="" coords="218,153,334,197,332,202,217,158"/>
+<area shape="rect" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="354,5,414,31"/>
+<area shape="poly" title=" " alt="" coords="193,127,240,85,272,61,306,40,338,27,340,32,308,45,275,65,244,89,197,131"/>
+<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="349,104,419,130"/>
+<area shape="poly" title=" " alt="" coords="232,133,333,120,333,126,232,138"/>
+<area shape="rect" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="307,55,460,80"/>
+<area shape="poly" title=" " alt="" coords="212,126,306,89,323,83,325,88,308,94,214,131"/>
+<area shape="rect" href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="525,5,620,31"/>
+<area shape="poly" title=" " alt="" coords="414,16,510,16,510,21,414,21"/>
+<area shape="poly" title=" " alt="" coords="420,124,508,148,507,153,418,129"/>
+<area shape="rect" href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b" title=" " alt="" coords="525,104,620,130"/>
+<area shape="poly" title=" " alt="" coords="437,78,510,98,509,103,435,84"/>
+<area shape="rect" href="operations_8h.html#ad80bcf33981d0c6ac6da667d23d900de" title="Run the executable foreground." alt="" coords="508,55,637,80"/>
+<area shape="poly" title=" " alt="" coords="461,65,493,65,493,70,461,70"/>
+<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="517,457,628,483"/>
+<area shape="poly" title=" " alt="" coords="245,457,502,465,502,471,245,463"/>
+<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="511,507,634,532"/>
+<area shape="poly" title=" " alt="" coords="260,513,496,516,496,521,259,518"/>
+<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="321,357,446,383"/>
+<area shape="poly" title=" " alt="" coords="223,388,305,377,306,383,224,393"/>
+<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="336,407,432,432"/>
+<area shape="poly" title=" " alt="" coords="224,398,320,409,320,415,223,403"/>
+<area shape="poly" title=" " alt="" coords="422,354,459,336,482,314,507,292,515,287,517,292,510,296,486,318,462,340,425,359"/>
+<area shape="poly" title=" " alt="" coords="447,368,620,362,725,355,830,342,869,335,870,340,830,347,725,360,620,367,447,373"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="510,307,635,332"/>
+<area shape="poly" title=" " alt="" coords="434,354,507,334,508,339,435,359"/>
+<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="!" alt="" coords="698,307,817,332"/>
+<area shape="poly" title=" " alt="" coords="636,317,682,317,682,322,636,322"/>
+<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="685,208,830,234"/>
+<area shape="poly" title=" " alt="" coords="615,304,635,293,649,281,658,268,668,256,683,243,691,238,694,243,686,247,672,259,663,272,653,284,638,298,618,309"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="696,257,819,283"/>
+<area shape="poly" title=" " alt="" coords="623,303,691,285,693,290,624,309"/>
+<area shape="poly" title=" " alt="" coords="807,232,831,242,872,268,906,296,902,300,868,273,829,247,805,237"/>
+<area shape="rect" href="args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="878,233,982,259"/>
+<area shape="poly" title=" " alt="" coords="831,229,863,234,862,239,830,234"/>
+<area shape="poly" title=" " alt="" coords="805,281,870,301,869,306,803,286"/>
+<area shape="poly" title=" " alt="" coords="819,259,862,253,863,258,820,264"/>
+<area shape="poly" title=" " alt="" coords="433,430,508,450,506,455,432,435"/>
+<area shape="poly" title=" " alt="" coords="405,431,452,461,510,493,520,498,518,503,507,498,449,465,403,435"/>
+<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="537,408,608,434"/>
+<area shape="poly" title=" " alt="" coords="432,417,522,418,522,423,432,423"/>
 </map>
 </div>
 
@@ -267,7 +274,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:32:17 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>
