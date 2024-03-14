@@ -94,19 +94,20 @@ void re_transform_arg(os_char *arg) {
     }
 }
 
-void args_init_from_str(struct args *obj, const os_char *input) {
+bool args_init_from_str(struct args *obj, const os_char *input) {
     assert(obj && "NULL input");
     obj->argc = 0;
     obj->argv = NULL;
     os_char *quote_transformed = transform_quotes(input);
     if(!quote_transformed) {
-        return;
+        return false;
     }
     split_by_whitespaces(quote_transformed, obj);
     free(quote_transformed);
     for(int i = 0; i < obj->argc; ++i) {
         re_transform_arg(obj->argv[i]);
     }
+    return true;
 }
 
 void args_destroy(struct args *obj) {

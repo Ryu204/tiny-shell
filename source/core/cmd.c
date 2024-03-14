@@ -12,7 +12,12 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
     res->type = CMD_UNKNOWN;
 
     struct args arguments;
-    args_init_from_str(&arguments, str);
+    const bool valid = args_init_from_str(&arguments, str);
+
+    if (!valid) {
+        res->type = CMD_INVALID_SYNTAX;
+        return;
+    }
 
     if(arguments.argc == 0) {
         args_destroy(&arguments);

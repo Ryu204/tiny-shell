@@ -14,10 +14,9 @@ struct args {
 
 /**
  * @brief Build `args` from an input string
- * @note Caller is responsible to free the result
- * @return `NULL` if `input` is empty, real data otherwise
+ * @return `true` if initialization succeeded, `false` otherwise
  */
-void args_init_from_str(struct args *obj, const os_char *input);
+bool args_init_from_str(struct args *obj, const os_char *input);
 void args_destroy(struct args *obj);
 
 /**! @brief Helper function */
