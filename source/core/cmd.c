@@ -12,7 +12,12 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
     res->type = CMD_UNKNOWN;
 
     struct args arguments;
-    args_init_from_str(&arguments, str);
+    const bool valid = args_init_from_str(&arguments, str);
+
+    if (!valid) {
+        res->type = CMD_INVALID_SYNTAX;
+        return;
+    }
 
     if(arguments.argc == 0) {
         args_destroy(&arguments);
@@ -39,6 +44,16 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else if(strcmp(name, "clear") == 0) {
         res->type = CMD_CLEAR;
+    } else {
+        res->type = CMD_LAUNCH_EXECUTABLE;
+        res->val.args.argc = arguments.argc;
+        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
+        for(int i = 0; i < arguments.argc; ++i) {
+            size_t len = strlen(arguments.argv[i]);
+            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+            res->val.args.argv[i][len] = '\0';
+        }
     }
 
     args_destroy(&arguments);
@@ -49,11 +64,9 @@ void cmd_destroy(struct cmd *obj) {
     case CMD_CHANGE_DIR:
         free(obj->val.new_dir);
         break;
-    case CMD_LAUNCH_FOREGROUND:
-        for(int i = 0; i < obj->val.args.argc; ++i) {
-            free(obj->val.args.argv[i]);
-        }
-        free(obj->val.args.argv);
+    case CMD_LAUNCH_EXECUTABLE:
+        args_destroy(&(obj->val.args));
+        break;
     default:
         break;
     }
