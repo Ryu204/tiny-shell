@@ -19,3 +19,20 @@ void clear_screen();
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
+
+/**
+ * @brief Set environment variable of the shell process
+ * @param `val` may be `NULL`
+ */
+bool set_shell_env(const os_char *name, const os_char *val);
+
+/**
+ * @brief Unset environment variable of the shell process
+ */
+bool unset_shell_env(const os_char *name);
+
+/*! @brief Get value of an an environment variable */
+bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer);
+
+/*! @brief Get all current environment variable */
+os_char *get_all_shell_env_display();

@@ -15,6 +15,10 @@ enum cmd_type {
     CMD_HELP,
     CMD_EXIT,
     CMD_CLEAR,
+    CMD_SET_ENV,
+    CMD_GET_ENV_ALL,
+    CMD_UNSET_ENV,
+    CMD_GET_ENV,
 
     CMD_LAUNCH_EXECUTABLE,
 };
@@ -26,6 +30,10 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
+        struct {
+            os_char *name;
+            os_char *val;
+        } env;
         struct args args;
     } val;
 };

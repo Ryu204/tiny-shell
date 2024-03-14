@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
         // Deallocate the command
         cmd_destroy(&cmd);
         format_output("\n");
-        if(res == RUN_EXIT){
+        if(res == RUN_EXIT) {
             return EXIT_SUCCESS;
         }
     }
