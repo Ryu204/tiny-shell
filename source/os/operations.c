@@ -76,10 +76,10 @@ void clear_screen() {
     // NOLINTEND
 }
 
-//#include <stdio.h>
+// #include <stdio.h>
 
 bool fore(const os_char *command_line) {
-    //printf("DEBUG: %s:%llu\n", command_line, strlen(command_line));
+    // printf("DEBUG: %s:%llu\n", command_line, strlen(command_line));
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
 
@@ -93,16 +93,16 @@ bool fore(const os_char *command_line) {
     tmp_command_line[len] = '\0';
 
     if(!CreateProcess(
-           NULL,         // No module name (use command line)
+           NULL,             // No module name (use command line)
            tmp_command_line, // Command line
-           NULL,         // Process handle not inheritable
-           NULL,         // Thread handle not inheritable
-           FALSE,        // Set handle inheritance to FALSE
-           0,            // No creation flags
-           NULL,         // Use parent's environment block
-           NULL,         // Use parent's starting directory
-           &si,          // Pointer to STARTUPINFO structure
-           &pi           // Pointer to PROCESS_INFORMATION structure
+           NULL,             // Process handle not inheritable
+           NULL,             // Thread handle not inheritable
+           FALSE,            // Set handle inheritance to FALSE
+           0,                // No creation flags
+           NULL,             // Use parent's environment block
+           NULL,             // Use parent's starting directory
+           &si,              // Pointer to STARTUPINFO structure
+           &pi               // Pointer to PROCESS_INFORMATION structure
            )) {
         free(tmp_command_line);
         report_error_code(GetLastError());
