@@ -16,7 +16,7 @@ enum cmd_type {
     CMD_EXIT,
     CMD_CLEAR,
 
-    CMD_LAUNCH_FOREGROUND,
+    CMD_LAUNCH_EXECUTABLE,
 };
 
 /**
