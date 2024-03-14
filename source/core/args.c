@@ -1,5 +1,6 @@
 #include "args.h"
 #include "../core/io_wrap.h"
+#include "config.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -9,7 +10,7 @@ enum {
     MAGIC_TOKEN = '~'
 };
 
-/**! @brief Transform whitespaces inside quotes into `MAGIC_TOKEN` */
+/*! @brief Transform whitespaces inside quotes into `MAGIC_TOKEN` */
 os_char *transform_quotes(const os_char *str) {
     unsigned int length = 0;
     os_char *res = malloc(strlen(str) + 1);
@@ -47,8 +48,6 @@ os_char *transform_quotes(const os_char *str) {
 }
 
 void split_by_whitespaces(const os_char *str, struct args *buffer) {
-    static const unsigned int MAX_ARGC = 128;
-
     os_char **argv = malloc(MAX_ARGC * sizeof(os_char *));
     unsigned int argc = 0;
 
@@ -82,7 +81,7 @@ void split_by_whitespaces(const os_char *str, struct args *buffer) {
     buffer->argv = argv;
 }
 
-/**! @brief Transform `MAGIC_TOKEN` inside `arg` into space */
+/*! @brief Transform `MAGIC_TOKEN` inside `arg` into space */
 void re_transform_arg(os_char *arg) {
     const unsigned int len = strlen(arg);
     for(int i = 0; i < len; ++i) {

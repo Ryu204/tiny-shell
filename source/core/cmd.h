@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../os/type.h"
-#include "args.h"
 
 /**
  * @brief Possible command types the shell can understand
@@ -15,6 +14,10 @@ enum cmd_type {
     CMD_HELP,
     CMD_EXIT,
     CMD_CLEAR,
+    CMD_SET_ENV,
+    CMD_GET_ENV_ALL,
+    CMD_UNSET_ENV,
+    CMD_GET_ENV,
 
     CMD_LAUNCH_FOREGROUND,
 };
@@ -26,7 +29,10 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
-        struct args args;
+        struct {
+            os_char *name;
+            os_char *val;
+        } env;
     } val;
 };
 

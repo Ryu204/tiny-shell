@@ -2,6 +2,7 @@
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
 #include "cd.h"
+#include "env.h"
 #include "help.h"
 
 #include <assert.h>
@@ -19,6 +20,14 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_SET_ENV:
+        return run_set_env(cmd->val.env.name, cmd->val.env.val);
+    case CMD_UNSET_ENV:
+        return run_unset_env(cmd->val.env.name);
+    case CMD_GET_ENV_ALL:
+        return run_get_all_env();
+    case CMD_GET_ENV:
+        return run_get_env(cmd->val.env.name);
     case CMD_UNKNOWN:
         format_output("%s", "Unknown command. Use \"help\" for more information\n");
         return RUN_FAILED;

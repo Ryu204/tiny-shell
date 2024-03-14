@@ -3,3 +3,7 @@ cd build
 cd 
 cd many args
 cd '../build'
+
+set _ ???
+env
+env _

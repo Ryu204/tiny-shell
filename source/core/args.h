@@ -12,11 +12,7 @@ struct args {
     unsigned int argc;
 };
 
-/**
- * @brief Build `args` from an input string
- * @note Caller is responsible to free the result
- * @return `NULL` if `input` is empty, real data otherwise
- */
+/*! @brief Build `args` from an input string */
 void args_init_from_str(struct args *obj, const os_char *input);
 void args_destroy(struct args *obj);
 

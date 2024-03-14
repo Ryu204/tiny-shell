@@ -28,7 +28,7 @@ void io_set_prompt_visibility(bool visible) {
 void prompt_input();
 void scan_input(struct cmd *obj) {
     prompt_input();
-    static char buffer[INPUT_BUFFER_SIZE] = {0};
+    char buffer[INPUT_BUFFER_SIZE] = {0};
     if(!fgets(buffer, INPUT_BUFFER_SIZE, stdin)) {
         return cmd_init_from_str(obj, "exit");
     }
@@ -51,7 +51,7 @@ void format_error(char *fmt, ...) {
 }
 
 void prompt_input() {
-    static os_char buffer[CWD_BUFFER_SIZE];
+    os_char buffer[CWD_BUFFER_SIZE];
     get_cwd(CWD_BUFFER_SIZE, buffer);
     if(!*is_prompt_visible()) {
         return;
