@@ -12,8 +12,11 @@ struct args {
     unsigned int argc;
 };
 
-/*! @brief Build `args` from an input string */
-void args_init_from_str(struct args *obj, const os_char *input);
+/**
+ * @brief Build `args` from an input string
+ * @return `true` if initialization succeeded, `false` otherwise
+ */
+bool args_init_from_str(struct args *obj, const os_char *input);
 void args_destroy(struct args *obj);
 
 /**! @brief Helper function */

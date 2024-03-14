@@ -16,6 +16,9 @@ bool change_cwd(const os_char *new_dir);
 /*! @brief Clear the console */
 void clear_screen();
 
+/*! @brief Run the executable foreground */
+bool launch_executable(const os_char *command_line, bool wait);
+
 /**
  * @brief Set environment variable of the shell process
  * @param `val` may be `NULL`
