@@ -1,4 +1,5 @@
 #include "operations.h"
+#include "../core/config.h"
 #include "../core/io_wrap.h"
 
 #ifdef _WIN32
@@ -34,6 +35,9 @@ void report_error_code(DWORD error) {
         break;
     case ERROR_PATH_NOT_FOUND:
         format_error("Cannot find the path specified\n");
+        break;
+    case ERROR_ENVVAR_NOT_FOUND:
+        format_error("Environment variable not found\n");
         break;
     default:
         format_error("System error code: %d\n", error);
@@ -121,6 +125,66 @@ bool launch_executable(const os_char *command_line, bool wait) {
     CloseHandle(pi.hThread);
 
     return true;
+}
+
+bool set_shell_env(const os_char *name, const os_char *val) {
+    if(SetEnvironmentVariable(name, val == NULL ? "" : val)) {
+        return true;
+    }
+    report_error_code(GetLastError());
+    return false;
+}
+
+bool unset_shell_env(const os_char *name) {
+    if(SetEnvironmentVariableA(name, NULL)) {
+        return true;
+    }
+    report_error_code(GetLastError());
+    return false;
+}
+
+bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer) {
+    DWORD res = GetEnvironmentVariable(var, buffer, buffer_size);
+    DWORD last_err = GetLastError();
+    if(res == 0 && last_err != ERROR_SUCCESS) {
+        report_error_code(last_err);
+        return false;
+    } else if(res > buffer_size) {
+        format_error("Insufficient buffer size\n");
+        return false;
+    }
+    return true;
+}
+
+os_char *get_all_shell_env_display() {
+    os_char *res = malloc(ENVS_RESERVE_SIZE);
+    unsigned int res_len = 0;
+    unsigned int reserve_len = ENVS_RESERVE_SIZE;
+    os_char *ptr = GetEnvironmentStrings();
+    for(os_char *i = ptr; *i != '\0';) {
+        const unsigned int len = strlen(i);
+        const unsigned int res_new_length = res_len + len + 1;
+        // Allocate more memory if needed
+        while(res_new_length >= reserve_len) {
+            reserve_len += ENVS_RESERVE_SIZE;
+            os_char *tmp = realloc(res, reserve_len);
+            if(!tmp) {
+                format_error("Cannot allocate enough memory\n");
+                free(res);
+                FreeEnvironmentStrings(ptr);
+                return NULL;
+            }
+            res = tmp;
+        }
+        memcpy(res + res_len, i, len);
+        res_len = res_new_length;
+        *(res + res_len - 1) = '\n';
+        i += len + 1;
+    }
+    FreeEnvironmentStrings(ptr);
+
+    *(res + res_len) = '\0';
+    return res;
 }
 
 #elif defined(__linux__)

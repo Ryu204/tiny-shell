@@ -2,7 +2,7 @@
 #include "../os/operations.h"
 #include <stdio.h>
 
-bool is_empty_str(os_char *str){
+bool is_empty_str(os_char *str) {
     return !strcmp(str, "");
 }
 
@@ -19,9 +19,7 @@ enum run_result run_launch_executable(const struct args args) {
         }
         if(strcmp(args.argv[i], "&") != 0 || flag) {
             len += strlen(args.argv[i]) + 3;
-        }
-        else
-        if(!flag) {
+        } else if(!flag) {
             wait = false;
             flag = true;
         }
@@ -41,9 +39,7 @@ enum run_result run_launch_executable(const struct args args) {
         if(strcmp(args.argv[i], "&") != 0 || flag) {
             sprintf(command_line + len, " \"%s\"", args.argv[i]);
             len += strlen(args.argv[i]) + 3;
-        }
-        else
-        if(!flag) {
+        } else if(!flag) {
             flag = true;
         }
     }
