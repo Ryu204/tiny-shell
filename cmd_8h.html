@@ -228,21 +228,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cmd_8c_source.html#l00047">47</a> of file <a class="el" href="cmd_8c_source.html">cmd.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                  {</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">switch</span>(obj-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
-<div class="line"><span class="lineno">   50</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a16f5c8147fe92bec37023dbacfb8c851">new_dir</a>);</div>
-<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a42a678dcc5e0c28c12fb1ce46fde60d9">CMD_LAUNCH_FOREGROUND</a>:</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
-<div class="line"><span class="lineno">   54</span>            free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
-<div class="line"><span class="lineno">   55</span>        }</div>
-<div class="line"><span class="lineno">   56</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>);</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span>}</div>
+<p class="definition">Definition at line <a class="el" href="cmd_8c_source.html#l00052">52</a> of file <a class="el" href="cmd_8c_source.html">cmd.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                  {</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">switch</span>(obj-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
+<div class="line"><span class="lineno">   55</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a16f5c8147fe92bec37023dbacfb8c851">new_dir</a>);</div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a42a678dcc5e0c28c12fb1ce46fde60d9">CMD_LAUNCH_FOREGROUND</a>:</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
+<div class="line"><span class="lineno">   59</span>            free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="line"><span class="lineno">   61</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">val</a>.<a class="code hl_variable" href="structcmd.html#a1a796b0cbc8a4c5856c075d45c9eda57">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>);</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   64</span>    }</div>
+<div class="line"><span class="lineno">   65</span>}</div>
 <div class="ttc" id="astructargs_html_a48425ddefdf77837eec8b277f1425fb0"><div class="ttname"><a href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">args::argv</a></div><div class="ttdeci">os_char ** argv</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00011">args.h:11</a></div></div>
 <div class="ttc" id="astructargs_html_a8ef175b4587457436a9b13eb91d7c944"><div class="ttname"><a href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">args::argc</a></div><div class="ttdeci">unsigned int argc</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00012">args.h:12</a></div></div>
 <div class="ttc" id="astructcmd_html_a16f5c8147fe92bec37023dbacfb8c851"><div class="ttname"><a href="structcmd.html#a16f5c8147fe92bec37023dbacfb8c851">cmd::new_dir</a></div><div class="ttdeci">os_char * new_dir</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00028">cmd.h:28</a></div></div>
@@ -293,43 +293,48 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   12</span>    res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7">CMD_UNKNOWN</a>;</div>
 <div class="line"><span class="lineno">   13</span> </div>
 <div class="line"><span class="lineno">   14</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structargs.html">args</a> arguments;</div>
-<div class="line"><span class="lineno">   15</span>    <a class="code hl_function" href="args_8c.html#aa847de1c07dea0df1b4ff9d4f9ba7360">args_init_from_str</a>(&amp;arguments, str);</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> valid = <a class="code hl_function" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377">args_init_from_str</a>(&amp;arguments, str);</div>
 <div class="line"><span class="lineno">   16</span> </div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span>(arguments.argc == 0) {</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
-<div class="line"><span class="lineno">   19</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   21</span>    }</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *name = arguments.argv[0];</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;help&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   26</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a>;</div>
-<div class="line"><span class="lineno">   27</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;exit&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   28</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>;</div>
-<div class="line"><span class="lineno">   29</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;cd&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   30</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>;</div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
-<div class="line"><span class="lineno">   32</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Expected directory name, got %d argument(s)\n&quot;</span>, (<span class="keywordtype">int</span>)(arguments.argc - 1));</div>
-<div class="line"><span class="lineno">   33</span>            res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">   34</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   35</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   36</span>            res-&gt;val.new_dir = malloc(len + 1);</div>
-<div class="line"><span class="lineno">   37</span>            memcpy(res-&gt;val.new_dir, arguments.argv[1], len);</div>
-<div class="line"><span class="lineno">   38</span>            res-&gt;val.new_dir[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   39</span>        }</div>
-<div class="line"><span class="lineno">   40</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;clear&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   41</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>;</div>
-<div class="line"><span class="lineno">   42</span>    }</div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
-<div class="ttc" id="aargs_8c_html_a6a4079dcdcccf953889346c13f7940d6"><div class="ttname"><a href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a></div><div class="ttdeci">void args_destroy(struct args *obj)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00108">args.c:108</a></div></div>
-<div class="ttc" id="aargs_8c_html_aa847de1c07dea0df1b4ff9d4f9ba7360"><div class="ttname"><a href="args_8c.html#aa847de1c07dea0df1b4ff9d4f9ba7360">args_init_from_str</a></div><div class="ttdeci">void args_init_from_str(struct args *obj, const os_char *input)</div><div class="ttdoc">Build args from an input string.</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00095">args.c:95</a></div></div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span> (!valid) {</div>
+<div class="line"><span class="lineno">   18</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   20</span>    }</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">if</span>(arguments.argc == 0) {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
+<div class="line"><span class="lineno">   24</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *name = arguments.argv[0];</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;help&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   31</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a>;</div>
+<div class="line"><span class="lineno">   32</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;exit&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   33</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>;</div>
+<div class="line"><span class="lineno">   34</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;cd&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   35</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>;</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
+<div class="line"><span class="lineno">   37</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Expected directory name, got %d argument(s)\n&quot;</span>, (<span class="keywordtype">int</span>)(arguments.argc - 1));</div>
+<div class="line"><span class="lineno">   38</span>            res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
+<div class="line"><span class="lineno">   39</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   40</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">   41</span>            res-&gt;val.new_dir = malloc(len + 1);</div>
+<div class="line"><span class="lineno">   42</span>            memcpy(res-&gt;val.new_dir, arguments.argv[1], len);</div>
+<div class="line"><span class="lineno">   43</span>            res-&gt;val.new_dir[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   44</span>        }</div>
+<div class="line"><span class="lineno">   45</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;clear&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   46</span>        res-&gt;type = <a class="code hl_enumvalue" href="#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="aargs_8c_html_a6a4079dcdcccf953889346c13f7940d6"><div class="ttname"><a href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a></div><div class="ttdeci">void args_destroy(struct args *obj)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00113">args.c:113</a></div></div>
+<div class="ttc" id="aargs_8c_html_a714bbc27552dc7a57b3b36b8fe9fb377"><div class="ttname"><a href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377">args_init_from_str</a></div><div class="ttdeci">bool args_init_from_str(struct args *obj, const os_char *input)</div><div class="ttdoc">Build args from an input string.</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00097">args.c:97</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00045">io_wrap.c:45</a></div></div>
 <div class="ttc" id="astructargs_html"><div class="ttname"><a href="structargs.html">args</a></div><div class="ttdoc">Result after parsing an arbitrary string.</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00010">args.h:10</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8c_source.html#l00108">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00095">args_init_from_str()</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="cmd_8h_source.html#l00028">cmd::new_dir</a>, <a class="el" href="cmd_8h_source.html#l00026">cmd::type</a>, and <a class="el" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">cmd::val</a>.</p>
+<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8c_source.html#l00113">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00097">args_init_from_str()</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="cmd_8h_source.html#l00028">cmd::new_dir</a>, <a class="el" href="cmd_8h_source.html#l00026">cmd::type</a>, and <a class="el" href="structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b">cmd::val</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00029">scan_input()</a>.</p>
 <div class="dynheader">
@@ -340,7 +345,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Build command from raw input." alt="" coords="5,56,131,82"/>
 <area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="194,5,289,31"/>
 <area shape="poly" title=" " alt="" coords="114,53,180,33,181,38,115,58"/>
-<area shape="rect" href="args_8c.html#aa847de1c07dea0df1b4ff9d4f9ba7360" title="Build args from an input string." alt="" coords="179,131,304,156"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="179,131,304,156"/>
 <area shape="poly" title=" " alt="" coords="101,80,196,121,194,126,99,85"/>
 <area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="552,156,643,182"/>
 <area shape="poly" title=" " alt="" coords="131,59,207,54,300,55,400,66,450,77,498,92,540,115,574,143,571,147,538,119,496,97,449,82,400,71,300,61,207,60,131,64"/>
@@ -375,7 +380,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 13 2024 08:44:42 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 13:32:17 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>
