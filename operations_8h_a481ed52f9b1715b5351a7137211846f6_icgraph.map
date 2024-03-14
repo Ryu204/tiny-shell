@@ -1,0 +1,9 @@
+<map id="get_shell_env" name="get_shell_env">
+<area shape="rect" id="Node000001" title="Get value of an an environment variable." alt="" coords="393,5,495,31"/>
+<area shape="rect" id="Node000002" href="$env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="253,5,345,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,21,346,21,346,16,378,16"/>
+<area shape="rect" id="Node000003" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

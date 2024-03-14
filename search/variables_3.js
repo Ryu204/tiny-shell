@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['val_0',['val',['../structcmd.html#aa7e08b575c2e22f09a1cec428dbea64b',1,'cmd']]]
+  ['type_0',['type',['../structcmd.html#acf3c35f2b809b63b3155b91534689b74',1,'cmd']]]
 ];

@@ -86,11 +86,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="config_8h__dep__incl.png" border="0" usemap="#asource_2core_2config_8hdep" alt=""/></div>
 <map name="asource_2core_2config_8hdep" id="asource_2core_2config_8hdep">
-<area shape="rect" title=" " alt="" coords="86,5,223,31"/>
-<area shape="rect" href="io__wrap_8c.html" title=" " alt="" coords="5,79,154,105"/>
-<area shape="poly" title=" " alt="" coords="132,44,94,81,90,77,129,40"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="178,79,280,105"/>
-<area shape="poly" title=" " alt="" coords="180,40,218,77,215,81,176,44"/>
+<area shape="rect" title=" " alt="" coords="313,5,450,31"/>
+<area shape="rect" href="args_8c.html" title=" " alt="" coords="5,79,134,105"/>
+<area shape="poly" title=" " alt="" coords="314,38,123,81,122,76,313,32"/>
+<area shape="rect" href="io__wrap_8c.html" title=" " alt="" coords="158,79,306,105"/>
+<area shape="poly" title=" " alt="" coords="344,40,259,81,256,76,341,36"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="330,79,433,105"/>
+<area shape="poly" title=" " alt="" coords="384,46,384,79,379,79,379,46"/>
+<area shape="rect" href="operations_8c.html" title=" " alt="" coords="457,79,610,105"/>
+<area shape="poly" title=" " alt="" coords="422,36,509,76,506,81,420,40"/>
+<area shape="rect" href="env_8c.html" title=" " alt="" coords="634,79,769,105"/>
+<area shape="poly" title=" " alt="" coords="452,32,648,76,647,81,450,38"/>
 </map>
 </div>
 </div>
@@ -106,6 +112,12 @@ Macros</h2></td></tr>
 <tr class="separator:aa9b8dcc02cea15aab8e3d0b7860327a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1efa72b804973756363ce5be7e24be18" id="r_a1efa72b804973756363ce5be7e24be18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>&#160;&#160;&#160;256</td></tr>
 <tr class="separator:a1efa72b804973756363ce5be7e24be18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1a028be6dc21cf5bf054573884ea6e" id="r_a6e1a028be6dc21cf5bf054573884ea6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="separator:a6e1a028be6dc21cf5bf054573884ea6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee9d9f87e3c163b5d06500c5bbe3e7c" id="r_afee9d9f87e3c163b5d06500c5bbe3e7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a>&#160;&#160;&#160;2048</td></tr>
+<tr class="separator:afee9d9f87e3c163b5d06500c5bbe3e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1da50c0d24fa0390a6c287d6cb4befe" id="r_ae1da50c0d24fa0390a6c287d6cb4befe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1da50c0d24fa0390a6c287d6cb4befe">MAX_ARGC</a>&#160;&#160;&#160;128</td></tr>
+<tr class="separator:ae1da50c0d24fa0390a6c287d6cb4befe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="af0b5cfa4242ae7f98ba80fd23ef8afa9" name="af0b5cfa4242ae7f98ba80fd23ef8afa9"></a>
@@ -162,6 +174,40 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="afee9d9f87e3c163b5d06500c5bbe3e7c" name="afee9d9f87e3c163b5d06500c5bbe3e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee9d9f87e3c163b5d06500c5bbe3e7c">&#9670;&#160;</a></span>ENV_VAR_BUFFER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENV_VAR_BUFFER_SIZE&#160;&#160;&#160;2048</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00008">8</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00024">run_get_env()</a>.</p>
+
+</div>
+</div>
+<a id="a6e1a028be6dc21cf5bf054573884ea6e" name="a6e1a028be6dc21cf5bf054573884ea6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1a028be6dc21cf5bf054573884ea6e">&#9670;&#160;</a></span>ENVS_RESERVE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENVS_RESERVE_SIZE&#160;&#160;&#160;1024</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00007">7</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+
+</div>
+</div>
 <a id="aa9b8dcc02cea15aab8e3d0b7860327a7" name="aa9b8dcc02cea15aab8e3d0b7860327a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9b8dcc02cea15aab8e3d0b7860327a7">&#9670;&#160;</a></span>INPUT_BUFFER_SIZE</h2>
 
@@ -180,10 +226,28 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="ae1da50c0d24fa0390a6c287d6cb4befe" name="ae1da50c0d24fa0390a6c287d6cb4befe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1da50c0d24fa0390a6c287d6cb4befe">&#9670;&#160;</a></span>MAX_ARGC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_ARGC&#160;&#160;&#160;128</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00009">9</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

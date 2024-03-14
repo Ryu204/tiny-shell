@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quotation_5fmark_5fstr_0',['QUOTATION_MARK_STR',['../args_8c.html#ac961b0571eb0bc6248bb760936e89a51',1,'args.c']]]
+  ['input_5fbuffer_5fsize_0',['INPUT_BUFFER_SIZE',['../config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7',1,'config.h']]]
 ];

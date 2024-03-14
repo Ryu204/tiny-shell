@@ -100,17 +100,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="operations_8h__dep__incl.png" border="0" usemap="#asource_2os_2operations_8hdep" alt=""/></div>
 <map name="asource_2os_2operations_8hdep" id="asource_2os_2operations_8hdep">
-<area shape="rect" title=" " alt="" coords="342,5,494,31"/>
+<area shape="rect" title=" " alt="" coords="419,5,572,31"/>
 <area shape="rect" href="io__wrap_8c.html" title=" " alt="" coords="5,87,154,112"/>
-<area shape="poly" title=" " alt="" coords="352,38,132,88,131,83,351,32"/>
+<area shape="poly" title=" " alt="" coords="410,37,167,82,134,89,133,83,166,76,409,32"/>
 <area shape="rect" href="operations_8c.html" title=" " alt="" coords="178,87,330,112"/>
-<area shape="poly" title=" " alt="" coords="380,41,280,88,278,84,378,36"/>
+<area shape="poly" title=" " alt="" coords="445,39,292,88,291,83,443,34"/>
 <area shape="rect" href="cd_8c.html" title=" " alt="" coords="354,87,482,112"/>
-<area shape="poly" title=" " alt="" coords="421,47,421,86,416,86,416,47"/>
-<area shape="rect" href="invoke_8c.html" title=" " alt="" coords="506,87,658,112"/>
-<area shape="poly" title=" " alt="" coords="458,36,558,84,556,88,456,41"/>
-<area shape="rect" href="launch__executable_8c.html" title=" " alt="" coords="683,79,825,120"/>
-<area shape="poly" title=" " alt="" coords="485,32,683,79,682,84,484,38"/>
+<area shape="poly" title=" " alt="" coords="475,44,432,88,428,84,472,40"/>
+<area shape="rect" href="env_8c.html" title=" " alt="" coords="507,87,642,112"/>
+<area shape="poly" title=" " alt="" coords="520,40,564,84,560,88,516,44"/>
+<area shape="rect" href="invoke_8c.html" title=" " alt="" coords="666,87,818,112"/>
+<area shape="poly" title=" " alt="" coords="549,34,705,83,703,88,547,39"/>
+<area shape="rect" href="launch__executable_8c.html" title=" " alt="" coords="843,79,985,120"/>
+<area shape="poly" title=" " alt="" coords="585,32,831,76,843,79,842,84,830,82,584,37"/>
 </map>
 </div>
 </div>
@@ -130,6 +132,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ad80bcf33981d0c6ac6da667d23d900de" id="r_ad80bcf33981d0c6ac6da667d23d900de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad80bcf33981d0c6ac6da667d23d900de">launch_executable</a> (const os_char *command_line, bool wait)</td></tr>
 <tr class="memdesc:ad80bcf33981d0c6ac6da667d23d900de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the executable foreground.  <br /></td></tr>
 <tr class="separator:ad80bcf33981d0c6ac6da667d23d900de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6ad592caa212e7263c6e4acf363bbc" id="r_acf6ad592caa212e7263c6e4acf363bbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a> (const os_char *name, const os_char *val)</td></tr>
+<tr class="memdesc:acf6ad592caa212e7263c6e4acf363bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set environment variable of the shell process.  <br /></td></tr>
+<tr class="separator:acf6ad592caa212e7263c6e4acf363bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfbb09e78ff766d4a02d525844b0a837" id="r_adfbb09e78ff766d4a02d525844b0a837"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a> (const os_char *name)</td></tr>
+<tr class="memdesc:adfbb09e78ff766d4a02d525844b0a837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset environment variable of the shell process.  <br /></td></tr>
+<tr class="separator:adfbb09e78ff766d4a02d525844b0a837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481ed52f9b1715b5351a7137211846f6" id="r_a481ed52f9b1715b5351a7137211846f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a> (const os_char *var, unsigned int buffer_size, os_char *buffer)</td></tr>
+<tr class="memdesc:a481ed52f9b1715b5351a7137211846f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value of an an environment variable.  <br /></td></tr>
+<tr class="separator:a481ed52f9b1715b5351a7137211846f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b8140d2a722bd1d656bf86b52c576a5" id="r_a9b8140d2a722bd1d656bf86b52c576a5"><td class="memItemLeft" align="right" valign="top">os_char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a> ()</td></tr>
+<tr class="memdesc:a9b8140d2a722bd1d656bf86b52c576a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all current environment variable.  <br /></td></tr>
+<tr class="separator:a9b8140d2a722bd1d656bf86b52c576a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a33b01aa2fbf453d9646b29576b6bbba3" name="a33b01aa2fbf453d9646b29576b6bbba3"></a>
@@ -185,7 +199,7 @@ Here is the caller graph for this function:</div>
 
 <p>Clear the console. </p>
 
-<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00011">invoke_runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00012">invoke_runner()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -194,6 +208,41 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Clear the console." alt="" coords="253,5,348,31"/>
 <area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
 <area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9b8140d2a722bd1d656bf86b52c576a5" name="a9b8140d2a722bd1d656bf86b52c576a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b8140d2a722bd1d656bf86b52c576a5">&#9670;&#160;</a></span>get_all_shell_env_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">os_char * get_all_shell_env_display </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all current environment variable. </p>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00014">run_get_all_env()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="operations_8h_a9b8140d2a722bd1d656bf86b52c576a5_icgraph.png" border="0" usemap="#aoperations_8h_a9b8140d2a722bd1d656bf86b52c576a5_icgraph" alt=""/></div>
+<map name="aoperations_8h_a9b8140d2a722bd1d656bf86b52c576a5_icgraph" id="aoperations_8h_a9b8140d2a722bd1d656bf86b52c576a5_icgraph">
+<area shape="rect" title="Get all current environment variable." alt="" coords="413,5,582,31"/>
+<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="253,5,365,31"/>
+<area shape="poly" title=" " alt="" coords="398,21,366,21,366,16,398,16"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" title=" " alt="" coords="238,21,206,21,206,16,238,16"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -240,6 +289,50 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a481ed52f9b1715b5351a7137211846f6" name="a481ed52f9b1715b5351a7137211846f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a481ed52f9b1715b5351a7137211846f6">&#9670;&#160;</a></span>get_shell_env()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool get_shell_env </td>
+          <td>(</td>
+          <td class="paramtype">const os_char *</td>          <td class="paramname"><span class="paramname"><em>var</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>buffer_size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">os_char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get value of an an environment variable. </p>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00024">run_get_env()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="operations_8h_a481ed52f9b1715b5351a7137211846f6_icgraph.png" border="0" usemap="#aoperations_8h_a481ed52f9b1715b5351a7137211846f6_icgraph" alt=""/></div>
+<map name="aoperations_8h_a481ed52f9b1715b5351a7137211846f6_icgraph" id="aoperations_8h_a481ed52f9b1715b5351a7137211846f6_icgraph">
+<area shape="rect" title="Get value of an an environment variable." alt="" coords="393,5,495,31"/>
+<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="253,5,345,31"/>
+<area shape="poly" title=" " alt="" coords="378,21,346,21,346,16,378,16"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ad80bcf33981d0c6ac6da667d23d900de" name="ad80bcf33981d0c6ac6da667d23d900de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad80bcf33981d0c6ac6da667d23d900de">&#9670;&#160;</a></span>launch_executable()</h2>
 
@@ -279,10 +372,90 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="acf6ad592caa212e7263c6e4acf363bbc" name="acf6ad592caa212e7263c6e4acf363bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6ad592caa212e7263c6e4acf363bbc">&#9670;&#160;</a></span>set_shell_env()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool set_shell_env </td>
+          <td>(</td>
+          <td class="paramtype">const os_char *</td>          <td class="paramname"><span class="paramname"><em>name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const os_char *</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set environment variable of the shell process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">`val`</td><td>may be <code>NULL</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00006">run_set_env()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="operations_8h_acf6ad592caa212e7263c6e4acf363bbc_icgraph.png" border="0" usemap="#aoperations_8h_acf6ad592caa212e7263c6e4acf363bbc_icgraph" alt=""/></div>
+<map name="aoperations_8h_acf6ad592caa212e7263c6e4acf363bbc_icgraph" id="aoperations_8h_acf6ad592caa212e7263c6e4acf363bbc_icgraph">
+<area shape="rect" title="Set environment variable of the shell process." alt="" coords="393,5,495,31"/>
+<area shape="rect" href="env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="253,5,345,31"/>
+<area shape="poly" title=" " alt="" coords="378,21,346,21,346,16,378,16"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adfbb09e78ff766d4a02d525844b0a837" name="adfbb09e78ff766d4a02d525844b0a837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbb09e78ff766d4a02d525844b0a837">&#9670;&#160;</a></span>unset_shell_env()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool unset_shell_env </td>
+          <td>(</td>
+          <td class="paramtype">const os_char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unset environment variable of the shell process. </p>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00010">run_unset_env()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="operations_8h_adfbb09e78ff766d4a02d525844b0a837_icgraph.png" border="0" usemap="#aoperations_8h_adfbb09e78ff766d4a02d525844b0a837_icgraph" alt=""/></div>
+<map name="aoperations_8h_adfbb09e78ff766d4a02d525844b0a837_icgraph" id="aoperations_8h_adfbb09e78ff766d4a02d525844b0a837_icgraph">
+<area shape="rect" title="Unset environment variable of the shell process." alt="" coords="407,5,523,31"/>
+<area shape="rect" href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749" title="Unset current process&#39;s environment variable." alt="" coords="253,5,359,31"/>
+<area shape="poly" title=" " alt="" coords="392,21,360,21,360,16,392,16"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

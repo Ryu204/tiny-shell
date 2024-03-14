@@ -1,0 +1,7 @@
+<map id="run_get_env" name="run_get_env">
+<area shape="rect" id="Node000001" title="Set current process&#39;s environment variable." alt="" coords="5,31,98,56"/>
+<area shape="rect" id="Node000002" href="$io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="146,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,33,130,27,131,32,99,38"/>
+<area shape="rect" id="Node000003" href="$operations_8h.html#a481ed52f9b1715b5351a7137211846f6" title="Get value of an an environment variable." alt="" coords="146,55,247,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,49,131,54,130,59,98,54"/>
+</map>

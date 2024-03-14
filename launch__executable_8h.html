@@ -154,43 +154,39 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   19</span>        }</div>
 <div class="line"><span class="lineno">   20</span>        <span class="keywordflow">if</span>(strcmp(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i], <span class="stringliteral">&quot;&amp;&quot;</span>) != 0 || flag) {</div>
 <div class="line"><span class="lineno">   21</span>            len += strlen(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]) + 3;</div>
-<div class="line"><span class="lineno">   22</span>        }</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">if</span>(!flag) {</div>
-<div class="line"><span class="lineno">   25</span>            wait = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   26</span>            flag = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   27</span>        }</div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    os_char *command_line = malloc((len + 1) * <span class="keyword">sizeof</span>(os_char));</div>
-<div class="line"><span class="lineno">   31</span>    flag = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   32</span>    len = 0;</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">if</span>(!<a class="code hl_function" href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b">is_empty_str</a>(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0])) {</div>
-<div class="line"><span class="lineno">   34</span>        sprintf(command_line, <span class="stringliteral">&quot;\&quot;%s\&quot;&quot;</span>, <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0]);</div>
-<div class="line"><span class="lineno">   35</span>        len += strlen(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0]) + 2;</div>
-<div class="line"><span class="lineno">   36</span>    }</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b">is_empty_str</a>(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i])) {</div>
-<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   40</span>        }</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">if</span>(strcmp(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i], <span class="stringliteral">&quot;&amp;&quot;</span>) != 0 || flag) {</div>
-<div class="line"><span class="lineno">   42</span>            sprintf(command_line + len, <span class="stringliteral">&quot; \&quot;%s\&quot;&quot;</span>, <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
-<div class="line"><span class="lineno">   43</span>            len += strlen(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]) + 3;</div>
+<div class="line"><span class="lineno">   22</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!flag) {</div>
+<div class="line"><span class="lineno">   23</span>            wait = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   24</span>            flag = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   25</span>        }</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    os_char *command_line = malloc((len + 1) * <span class="keyword">sizeof</span>(os_char));</div>
+<div class="line"><span class="lineno">   29</span>    flag = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   30</span>    len = 0;</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span>(!<a class="code hl_function" href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b">is_empty_str</a>(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0])) {</div>
+<div class="line"><span class="lineno">   32</span>        sprintf(command_line, <span class="stringliteral">&quot;\&quot;%s\&quot;&quot;</span>, <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0]);</div>
+<div class="line"><span class="lineno">   33</span>        len += strlen(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0]) + 2;</div>
+<div class="line"><span class="lineno">   34</span>    }</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b">is_empty_str</a>(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i])) {</div>
+<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   38</span>        }</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span>(strcmp(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i], <span class="stringliteral">&quot;&amp;&quot;</span>) != 0 || flag) {</div>
+<div class="line"><span class="lineno">   40</span>            sprintf(command_line + len, <span class="stringliteral">&quot; \&quot;%s\&quot;&quot;</span>, <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
+<div class="line"><span class="lineno">   41</span>            len += strlen(<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]) + 3;</div>
+<div class="line"><span class="lineno">   42</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!flag) {</div>
+<div class="line"><span class="lineno">   43</span>            flag = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   44</span>        }</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span>(!flag) {</div>
-<div class="line"><span class="lineno">   47</span>            flag = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   48</span>        }</div>
-<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    command_line[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad80bcf33981d0c6ac6da667d23d900de">launch_executable</a>(command_line, wait);</div>
 <div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    command_line[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   51</span>    free(command_line);</div>
 <div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad80bcf33981d0c6ac6da667d23d900de">launch_executable</a>(command_line, wait);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    free(command_line);</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="alaunch__executable_8c_html_a6492bade8f7a1e9cf7bf58a4f63df28b"><div class="ttname"><a href="launch__executable_8c.html#a6492bade8f7a1e9cf7bf58a4f63df28b">is_empty_str</a></div><div class="ttdeci">bool is_empty_str(os_char *str)</div><div class="ttdef"><b>Definition</b> <a href="launch__executable_8c_source.html#l00005">launch_executable.c:5</a></div></div>
 <div class="ttc" id="aoperations_8h_html_ad80bcf33981d0c6ac6da667d23d900de"><div class="ttname"><a href="operations_8h.html#ad80bcf33981d0c6ac6da667d23d900de">launch_executable</a></div><div class="ttdeci">bool launch_executable(const os_char *command_line, bool wait)</div><div class="ttdoc">Run the executable foreground.</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
@@ -201,7 +197,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="launch__executable_8c_source.html#l00005">is_empty_str()</a>, <a class="el" href="operations_8h.html#ad80bcf33981d0c6ac6da667d23d900de">launch_executable()</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, and <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00011">invoke_runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00012">invoke_runner()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -232,7 +228,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

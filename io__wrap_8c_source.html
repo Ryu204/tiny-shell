@@ -123,7 +123,7 @@ $(function() { codefold.init(0); });
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcmd.html">cmd</a> *obj) {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
@@ -152,7 +152,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">   53</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>() {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">static</span> os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span>;</div>
@@ -191,11 +191,11 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a></div><div class="ttdeci">@ RUN_FAILED</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00009">res.h:9</a></div></div>
-<div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00025">cmd.h:25</a></div></div>
+<div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00029">cmd.h:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

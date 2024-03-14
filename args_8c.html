@@ -85,6 +85,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="args_8h_source.html">args.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="io__wrap_8h_source.html">../core/io_wrap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -93,17 +94,19 @@ Include dependency graph for args.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="args_8c__incl.png" border="0" usemap="#asource_2core_2args_8c" alt=""/></div>
 <map name="asource_2core_2args_8c" id="asource_2core_2args_8c">
-<area shape="rect" title=" " alt="" coords="279,5,407,31"/>
+<area shape="rect" title=" " alt="" coords="324,5,453,31"/>
 <area shape="rect" href="args_8h.html" title=" " alt="" coords="236,226,293,252"/>
-<area shape="poly" title=" " alt="" coords="333,33,316,54,300,80,287,114,278,149,269,211,264,210,273,148,282,113,295,78,311,51,329,30"/>
+<area shape="poly" title=" " alt="" coords="361,34,329,53,301,81,285,113,274,148,267,211,262,210,269,147,280,111,297,77,326,49,358,29"/>
 <area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="103,79,218,105"/>
-<area shape="poly" title=" " alt="" coords="313,34,206,75,204,71,311,29"/>
-<area shape="rect" title=" " alt="" coords="309,79,377,105"/>
-<area shape="poly" title=" " alt="" coords="346,31,346,63,340,63,340,31"/>
-<area shape="rect" title=" " alt="" coords="401,79,464,105"/>
-<area shape="poly" title=" " alt="" coords="360,29,407,67,404,71,356,34"/>
-<area shape="rect" title=" " alt="" coords="487,79,551,105"/>
-<area shape="poly" title=" " alt="" coords="374,29,476,70,474,75,372,34"/>
+<area shape="poly" title=" " alt="" coords="350,34,215,76,213,71,349,29"/>
+<area shape="rect" href="config_8h.html" title=" " alt="" coords="310,79,376,105"/>
+<area shape="poly" title=" " alt="" coords="383,33,361,67,356,64,379,30"/>
+<area shape="rect" title=" " alt="" coords="400,79,467,105"/>
+<area shape="poly" title=" " alt="" coords="398,30,420,64,416,67,394,33"/>
+<area shape="rect" title=" " alt="" coords="492,79,554,105"/>
+<area shape="poly" title=" " alt="" coords="412,29,488,69,486,74,410,34"/>
+<area shape="rect" title=" " alt="" coords="578,79,641,105"/>
+<area shape="poly" title=" " alt="" coords="427,29,564,73,562,78,425,34"/>
 <area shape="rect" title=" " alt="" coords="112,300,185,326"/>
 <area shape="poly" title=" " alt="" coords="246,255,182,294,179,289,243,250"/>
 <area shape="rect" href="type_8h.html" title=" " alt="" coords="212,300,295,326"/>
@@ -135,12 +138,12 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7ab4dd8e5a33194a5a4bab7fb7fd4578" id="r_a7ab4dd8e5a33194a5a4bab7fb7fd4578"><td class="memItemLeft" align="right" valign="top">os_char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ab4dd8e5a33194a5a4bab7fb7fd4578">transform_quotes</a> (const os_char *str)</td></tr>
-<tr class="memdesc:a7ab4dd8e5a33194a5a4bab7fb7fd4578"><td class="mdescLeft">&#160;</td><td class="mdescRight">!  <br /></td></tr>
+<tr class="memdesc:a7ab4dd8e5a33194a5a4bab7fb7fd4578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform whitespaces inside quotes into <code>MAGIC_TOKEN</code>  <br /></td></tr>
 <tr class="separator:a7ab4dd8e5a33194a5a4bab7fb7fd4578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a235ee92debd6a415cb2becda003c4d85" id="r_a235ee92debd6a415cb2becda003c4d85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a235ee92debd6a415cb2becda003c4d85">split_by_whitespaces</a> (const os_char *str, struct <a class="el" href="structargs.html">args</a> *buffer)</td></tr>
 <tr class="separator:a235ee92debd6a415cb2becda003c4d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aada7b648db427f986baaeb9873a41ebc" id="r_aada7b648db427f986baaeb9873a41ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aada7b648db427f986baaeb9873a41ebc">re_transform_arg</a> (os_char *arg)</td></tr>
-<tr class="memdesc:aada7b648db427f986baaeb9873a41ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">!  <br /></td></tr>
+<tr class="memdesc:aada7b648db427f986baaeb9873a41ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform <code>MAGIC_TOKEN</code> inside <code>arg</code> into space.  <br /></td></tr>
 <tr class="separator:aada7b648db427f986baaeb9873a41ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a714bbc27552dc7a57b3b36b8fe9fb377" id="r_a714bbc27552dc7a57b3b36b8fe9fb377"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a714bbc27552dc7a57b3b36b8fe9fb377">args_init_from_str</a> (struct <a class="el" href="structargs.html">args</a> *obj, const os_char *input)</td></tr>
 <tr class="memdesc:a714bbc27552dc7a57b3b36b8fe9fb377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build <code>args</code> from an input string.  <br /></td></tr>
@@ -163,9 +166,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00012">12</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00013">13</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00015">transform_quotes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 
 </div>
 </div>
@@ -186,13 +189,13 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207" name="a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207"></a>QUOTATION_MARK&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00008">8</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>     {</div>
-<div class="line"><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a> = <span class="charliteral">&#39;!&#39;</span>,</div>
-<div class="line"><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a> = <span class="charliteral">&#39;\&quot;&#39;</span>,</div>
-<div class="line"><span class="lineno">   11</span>};</div>
-<div class="ttc" id="aargs_8c_html_a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f"><div class="ttname"><a href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a></div><div class="ttdeci">@ MAGIC_TOKEN</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00009">args.c:9</a></div></div>
-<div class="ttc" id="aargs_8c_html_a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207"><div class="ttname"><a href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a></div><div class="ttdeci">@ QUOTATION_MARK</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00010">args.c:10</a></div></div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00009">9</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>     {</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a> = <span class="charliteral">&#39;!&#39;</span>,</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a> = <span class="charliteral">&#39;\&quot;&#39;</span>,</div>
+<div class="line"><span class="lineno">   12</span>};</div>
+<div class="ttc" id="aargs_8c_html_a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f"><div class="ttname"><a href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a></div><div class="ttdeci">@ MAGIC_TOKEN</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00010">args.c:10</a></div></div>
+<div class="ttc" id="aargs_8c_html_a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207"><div class="ttname"><a href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a></div><div class="ttdeci">@ QUOTATION_MARK</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00011">args.c:11</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,22 +215,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00113">113</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  113</span>                                    {</div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">if</span>(!obj) {</div>
-<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  116</span>    }</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
-<div class="line"><span class="lineno">  118</span>        free(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
-<div class="line"><span class="lineno">  119</span>    }</div>
-<div class="line"><span class="lineno">  120</span>    free(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>);</div>
-<div class="line"><span class="lineno">  121</span>}</div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00112">112</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>                                    {</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span>(!obj) {</div>
+<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  115</span>    }</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
+<div class="line"><span class="lineno">  117</span>        free(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
+<div class="line"><span class="lineno">  119</span>    free(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>);</div>
+<div class="line"><span class="lineno">  120</span>}</div>
 <div class="ttc" id="astructargs_html_a48425ddefdf77837eec8b277f1425fb0"><div class="ttname"><a href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">args::argv</a></div><div class="ttdeci">os_char ** argv</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00011">args.h:11</a></div></div>
 <div class="ttc" id="astructargs_html_a8ef175b4587457436a9b13eb91d7c944"><div class="ttname"><a href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">args::argc</a></div><div class="ttdeci">unsigned int argc</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00012">args.h:12</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, and <a class="el" href="args_8h_source.html#l00011">args::argv</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00062">cmd_destroy()</a>, and <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00111">cmd_destroy()</a>, and <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -270,27 +273,27 @@ Here is the caller graph for this function:</div>
 <p>Build <code>args</code> from an input string. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if initialization succeeded, <code>false</code> otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00097">97</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   97</span>                                                                {</div>
-<div class="line"><span class="lineno">   98</span>    assert(obj &amp;&amp; <span class="stringliteral">&quot;NULL input&quot;</span>);</div>
-<div class="line"><span class="lineno">   99</span>    obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a> = 0;</div>
-<div class="line"><span class="lineno">  100</span>    obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a> = NULL;</div>
-<div class="line"><span class="lineno">  101</span>    os_char *quote_transformed = <a class="code hl_function" href="#a7ab4dd8e5a33194a5a4bab7fb7fd4578">transform_quotes</a>(input);</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span>(!quote_transformed) {</div>
-<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  104</span>    }</div>
-<div class="line"><span class="lineno">  105</span>    <a class="code hl_function" href="#a235ee92debd6a415cb2becda003c4d85">split_by_whitespaces</a>(quote_transformed, obj);</div>
-<div class="line"><span class="lineno">  106</span>    free(quote_transformed);</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
-<div class="line"><span class="lineno">  108</span>        <a class="code hl_function" href="#aada7b648db427f986baaeb9873a41ebc">re_transform_arg</a>(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
-<div class="line"><span class="lineno">  109</span>    }</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  111</span>}</div>
-<div class="ttc" id="aargs_8c_html_a235ee92debd6a415cb2becda003c4d85"><div class="ttname"><a href="#a235ee92debd6a415cb2becda003c4d85">split_by_whitespaces</a></div><div class="ttdeci">void split_by_whitespaces(const os_char *str, struct args *buffer)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00051">args.c:51</a></div></div>
-<div class="ttc" id="aargs_8c_html_a7ab4dd8e5a33194a5a4bab7fb7fd4578"><div class="ttname"><a href="#a7ab4dd8e5a33194a5a4bab7fb7fd4578">transform_quotes</a></div><div class="ttdeci">os_char * transform_quotes(const os_char *str)</div><div class="ttdoc">!</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00015">args.c:15</a></div></div>
-<div class="ttc" id="aargs_8c_html_aada7b648db427f986baaeb9873a41ebc"><div class="ttname"><a href="#aada7b648db427f986baaeb9873a41ebc">re_transform_arg</a></div><div class="ttdeci">void re_transform_arg(os_char *arg)</div><div class="ttdoc">!</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00088">args.c:88</a></div></div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00096">96</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                                {</div>
+<div class="line"><span class="lineno">   97</span>    assert(obj &amp;&amp; <span class="stringliteral">&quot;NULL input&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>    obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a> = 0;</div>
+<div class="line"><span class="lineno">   99</span>    obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a> = NULL;</div>
+<div class="line"><span class="lineno">  100</span>    os_char *quote_transformed = <a class="code hl_function" href="#a7ab4dd8e5a33194a5a4bab7fb7fd4578">transform_quotes</a>(input);</div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">if</span>(!quote_transformed) {</div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+<div class="line"><span class="lineno">  104</span>    <a class="code hl_function" href="#a235ee92debd6a415cb2becda003c4d85">split_by_whitespaces</a>(quote_transformed, obj);</div>
+<div class="line"><span class="lineno">  105</span>    free(quote_transformed);</div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; obj-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a>; ++i) {</div>
+<div class="line"><span class="lineno">  107</span>        <a class="code hl_function" href="#aada7b648db427f986baaeb9873a41ebc">re_transform_arg</a>(obj-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[i]);</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  110</span>}</div>
+<div class="ttc" id="aargs_8c_html_a235ee92debd6a415cb2becda003c4d85"><div class="ttname"><a href="#a235ee92debd6a415cb2becda003c4d85">split_by_whitespaces</a></div><div class="ttdeci">void split_by_whitespaces(const os_char *str, struct args *buffer)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00052">args.c:52</a></div></div>
+<div class="ttc" id="aargs_8c_html_a7ab4dd8e5a33194a5a4bab7fb7fd4578"><div class="ttname"><a href="#a7ab4dd8e5a33194a5a4bab7fb7fd4578">transform_quotes</a></div><div class="ttdeci">os_char * transform_quotes(const os_char *str)</div><div class="ttdoc">Transform whitespaces inside quotes into MAGIC_TOKEN</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00016">args.c:16</a></div></div>
+<div class="ttc" id="aargs_8c_html_aada7b648db427f986baaeb9873a41ebc"><div class="ttname"><a href="#aada7b648db427f986baaeb9873a41ebc">re_transform_arg</a></div><div class="ttdeci">void re_transform_arg(os_char *arg)</div><div class="ttdoc">Transform MAGIC_TOKEN inside arg into space.</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00087">args.c:87</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="args_8c_source.html#l00088">re_transform_arg()</a>, <a class="el" href="args_8c_source.html#l00051">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00015">transform_quotes()</a>.</p>
+<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="args_8c_source.html#l00087">re_transform_arg()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>.</p>
 <div class="dynheader">
@@ -299,11 +302,11 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="args_8c_a714bbc27552dc7a57b3b36b8fe9fb377_cgraph.png" border="0" usemap="#aargs_8c_a714bbc27552dc7a57b3b36b8fe9fb377_cgraph" alt=""/></div>
 <map name="aargs_8c_a714bbc27552dc7a57b3b36b8fe9fb377_cgraph" id="aargs_8c_a714bbc27552dc7a57b3b36b8fe9fb377_cgraph">
 <area shape="rect" title="Build args from an input string." alt="" coords="5,55,131,80"/>
-<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="!" alt="" coords="192,5,311,31"/>
+<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="192,5,311,31"/>
 <area shape="poly" title=" " alt="" coords="118,51,186,33,187,38,119,57"/>
 <area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="179,104,324,130"/>
 <area shape="poly" title=" " alt="" coords="119,78,187,97,186,102,118,84"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="190,55,313,80"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="190,55,313,80"/>
 <area shape="poly" title=" " alt="" coords="131,65,175,65,175,70,131,70"/>
 <area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="379,55,470,80"/>
 <area shape="poly" title=" " alt="" coords="298,101,363,82,365,87,300,106"/>
@@ -345,12 +348,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00123">123</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>                           {</div>
-<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">return</span> c == <span class="charliteral">&#39; &#39;</span> || c == <span class="charliteral">&#39;\t&#39;</span> || c == <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><span class="lineno">  125</span>}</div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00122">122</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  122</span>                           {</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">return</span> c == <span class="charliteral">&#39; &#39;</span> || c == <span class="charliteral">&#39;\t&#39;</span> || c == <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><span class="lineno">  124</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00051">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00015">transform_quotes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -359,7 +362,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="775,31,879,56"/>
 <area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="582,5,727,31"/>
 <area shape="poly" title=" " alt="" coords="759,36,727,31,728,26,760,31"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="593,55,716,80"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="593,55,716,80"/>
 <area shape="poly" title=" " alt="" coords="760,55,716,62,715,56,760,50"/>
 <area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="408,31,534,56"/>
 <area shape="poly" title=" " alt="" coords="566,33,534,37,534,32,566,28"/>
@@ -390,28 +393,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>! </p>
-<p>Transform <code>MAGIC_TOKEN</code> inside <code>arg</code> into space </p>
+<p>Transform <code>MAGIC_TOKEN</code> inside <code>arg</code> into space. </p>
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00088">88</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>                                    {</div>
-<div class="line"><span class="lineno">   89</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arg);</div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; len; ++i) {</div>
-<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">if</span>(arg[i] == <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a>) {</div>
-<div class="line"><span class="lineno">   92</span>            arg[i] = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><span class="lineno">   93</span>        }</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-<div class="line"><span class="lineno">   95</span>}</div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00087">87</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>                                    {</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arg);</div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; len; ++i) {</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">if</span>(arg[i] == <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a>) {</div>
+<div class="line"><span class="lineno">   91</span>            arg[i] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="args_8c_source.html#l00009">MAGIC_TOKEN</a>.</p>
+<p class="reference">References <a class="el" href="args_8c_source.html#l00010">MAGIC_TOKEN</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00097">args_init_from_str()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00096">args_init_from_str()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="args_8c_aada7b648db427f986baaeb9873a41ebc_icgraph.png" border="0" usemap="#aargs_8c_aada7b648db427f986baaeb9873a41ebc_icgraph" alt=""/></div>
 <map name="aargs_8c_aada7b648db427f986baaeb9873a41ebc_icgraph" id="aargs_8c_aada7b648db427f986baaeb9873a41ebc_icgraph">
-<area shape="rect" title="!" alt="" coords="582,5,701,31"/>
+<area shape="rect" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="582,5,701,31"/>
 <area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="408,5,534,31"/>
 <area shape="poly" title=" " alt="" coords="566,21,534,21,534,16,566,16"/>
 <area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="235,5,360,31"/>
@@ -444,48 +446,47 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00051">51</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                                   {</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> MAX_ARGC = 128;</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    os_char **argv = malloc(MAX_ARGC * <span class="keyword">sizeof</span>(os_char *));</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> argc = 0;</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordtype">bool</span> is_space = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">bool</span> was_space = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   59</span>    <span class="keywordtype">int</span> start = 0;</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; <span class="keyword">true</span>; ++i) {</div>
-<div class="line"><span class="lineno">   62</span>        is_space = <a class="code hl_function" href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a>(str[i]) || str[i] == <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">if</span>(is_space &amp;&amp; !was_space) {</div>
-<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">if</span>(argc &gt;= MAX_ARGC) {</div>
-<div class="line"><span class="lineno">   65</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Too many arguments, max number is %u\n&quot;</span>, MAX_ARGC);</div>
-<div class="line"><span class="lineno">   66</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   67</span>            }</div>
-<div class="line"><span class="lineno">   68</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = (i - 1) - start + 1;</div>
-<div class="line"><span class="lineno">   69</span>            argv[argc] = malloc(len + 1);</div>
-<div class="line"><span class="lineno">   70</span>            memcpy(argv[argc], str + start, len);</div>
-<div class="line"><span class="lineno">   71</span>            argv[argc][len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   72</span>            argc++;</div>
-<div class="line"><span class="lineno">   73</span>        }</div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">if</span>(!is_space &amp;&amp; was_space) {</div>
-<div class="line"><span class="lineno">   75</span>            start = i;</div>
-<div class="line"><span class="lineno">   76</span>        }</div>
-<div class="line"><span class="lineno">   77</span>        was_space = is_space;</div>
-<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">if</span>(str[i] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   80</span>        }</div>
-<div class="line"><span class="lineno">   81</span>    }</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>    buffer-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a> = argc;</div>
-<div class="line"><span class="lineno">   84</span>    buffer-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a> = argv;</div>
-<div class="line"><span class="lineno">   85</span>}</div>
-<div class="ttc" id="aargs_8c_html_a0bb42fe51480b35e9e3301df8f4b5bbe"><div class="ttname"><a href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a></div><div class="ttdeci">bool is_whitespace(char c)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00123">args.c:123</a></div></div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00052">52</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                                   {</div>
+<div class="line"><span class="lineno">   53</span>    os_char **argv = malloc(<a class="code hl_define" href="config_8h.html#ae1da50c0d24fa0390a6c287d6cb4befe">MAX_ARGC</a> * <span class="keyword">sizeof</span>(os_char *));</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> argc = 0;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordtype">bool</span> is_space = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordtype">bool</span> was_space = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">int</span> start = 0;</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; <span class="keyword">true</span>; ++i) {</div>
+<div class="line"><span class="lineno">   61</span>        is_space = <a class="code hl_function" href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a>(str[i]) || str[i] == <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">if</span>(is_space &amp;&amp; !was_space) {</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">if</span>(argc &gt;= <a class="code hl_define" href="config_8h.html#ae1da50c0d24fa0390a6c287d6cb4befe">MAX_ARGC</a>) {</div>
+<div class="line"><span class="lineno">   64</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Too many arguments, max number is %u\n&quot;</span>, <a class="code hl_define" href="config_8h.html#ae1da50c0d24fa0390a6c287d6cb4befe">MAX_ARGC</a>);</div>
+<div class="line"><span class="lineno">   65</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   66</span>            }</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = (i - 1) - start + 1;</div>
+<div class="line"><span class="lineno">   68</span>            argv[argc] = malloc(len + 1);</div>
+<div class="line"><span class="lineno">   69</span>            memcpy(argv[argc], str + start, len);</div>
+<div class="line"><span class="lineno">   70</span>            argv[argc][len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   71</span>            argc++;</div>
+<div class="line"><span class="lineno">   72</span>        }</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">if</span>(!is_space &amp;&amp; was_space) {</div>
+<div class="line"><span class="lineno">   74</span>            start = i;</div>
+<div class="line"><span class="lineno">   75</span>        }</div>
+<div class="line"><span class="lineno">   76</span>        was_space = is_space;</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span>(str[i] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   79</span>        }</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>    buffer-&gt;<a class="code hl_variable" href="structargs.html#a8ef175b4587457436a9b13eb91d7c944">argc</a> = argc;</div>
+<div class="line"><span class="lineno">   83</span>    buffer-&gt;<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a> = argv;</div>
+<div class="line"><span class="lineno">   84</span>}</div>
+<div class="ttc" id="aargs_8c_html_a0bb42fe51480b35e9e3301df8f4b5bbe"><div class="ttname"><a href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a></div><div class="ttdeci">bool is_whitespace(char c)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00122">args.c:122</a></div></div>
+<div class="ttc" id="aconfig_8h_html_ae1da50c0d24fa0390a6c287d6cb4befe"><div class="ttname"><a href="config_8h.html#ae1da50c0d24fa0390a6c287d6cb4befe">MAX_ARGC</a></div><div class="ttdeci">#define MAX_ARGC</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00009">config.h:9</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00045">io_wrap.c:45</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, and <a class="el" href="args_8c_source.html#l00123">is_whitespace()</a>.</p>
+<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="args_8c_source.html#l00122">is_whitespace()</a>, and <a class="el" href="config_8h_source.html#l00009">MAX_ARGC</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00097">args_init_from_str()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00096">args_init_from_str()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -532,56 +533,55 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>! </p>
 <p>Transform whitespaces inside quotes into <code>MAGIC_TOKEN</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00015">15</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                              {</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 0;</div>
-<div class="line"><span class="lineno">   17</span>    os_char *res = malloc(strlen(str) + 1);</div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordtype">bool</span> quote_opened = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; str[i] != <span class="charliteral">&#39;\0&#39;</span>; ++i) {</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">if</span>(str[i] == <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a>) {</div>
-<div class="line"><span class="lineno">   21</span>            quote_opened = !quote_opened;</div>
-<div class="line"><span class="lineno">   22</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(quote_opened) {</div>
-<div class="line"><span class="lineno">   23</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a>(str[i]))</div>
-<div class="line"><span class="lineno">   24</span>                res[length] = <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a>;</div>
-<div class="line"><span class="lineno">   25</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   26</span>                res[length] = str[i];</div>
-<div class="line"><span class="lineno">   27</span>            length++;</div>
-<div class="line"><span class="lineno">   28</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   29</span>            res[length] = str[i];</div>
-<div class="line"><span class="lineno">   30</span>            length++;</div>
-<div class="line"><span class="lineno">   31</span>        }</div>
-<div class="line"><span class="lineno">   32</span>    }</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span>(quote_opened) {</div>
-<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Number of &quot;</span> <a class="code hl_define" href="#ac961b0571eb0bc6248bb760936e89a51">QUOTATION_MARK_STR</a> <span class="stringliteral">&quot; character is odd\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   36</span>        free(res);</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    res[length] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   41</span>    os_char *tmp = realloc(res, length + 1);</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span>(!tmp) {</div>
-<div class="line"><span class="lineno">   43</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot allocate memory for input args\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span>        free(res);</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   46</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><span class="lineno">   48</span>    }</div>
-<div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="aargs_8c_html_ac961b0571eb0bc6248bb760936e89a51"><div class="ttname"><a href="#ac961b0571eb0bc6248bb760936e89a51">QUOTATION_MARK_STR</a></div><div class="ttdeci">#define QUOTATION_MARK_STR</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00012">args.c:12</a></div></div>
+<p class="definition">Definition at line <a class="el" href="args_8c_source.html#l00016">16</a> of file <a class="el" href="args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                              {</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 0;</div>
+<div class="line"><span class="lineno">   18</span>    os_char *res = malloc(strlen(str) + 1);</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordtype">bool</span> quote_opened = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; str[i] != <span class="charliteral">&#39;\0&#39;</span>; ++i) {</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">if</span>(str[i] == <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207">QUOTATION_MARK</a>) {</div>
+<div class="line"><span class="lineno">   22</span>            quote_opened = !quote_opened;</div>
+<div class="line"><span class="lineno">   23</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(quote_opened) {</div>
+<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="#a0bb42fe51480b35e9e3301df8f4b5bbe">is_whitespace</a>(str[i]))</div>
+<div class="line"><span class="lineno">   25</span>                res[length] = <a class="code hl_enumvalue" href="#a06fc87d81c62e9abb8790b6e5713c55babc2822235fa6ce350d2392c22097590f">MAGIC_TOKEN</a>;</div>
+<div class="line"><span class="lineno">   26</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   27</span>                res[length] = str[i];</div>
+<div class="line"><span class="lineno">   28</span>            length++;</div>
+<div class="line"><span class="lineno">   29</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   30</span>            res[length] = str[i];</div>
+<div class="line"><span class="lineno">   31</span>            length++;</div>
+<div class="line"><span class="lineno">   32</span>        }</div>
+<div class="line"><span class="lineno">   33</span>    }</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span>(quote_opened) {</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Number of &quot;</span> <a class="code hl_define" href="#ac961b0571eb0bc6248bb760936e89a51">QUOTATION_MARK_STR</a> <span class="stringliteral">&quot; character is odd\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span>        free(res);</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    res[length] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   42</span>    os_char *tmp = realloc(res, length + 1);</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">if</span>(!tmp) {</div>
+<div class="line"><span class="lineno">   44</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot allocate memory for input args\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   45</span>        free(res);</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   47</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="aargs_8c_html_ac961b0571eb0bc6248bb760936e89a51"><div class="ttname"><a href="#ac961b0571eb0bc6248bb760936e89a51">QUOTATION_MARK_STR</a></div><div class="ttdeci">#define QUOTATION_MARK_STR</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00013">args.c:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="args_8c_source.html#l00123">is_whitespace()</a>, <a class="el" href="args_8c_source.html#l00009">MAGIC_TOKEN</a>, <a class="el" href="args_8c_source.html#l00010">QUOTATION_MARK</a>, and <a class="el" href="args_8c_source.html#l00012">QUOTATION_MARK_STR</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00045">format_error()</a>, <a class="el" href="args_8c_source.html#l00122">is_whitespace()</a>, <a class="el" href="args_8c_source.html#l00010">MAGIC_TOKEN</a>, <a class="el" href="args_8c_source.html#l00011">QUOTATION_MARK</a>, and <a class="el" href="args_8c_source.html#l00013">QUOTATION_MARK_STR</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00097">args_init_from_str()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00096">args_init_from_str()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="args_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_cgraph.png" border="0" usemap="#aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_cgraph" alt=""/></div>
 <map name="aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_cgraph" id="aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_cgraph">
-<area shape="rect" title="!" alt="" coords="5,31,128,56"/>
+<area shape="rect" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="5,31,128,56"/>
 <area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="182,5,274,31"/>
 <area shape="poly" title=" " alt="" coords="128,31,166,25,167,30,129,36"/>
 <area shape="rect" href="args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="176,55,280,80"/>
@@ -593,7 +593,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="args_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_icgraph.png" border="0" usemap="#aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_icgraph" alt=""/></div>
 <map name="aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_icgraph" id="aargs_8c_a7ab4dd8e5a33194a5a4bab7fb7fd4578_icgraph">
-<area shape="rect" title="!" alt="" coords="582,5,704,31"/>
+<area shape="rect" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="582,5,704,31"/>
 <area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="408,5,534,31"/>
 <area shape="poly" title=" " alt="" coords="566,21,534,21,534,16,566,16"/>
 <area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="235,5,360,31"/>
@@ -610,7 +610,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 13:41:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

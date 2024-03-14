@@ -1,10 +1,10 @@
 <map id="args_init_from_str" name="args_init_from_str">
 <area shape="rect" id="Node000001" title="Build args from an input string." alt="" coords="5,55,131,80"/>
-<area shape="rect" id="Node000002" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="!" alt="" coords="192,5,311,31"/>
+<area shape="rect" id="Node000002" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="192,5,311,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,51,186,33,187,38,119,57"/>
 <area shape="rect" id="Node000003" href="$args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="179,104,324,130"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,78,187,97,186,102,118,84"/>
-<area shape="rect" id="Node000006" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="190,55,313,80"/>
+<area shape="rect" id="Node000006" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="190,55,313,80"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="131,65,175,65,175,70,131,70"/>
 <area shape="rect" id="Node000004" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="379,55,470,80"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="298,101,363,82,365,87,300,106"/>

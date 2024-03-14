@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="775,31,879,56"/>
 <area shape="rect" id="Node000002" href="$args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="582,5,727,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="759,36,727,31,728,26,760,31"/>
-<area shape="rect" id="Node000007" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="!" alt="" coords="593,55,716,80"/>
+<area shape="rect" id="Node000007" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="593,55,716,80"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="760,55,716,62,715,56,760,50"/>
 <area shape="rect" id="Node000003" href="$args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="408,31,534,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="566,33,534,37,534,32,566,28"/>
