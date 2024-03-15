@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 #include "type.h"
+#include "../core/args.h"
 
 /*! @brief Fetch current working directory and copy them into `buffer` */
 void get_cwd(unsigned int buffer_size, os_char *buffer);
@@ -16,5 +17,22 @@ bool change_cwd(const os_char *new_dir);
 /*! @brief Clear the console */
 void clear_screen();
 
-/*! @brief Run the executable foreground */
-bool launch_executable(const os_char *command_line, bool wait);
+/*! @brief Launch the executable */
+bool launch_executable(const struct args args);
+
+/**
+ * @brief Set environment variable of the shell process
+ * @param `val` may be `NULL`
+ */
+bool set_shell_env(const os_char *name, const os_char *val);
+
+/**
+ * @brief Unset environment variable of the shell process
+ */
+bool unset_shell_env(const os_char *name);
+
+/*! @brief Get value of an an environment variable */
+bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer);
+
+/*! @brief Get all current environment variable */
+os_char *get_all_shell_env_display();
