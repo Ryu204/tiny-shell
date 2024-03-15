@@ -2,19 +2,21 @@
 <area shape="rect" id="Node000001" title="Build command from raw input." alt="" coords="5,56,131,82"/>
 <area shape="rect" id="Node000002" href="$args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="194,5,289,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,53,180,33,181,38,115,58"/>
-<area shape="rect" id="Node000003" href="$args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="179,131,304,156"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="101,80,196,121,194,126,99,85"/>
-<area shape="rect" id="Node000006" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="552,156,643,182"/>
-<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="131,59,207,54,300,55,400,66,450,77,498,92,540,115,574,143,571,147,538,119,496,97,449,82,400,71,300,61,207,60,131,64"/>
-<area shape="rect" id="Node000004" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="365,107,484,132"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="304,133,349,127,350,132,305,138"/>
+<area shape="rect" id="Node000003" href="$args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="179,156,304,182"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,80,206,146,203,150,91,85"/>
+<area shape="rect" id="Node000006" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="552,107,643,132"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="131,66,297,72,398,79,498,92,537,100,536,105,497,97,397,84,297,77,131,71"/>
+<area shape="rect" id="Node000004" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="365,255,484,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="261,180,302,210,353,241,364,246,362,251,351,246,299,215,258,184"/>
 <area shape="rect" id="Node000005" href="$args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="352,156,497,182"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="305,150,337,154,336,159,304,155"/>
-<area shape="rect" id="Node000008" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="364,205,486,231"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="270,154,353,192,368,197,366,202,351,197,268,159"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="498,166,536,166,536,172,498,172"/>
-<area shape="rect" id="Node000007" href="$args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="545,205,650,231"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="473,180,536,198,534,203,472,185"/>
-<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="472,202,537,183,538,188,473,207"/>
-<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="486,216,530,216,530,221,486,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="304,166,336,166,336,172,304,172"/>
+<area shape="rect" id="Node000008" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="364,107,486,132"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="291,153,359,134,361,139,293,158"/>
+<area shape="rect" id="Node000009" href="$args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="362,205,488,231"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="293,180,361,198,359,203,291,185"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="472,153,537,134,538,139,473,158"/>
+<area shape="rect" id="Node000007" href="$args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="545,156,650,182"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="498,166,530,166,530,172,498,172"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="486,117,536,117,536,122,486,122"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="473,130,536,149,534,154,472,136"/>
 </map>

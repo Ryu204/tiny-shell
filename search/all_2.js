@@ -1,8 +1,28 @@
 var searchData=
 [
-  ['env_0',['env',['../structcmd.html#afc8de75a5c977ae0ef54b250733f7e9b',1,'cmd']]],
-  ['env_2ec_1',['env.c',['../env_8c.html',1,'']]],
-  ['env_2eh_2',['env.h',['../env_8h.html',1,'']]],
-  ['env_5fvar_5fbuffer_5fsize_3',['ENV_VAR_BUFFER_SIZE',['../config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c',1,'config.h']]],
-  ['envs_5freserve_5fsize_4',['ENVS_RESERVE_SIZE',['../config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e',1,'config.h']]]
+  ['cd_2ec_0',['cd.c',['../cd_8c.html',1,'']]],
+  ['cd_2eh_1',['cd.h',['../cd_8h.html',1,'']]],
+  ['change_5fcwd_2',['change_cwd',['../operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3',1,'operations.h']]],
+  ['clear_5fscreen_3',['clear_screen',['../operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'operations.h']]],
+  ['cmd_4',['cmd',['../structcmd.html',1,'']]],
+  ['cmd_2ec_5',['cmd.c',['../cmd_8c.html',1,'']]],
+  ['cmd_2eh_6',['cmd.h',['../cmd_8h.html',1,'']]],
+  ['cmd_5fchange_5fdir_7',['CMD_CHANGE_DIR',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6',1,'cmd.h']]],
+  ['cmd_5fclear_8',['CMD_CLEAR',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436',1,'cmd.h']]],
+  ['cmd_5fdestroy_9',['cmd_destroy',['../cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132',1,'cmd_destroy(struct cmd *obj):&#160;cmd.c'],['../cmd_8h.html#ab8b62b7e9578f01597cb1500c2c3f132',1,'cmd_destroy(struct cmd *obj):&#160;cmd.c']]],
+  ['cmd_5fexit_10',['CMD_EXIT',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294',1,'cmd.h']]],
+  ['cmd_5fget_5fenv_11',['CMD_GET_ENV',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9',1,'cmd.h']]],
+  ['cmd_5fget_5fenv_5fall_12',['CMD_GET_ENV_ALL',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a',1,'cmd.h']]],
+  ['cmd_5fhelp_13',['CMD_HELP',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3',1,'cmd.h']]],
+  ['cmd_5finit_5ffrom_5fstr_14',['cmd_init_from_str',['../cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259',1,'cmd_init_from_str(struct cmd *res, const char *str):&#160;cmd.c'],['../cmd_8h.html#a907c4fcb27c8e266d238bc9f8cb7dba6',1,'cmd_init_from_str(struct cmd *obj, const char *str):&#160;cmd.c']]],
+  ['cmd_5finvalid_5fsyntax_15',['CMD_INVALID_SYNTAX',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25',1,'cmd.h']]],
+  ['cmd_5flaunch_5fexecutable_16',['CMD_LAUNCH_EXECUTABLE',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f',1,'cmd.h']]],
+  ['cmd_5fnoop_17',['CMD_NOOP',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c',1,'cmd.h']]],
+  ['cmd_5fset_5fenv_18',['CMD_SET_ENV',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a',1,'cmd.h']]],
+  ['cmd_5ftype_19',['cmd_type',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1',1,'cmd.h']]],
+  ['cmd_5funknown_20',['CMD_UNKNOWN',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7',1,'cmd.h']]],
+  ['cmd_5funset_5fenv_21',['CMD_UNSET_ENV',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507',1,'cmd.h']]],
+  ['config_2eh_22',['config.h',['../config_8h.html',1,'']]],
+  ['counter_2ec_23',['counter.c',['../counter_8c.html',1,'']]],
+  ['cwd_5fbuffer_5fsize_24',['CWD_BUFFER_SIZE',['../config_8h.html#a1efa72b804973756363ce5be7e24be18',1,'config.h']]]
 ];

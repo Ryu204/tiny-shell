@@ -87,11 +87,13 @@ Collaboration diagram for args:</div>
 <div class="dyncontent">
 <div class="center"><img src="structargs__coll__graph.png" border="0" usemap="#aargs_coll__map" alt="Collaboration graph"/></div>
 <map name="aargs_coll__map" id="aargs_coll__map">
-<area shape="rect" title="Result after parsing an arbitrary string." alt="" coords="77,94,123,120"/>
+<area shape="rect" title="Result after parsing an arbitrary string." alt="" coords="132,94,178,120"/>
 <area shape="rect" title=" " alt="" coords="5,5,86,31"/>
-<area shape="poly" title=" " alt="" coords="64,43,95,92,90,95,59,46"/>
+<area shape="poly" title=" " alt="" coords="74,39,141,91,138,95,71,43"/>
 <area shape="rect" title=" " alt="" coords="110,5,200,31"/>
-<area shape="poly" title=" " alt="" coords="141,46,110,95,105,92,137,43"/>
+<area shape="poly" title=" " alt="" coords="158,47,158,94,152,94,152,47"/>
+<area shape="rect" title=" " alt="" coords="224,5,270,31"/>
+<area shape="poly" title=" " alt="" coords="225,44,169,96,166,92,221,40"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -101,6 +103,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a48425ddefdf77837eec8b277f1425fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ef175b4587457436a9b13eb91d7c944" id="r_a8ef175b4587457436a9b13eb91d7c944"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ef175b4587457436a9b13eb91d7c944">argc</a></td></tr>
 <tr class="separator:a8ef175b4587457436a9b13eb91d7c944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfee0b482d3f48de27b88f674fb1d3b7" id="r_adfee0b482d3f48de27b88f674fb1d3b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfee0b482d3f48de27b88f674fb1d3b7">background</a></td></tr>
+<tr class="separator:adfee0b482d3f48de27b88f674fb1d3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Result after parsing an arbitrary string. </p>
@@ -121,7 +125,7 @@ Data Fields</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="args_8h_source.html#l00012">12</a> of file <a class="el" href="args_8h_source.html">args.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00112">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00096">args_init_from_str()</a>, <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, and <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00134">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00116">args_init_from_str()</a>, <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00086">verify_background()</a>.</p>
 
 </div>
 </div>
@@ -139,7 +143,25 @@ Data Fields</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="args_8h_source.html#l00011">11</a> of file <a class="el" href="args_8h_source.html">args.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00112">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00096">args_init_from_str()</a>, <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, and <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00134">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00116">args_init_from_str()</a>, <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00086">verify_background()</a>.</p>
+
+</div>
+</div>
+<a id="adfee0b482d3f48de27b88f674fb1d3b7" name="adfee0b482d3f48de27b88f674fb1d3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfee0b482d3f48de27b88f674fb1d3b7">&#9670;&#160;</a></span>background</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool args::background</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="args_8h_source.html#l00013">13</a> of file <a class="el" href="args_8h_source.html">args.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="args_8c_source.html#l00116">args_init_from_str()</a>, <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, and <a class="el" href="args_8c_source.html#l00086">verify_background()</a>.</p>
 
 </div>
 </div>
@@ -149,7 +171,7 @@ Data Fields</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2024 01:19:54 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Fri Mar 15 2024 07:41:39 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>
