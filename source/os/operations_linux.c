@@ -1,11 +1,11 @@
-#include "type.h"
-#include <string.h>
 #ifdef __linux__
 
 #    include "../core/config.h"
 #    include "../core/io_wrap.h"
 #    include "operations.h"
+#    include "type.h"
 
+#    include <string.h>
 #    include <assert.h>
 #    include <errno.h>
 #    include <stdio.h>
