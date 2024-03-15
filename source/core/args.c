@@ -91,7 +91,7 @@ void verify_background(struct args* args) {
             break;
         }
     }
-    if (first_oc < 1) {
+    if (first_oc < 0) {
         args->background = false;
         return;
     } 
