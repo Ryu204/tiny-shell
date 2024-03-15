@@ -84,6 +84,26 @@ void split_by_whitespaces(const os_char *str, struct args *buffer) {
     buffer->argv = argv;
 }
 
+void verify_background(struct args* args) {
+    int first_oc = -1;
+    for (int i = 0; i < args->argc; ++i) {
+        if (strcmp(args->argv[i], "&") == 0) {
+            first_oc = i;
+            break;
+        }
+    }
+    if (first_oc < 0) {
+        args->background = false;
+        return;
+    } 
+    free(args->argv[first_oc]);
+    for (int i = first_oc + 1; i < args->argc; ++i) {
+        args->argv[i - 1] = args->argv[i];
+    }
+    args->argc--;
+    args->background = true;
+}
+
 /*! @brief Transform `MAGIC_TOKEN` inside `arg` into space */
 void re_transform_arg(os_char *arg) {
     const unsigned int len = strlen(arg);
@@ -98,6 +118,7 @@ bool args_init_from_str(struct args *obj, const os_char *input) {
     assert(obj && "NULL input");
     obj->argc = 0;
     obj->argv = NULL;
+    obj->background = false;
     os_char *quote_transformed = transform_quotes(input);
     if(!quote_transformed) {
         return false;
@@ -107,6 +128,7 @@ bool args_init_from_str(struct args *obj, const os_char *input) {
     for(int i = 0; i < obj->argc; ++i) {
         re_transform_arg(obj->argv[i]);
     }
+    verify_background(obj);
     return true;
 }
 
@@ -126,6 +148,7 @@ struct args *args_deep_copy(const struct args *obj) {
     }
     struct args *res = malloc(sizeof(struct args));
     res->argc = obj->argc;
+    res->background = obj->background;
     res->argv = malloc((obj->argc + 1) * sizeof(os_char *));
     for(int i = 0; i < obj->argc; ++i) {
         const unsigned int len = strlen(obj->argv[i]);

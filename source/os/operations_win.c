@@ -89,9 +89,7 @@ bool is_empty_str(os_char *str) {
     return !strcmp(str, "");
 }
 
-void extract_from_args(const struct args args, os_char **p_command_line, bool *p_wait) {
-    bool wait = true;
-    bool flag = false;
+void extract_from_args(const struct args args, os_char **p_command_line) {  
     size_t len = 0;
     if(!is_empty_str(args.argv[0])) {
         len += strlen(args.argv[0]) + 2;
@@ -100,16 +98,12 @@ void extract_from_args(const struct args args, os_char **p_command_line, bool *p
         if(is_empty_str(args.argv[i])) {
             continue;
         }
-        if(strcmp(args.argv[i], "&") != 0 || flag) {
+        else {
             len += strlen(args.argv[i]) + 3;
-        } else if(!flag) {
-            wait = false;
-            flag = true;
         }
     }
 
     os_char *command_line = malloc((len + 1) * sizeof(os_char));
-    flag = false;
     len = 0;
     if(!is_empty_str(args.argv[0])) {
         sprintf(command_line, "\"%s\"", args.argv[0]);
@@ -119,25 +113,21 @@ void extract_from_args(const struct args args, os_char **p_command_line, bool *p
         if(is_empty_str(args.argv[i])) {
             continue;
         }
-        if(strcmp(args.argv[i], "&") != 0 || flag) {
+        else {
             sprintf(command_line + len, " \"%s\"", args.argv[i]);
             len += strlen(args.argv[i]) + 3;
-        } else if(!flag) {
-            flag = true;
         }
     }
 
     command_line[len] = '\0';
 
     *p_command_line = command_line;
-    *p_wait = wait;
 }
 
 bool launch_executable(const struct args args) {
     os_char *command_line = NULL;
-    bool wait = true;
 
-    extract_from_args(args, &command_line, &wait);
+    extract_from_args(args, &command_line);
 
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
@@ -173,7 +163,7 @@ bool launch_executable(const struct args args) {
     free(tmp_command_line);
 
     // Wait until child process exits.
-    if(wait) {
+    if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
     }
 

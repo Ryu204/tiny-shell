@@ -10,6 +10,7 @@
 struct args {
     os_char **argv;
     unsigned int argc;
+    bool background;
 };
 
 /**
