@@ -206,7 +206,7 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
     if(res == 0 && last_err != ERROR_SUCCESS) {
         report_error_code(last_err);
         return false;
-    } else if(res > buffer_size) {
+    } else if(res >= buffer_size) {
         format_error("Insufficient buffer size\n");
         return false;
     }

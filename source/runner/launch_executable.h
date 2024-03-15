@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../core/args.h"
-#include "../os/type.h"
 #include "res.h"
 
 /*! @brief Run the executable foreground */

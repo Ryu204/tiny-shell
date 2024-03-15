@@ -8,3 +8,7 @@ cd "wrong_quote_cound""
 set _ ???
 env
 env _
+
+g++ source/main.c -o build/main
+echo 1 2 3
+ls ? this will fail
