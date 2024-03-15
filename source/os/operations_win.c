@@ -1,11 +1,11 @@
-#include "operations.h"
-#include "../core/config.h"
-#include "../core/io_wrap.h"
-
-#include <stdio.h>
-
 #ifdef _WIN32
+
+#    include "../core/config.h"
+#    include "../core/io_wrap.h"
+#    include "operations.h"
+
 #    include <WinBase.h>
+#    include <stdio.h>
 
 void report_error_code(DWORD err);
 
@@ -85,7 +85,7 @@ void clear_screen() {
     // NOLINTEND
 }
 
-bool is_empty_str(os_char *str){
+bool is_empty_str(os_char *str) {
     return !strcmp(str, "");
 }
 
@@ -102,9 +102,7 @@ void extract_from_args(const struct args args, os_char **p_command_line, bool *p
         }
         if(strcmp(args.argv[i], "&") != 0 || flag) {
             len += strlen(args.argv[i]) + 3;
-        }
-        else
-        if(!flag) {
+        } else if(!flag) {
             wait = false;
             flag = true;
         }
@@ -124,9 +122,7 @@ void extract_from_args(const struct args args, os_char **p_command_line, bool *p
         if(strcmp(args.argv[i], "&") != 0 || flag) {
             sprintf(command_line + len, " \"%s\"", args.argv[i]);
             len += strlen(args.argv[i]) + 3;
-        }
-        else
-        if(!flag) {
+        } else if(!flag) {
             flag = true;
         }
     }
@@ -246,47 +242,6 @@ os_char *get_all_shell_env_display() {
 
     *(res + res_len) = '\0';
     return res;
-}
-
-#elif defined(__linux__)
-#    include <errno.h>
-#    include <stdio.h>
-#    include <unistd.h>
-
-void get_cwd(unsigned int buffer_size, os_char *buffer) {
-    if(!getcwd(buffer, buffer_size)) {
-        format_error("Cannot get current working directory\n");
-    }
-}
-
-bool change_cwd(const os_char *new_dir) {
-    int error_code = chdir(new_dir);
-    if(error_code == 0) {
-        return true;
-    }
-    switch(errno) {
-    case 0:
-        return true;
-    case EACCES:
-        format_error("Access denied!\n");
-        break;
-    case EBADF:
-        format_error("Not a valid filename\n");
-        break;
-    case ENOTDIR:
-        format_error("Not a directory\n");
-        break;
-    case ENOENT:
-        format_error("No such file or directory\n");
-        break;
-    default:
-        format_error("System error code: %d\n", errno);
-    }
-    return false;
-}
-
-void clear_screen() {
-    printf("\e[1;1H\e[2J");
 }
 
 #endif
