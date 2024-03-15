@@ -95,6 +95,7 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
+        res->val.args.background = arguments.background;
         res->val.args.argc = arguments.argc;
         res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
         for(int i = 0; i < arguments.argc; ++i) {
