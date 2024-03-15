@@ -163,13 +163,27 @@ bool launch_executable(const struct args args) {
     // Wait until child process exits.
     if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
+        DWORD exit_code = 0;
+#define exit_cleanup(res) { CloseHandle(pi.hProcess); CloseHandle(pi.hThread); return res; }
+        if(GetExitCodeProcess(pi.hProcess, &exit_code) == 0) {
+            report_error_code(GetLastError());
+            exit_cleanup(false);
+        } else {
+            if(exit_code == 0) {
+                exit_cleanup(true);
+            } else {
+                format_error("Exit code: %ld\n", exit_code);
+                exit_cleanup(false);
+            }
+        }
     }
 
     // Close process and thread handles.
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 
-    return true;
+    exit_cleanup(true);
+#undef exit_cleanup
 }
 
 bool set_shell_env(const os_char *name, const os_char *val) {

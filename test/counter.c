@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 }
 
 #ifdef _WIN32
-#    include <synchapi.h>
+#include <windows.h>
 void sleep_for(unsigned int seconds) {
     static const unsigned int milli_per_sec = 1000;
     Sleep(seconds * milli_per_sec);

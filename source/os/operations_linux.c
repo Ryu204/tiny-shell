@@ -83,6 +83,7 @@ bool launch_executable(const struct args args) {
             waitpid(pid, &stat_loc, 0);
         } else {
             signal(SIGCHLD, handle_background_child_exit);
+            return true;
         }
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
