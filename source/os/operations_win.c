@@ -89,7 +89,7 @@ bool is_empty_str(os_char *str) {
     return !strcmp(str, "");
 }
 
-void extract_from_args(const struct args args, os_char **p_command_line) {  
+void extract_from_args(const struct args args, os_char **p_command_line) {
     size_t len = 0;
     if(!is_empty_str(args.argv[0])) {
         len += strlen(args.argv[0]) + 2;
@@ -97,8 +97,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     for(int i = 1; i < args.argc; ++i) {
         if(is_empty_str(args.argv[i])) {
             continue;
-        }
-        else {
+        } else {
             len += strlen(args.argv[i]) + 3;
         }
     }
@@ -112,8 +111,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     for(int i = 1; i < args.argc; ++i) {
         if(is_empty_str(args.argv[i])) {
             continue;
-        }
-        else {
+        } else {
             sprintf(command_line + len, " \"%s\"", args.argv[i]);
             len += strlen(args.argv[i]) + 3;
         }

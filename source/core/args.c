@@ -84,20 +84,20 @@ void split_by_whitespaces(const os_char *str, struct args *buffer) {
     buffer->argv = argv;
 }
 
-void verify_background(struct args* args) {
+void verify_background(struct args *args) {
     int first_oc = -1;
-    for (int i = 0; i < args->argc; ++i) {
-        if (strcmp(args->argv[i], "&") == 0) {
+    for(int i = 0; i < args->argc; ++i) {
+        if(strcmp(args->argv[i], "&") == 0) {
             first_oc = i;
             break;
         }
     }
-    if (first_oc < 0) {
+    if(first_oc < 0) {
         args->background = false;
         return;
-    } 
+    }
     free(args->argv[first_oc]);
-    for (int i = first_oc + 1; i < args->argc; ++i) {
+    for(int i = first_oc + 1; i < args->argc; ++i) {
         args->argv[i - 1] = args->argv[i];
     }
     args->argc--;

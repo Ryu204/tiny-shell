@@ -5,11 +5,11 @@
 #    include "operations.h"
 #    include "type.h"
 
-#    include <string.h>
 #    include <assert.h>
 #    include <errno.h>
 #    include <stdio.h>
 #    include <stdlib.h>
+#    include <string.h>
 #    include <sys/wait.h>
 #    include <unistd.h>
 
@@ -76,7 +76,7 @@ bool launch_executable(const struct args args) {
         waitpid(pid, &stat_loc, 0);
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
-            if (exit_code != 0) {
+            if(exit_code != 0) {
                 format_output("Exit code: %d\n", exit_code);
                 return false;
             }
