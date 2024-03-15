@@ -62,7 +62,7 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Configure
-      run: cmake -S . -B build -DENABLE_FORMAT=ON -DENABLE_LINTER=ON ${{ matrix.platform.flags }} -DCMAKE_BUILD_TYPE=${{ matrix.buildType }}
+      run: cmake -S . -B build -DENABLE_FORMAT=ON -DENABLE_LINTER=ON -DENABLE_TEST=ON ${{ matrix.platform.flags }} -DCMAKE_BUILD_TYPE=${{ matrix.buildType }}
     
     - name: Build
       run: cmake --build build -j
