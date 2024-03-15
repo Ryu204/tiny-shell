@@ -1,5 +1,4 @@
 #ifdef __linux__
-
 #    include "../core/config.h"
 #    include "../core/io_wrap.h"
 #    include "operations.h"
@@ -55,6 +54,13 @@ void clear_screen() {
     printf("\e[1;1H\e[2J");
 }
 
+// NOLINTBEGIN(misc-unused-parameters)
+void handle_background_child_exit(int sig) {
+    int stat = 0;
+    waitpid(-1, &stat, WNOHANG);
+}
+// NOLINTEND(misc-unused-parameters)
+
 bool launch_executable(const struct args args) {
     assert(args.argc > 0 && "Invalid args");
     int pid = fork();
@@ -73,7 +79,11 @@ bool launch_executable(const struct args args) {
         }
         _exit(EXIT_SUCCESS);
     } else {
-        waitpid(pid, &stat_loc, 0);
+        if(!args.background) {
+            waitpid(pid, &stat_loc, 0);
+        } else {
+            signal(SIGCHLD, handle_background_child_exit);
+        }
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
             if(exit_code != 0) {
@@ -87,6 +97,14 @@ bool launch_executable(const struct args args) {
         } else if(WCOREDUMP(stat_loc)) {
             format_error("Core dumped\n");
             return false;
+        } else if(WIFSIGNALED(stat_loc)) {
+            if(WTERMSIG(stat_loc) == SIGSEGV) {
+                format_error("Segmentation fault\n");
+                return false;
+            } else {
+                format_error("Terminated by signal\n");
+                return false;
+            }
         } else {
             format_error("Unknown error\n");
             return false;

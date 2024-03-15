@@ -70,3 +70,4 @@ jobs:
         build/tiny-shell -f test/script1 
         build/tiny-shell -f test/script2
         build/tiny-shell -f test/script3
+        build/tiny-shell -f test/script4
