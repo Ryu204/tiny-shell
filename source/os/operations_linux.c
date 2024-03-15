@@ -76,8 +76,11 @@ bool launch_executable(const struct args args) {
         waitpid(pid, &stat_loc, 0);
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
-            format_output("Exit code: %d\n", exit_code);
-            return exit_code == 0;
+            if (exit_code != 0) {
+                format_output("Exit code: %d\n", exit_code);
+                return false;
+            }
+            return true;
         } else if(WIFSTOPPED(stat_loc)) {
             format_error("Stopped\n");
             return false;
