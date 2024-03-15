@@ -83,16 +83,21 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="type_8h_source.html">type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="args_8h_source.html">../core/args.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for operations.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="operations_8h__incl.png" border="0" usemap="#asource_2os_2operations_8h" alt=""/></div>
 <map name="asource_2os_2operations_8h" id="asource_2os_2operations_8h">
 <area shape="rect" title=" " alt="" coords="10,5,162,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,79,105"/>
-<area shape="poly" title=" " alt="" coords="81,33,60,67,55,64,76,30"/>
-<area shape="rect" href="type_8h.html" title=" " alt="" coords="102,79,158,105"/>
-<area shape="poly" title=" " alt="" coords="96,30,117,64,112,67,91,33"/>
+<area shape="rect" title=" " alt="" coords="5,153,79,178"/>
+<area shape="poly" title=" " alt="" coords="69,34,46,54,28,80,25,94,25,109,32,137,27,139,20,110,20,93,24,78,42,50,66,30"/>
+<area shape="rect" href="type_8h.html" title=" " alt="" coords="122,153,178,178"/>
+<area shape="poly" title=" " alt="" coords="106,29,129,50,148,78,156,108,156,137,151,137,151,109,144,80,125,53,102,33"/>
+<area shape="rect" href="args_8h.html" title=" " alt="" coords="38,79,134,105"/>
+<area shape="poly" title=" " alt="" coords="89,31,89,63,83,63,83,31"/>
+<area shape="poly" title=" " alt="" coords="81,106,60,141,55,138,76,103"/>
+<area shape="poly" title=" " alt="" coords="99,103,131,139,127,143,95,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -129,9 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4953d1edcbbfc7e420c423ded1d5621a" id="r_a4953d1edcbbfc7e420c423ded1d5621a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a> ()</td></tr>
 <tr class="memdesc:a4953d1edcbbfc7e420c423ded1d5621a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the console.  <br /></td></tr>
 <tr class="separator:a4953d1edcbbfc7e420c423ded1d5621a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad80bcf33981d0c6ac6da667d23d900de" id="r_ad80bcf33981d0c6ac6da667d23d900de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad80bcf33981d0c6ac6da667d23d900de">launch_executable</a> (const os_char *command_line, bool wait)</td></tr>
-<tr class="memdesc:ad80bcf33981d0c6ac6da667d23d900de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the executable foreground.  <br /></td></tr>
-<tr class="separator:ad80bcf33981d0c6ac6da667d23d900de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0cc1052b5acb162570f973f50ffd0e4" id="r_ad0cc1052b5acb162570f973f50ffd0e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a> (const struct <a class="el" href="structargs.html">args</a> <a class="el" href="structargs.html">args</a>)</td></tr>
+<tr class="memdesc:ad0cc1052b5acb162570f973f50ffd0e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the executable.  <br /></td></tr>
+<tr class="separator:ad0cc1052b5acb162570f973f50ffd0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf6ad592caa212e7263c6e4acf363bbc" id="r_acf6ad592caa212e7263c6e4acf363bbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a> (const os_char *name, const os_char *val)</td></tr>
 <tr class="memdesc:acf6ad592caa212e7263c6e4acf363bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set environment variable of the shell process.  <br /></td></tr>
 <tr class="separator:acf6ad592caa212e7263c6e4acf363bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -333,8 +338,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad80bcf33981d0c6ac6da667d23d900de" name="ad80bcf33981d0c6ac6da667d23d900de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad80bcf33981d0c6ac6da667d23d900de">&#9670;&#160;</a></span>launch_executable()</h2>
+<a id="ad0cc1052b5acb162570f973f50ffd0e4" name="ad0cc1052b5acb162570f973f50ffd0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0cc1052b5acb162570f973f50ffd0e4">&#9670;&#160;</a></span>launch_executable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,25 +347,21 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">bool launch_executable </td>
           <td>(</td>
-          <td class="paramtype">const os_char *</td>          <td class="paramname"><span class="paramname"><em>command_line</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const struct <a class="el" href="structargs.html">args</a></td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>wait</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Run the executable foreground. </p>
+<p>Launch the executable. </p>
 
-<p class="reference">Referenced by <a class="el" href="launch__executable_8c_source.html#l00009">run_launch_executable()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="launch__executable_8c_source.html#l00005">run_launch_executable()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="operations_8h_ad80bcf33981d0c6ac6da667d23d900de_icgraph.png" border="0" usemap="#aoperations_8h_ad80bcf33981d0c6ac6da667d23d900de_icgraph" alt=""/></div>
-<map name="aoperations_8h_ad80bcf33981d0c6ac6da667d23d900de_icgraph" id="aoperations_8h_ad80bcf33981d0c6ac6da667d23d900de_icgraph">
-<area shape="rect" title="Run the executable foreground." alt="" coords="454,5,583,31"/>
+<div class="center"><img src="operations_8h_ad0cc1052b5acb162570f973f50ffd0e4_icgraph.png" border="0" usemap="#aoperations_8h_ad0cc1052b5acb162570f973f50ffd0e4_icgraph" alt=""/></div>
+<map name="aoperations_8h_ad0cc1052b5acb162570f973f50ffd0e4_icgraph" id="aoperations_8h_ad0cc1052b5acb162570f973f50ffd0e4_icgraph">
+<area shape="rect" title="Launch the executable." alt="" coords="454,5,583,31"/>
 <area shape="rect" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="253,5,406,31"/>
 <area shape="poly" title=" " alt="" coords="439,21,407,21,407,16,439,16"/>
 <area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
@@ -455,7 +456,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2024 14:20:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Fri Mar 15 2024 01:19:54 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>
