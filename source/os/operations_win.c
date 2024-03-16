@@ -1,11 +1,11 @@
-#include "operations.h"
-#include "../core/config.h"
-#include "../core/io_wrap.h"
-
-#include <stdio.h>
-
 #ifdef _WIN32
+
+#    include "../core/config.h"
+#    include "../core/io_wrap.h"
+#    include "operations.h"
+
 #    include <WinBase.h>
+#    include <stdio.h>
 
 void report_error_code(DWORD err);
 
@@ -85,11 +85,11 @@ void clear_screen() {
     // NOLINTEND
 }
 
-bool is_empty_str(os_char *str){
+bool is_empty_str(os_char *str) {
     return !strcmp(str, "");
 }
 
-void extract_from_args(const struct args args, os_char **p_command_line) {  
+void extract_from_args(const struct args args, os_char **p_command_line) {
     size_t len = 0;
     if(!is_empty_str(args.argv[0])) {
         len += strlen(args.argv[0]) + 2;
@@ -97,8 +97,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     for(int i = 1; i < args.argc; ++i) {
         if(is_empty_str(args.argv[i])) {
             continue;
-        }
-        else {
+        } else {
             len += strlen(args.argv[i]) + 3;
         }
     }
@@ -112,8 +111,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     for(int i = 1; i < args.argc; ++i) {
         if(is_empty_str(args.argv[i])) {
             continue;
-        }
-        else {
+        } else {
             sprintf(command_line + len, " \"%s\"", args.argv[i]);
             len += strlen(args.argv[i]) + 3;
         }
@@ -165,13 +163,27 @@ bool launch_executable(const struct args args) {
     // Wait until child process exits.
     if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
+        DWORD exit_code = 0;
+#define exit_cleanup(res) { CloseHandle(pi.hProcess); CloseHandle(pi.hThread); return res; }
+        if(GetExitCodeProcess(pi.hProcess, &exit_code) == 0) {
+            report_error_code(GetLastError());
+            exit_cleanup(false);
+        } else {
+            if(exit_code == 0) {
+                exit_cleanup(true);
+            } else {
+                format_error("Exit code: %ld\n", exit_code);
+                exit_cleanup(false);
+            }
+        }
     }
 
     // Close process and thread handles.
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 
-    return true;
+    exit_cleanup(true);
+#undef exit_cleanup
 }
 
 bool set_shell_env(const os_char *name, const os_char *val) {
@@ -196,7 +208,7 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
     if(res == 0 && last_err != ERROR_SUCCESS) {
         report_error_code(last_err);
         return false;
-    } else if(res > buffer_size) {
+    } else if(res >= buffer_size) {
         format_error("Insufficient buffer size\n");
         return false;
     }
@@ -232,47 +244,6 @@ os_char *get_all_shell_env_display() {
 
     *(res + res_len) = '\0';
     return res;
-}
-
-#elif defined(__linux__)
-#    include <errno.h>
-#    include <stdio.h>
-#    include <unistd.h>
-
-void get_cwd(unsigned int buffer_size, os_char *buffer) {
-    if(!getcwd(buffer, buffer_size)) {
-        format_error("Cannot get current working directory\n");
-    }
-}
-
-bool change_cwd(const os_char *new_dir) {
-    int error_code = chdir(new_dir);
-    if(error_code == 0) {
-        return true;
-    }
-    switch(errno) {
-    case 0:
-        return true;
-    case EACCES:
-        format_error("Access denied!\n");
-        break;
-    case EBADF:
-        format_error("Not a valid filename\n");
-        break;
-    case ENOTDIR:
-        format_error("Not a directory\n");
-        break;
-    case ENOENT:
-        format_error("No such file or directory\n");
-        break;
-    default:
-        format_error("System error code: %d\n", errno);
-    }
-    return false;
-}
-
-void clear_screen() {
-    printf("\e[1;1H\e[2J");
 }
 
 #endif

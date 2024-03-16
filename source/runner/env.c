@@ -2,6 +2,7 @@
 #include "../core/config.h"
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
+#include <stdlib.h>
 
 enum run_result run_set_env(const os_char *name, const os_char *val) {
     return set_shell_env(name, val) ? RUN_OK : RUN_FAILED;
@@ -17,6 +18,7 @@ enum run_result run_get_all_env() {
         return RUN_FAILED;
     } else {
         format_output("%s\n", env);
+        free(env);
         return RUN_OK;
     }
 }

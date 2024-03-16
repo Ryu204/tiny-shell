@@ -79,24 +79,25 @@ void split_by_whitespaces(const os_char *str, struct args *buffer) {
         }
     }
 
+    argv[argc] = NULL;
     buffer->argc = argc;
     buffer->argv = argv;
 }
 
-void verify_background(struct args* args) {
+void verify_background(struct args *args) {
     int first_oc = -1;
-    for (int i = 0; i < args->argc; ++i) {
-        if (strcmp(args->argv[i], "&") == 0) {
+    for(int i = 0; i < args->argc; ++i) {
+        if(strcmp(args->argv[i], "&") == 0) {
             first_oc = i;
             break;
         }
     }
-    if (first_oc < 0) {
+    if(first_oc < 0) {
         args->background = false;
         return;
-    } 
+    }
     free(args->argv[first_oc]);
-    for (int i = first_oc + 1; i < args->argc; ++i) {
+    for(int i = first_oc + 1; i < args->argc; ++i) {
         args->argv[i - 1] = args->argv[i];
     }
     args->argc--;
@@ -139,6 +140,24 @@ void args_destroy(struct args *obj) {
         free(obj->argv[i]);
     }
     free(obj->argv);
+}
+
+struct args *args_deep_copy(const struct args *obj) {
+    if(!obj) {
+        return NULL;
+    }
+    struct args *res = malloc(sizeof(struct args));
+    res->argc = obj->argc;
+    res->background = obj->background;
+    res->argv = malloc((obj->argc + 1) * sizeof(os_char *));
+    for(int i = 0; i < obj->argc; ++i) {
+        const unsigned int len = strlen(obj->argv[i]);
+        res->argv[i] = malloc(len + 1);
+        memcpy(res->argv[i], obj->argv[i], len);
+        res->argv[i][len] = '\0';
+    }
+    res->argv[res->argc] = NULL;
+    return res;
 }
 
 bool is_whitespace(char c) {

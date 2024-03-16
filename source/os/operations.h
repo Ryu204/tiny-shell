@@ -2,8 +2,8 @@
 
 #include <stdbool.h>
 
-#include "type.h"
 #include "../core/args.h"
+#include "type.h"
 
 /*! @brief Fetch current working directory and copy them into `buffer` */
 void get_cwd(unsigned int buffer_size, os_char *buffer);

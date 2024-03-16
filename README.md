@@ -16,6 +16,7 @@ cmake --build build
 option(ENABLE_FORMAT "Use clang-format as formatter" off)
 option(ENABLE_LINTER "Use clang-tidy as linter" off)
 option(ENABLE_DOCS "Generate documentation with doxygen" off)
+option(ENABLE_TEST "Build test programs" off)
 ```
 
 # Usage

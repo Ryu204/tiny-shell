@@ -1,6 +1,5 @@
 #include "launch_executable.h"
 #include "../os/operations.h"
-#include <stdio.h>
 
 enum run_result run_launch_executable(const struct args args) {
     bool result = launch_executable(args);

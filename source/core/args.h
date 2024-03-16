@@ -20,5 +20,8 @@ struct args {
 bool args_init_from_str(struct args *obj, const os_char *input);
 void args_destroy(struct args *obj);
 
+/*! @brief Deep copy the object, including arguments string */
+struct args *args_deep_copy(const struct args *obj);
+
 /**! @brief Helper function */
 bool is_whitespace(os_char c);

@@ -1,0 +1,10 @@
+cd build/test
+
+gcc -v
+
+./counter 7
+./counter & 7
+./segfault
+./segfault &
+./return 11
+./return 0 &

@@ -9,6 +9,12 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/source/core/config.h.in" "${CMAKE_CU
 
 file(GLOB_RECURSE ${PROJECT_NAME}_SOURCE CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.[ch]")
 
+# Test programs
+option(ENABLE_TEST "Build test programs" off)
+if (ENABLE_TEST)
+    add_subdirectory(test)
+endif()
+
 # Formatter, linter, documentation
 option(ENABLE_FORMAT "Use clang-format as formatter" off)
 if (ENABLE_FORMAT)
