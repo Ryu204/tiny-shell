@@ -149,17 +149,16 @@ struct args *args_deep_copy(const struct args *obj) {
     struct args *res = malloc(sizeof(struct args));
     res->argc = obj->argc;
     res->background = obj->background;
-    res->argv = malloc((obj->argc + 1) * sizeof(os_char *));
+    res->argv = malloc(obj->argc * sizeof(os_char *));
     for(int i = 0; i < obj->argc; ++i) {
         const unsigned int len = strlen(obj->argv[i]);
-        res->argv[i] = malloc(len + 1);
-        memcpy(res->argv[i], obj->argv[i], len);
+        res->argv[i] = malloc((len + 1) * sizeof(os_char));
+        memcpy(res->argv[i], obj->argv[i], len * sizeof(os_char));
         res->argv[i][len] = '\0';
     }
-    res->argv[res->argc] = NULL;
     return res;
 }
 
-bool is_whitespace(char c) {
+bool is_whitespace(os_char c) {
     return c == ' ' || c == '\t' || c == '\n';
 }
