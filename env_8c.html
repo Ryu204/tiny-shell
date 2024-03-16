@@ -85,20 +85,23 @@ $(function() {
 <code>#include &quot;<a class="el" href="config_8h_source.html">../core/config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="io__wrap_8h_source.html">../core/io_wrap.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="operations_8h_source.html">../os/operations.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for env.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="env_8c__incl.png" border="0" usemap="#asource_2runner_2env_8c" alt=""/></div>
 <map name="asource_2runner_2env_8c" id="asource_2runner_2env_8c">
-<area shape="rect" title=" " alt="" coords="184,5,319,31"/>
+<area shape="rect" title=" " alt="" coords="239,5,374,31"/>
 <area shape="rect" href="env_8h.html" title=" " alt="" coords="280,79,333,105"/>
-<area shape="poly" title=" " alt="" coords="263,30,290,65,286,68,259,33"/>
+<area shape="poly" title=" " alt="" coords="309,31,309,63,304,63,304,31"/>
 <area shape="rect" href="config_8h.html" title=" " alt="" coords="357,79,461,105"/>
-<area shape="poly" title=" " alt="" coords="280,29,369,70,367,75,277,34"/>
+<area shape="poly" title=" " alt="" coords="325,29,381,68,378,72,322,34"/>
 <area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="141,79,256,105"/>
-<area shape="poly" title=" " alt="" coords="245,33,219,68,214,65,241,30"/>
+<area shape="poly" title=" " alt="" coords="290,34,231,72,228,68,287,29"/>
 <area shape="rect" href="operations_8h.html" title=" " alt="" coords="32,153,151,178"/>
-<area shape="poly" title=" " alt="" coords="211,34,169,53,131,81,112,109,101,139,96,137,107,106,127,77,167,48,209,29"/>
+<area shape="poly" title=" " alt="" coords="239,31,182,49,155,63,131,81,111,108,100,139,95,137,106,106,127,77,152,58,180,44,237,26"/>
+<area shape="rect" title=" " alt="" coords="486,79,548,105"/>
+<area shape="poly" title=" " alt="" coords="343,29,472,72,470,77,341,34"/>
 <area shape="rect" href="type_8h.html" title=" " alt="" coords="159,300,243,326"/>
 <area shape="poly" title=" " alt="" coords="314,104,324,138,325,159,321,179,303,214,280,245,231,292,227,288,276,241,299,211,316,177,320,159,318,139,309,106"/>
 <area shape="rect" href="res_8h.html" title=" " alt="" coords="256,153,306,178"/>
@@ -154,16 +157,17 @@ Functions</h2></td></tr>
 
 <p>Set current process's environment variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00014">14</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                  {</div>
-<div class="line"><span class="lineno">   15</span>    os_char *env = <a class="code hl_function" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a>();</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span>(!env) {</div>
-<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   18</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   19</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s\n&quot;</span>, env);</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><span class="lineno">   21</span>    }</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00015">15</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                  {</div>
+<div class="line"><span class="lineno">   16</span>    os_char *env = <a class="code hl_function" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a>();</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span>(!env) {</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   19</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   20</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s\n&quot;</span>, env);</div>
+<div class="line"><span class="lineno">   21</span>        free(env);</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><span class="lineno">   23</span>    }</div>
+<div class="line"><span class="lineno">   24</span>}</div>
 <div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00038">io_wrap.c:38</a></div></div>
 <div class="ttc" id="aoperations_8h_html_a9b8140d2a722bd1d656bf86b52c576a5"><div class="ttname"><a href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a></div><div class="ttdeci">os_char * get_all_shell_env_display()</div><div class="ttdoc">Get all current environment variable.</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
@@ -216,15 +220,15 @@ Here is the caller graph for this function:</div>
 
 <p>Set current process's environment variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00024">24</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>                                                 {</div>
-<div class="line"><span class="lineno">   25</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a>];</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>(!<a class="code hl_function" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a>(name, <a class="code hl_define" href="config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a>, buffer)) {</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s\n&quot;</span>, buffer);</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><span class="lineno">   31</span>}</div>
+<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00026">26</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                 {</div>
+<div class="line"><span class="lineno">   27</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a>];</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">if</span>(!<a class="code hl_function" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a>(name, <a class="code hl_define" href="config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a>, buffer)) {</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   30</span>    }</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s\n&quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><span class="lineno">   33</span>}</div>
 <div class="ttc" id="aconfig_8h_html_afee9d9f87e3c163b5d06500c5bbe3e7c"><div class="ttname"><a href="config_8h.html#afee9d9f87e3c163b5d06500c5bbe3e7c">ENV_VAR_BUFFER_SIZE</a></div><div class="ttdeci">#define ENV_VAR_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00008">config.h:8</a></div></div>
 <div class="ttc" id="aoperations_8h_html_a481ed52f9b1715b5351a7137211846f6"><div class="ttname"><a href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a></div><div class="ttdeci">bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Get value of an an environment variable.</div></div>
 </div><!-- fragment -->
@@ -279,10 +283,10 @@ Here is the caller graph for this function:</div>
 
 <p>Set current process's environment variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00006">6</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>                                                                     {</div>
-<div class="line"><span class="lineno">    7</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a>(name, val) ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">    8</span>}</div>
+<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00007">7</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>                                                                     {</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a>(name, val) ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">    9</span>}</div>
 <div class="ttc" id="aoperations_8h_html_acf6ad592caa212e7263c6e4acf363bbc"><div class="ttname"><a href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a></div><div class="ttdeci">bool set_shell_env(const os_char *name, const os_char *val)</div><div class="ttdoc">Set environment variable of the shell process.</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>, and <a class="el" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env()</a>.</p>
@@ -330,10 +334,10 @@ Here is the caller graph for this function:</div>
 
 <p>Unset current process's environment variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00010">10</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>                                                   {</div>
-<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a>(name) ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   12</span>}</div>
+<p class="definition">Definition at line <a class="el" href="env_8c_source.html#l00011">11</a> of file <a class="el" href="env_8c_source.html">env.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                   {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a>(name) ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   13</span>}</div>
 <div class="ttc" id="aoperations_8h_html_adfbb09e78ff766d4a02d525844b0a837"><div class="ttname"><a href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a></div><div class="ttdeci">bool unset_shell_env(const os_char *name)</div><div class="ttdoc">Unset environment variable of the shell process.</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>, and <a class="el" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env()</a>.</p>
@@ -367,7 +371,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2024 07:41:39 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Sat Mar 16 2024 07:05:28 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

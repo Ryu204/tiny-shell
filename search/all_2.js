@@ -23,6 +23,5 @@ var searchData=
   ['cmd_5funknown_20',['CMD_UNKNOWN',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7',1,'cmd.h']]],
   ['cmd_5funset_5fenv_21',['CMD_UNSET_ENV',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507',1,'cmd.h']]],
   ['config_2eh_22',['config.h',['../config_8h.html',1,'']]],
-  ['counter_2ec_23',['counter.c',['../counter_8c.html',1,'']]],
-  ['cwd_5fbuffer_5fsize_24',['CWD_BUFFER_SIZE',['../config_8h.html#a1efa72b804973756363ce5be7e24be18',1,'config.h']]]
+  ['cwd_5fbuffer_5fsize_23',['CWD_BUFFER_SIZE',['../config_8h.html#a1efa72b804973756363ce5be7e24be18',1,'config.h']]]
 ];
