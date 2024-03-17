@@ -328,6 +328,7 @@ bool minibat(const struct args args) {
 
     if (!ret) {
         format_error("Cannot create process %s, exit code: %d!\n", file, GetLastError());
+        CloseHandle(hFIle);
         return false;
     }
 
