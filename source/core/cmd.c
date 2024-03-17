@@ -108,27 +108,15 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_MINIBAT;
-            res->val.args.background = arguments.background;
-            res->val.args.argc = arguments.argc;
-            res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-            for(int i = 0; i < arguments.argc; ++i) {
-                size_t len = strlen(arguments.argv[i]);
-                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-                res->val.args.argv[i][len] = '\0';
-            }
+            struct args *args = args_deep_copy(&arguments);
+            res->val.args = *args;
+            free(args);
         }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
-        res->val.args.background = arguments.background;
-        res->val.args.argc = arguments.argc;
-        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-        for(int i = 0; i < arguments.argc; ++i) {
-            size_t len = strlen(arguments.argv[i]);
-            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-            res->val.args.argv[i][len] = '\0';
-        }
+        struct args *args = args_deep_copy(&arguments);
+        res->val.args = *args;
+        free(args);
     }
 
     args_destroy(&arguments);
