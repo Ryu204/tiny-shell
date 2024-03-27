@@ -1,7 +1,7 @@
 #include "cmd.h"
+#include "../os/operations.h"
 #include "args.h"
 #include "io_wrap.h"
-#include "../os/operations.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -9,11 +9,11 @@
 #include <string.h>
 
 bool is_minibat_file(const os_char *file) {
-    const os_char *extension = get_file_extension(file);
-    if(!extension || strlen(extension) != 2) {
+    const os_char *dot = strrchr(file, '.');
+    if(dot == NULL) {
         return false;
     }
-    return extension[0] == 'm' && extension[1] == 'b';
+    return !strcmp(dot + 1, "mb");
 }
 
 void cmd_init_from_str(struct cmd *res, const char *str) {
@@ -110,13 +110,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_MINIBAT;
             struct args *args = args_deep_copy(&arguments);
             res->val.args = *args;
-            free(args);
         }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
         struct args *args = args_deep_copy(&arguments);
         res->val.args = *args;
-        free(args);
     }
 
     args_destroy(&arguments);
@@ -133,9 +131,9 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.name);
         free(obj->val.env.val);
         break;
-    case CMD_MINIBAT: // NOLINT
+    case CMD_MINIBAT:                   // NOLINT
         args_destroy(&(obj->val.args)); // NOLINT
-        break; // NOLINT
+        break;                          // NOLINT
     case CMD_LAUNCH_EXECUTABLE:
         args_destroy(&(obj->val.args));
         break;

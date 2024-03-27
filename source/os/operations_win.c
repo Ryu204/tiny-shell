@@ -279,7 +279,7 @@ const os_char *get_file_extension(const os_char *path) {
 
 bool minibat(const struct args args) {
     const os_char *file = args.argv[0];
-    
+
     SECURITY_ATTRIBUTES sa;
     sa.nLength = sizeof(sa);
     sa.lpSecurityDescriptor = NULL;
@@ -292,10 +292,9 @@ bool minibat(const struct args args) {
         &sa,
         OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
-        NULL
-    );
+        NULL);
 
-    if (hFIle == INVALID_HANDLE_VALUE) {
+    if(hFIle == INVALID_HANDLE_VALUE) {
         format_error("Cannot open file %s, exit code: %d!\n", file, GetLastError());
         return false;
     }
@@ -323,16 +322,15 @@ bool minibat(const struct args args) {
         NULL,
         NULL,
         &si,
-        &pi
-    );
+        &pi);
 
-    if (!ret) {
+    if(!ret) {
         format_error("Cannot create process %s, exit code: %d!\n", file, GetLastError());
         CloseHandle(hFIle);
         return false;
     }
 
-    if (!args.background) {
+    if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
     }
 
