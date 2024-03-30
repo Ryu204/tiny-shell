@@ -5,6 +5,7 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
+#include "kill.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -23,6 +24,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_OK;
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
+    case CMD_KILL:
+        return run_kill(cmd->val.args);
     case CMD_SET_ENV:
         return run_set_env(cmd->val.env.name, cmd->val.env.val);
     case CMD_UNSET_ENV:

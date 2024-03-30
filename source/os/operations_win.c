@@ -122,6 +122,12 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
+void kill(PROCESS_INFORMATION pi){
+    TerminateProcess(pi.hProcess, 0);
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+}
+
 bool launch_executable(const struct args args) {
     os_char *command_line = NULL;
 
@@ -164,7 +170,12 @@ bool launch_executable(const struct args args) {
     if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
         DWORD exit_code = 0;
-#define exit_cleanup(res) { CloseHandle(pi.hProcess); CloseHandle(pi.hThread); return res; }
+#    define exit_cleanup(res) \
+        { \
+            CloseHandle(pi.hProcess); \
+            CloseHandle(pi.hThread); \
+            return res; \
+        }
         if(GetExitCodeProcess(pi.hProcess, &exit_code) == 0) {
             report_error_code(GetLastError());
             exit_cleanup(false);
@@ -183,7 +194,7 @@ bool launch_executable(const struct args args) {
     CloseHandle(pi.hThread);
 
     exit_cleanup(true);
-#undef exit_cleanup
+#    undef exit_cleanup
 }
 
 bool set_shell_env(const os_char *name, const os_char *val) {
