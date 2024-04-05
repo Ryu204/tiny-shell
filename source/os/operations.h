@@ -37,10 +37,4 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
 /*! @brief Get all current environment variable */
 os_char *get_all_shell_env_display();
 
-bool is_existed_file(os_char *file_path);
-
-const os_char *get_file_name(const os_char *path);
-
-const os_char *get_file_extension(const os_char *path);
-
 bool minibat(const struct args args);

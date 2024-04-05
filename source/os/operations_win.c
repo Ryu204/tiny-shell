@@ -251,32 +251,6 @@ os_char *get_all_shell_env_display() {
     return res;
 }
 
-bool is_existed_file(os_char *file_path) {
-    DWORD file_attribute = GetFileAttributes(file_path);
-    if(file_attribute == INVALID_FILE_ATTRIBUTES) {
-        report_error_code(GetLastError());
-        return false;
-    }
-    return !(file_attribute & FILE_ATTRIBUTE_DIRECTORY);
-}
-
-const os_char *get_file_name(const os_char *path) {
-    const os_char *backslash = strrchr(path, '\\');
-    if(backslash == NULL) {
-        return path; // No backslash found, path is the file name
-    }
-    return ++backslash;
-}
-
-const os_char *get_file_extension(const os_char *path) {
-    const os_char *filename = get_file_name(path);
-    const os_char *dot = strrchr(filename, '.');
-    if(!dot || dot == filename) {
-        return NULL; // No extension or filename is just a dot
-    }
-    return ++dot;
-}
-
 bool minibat(const struct args args) {
     const os_char *file = args.argv[0];
 
