@@ -108,13 +108,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_MINIBAT;
-            struct args *args = args_deep_copy(&arguments);
-            res->val.args = *args;
+            res->val.args = *args_deep_copy(&arguments);
         }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
-        struct args *args = args_deep_copy(&arguments);
-        res->val.args = *args;
+        res->val.args = *args_deep_copy(&arguments);
     }
 
     args_destroy(&arguments);
