@@ -182,7 +182,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   50</span>    va_end(argptr);</div>
 <div class="line"><span class="lineno">   51</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00018">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -238,7 +238,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   42</span>    va_end(argptr);</div>
 <div class="line"><span class="lineno">   43</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00012">invoke_runner()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00013">invoke_runner()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -549,11 +549,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   34</span>    }</div>
 <div class="line"><span class="lineno">   35</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
 <div class="line"><span class="lineno">   36</span>}</div>
-<div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00010">cmd.c:10</a></div></div>
+<div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00018">cmd.c:18</a></div></div>
 <div class="ttc" id="aconfig_8h_html_aa9b8dcc02cea15aab8e3d0b7860327a7"><div class="ttname"><a href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define INPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00005">config.h:5</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00053">io_wrap.c:53</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="cmd_8c_source.html#l00010">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00053">prompt_input()</a>.</p>
+<p class="reference">References <a class="el" href="cmd_8c_source.html#l00018">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00053">prompt_input()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -561,36 +561,40 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="io__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph.png" border="0" usemap="#aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph" alt=""/></div>
 <map name="aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph" id="aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph">
-<area shape="rect" title="Ask and convert user&#39;s input into command." alt="" coords="5,168,90,194"/>
-<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="138,119,263,144"/>
-<area shape="poly" title=" " alt="" coords="89,165,143,147,144,152,91,170"/>
-<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="152,192,249,218"/>
-<area shape="poly" title=" " alt="" coords="91,185,138,192,137,198,90,190"/>
-<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="326,5,421,31"/>
-<area shape="poly" title=" " alt="" coords="216,116,258,84,310,48,329,36,332,41,312,52,261,88,219,120"/>
-<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="311,131,436,156"/>
-<area shape="poly" title=" " alt="" coords="263,133,296,135,295,141,263,138"/>
-<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="684,107,776,132"/>
-<area shape="poly" title=" " alt="" coords="262,115,336,102,428,91,529,86,630,92,671,100,670,105,629,97,529,91,429,96,337,108,263,121"/>
-<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="497,255,617,280"/>
-<area shape="poly" title=" " alt="" coords="421,155,438,165,455,185,463,205,470,223,486,242,491,245,487,249,483,245,466,226,458,207,450,188,435,170,418,159"/>
-<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="484,156,630,182"/>
-<area shape="poly" title=" " alt="" coords="437,150,469,154,468,159,436,155"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="496,107,618,132"/>
-<area shape="poly" title=" " alt="" coords="436,133,480,127,481,132,437,138"/>
-<area shape="rect" href="args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="494,205,620,231"/>
-<area shape="poly" title=" " alt="" coords="413,154,438,165,485,192,498,197,496,202,483,197,435,170,411,159"/>
-<area shape="poly" title=" " alt="" coords="604,153,669,134,670,139,606,158"/>
-<area shape="rect" href="args_8c.html#a0bb42fe51480b35e9e3301df8f4b5bbe" title=" " alt="" coords="678,156,782,182"/>
-<area shape="poly" title=" " alt="" coords="630,166,662,166,662,172,630,172"/>
-<area shape="poly" title=" " alt="" coords="619,117,669,117,669,122,619,122"/>
-<area shape="poly" title=" " alt="" coords="606,130,668,149,667,154,604,136"/>
-<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="339,180,409,206"/>
-<area shape="poly" title=" " alt="" coords="249,199,323,194,323,199,249,204"/>
-<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="313,229,435,255"/>
-<area shape="poly" title=" " alt="" coords="249,213,298,223,297,228,248,218"/>
-<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="319,279,429,304"/>
-<area shape="poly" title=" " alt="" coords="224,216,312,265,323,270,321,275,310,270,222,221"/>
+<area shape="rect" title="Ask and convert user&#39;s input into command." alt="" coords="5,253,90,279"/>
+<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="138,156,263,182"/>
+<area shape="poly" title=" " alt="" coords="68,251,165,188,167,192,71,255"/>
+<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="152,303,249,328"/>
+<area shape="poly" title=" " alt="" coords="91,277,144,295,143,300,89,282"/>
+<area shape="rect" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="311,229,450,255"/>
+<area shape="poly" title=" " alt="" coords="231,180,312,216,326,221,324,226,310,221,229,185"/>
+<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="333,5,428,31"/>
+<area shape="poly" title=" " alt="" coords="209,154,250,104,278,75,309,48,329,36,332,41,313,52,282,79,254,107,213,157"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="318,131,443,156"/>
+<area shape="poly" title=" " alt="" coords="263,157,302,152,303,157,264,163"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="698,107,790,132"/>
+<area shape="poly" title=" " alt="" coords="224,153,264,133,310,116,402,92,475,81,550,82,644,92,685,100,684,105,643,97,550,87,476,86,403,97,312,121,266,138,226,158"/>
+<area shape="rect" href="cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="329,180,432,206"/>
+<area shape="poly" title=" " alt="" coords="264,175,314,181,313,187,263,180"/>
+<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="511,255,631,280"/>
+<area shape="poly" title=" " alt="" coords="434,155,452,165,469,185,477,205,484,223,500,242,505,245,501,249,497,245,480,226,472,207,464,188,449,170,431,159"/>
+<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="498,156,644,182"/>
+<area shape="poly" title=" " alt="" coords="444,149,484,155,483,160,444,155"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="510,107,632,132"/>
+<area shape="poly" title=" " alt="" coords="444,133,494,126,495,132,444,138"/>
+<area shape="rect" href="args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="508,205,634,231"/>
+<area shape="poly" title=" " alt="" coords="425,155,451,165,499,192,512,197,510,202,497,197,449,170,423,159"/>
+<area shape="poly" title=" " alt="" coords="618,153,683,134,684,139,620,158"/>
+<area shape="rect" href="args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="692,156,796,182"/>
+<area shape="poly" title=" " alt="" coords="644,166,676,166,676,172,644,172"/>
+<area shape="poly" title=" " alt="" coords="633,117,683,117,683,122,633,122"/>
+<area shape="poly" title=" " alt="" coords="620,130,682,149,681,154,618,136"/>
+<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="346,279,416,304"/>
+<area shape="poly" title=" " alt="" coords="248,306,330,296,330,301,249,312"/>
+<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="320,328,442,354"/>
+<area shape="poly" title=" " alt="" coords="249,320,305,328,304,333,248,325"/>
+<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="326,377,436,403"/>
+<area shape="poly" title=" " alt="" coords="230,327,312,364,326,369,324,374,310,369,228,331"/>
 </map>
 </div>
 <div class="dynheader">
@@ -609,7 +613,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 16 2024 07:05:28 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Fri Apr 12 2024 10:12:16 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

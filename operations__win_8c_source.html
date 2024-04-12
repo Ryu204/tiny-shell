@@ -250,89 +250,159 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">if</span>(!<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#adfee0b482d3f48de27b88f674fb1d3b7">background</a>) {</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        WaitForSingleObject(pi.hProcess, INFINITE);</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        DWORD exit_code = 0;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#define exit_cleanup(res) { CloseHandle(pi.hProcess); CloseHandle(pi.hThread); return res; }</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">if</span>(GetExitCodeProcess(pi.hProcess, &amp;exit_code) == 0) {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            report_error_code(GetLastError());</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            exit_cleanup(<span class="keyword">false</span>);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">if</span>(exit_code == 0) {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                exit_cleanup(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Exit code: %ld\n&quot;</span>, exit_code);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                exit_cleanup(<span class="keyword">false</span>);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">// Close process and thread handles.</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    CloseHandle(pi.hProcess);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    CloseHandle(pi.hThread);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    exit_cleanup(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">#undef exit_cleanup</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a>(<span class="keyword">const</span> os_char *name, <span class="keyword">const</span> os_char *val) {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">if</span>(SetEnvironmentVariable(name, val == NULL ? <span class="stringliteral">&quot;&quot;</span> : val)) {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    }</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    report_error_code(GetLastError());</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>}</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a>(<span class="keyword">const</span> os_char *name) {</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">if</span>(SetEnvironmentVariableA(name, NULL)) {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    report_error_code(GetLastError());</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a>(<span class="keyword">const</span> os_char *var, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer_size, os_char *buffer) {</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    DWORD res = GetEnvironmentVariable(var, buffer, buffer_size);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    DWORD last_err = GetLastError();</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span>(res == 0 &amp;&amp; last_err != ERROR_SUCCESS) {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        report_error_code(last_err);</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(res &gt;= buffer_size) {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Insufficient buffer size\n&quot;</span>);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    }</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>os_char *<a class="code hl_function" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a>() {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    os_char *res = malloc(<a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>);</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> res_len = 0;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> reserve_len = <a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    os_char *ptr = GetEnvironmentStrings();</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">for</span>(os_char *i = ptr; *i != <span class="charliteral">&#39;\0&#39;</span>;) {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(i);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> res_new_length = res_len + len + 1;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="comment">// Allocate more memory if needed</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">while</span>(res_new_length &gt;= reserve_len) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            reserve_len += <a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            os_char *tmp = realloc(res, reserve_len);</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keywordflow">if</span>(!tmp) {</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot allocate enough memory\n&quot;</span>);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                free(res);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                FreeEnvironmentStrings(ptr);</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            }</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            res = tmp;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        memcpy(res + res_len, i, len);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        res_len = res_new_length;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        *(res + res_len - 1) = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        i += len + 1;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    FreeEnvironmentStrings(ptr);</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    *(res + res_len) = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#    define exit_cleanup(res) \</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">        { \</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">            CloseHandle(pi.hProcess); \</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">            CloseHandle(pi.hThread); \</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">            return res; \</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">        }</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span>(GetExitCodeProcess(pi.hProcess, &amp;exit_code) == 0) {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            report_error_code(GetLastError());</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            exit_cleanup(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">if</span>(exit_code == 0) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                exit_cleanup(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Exit code: %ld\n&quot;</span>, exit_code);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                exit_cleanup(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="comment">// Close process and thread handles.</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    CloseHandle(pi.hProcess);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    CloseHandle(pi.hThread);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    exit_cleanup(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#    undef exit_cleanup</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a>(<span class="keyword">const</span> os_char *name, <span class="keyword">const</span> os_char *val) {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">if</span>(SetEnvironmentVariable(name, val == NULL ? <span class="stringliteral">&quot;&quot;</span> : val)) {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    report_error_code(GetLastError());</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837">unset_shell_env</a>(<span class="keyword">const</span> os_char *name) {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">if</span>(SetEnvironmentVariableA(name, NULL)) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    report_error_code(GetLastError());</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a>(<span class="keyword">const</span> os_char *var, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer_size, os_char *buffer) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    DWORD res = GetEnvironmentVariable(var, buffer, buffer_size);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    DWORD last_err = GetLastError();</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">if</span>(res == 0 &amp;&amp; last_err != ERROR_SUCCESS) {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        report_error_code(last_err);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(res &gt;= buffer_size) {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Insufficient buffer size\n&quot;</span>);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>os_char *<a class="code hl_function" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a>() {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    os_char *res = malloc(<a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> res_len = 0;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> reserve_len = <a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    os_char *ptr = GetEnvironmentStrings();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">for</span>(os_char *i = ptr; *i != <span class="charliteral">&#39;\0&#39;</span>;) {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(i);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> res_new_length = res_len + len + 1;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="comment">// Allocate more memory if needed</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">while</span>(res_new_length &gt;= reserve_len) {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            reserve_len += <a class="code hl_define" href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a>;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            os_char *tmp = realloc(res, reserve_len);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keywordflow">if</span>(!tmp) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot allocate enough memory\n&quot;</span>);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                free(res);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                FreeEnvironmentStrings(ptr);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            res = tmp;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        memcpy(res + res_len, i, len);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        res_len = res_new_length;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        *(res + res_len - 1) = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        i += len + 1;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    FreeEnvironmentStrings(ptr);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    *(res + res_len) = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>}</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518">minibat</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structargs.html">args</a> <a class="code hl_struct" href="structargs.html">args</a>) {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keyword">const</span> os_char *file = <a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#a48425ddefdf77837eec8b277f1425fb0">argv</a>[0];</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    SECURITY_ATTRIBUTES sa;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    sa.nLength = <span class="keyword">sizeof</span>(sa);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    sa.lpSecurityDescriptor = NULL;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    sa.bInheritHandle = TRUE;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    HANDLE hFIle = CreateFile(</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        file,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        GENERIC_READ,</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        FILE_SHARE_READ,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        &amp;sa,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        OPEN_EXISTING,</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        FILE_ATTRIBUTE_NORMAL,</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        NULL);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">if</span>(hFIle == INVALID_HANDLE_VALUE) {</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot open file %s, exit code: %d!\n&quot;</span>, file, GetLastError());</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    PROCESS_INFORMATION pi;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    STARTUPINFO si;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    BOOL ret = 0;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    ZeroMemory(&amp;pi, <span class="keyword">sizeof</span>(PROCESS_INFORMATION));</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    ZeroMemory(&amp;si, <span class="keyword">sizeof</span>(STARTUPINFO));</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    si.cb = <span class="keyword">sizeof</span>(STARTUPINFO);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    si.dwFlags |= STARTF_USESTDHANDLES;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    si.hStdInput = hFIle;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    si.hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    si.hStdError = GetStdHandle(STD_ERROR_HANDLE);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    ret = CreateProcess(</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        NULL,</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="stringliteral">&quot;tiny-shell.exe -s&quot;</span>,</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        NULL,</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        NULL,</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        TRUE,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        0,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        NULL,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        NULL,</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        &amp;si,</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        &amp;pi);</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">if</span>(!ret) {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Cannot create process %s, exit code: %d!\n&quot;</span>, file, GetLastError());</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        CloseHandle(hFIle);</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">if</span>(!<a class="code hl_struct" href="structargs.html">args</a>.<a class="code hl_variable" href="structargs.html#adfee0b482d3f48de27b88f674fb1d3b7">background</a>) {</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        WaitForSingleObject(pi.hProcess, INFINITE);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    CloseHandle(pi.hProcess);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    CloseHandle(pi.hThread);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    CloseHandle(hFIle);</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>}</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div></div>
 <div class="ttc" id="aconfig_8h_html_a6e1a028be6dc21cf5bf054573884ea6e"><div class="ttname"><a href="config_8h.html#a6e1a028be6dc21cf5bf054573884ea6e">ENVS_RESERVE_SIZE</a></div><div class="ttdeci">#define ENVS_RESERVE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00007">config.h:7</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00045">io_wrap.c:45</a></div></div>
@@ -341,6 +411,7 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aoperations_8h_html_a33b01aa2fbf453d9646b29576b6bbba3"><div class="ttname"><a href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3">change_cwd</a></div><div class="ttdeci">bool change_cwd(const os_char *new_dir)</div><div class="ttdoc">Attempt to change current working directory.</div></div>
 <div class="ttc" id="aoperations_8h_html_a481ed52f9b1715b5351a7137211846f6"><div class="ttname"><a href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a></div><div class="ttdeci">bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Get value of an an environment variable.</div></div>
 <div class="ttc" id="aoperations_8h_html_a4953d1edcbbfc7e420c423ded1d5621a"><div class="ttname"><a href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a></div><div class="ttdeci">void clear_screen()</div><div class="ttdoc">Clear the console.</div></div>
+<div class="ttc" id="aoperations_8h_html_a97007a8e7c7b512f5c0b56bf139be518"><div class="ttname"><a href="operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518">minibat</a></div><div class="ttdeci">bool minibat(const struct args args)</div></div>
 <div class="ttc" id="aoperations_8h_html_a9b8140d2a722bd1d656bf86b52c576a5"><div class="ttname"><a href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5">get_all_shell_env_display</a></div><div class="ttdeci">os_char * get_all_shell_env_display()</div><div class="ttdoc">Get all current environment variable.</div></div>
 <div class="ttc" id="aoperations_8h_html_acf6ad592caa212e7263c6e4acf363bbc"><div class="ttname"><a href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc">set_shell_env</a></div><div class="ttdeci">bool set_shell_env(const os_char *name, const os_char *val)</div><div class="ttdoc">Set environment variable of the shell process.</div></div>
 <div class="ttc" id="aoperations_8h_html_ad0cc1052b5acb162570f973f50ffd0e4"><div class="ttname"><a href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a></div><div class="ttdeci">bool launch_executable(const struct args args)</div><div class="ttdoc">Launch the executable.</div></div>
@@ -353,7 +424,7 @@ $(function() { codefold.init(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 16 2024 07:05:28 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Fri Apr 12 2024 10:12:16 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

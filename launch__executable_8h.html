@@ -82,21 +82,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="args_8h_source.html">../core/args.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="operations_8h_source.html">../os/operations.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="res_8h_source.html">res.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for launch_executable.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="launch__executable_8h__incl.png" border="0" usemap="#asource_2runner_2launch__executable_8h" alt=""/></div>
 <map name="asource_2runner_2launch__executable_8h" id="asource_2runner_2launch__executable_8h">
-<area shape="rect" title=" " alt="" coords="70,5,212,46"/>
-<area shape="rect" href="args_8h.html" title=" " alt="" coords="45,94,140,120"/>
-<area shape="poly" title=" " alt="" coords="131,48,110,82,106,79,127,45"/>
-<area shape="rect" href="res_8h.html" title=" " alt="" coords="164,94,213,120"/>
-<area shape="poly" title=" " alt="" coords="155,45,176,79,171,82,150,48"/>
-<area shape="rect" title=" " alt="" coords="5,168,79,193"/>
-<area shape="poly" title=" " alt="" coords="86,121,61,156,57,153,82,118"/>
-<area shape="rect" href="type_8h.html" title=" " alt="" coords="103,168,186,193"/>
-<area shape="poly" title=" " alt="" coords="103,118,129,153,125,157,99,121"/>
+<area shape="rect" title=" " alt="" coords="74,5,216,46"/>
+<area shape="rect" href="args_8h.html" title=" " alt="" coords="5,168,101,193"/>
+<area shape="poly" title=" " alt="" coords="119,49,95,70,75,95,64,124,58,153,53,152,59,123,71,93,91,66,115,45"/>
+<area shape="rect" href="operations_8h.html" title=" " alt="" coords="85,94,205,120"/>
+<area shape="poly" title=" " alt="" coords="148,46,148,78,142,78,142,46"/>
+<area shape="rect" href="res_8h.html" title=" " alt="" coords="228,94,278,120"/>
+<area shape="poly" title=" " alt="" coords="173,44,226,82,223,87,170,49"/>
+<area shape="rect" title=" " alt="" coords="143,241,216,267"/>
+<area shape="poly" title=" " alt="" coords="76,192,146,231,144,236,73,196"/>
+<area shape="rect" href="type_8h.html" title=" " alt="" coords="27,241,111,267"/>
+<area shape="poly" title=" " alt="" coords="58,193,66,225,60,226,53,194"/>
+<area shape="poly" title=" " alt="" coords="131,122,82,160,79,156,128,118"/>
+<area shape="poly" title=" " alt="" coords="150,119,176,225,171,227,145,121"/>
+<area shape="poly" title=" " alt="" coords="144,121,133,155,115,195,91,230,87,227,111,192,128,153,139,119"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -138,11 +144,11 @@ Functions</h2></td></tr>
 
 <p>Run the executable foreground. </p>
 
-<p class="definition">Definition at line <a class="el" href="launch__executable_8c_source.html#l00004">4</a> of file <a class="el" href="launch__executable_8c_source.html">launch_executable.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>                                                              {</div>
-<div class="line"><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a>(<a class="code hl_struct" href="structargs.html">args</a>);</div>
-<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">    7</span>}</div>
+<p class="definition">Definition at line <a class="el" href="launch__executable_8c_source.html#l00003">3</a> of file <a class="el" href="launch__executable_8c_source.html">launch_executable.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                                                              {</div>
+<div class="line"><span class="lineno">    4</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a>(<a class="code hl_struct" href="structargs.html">args</a>);</div>
+<div class="line"><span class="lineno">    5</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">    6</span>}</div>
 <div class="ttc" id="aoperations_8h_html_ad0cc1052b5acb162570f973f50ffd0e4"><div class="ttname"><a href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a></div><div class="ttdeci">bool launch_executable(const struct args args)</div><div class="ttdoc">Launch the executable.</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a></div><div class="ttdeci">@ RUN_FAILED</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00009">res.h:9</a></div></div>
@@ -150,7 +156,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable()</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, and <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00012">invoke_runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00013">invoke_runner()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -179,7 +185,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 16 2024 07:05:28 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+Generated on Fri Apr 12 2024 10:12:16 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>
