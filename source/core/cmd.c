@@ -7,6 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+bool is_minibat_file(const os_char *file) {
+    const os_char *dot = strrchr(file, '.');
+    if(dot == NULL) {
+        return false;
+    }
+    return !strcmp(dot + 1, "mb");
+}
+
 void cmd_init_from_str(struct cmd *res, const char *str) {
     assert(res && "NULL input");
     res->type = CMD_UNKNOWN;
@@ -93,17 +101,17 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
+    } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
+        if(arguments.argc != 1) {
+            format_error("Too many arguments\n");
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_MINIBAT;
+            args_deep_copy_init(&res->val.args, &arguments);
+        }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
-        res->val.args.background = arguments.background;
-        res->val.args.argc = arguments.argc;
-        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-        for(int i = 0; i < arguments.argc; ++i) {
-            size_t len = strlen(arguments.argv[i]);
-            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-            res->val.args.argv[i][len] = '\0';
-        }
+        args_deep_copy_init(&res->val.args, &arguments);
     }
 
     args_destroy(&arguments);
@@ -120,6 +128,9 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.name);
         free(obj->val.env.val);
         break;
+    case CMD_MINIBAT:                   // NOLINT
+        args_destroy(&(obj->val.args)); // NOLINT
+        break;                          // NOLINT
     case CMD_LAUNCH_EXECUTABLE:
         args_destroy(&(obj->val.args));
         break;
