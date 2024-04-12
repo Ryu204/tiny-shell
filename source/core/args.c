@@ -160,6 +160,20 @@ struct args *args_deep_copy(const struct args *obj) {
     return res;
 }
 
+void args_deep_copy_init(struct args *obj, const struct args *source) {
+    assert(source != NULL && "Cannot deep copy null");
+    obj->argc = source->argc;
+    obj->background = source->background;
+    obj->argv = malloc((source->argc + 1) * sizeof(os_char *));
+    for(int i = 0; i < source->argc; ++i) {
+        const unsigned int len = strlen(source->argv[i]);
+        obj->argv[i] = malloc((len + 1) * sizeof(os_char));
+        memcpy(obj->argv[i], source->argv[i], len * sizeof(os_char));
+        obj->argv[i][len] = '\0';
+    }
+    obj->argv[obj->argc] = NULL;
+}
+
 bool is_whitespace(os_char c) {
     return c == ' ' || c == '\t' || c == '\n';
 }

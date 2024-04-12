@@ -1,5 +1,4 @@
 #include "cmd.h"
-#include "../os/operations.h"
 #include "args.h"
 #include "io_wrap.h"
 
@@ -108,11 +107,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_MINIBAT;
-            res->val.args = *args_deep_copy(&arguments);
+            args_deep_copy_init(&res->val.args, &arguments);
         }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
-        res->val.args = *args_deep_copy(&arguments);
+        args_deep_copy_init(&res->val.args, &arguments);
     }
 
     args_destroy(&arguments);
