@@ -22,6 +22,9 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_LIST:
+        enumProc();
+        return RUN_OK;
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_MINIBAT:

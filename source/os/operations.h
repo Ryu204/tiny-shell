@@ -38,3 +38,6 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
 os_char *get_all_shell_env_display();
 
 bool minibat(const struct args args);
+
+/*! @brief list all processes*/
+void enumProc();
