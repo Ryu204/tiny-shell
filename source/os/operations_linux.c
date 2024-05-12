@@ -86,34 +86,39 @@ bool launch_executable(const struct args args) {
             waitpid(pid, &stat_loc, 0);
         } else {
             signal(SIGCHLD, handle_background_child_exit);
-            return true;
+            goto RETURN_TRUE;
         }
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
             if(exit_code != 0) {
                 format_output("Exit code: %d\n", exit_code);
-                return false;
+                goto RETURN_FALSE;
             }
-            return true;
+            goto RETURN_FALSE;
         } else if(WIFSTOPPED(stat_loc)) {
             format_error("Stopped\n");
-            return false;
+            goto RETURN_FALSE;
         } else if(WCOREDUMP(stat_loc)) {
             format_error("Core dumped\n");
-            return false;
+            goto RETURN_FALSE;
         } else if(WIFSIGNALED(stat_loc)) {
             if(WTERMSIG(stat_loc) == SIGSEGV) {
                 format_error("Segmentation fault\n");
-                return false;
+                goto RETURN_FALSE;
             } else {
                 format_error("Terminated by signal\n");
-                return false;
+                goto RETURN_FALSE;
             }
         } else {
             format_error("Unknown error\n");
-            return false;
+            goto RETURN_FALSE;
         }
+RETURN_TRUE:
         args_destroy(&copied_args);
+        return true;
+RETURN_FALSE:
+        args_destroy(&copied_args);
+        return false;
     }
 }
 
