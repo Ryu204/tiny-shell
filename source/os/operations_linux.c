@@ -63,17 +63,17 @@ void handle_background_child_exit(int sig) {
 
 bool launch_executable(const struct args args) {
     assert(args.argc > 0 && "Invalid args");
+    struct args copied_args; 
+    args_deep_copy_init(&copied_args, &args);
     int pid = fork();
     int stat_loc = 0;
     if(pid == -1) {
         report_error_code(errno);
+        args_destroy(&copied_args);
         return false;
     }
     if(pid == 0) {
-        struct args *copied_args = args_deep_copy(&args);
-        assert(copied_args != NULL);
-        static char *cmds[] = {"e", "a", NULL};
-        if(execvp(copied_args->argv[0], copied_args->argv) == -1) {
+        if(execvp(copied_args.argv[0], copied_args.argv) == -1) {
             report_error_code(errno);
             _exit(EXIT_FAILURE);
         }
@@ -110,6 +110,7 @@ bool launch_executable(const struct args args) {
             format_error("Unknown error\n");
             return false;
         }
+        args_destroy(&copied_args);
     }
 }
 
@@ -173,5 +174,39 @@ os_char *get_all_shell_env_display() {
     res[len] = '\0';
     return res;
 }
+
+bool minibat(const struct args args) {
+    enum { buffer_size = 300 };
+    os_char *buffer = malloc(buffer_size * sizeof(os_char));
+    if(readlink("/proc/self/exe", buffer, buffer_size) == -1) {
+        report_error_code(errno);
+        free(buffer);
+        return false;
+    }
+    // Append `"${buffer} -f "` and launch the executable
+    enum { count = 2 };
+    struct args *mod = malloc(sizeof(struct args));
+    mod->argc = count + args.argc;
+    mod->background = args.background;
+    mod->argv = malloc((mod->argc + 1) * sizeof(os_char *));
+
+    mod->argv[0] = buffer;
+
+    mod->argv[1] = malloc(3 * sizeof(os_char));
+    memcpy(mod->argv[1], "-f", 2);
+    mod->argv[1][2] = '\0';
+
+    for(int i = count; i < mod->argc; ++i) {
+        const unsigned int len = strlen(args.argv[i - count]);
+        mod->argv[i] = malloc((len + 1) * sizeof(os_char));
+        memcpy(mod->argv[i], args.argv[i - count], len);
+        mod->argv[i][len] = '\0';
+    }
+    mod->argv[mod->argc] = NULL;
+    const bool res = launch_executable(*mod);
+    args_destroy(mod);
+    free(mod);
+    return res;
+};
 
 #endif

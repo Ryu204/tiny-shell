@@ -317,8 +317,8 @@ bool minibat(const struct args args) {
     return true;
 }
 
-void enumProc(){
-     // NOLINTBEGIN
+void enumProc() {
+    // NOLINTBEGIN
     HANDLE hSnapshot = INVALID_HANDLE_VALUE;
     hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if(hSnapshot == INVALID_HANDLE_VALUE)
@@ -327,8 +327,7 @@ void enumProc(){
     PROCESSENTRY32 pe;
     pe.dwSize = sizeof(PROCESSENTRY32);
     Process32First(hSnapshot, &pe);
-    do
-    {
+    do {
         printf("PID: %6u PPID: %6u T: %3u Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
     } while(Process32Next(hSnapshot, &pe));
 
