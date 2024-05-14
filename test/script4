@@ -8,3 +8,5 @@ gcc -v
 ./segfault &
 ./return 11
 ./return 0 &
+
+list

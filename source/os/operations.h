@@ -37,4 +37,8 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
 /*! @brief Get all current environment variable */
 os_char *get_all_shell_env_display();
 
+/*! @brief List all running processes */
+bool enum_proc();
+
+/*! @brief Launch shell executable and execute the file specified by `args.argv[0]` */
 bool minibat(const struct args args);

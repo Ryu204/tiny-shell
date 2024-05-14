@@ -37,6 +37,8 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
 
     if(strcmp(name, "help") == 0) {
         res->type = CMD_HELP;
+    } else if(strcmp(name, "list") == 0) {
+        res->type = CMD_LIST;
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {

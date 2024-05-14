@@ -5,6 +5,7 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
+#include "list.h"
 #include "minibat.h"
 
 #include <assert.h>
@@ -22,6 +23,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_LIST:
+        return run_get_list_process();
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_MINIBAT:
