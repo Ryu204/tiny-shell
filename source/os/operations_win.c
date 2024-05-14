@@ -122,10 +122,22 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-void kill(PROCESS_INFORMATION pi){
-    TerminateProcess(pi.hProcess, 0);
-    CloseHandle(pi.hThread);
-    CloseHandle(pi.hProcess);
+bool kill(const struct args args){
+    int processID = atoi(args.argv[1]);
+    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
+
+    if (hProcess == NULL){
+        CloseHandle(hProcess);
+        format_error("Error: NULL handle.\n");
+        return false;
+    } else if (TerminateProcess(hProcess, 0)){
+        CloseHandle(hProcess);
+        return true;
+    } else {
+        CloseHandle(hProcess);
+        format_error("Cannot find this process with id = %d\n.", processID);
+        return false;
+    }
 }
 
 bool launch_executable(const struct args args) {

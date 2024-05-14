@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Kill a process */
-enum run_result run_kill(PROCESS_INFORMATION pi);
+enum run_result run_kill(const struct args args);
