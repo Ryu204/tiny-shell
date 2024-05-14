@@ -5,8 +5,8 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
-#include "minibat.h"
 #include "list.h"
+#include "minibat.h"
 
 #include <assert.h>
 #include <stdbool.h>

@@ -113,10 +113,10 @@ bool launch_executable(const struct args args) {
             format_error("Unknown error\n");
             goto RETURN_FALSE;
         }
-RETURN_TRUE:
+    RETURN_TRUE:
         args_destroy(&copied_args);
         return true;
-RETURN_FALSE:
+    RETURN_FALSE:
         args_destroy(&copied_args);
         return false;
     }
@@ -194,7 +194,7 @@ bool is_number(const char *c) {
     return true;
 }
 
-void enumProc() {
+bool enum_proc() {
     DIR *procdir = NULL;
     struct dirent *entry = NULL;
     char path[PATH_MAX];
@@ -204,7 +204,7 @@ void enumProc() {
     if(procdir == NULL) {
         format_error("Cannot open /proc");
         report_error_code(errno);
-        return;
+        return false;
     }
     // Loop through entries in /proc
     // NOLINTNEXTLINE
@@ -266,6 +266,7 @@ void enumProc() {
         fclose(statusfile);
     }
     closedir(procdir);
+    return true;
 }
 
 bool minibat(const struct args args) {
