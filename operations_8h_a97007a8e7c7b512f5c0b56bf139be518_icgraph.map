@@ -1,5 +1,5 @@
 <map id="minibat" name="minibat">
-<area shape="rect" id="Node000001" title=" " alt="" coords="389,5,453,31"/>
+<area shape="rect" id="Node000001" title="Launch shell executable and execute the file specified by args.argv[0]" alt="" coords="389,5,453,31"/>
 <area shape="rect" id="Node000002" href="$minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1" title="Run the executable foreground." alt="" coords="253,5,341,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,21,342,21,342,16,374,16"/>
 <area shape="rect" id="Node000003" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>

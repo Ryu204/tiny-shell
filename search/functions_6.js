@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
-  ['minibat_1',['minibat',['../operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518',1,'operations.h']]]
+  ['last_5frun_5fstatus_0',['last_run_status',['../io__wrap_8c.html#af715a04fd9342804225de608eff64b60',1,'io_wrap.c']]],
+  ['launch_5fexecutable_1',['launch_executable',['../operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4',1,'operations.h']]]
 ];
