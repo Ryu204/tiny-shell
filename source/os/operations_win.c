@@ -317,12 +317,12 @@ bool minibat(const struct args args) {
     return true;
 }
 
-void enumProc() {
+bool enum_proc() {
     // NOLINTBEGIN
     HANDLE hSnapshot = INVALID_HANDLE_VALUE;
     hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if(hSnapshot == INVALID_HANDLE_VALUE)
-        return;
+        return false;
 
     PROCESSENTRY32 pe;
     pe.dwSize = sizeof(PROCESSENTRY32);
@@ -333,6 +333,7 @@ void enumProc() {
 
     CloseHandle(hSnapshot);
     // NOLINTEND
+    return true;
 }
 
 #endif
