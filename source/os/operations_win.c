@@ -123,6 +123,10 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool kill(const struct args args){
+    if (args.argc < 2) {
+        format_error("Error: There's no input process ID. \n");
+        return false;
+    }
     int processID = atoi(args.argv[1]);
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
 
@@ -135,7 +139,7 @@ bool kill(const struct args args){
         return true;
     } else {
         CloseHandle(hProcess);
-        format_error("Cannot find this process with id = %d\n.", processID);
+        format_error("Can't find this process with id = %d\n.", processID);
         return false;
     }
 }

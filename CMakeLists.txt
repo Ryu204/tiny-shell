@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(tiny-shell LANGUAGES C VERSION 0.2)
+project(tiny-shell LANGUAGES C VERSION 0.1)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED true)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../os/type.h"
+#include "../core/args.h"
 #include "res.h"
 
 /*! @brief Kill a process */

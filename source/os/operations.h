@@ -18,7 +18,7 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief Kill a process */
-void kill(PROCESS_INFORMATION pi);
+bool kill(const struct args args);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
