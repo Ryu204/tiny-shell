@@ -6,6 +6,8 @@
 #include "help.h"
 #include "launch_executable.h"
 #include "kill.h"
+#include "resume.h"
+#include "child_processes.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -42,6 +44,10 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_INVALID_SYNTAX:
         format_output("%s", "Invalid syntax. Use \"help\" for more information\n");
         return RUN_FAILED;
+    case CMD_RESUME:
+        return run_resume(cmd->val.args);
+    case CMD_CHILD_PROCESSES:
+        return run_child_processes(cmd->val.args);
     default:
         assert(false && "unimplemented command");
         return RUN_FAILED;

@@ -20,6 +20,12 @@ void clear_screen();
 /*! @brief Kill a process */
 bool kill(const struct args args);
 
+/*! @brief Resume running a process */
+bool resume(const struct args args);
+
+/*! @brief Show child processes */
+bool showChildProcesses(const struct args args);
+
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
 

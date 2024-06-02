@@ -21,7 +21,9 @@ enum cmd_type {
     CMD_GET_ENV,
 
     CMD_LAUNCH_EXECUTABLE,
-    CMD_KILL
+    CMD_KILL,
+    CMD_RESUME,
+    CMD_CHILD_PROCESSES
 };
 
 /**

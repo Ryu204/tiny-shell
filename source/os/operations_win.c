@@ -6,6 +6,7 @@
 
 #    include <WinBase.h>
 #    include <stdio.h>
+#    include <tlhelp32.h>
 
 void report_error_code(DWORD err);
 
@@ -124,24 +125,100 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 
 bool kill(const struct args args){
     if (args.argc < 2) {
-        format_error("Error: There's no input process ID. \n");
+        format_error("There's no input process ID. \n");
         return false;
     }
-    int processID = atoi(args.argv[1]);
+    DWORD processID = atoi(args.argv[1]);
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
 
     if (hProcess == NULL){
         CloseHandle(hProcess);
-        format_error("Error: NULL handle.\n");
+        format_error("NULL handle.\n");
         return false;
     } else if (TerminateProcess(hProcess, 0)){
         CloseHandle(hProcess);
+        format_output("Process with ID %d is terminated.\n", processID);
         return true;
     } else {
         CloseHandle(hProcess);
         format_error("Can't find this process with id = %d\n.", processID);
         return false;
     }
+}
+
+bool resume(const struct args args) {
+    if (args.argc < 2) {
+        format_error("There's no input process ID. \n");
+        return false;
+    }
+    int processID = atoi(args.argv[1]);
+    int flag = 0;
+
+    HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
+    threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+    if (threadsSnapshot == INVALID_HANDLE_VALUE) {
+        format_error("Invalid handle value.\n");
+        return false;
+    }
+    THREADENTRY32 threadEntry;
+    threadEntry.dwSize = sizeof(THREADENTRY32);
+    Thread32First(threadsSnapshot, &threadEntry);
+    do {
+        if (threadEntry.th32OwnerProcessID == processID) {
+            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE,
+                threadEntry.th32ThreadID);
+            ResumeThread(hThread);
+            CloseHandle(hThread);
+            flag = 1;
+        }
+    } while(Thread32Next(threadsSnapshot, &threadEntry));
+
+    if (flag) {
+        format_output("Resume running process with ID %d", processID);
+        return true;
+    }
+    format_error("Can't find process with ID %d", processID);
+    return false;
+}
+
+bool showChildProcesses(const struct args args)
+{
+    if (args.argc < 4) {
+        format_error("Wrong command.\n");
+        return false;
+    }
+    if (args.argc < 5) {
+        format_error("There's no input process ID. \n");
+        return false;
+    }
+    DWORD processID = atoi(args.argv[1]); 
+
+    HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcess == INVALID_HANDLE_VALUE) {
+        format_error("Invalid handlde value");
+        return false;
+    }
+
+    PROCESSENTRY32 pe;
+    pe.dwSize = sizeof(PROCESSENTRY32);
+    Process32First(hProcess, &pe);
+
+    int countChildProcess = 0;
+    do
+    {
+        if (pe.th32ParentProcessID == processID)
+        {
+            format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID, 
+                          pe.cntThreads, pe.szExeFile);
+            countChildProcess++;
+        }
+    } while (Process32Next(hProcess, &pe));
+
+    CloseHandle(hProcess);
+    if (!countChildProcess) {
+        format_output("Process %d doesn't have any child processes.\n");
+    }
+    return true;
 }
 
 bool launch_executable(const struct args args) {

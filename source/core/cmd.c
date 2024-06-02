@@ -103,6 +103,27 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
             res->val.args.argv[i][len] = '\0';
         }
+    } else if(strcmp(name, "resume") == 0) {
+        res->type = CMD_RESUME;
+        res->val.args.argc = arguments.argc;
+        res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
+        for(int i = 0; i < arguments.argc; ++i) {
+            size_t len = strlen(arguments.argv[i]);
+            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+            res->val.args.argv[i][len] = '\0';
+        }
+    } else if(strcmp(name, "child") == 0) {
+        res->type = CMD_CHILD_PROCESSES;
+        res->val.args.background = arguments.background;
+        res->val.args.argc = arguments.argc;
+        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
+        for(int i = 0; i < arguments.argc; ++i) {
+            size_t len = strlen(arguments.argv[i]);
+            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+            res->val.args.argv[i][len] = '\0';
+        }
     } else {
         res->type = CMD_LAUNCH_EXECUTABLE;
         res->val.args.background = arguments.background;
