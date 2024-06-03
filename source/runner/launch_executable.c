@@ -4,9 +4,7 @@
 #include <stdbool.h>
 
 void handler(int sig) {
-    if (sig == SIGINT) {
-        printf("Dectect SIGINT\n");
-    }
+    return;
 }
 
 enum run_result run_launch_executable(const struct args args) {
