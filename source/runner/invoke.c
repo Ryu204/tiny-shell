@@ -5,6 +5,10 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
+#include "kill.h"
+#include "child_processes.h"
+#include "resume.h"
+#include "minibat.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -21,6 +25,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_KILL:
+        return run_kill(cmd->val.args);
     case CMD_LIST:
         return run_get_list_process();
     case CMD_LAUNCH_EXECUTABLE:

@@ -124,10 +124,6 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool kill(const struct args args){
-    if (args.argc < 2) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
     DWORD processID = atoi(args.argv[1]);
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
 
@@ -147,10 +143,6 @@ bool kill(const struct args args){
 }
 
 bool resume(const struct args args) {
-    if (args.argc < 2) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
     int processID = atoi(args.argv[1]);
     int flag = 0;
 
@@ -181,21 +173,12 @@ bool resume(const struct args args) {
     return false;
 }
 
-bool showChildProcesses(const struct args args)
-{
-    if (args.argc < 4) {
-        format_error("Wrong command.\n");
-        return false;
-    }
-    if (args.argc < 5) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
-    DWORD processID = atoi(args.argv[1]); 
+bool showChildProcesses(const struct args args) {
+    int processID = atoi(args.argv[1]); 
 
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcess == INVALID_HANDLE_VALUE) {
-        format_error("Invalid handlde value");
+        format_error("Invalid handle value");
         return false;
     }
 
@@ -203,20 +186,25 @@ bool showChildProcesses(const struct args args)
     pe.dwSize = sizeof(PROCESSENTRY32);
     Process32First(hProcess, &pe);
 
-    int countChildProcess = 0;
-    do
-    {
-        if (pe.th32ParentProcessID == processID)
-        {
+    int countChildProcess = 0, flag = 0;
+    do {
+        if (pe.th32ParentProcessID == processID) {
             format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID, 
                           pe.cntThreads, pe.szExeFile);
             countChildProcess++;
         }
+        if (pe.th32ProcessID == processID) {
+            flag = 1;
+        }
     } while (Process32Next(hProcess, &pe));
-
     CloseHandle(hProcess);
+
+    if (!flag) {
+        format_output("There's no process with ID %d. \n", processID);
+        return false;
+    }
     if (!countChildProcess) {
-        format_output("Process %d doesn't have any child processes.\n");
+        format_output("Process %d doesn't have any child processes.\n", processID);
     }
     return true;
 }
