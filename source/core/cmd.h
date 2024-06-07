@@ -20,6 +20,8 @@ enum cmd_type {
     CMD_UNSET_ENV,
     CMD_GET_ENV,
 
+    CMD_ADD_PATH,
+
     CMD_LIST,
 
     CMD_MINIBAT,
@@ -34,6 +36,7 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
+        os_char *new_path;
         struct {
             os_char *name;
             os_char *val;
