@@ -8,6 +8,7 @@
 #    include <stdio.h>
 #    include <tlhelp32.h>
 #    include <shlwapi.h>
+#    include <string.h>
 
 void report_error_code(DWORD err);
 
@@ -327,12 +328,12 @@ bool add_path(const os_char *new_path) {
         return false;
     }
     
-    if (StrStr(buffer, new_path) != NULL) {
+    if (strstr(buffer, new_path) != NULL) {
         format_output("The path %s is already in the PATH environment variable.\n", new_path);
     }
 
-    StrCat(buffer, new_path);
-    StrCat(buffer, ";");
+    strcat(buffer, new_path);
+    strcat(buffer, ";");
 
     if (!set_shell_env("PATH", buffer)) {
         format_error("Failed to set the PATH environment variable!\n");
