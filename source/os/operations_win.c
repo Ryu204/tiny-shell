@@ -124,10 +124,6 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool kill(const struct args args){
-    if (args.argc < 2) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
     DWORD processID = atoi(args.argv[1]);
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
 
@@ -147,10 +143,6 @@ bool kill(const struct args args){
 }
 
 bool resume(const struct args args) {
-    if (args.argc < 2) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
     int processID = atoi(args.argv[1]);
     int flag = 0;
 
@@ -181,16 +173,7 @@ bool resume(const struct args args) {
     return false;
 }
 
-bool showChildProcesses(const struct args args)
-{
-    if (args.argc < 4) {
-        format_error("Wrong command.\n");
-        return false;
-    }
-    if (args.argc < 5) {
-        format_error("There's no input process ID. \n");
-        return false;
-    }
+bool showChildProcesses(const struct args args) {
     DWORD processID = atoi(args.argv[1]); 
 
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);

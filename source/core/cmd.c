@@ -104,35 +104,46 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         }
     } else if(strcmp(name, "kill") == 0) {
-        res->type = CMD_KILL;
-        res->val.args.argc = arguments.argc;
-        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-        for(int i = 0; i < arguments.argc; ++i) {
-            size_t len = strlen(arguments.argv[i]);
-            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-            res->val.args.argv[i][len] = '\0';
+        if (arguments.argc < 2 || arguments.argc > 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_KILL;
+            res->val.args.argc = arguments.argc;
+            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
+            for(int i = 0; i < arguments.argc; ++i) {
+                size_t len = strlen(arguments.argv[i]);
+                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+                res->val.args.argv[i][len] = '\0';
+            }
         }
     } else if(strcmp(name, "resume") == 0) {
-        res->type = CMD_RESUME;
-        res->val.args.argc = arguments.argc;
-        res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
-        for(int i = 0; i < arguments.argc; ++i) {
-            size_t len = strlen(arguments.argv[i]);
-            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-            res->val.args.argv[i][len] = '\0';
+        if (arguments.argc < 2 || arguments.argc > 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_RESUME;
+            res->val.args.argc = arguments.argc;
+            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
+            for(int i = 0; i < arguments.argc; ++i) {
+                size_t len = strlen(arguments.argv[i]);
+                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+                res->val.args.argv[i][len] = '\0';
+            }
         }
     } else if(strcmp(name, "child") == 0) {
-        res->type = CMD_CHILD_PROCESSES;
-        res->val.args.background = arguments.background;
-        res->val.args.argc = arguments.argc;
-        res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-        for(int i = 0; i < arguments.argc; ++i) {
-            size_t len = strlen(arguments.argv[i]);
-            res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-            memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-            res->val.args.argv[i][len] = '\0';
+        if (arguments.argc < 2 || arguments.argc > 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_CHILD_PROCESSES;
+            res->val.args.argc = arguments.argc;
+            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
+            for(int i = 0; i < arguments.argc; ++i) {
+                size_t len = strlen(arguments.argv[i]);
+                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
+                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
+                res->val.args.argv[i][len] = '\0';
+            }
         }
     } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
         if(arguments.argc != 1) {
