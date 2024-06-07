@@ -7,6 +7,7 @@
 #include "launch_executable.h"
 #include "list.h"
 #include "minibat.h"
+#include "add_path.h"
 
 #include <assert.h>
 #include <stdbool.h>
