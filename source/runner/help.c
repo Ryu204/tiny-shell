@@ -9,6 +9,7 @@ enum run_result run_help() {
                   "\"kill\":    kill a process\n"
                   "\"resume\":  resume running a process\n"
                   "\"child\":   show all child processes\n"
+                  "\"list\":    list all running processes\n"
                   "\"lsdir\":   list of files or folders in specific directory\n");
     return RUN_OK;
 }

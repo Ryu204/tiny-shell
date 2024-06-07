@@ -6,6 +6,7 @@
 #include "help.h"
 #include "launch_executable.h"
 #include "kill.h"
+#include "list.h"
 #include "child_processes.h"
 #include "resume.h"
 #include "minibat.h"
