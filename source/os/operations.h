@@ -17,6 +17,9 @@ bool change_cwd(const os_char *new_dir);
 /*! @brief Clear the console */
 void clear_screen();
 
+/*! @brief List of files or folders in specific directory */
+bool lsdir(const struct args args);
+
 /*! @brief Kill a process */
 bool kill(const struct args args);
 

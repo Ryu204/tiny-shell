@@ -9,6 +9,7 @@
 #include "child_processes.h"
 #include "resume.h"
 #include "minibat.h"
+#include "lsdir.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -25,6 +26,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_LSDIR:
+        return run_lsdir(cmd->val.args);
     case CMD_KILL:
         return run_kill(cmd->val.args);
     case CMD_LIST:
