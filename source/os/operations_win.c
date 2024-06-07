@@ -332,8 +332,8 @@ bool add_path(const os_char *new_path) {
         format_output("The path %s is already in the PATH environment variable.\n", new_path);
     }
 
-    strcat(buffer, new_path);
-    strcat(buffer, ";");
+    strncat(buffer, new_path, strlen(new_path));
+    strncat(buffer, ";", 2);
 
     if (!set_shell_env("PATH", buffer)) {
         format_error("Failed to set the PATH environment variable!\n");
