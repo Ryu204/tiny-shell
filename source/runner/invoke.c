@@ -5,10 +5,7 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
-#include "kill.h"
 #include "list.h"
-#include "child_processes.h"
-#include "resume.h"
 #include "minibat.h"
 #include "lsdir.h"
 
@@ -29,8 +26,6 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_OK;
     case CMD_LSDIR:
         return run_lsdir(cmd->val.args);
-    case CMD_KILL:
-        return run_kill(cmd->val.args);
     case CMD_LIST:
         return run_get_list_process();
     case CMD_LAUNCH_EXECUTABLE:
@@ -51,10 +46,6 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_INVALID_SYNTAX:
         format_output("%s", "Invalid syntax. Use \"help\" for more information\n");
         return RUN_FAILED;
-    case CMD_RESUME:
-        return run_resume(cmd->val.args);
-    case CMD_CHILD_PROCESSES:
-        return run_child_processes(cmd->val.args);
     default:
         assert(false && "unimplemented command");
         return RUN_FAILED;

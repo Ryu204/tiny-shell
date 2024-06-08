@@ -25,10 +25,7 @@ enum cmd_type {
     CMD_MINIBAT,
 
     CMD_LAUNCH_EXECUTABLE,
-    CMD_LSDIR,
-    CMD_KILL,
-    CMD_RESUME,
-    CMD_CHILD_PROCESSES
+    CMD_LSDIR
 };
 
 /**
