@@ -7,8 +7,11 @@
 #    include <WinBase.h>
 #    include <stdio.h>
 #    include <tlhelp32.h>
+<<<<<<< HEAD
 #    include <string.h>
 #    include <dirent.h>
+=======
+>>>>>>> 4e8ccafcb3433e4fcc5d95479a738d79199bc8f2
 
 void report_error_code(DWORD err);
 
