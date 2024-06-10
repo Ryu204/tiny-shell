@@ -39,6 +39,22 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         res->type = CMD_HELP;
     } else if(strcmp(name, "list") == 0) {
         res->type = CMD_LIST;
+    } else if(strcmp(name, "date")==0){
+        res->type = CMD_DATE;
+    } else if(strcmp(name, "time")==0){
+        res->type = CMD_TIME;
+    } else if(strcmp(name, "stop")==0){
+        if (arguments.argc < 2 || arguments.argc > 2){
+            res->type = CMD_INVALID_SYNTAX;
+        } else{
+            res->type = CMD_STOP_PROC;
+            res->val.args.argc = arguments.argc -1 ;
+            res->val.args.argv = malloc(sizeof(os_char*));
+            const unsigned int id_len = strlen(arguments.argv[1]);
+            res->val.args.argv[0] = malloc((id_len + 1)*sizeof(os_char));
+            memcpy(res->val.args.argv[0], arguments.argv[1], id_len*sizeof(os_char));
+            res->val.args.argv[0][id_len] ='\0';            
+        }
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {

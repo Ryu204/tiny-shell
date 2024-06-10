@@ -7,6 +7,7 @@
 #    include <WinBase.h>
 #    include <stdio.h>
 #    include <tlhelp32.h>
+#    include <wchar.h>
 
 void report_error_code(DWORD err);
 
@@ -334,6 +335,53 @@ bool enum_proc() {
     CloseHandle(hSnapshot);
     // NOLINTEND
     return true;
+}
+
+bool get_time(){
+    SYSTEMTIME st  = {0};
+    GetLocalTime(&st);
+
+    wprintf(L"The current time is: %02d:%02d:%02d.\n", st.wHour, st.wMinute, st.wSecond);
+    return true;
+}
+
+bool get_date(){
+    SYSTEMTIME st = {0};
+    GetLocalTime(&st);
+
+    wprintf(L"The current date is: %02d/%02d/%04d.\n", st.wDay, st.wMonth, st.wYear);
+    return true;
+}
+
+bool stop_proccess(const struct args args){
+    int processID = atoi(args.argv[0]);
+    int flag = 0;
+
+    HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
+    threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+    if (threadsSnapshot == INVALID_HANDLE_VALUE) {
+        format_error("Invalid handle value.\n");
+        return false;
+    }
+    THREADENTRY32 threadEntry;
+    threadEntry.dwSize = sizeof(THREADENTRY32);
+    Thread32First(threadsSnapshot, &threadEntry);
+
+    do{
+        if (threadEntry.th32OwnerProcessID == processID){
+            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, threadEntry.th32ThreadID);
+            SuspendThread(hThread);
+            CloseHandle(hThread);
+            flag = 1;
+        }
+    } while(Thread32Next(threadsSnapshot, &threadEntry));
+
+    if(flag){
+        format_output("Stop running process with ID %d", processID);
+        return true;
+    }
+    format_error("Can't find process with ID %d", processID);
+    return false;
 }
 
 #endif

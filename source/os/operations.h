@@ -40,5 +40,14 @@ os_char *get_all_shell_env_display();
 /*! @brief List all running processes */
 bool enum_proc();
 
+/*! @brief Get current time*/
+bool get_time();
+
+/*! @brief Get current date*/
+bool get_date();
+
+/*! @brief Stop a process use it ID*/
+bool stop_proccess(const struct args args);
+
 /*! @brief Launch shell executable and execute the file specified by `args.argv[0]` */
 bool minibat(const struct args args);

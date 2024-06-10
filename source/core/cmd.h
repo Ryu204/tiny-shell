@@ -22,6 +22,11 @@ enum cmd_type {
 
     CMD_LIST,
 
+    CMD_DATE,
+    CMD_TIME,
+
+    CMD_STOP_PROC,
+
     CMD_MINIBAT,
 
     CMD_LAUNCH_EXECUTABLE,

@@ -7,6 +7,8 @@
 #include "launch_executable.h"
 #include "list.h"
 #include "minibat.h"
+#include "datetime.h"
+#include "stop.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -25,6 +27,12 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_OK;
     case CMD_LIST:
         return run_get_list_process();
+    case CMD_TIME:
+        return run_get_time();
+    case CMD_DATE:
+        return run_get_date();
+    case CMD_STOP_PROC:
+        return run_stop(cmd->val.args);
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_MINIBAT:
