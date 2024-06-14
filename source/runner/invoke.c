@@ -5,6 +5,7 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
+#include "del.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -18,6 +19,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_EXIT;
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
+    case CMD_DEL:
+        return run_del(cmd->val.args);
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
