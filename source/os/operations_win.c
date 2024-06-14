@@ -6,6 +6,7 @@
 
 #    include <WinBase.h>
 #    include <stdio.h>
+#    include <tlhelp32.h>
 
 void report_error_code(DWORD err);
 
@@ -174,7 +175,12 @@ bool launch_executable(const struct args args) {
     if(!args.background) {
         WaitForSingleObject(pi.hProcess, INFINITE);
         DWORD exit_code = 0;
-#define exit_cleanup(res) { CloseHandle(pi.hProcess); CloseHandle(pi.hThread); return res; }
+#    define exit_cleanup(res) \
+        { \
+            CloseHandle(pi.hProcess); \
+            CloseHandle(pi.hThread); \
+            return res; \
+        }
         if(GetExitCodeProcess(pi.hProcess, &exit_code) == 0) {
             report_error_code(GetLastError());
             exit_cleanup(false);
@@ -193,7 +199,7 @@ bool launch_executable(const struct args args) {
     CloseHandle(pi.hThread);
 
     exit_cleanup(true);
-#undef exit_cleanup
+#    undef exit_cleanup
 }
 
 bool set_shell_env(const os_char *name, const os_char *val) {
@@ -254,6 +260,90 @@ os_char *get_all_shell_env_display() {
 
     *(res + res_len) = '\0';
     return res;
+}
+
+bool minibat(const struct args args) {
+    const os_char *file = args.argv[0];
+
+    SECURITY_ATTRIBUTES sa;
+    sa.nLength = sizeof(sa);
+    sa.lpSecurityDescriptor = NULL;
+    sa.bInheritHandle = TRUE;
+
+    HANDLE hFIle = CreateFile(
+        file,
+        GENERIC_READ,
+        FILE_SHARE_READ,
+        &sa,
+        OPEN_EXISTING,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL);
+
+    if(hFIle == INVALID_HANDLE_VALUE) {
+        format_error("Cannot open file %s, exit code: %d!\n", file, GetLastError());
+        return false;
+    }
+
+    PROCESS_INFORMATION pi;
+    STARTUPINFO si;
+    BOOL ret = 0;
+
+    ZeroMemory(&pi, sizeof(PROCESS_INFORMATION));
+    ZeroMemory(&si, sizeof(STARTUPINFO));
+
+    si.cb = sizeof(STARTUPINFO);
+    si.dwFlags |= STARTF_USESTDHANDLES;
+    si.hStdInput = hFIle;
+    si.hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+    si.hStdError = GetStdHandle(STD_ERROR_HANDLE);
+
+    ret = CreateProcess(
+        NULL,
+        "tiny-shell.exe -s",
+        NULL,
+        NULL,
+        TRUE,
+        0,
+        NULL,
+        NULL,
+        &si,
+        &pi);
+
+    if(!ret) {
+        format_error("Cannot create process %s, exit code: %d!\n", file, GetLastError());
+        CloseHandle(hFIle);
+        return false;
+    }
+
+    if(!args.background) {
+        WaitForSingleObject(pi.hProcess, INFINITE);
+    }
+
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    CloseHandle(hFIle);
+
+    return true;
+}
+
+bool enum_proc() {
+    // NOLINTBEGIN
+    HANDLE hSnapshot = INVALID_HANDLE_VALUE;
+    hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if(hSnapshot == INVALID_HANDLE_VALUE)
+        return false;
+
+    PROCESSENTRY32 pe;
+    pe.dwSize = sizeof(PROCESSENTRY32);
+    Process32First(hSnapshot, &pe);
+    do {
+        printf("PID: %6u PPID: %6u T: %3u Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
+    } while(Process32Next(hSnapshot, &pe));
+
+    CloseHandle(hSnapshot);
+    // NOLINTEND
+    return true;
 }
 
 #endif

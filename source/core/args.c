@@ -152,14 +152,28 @@ struct args *args_deep_copy(const struct args *obj) {
     res->argv = malloc((obj->argc + 1) * sizeof(os_char *));
     for(int i = 0; i < obj->argc; ++i) {
         const unsigned int len = strlen(obj->argv[i]);
-        res->argv[i] = malloc(len + 1);
-        memcpy(res->argv[i], obj->argv[i], len);
+        res->argv[i] = malloc((len + 1) * sizeof(os_char));
+        memcpy(res->argv[i], obj->argv[i], len * sizeof(os_char));
         res->argv[i][len] = '\0';
     }
-    res->argv[res->argc] = NULL;
+    res->argv[obj->argc] = NULL;
     return res;
 }
 
-bool is_whitespace(char c) {
+void args_deep_copy_init(struct args *obj, const struct args *source) {
+    assert(source != NULL && "Cannot deep copy null");
+    obj->argc = source->argc;
+    obj->background = source->background;
+    obj->argv = malloc((source->argc + 1) * sizeof(os_char *));
+    for(int i = 0; i < source->argc; ++i) {
+        const unsigned int len = strlen(source->argv[i]);
+        obj->argv[i] = malloc((len + 1) * sizeof(os_char));
+        memcpy(obj->argv[i], source->argv[i], len * sizeof(os_char));
+        obj->argv[i][len] = '\0';
+    }
+    obj->argv[obj->argc] = NULL;
+}
+
+bool is_whitespace(os_char c) {
     return c == ' ' || c == '\t' || c == '\n';
 }

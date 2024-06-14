@@ -20,7 +20,9 @@ enum cmd_type {
     CMD_UNSET_ENV,
     CMD_GET_ENV,
     CMD_DEL,
-    CMD_LAUNCH_EXECUTABLE
+    CMD_LAUNCH_EXECUTABLE,
+    CMD_LIST,
+    CMD_MINIBAT
 };
 
 /**
