@@ -76,7 +76,7 @@ bool launch_executable(const struct args args) {
         return false;
     }
     if(pid == 0) {
-        if (!args.background) 
+        if(!args.background)
             signal(SIGINT, SIG_DFL);
         if(execvp(copied_args.argv[0], copied_args.argv) == -1) {
             report_error_code(errno);
