@@ -93,14 +93,15 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 <a href="launch__executable_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="launch__executable_8h.html">launch_executable.h</a>&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">    3</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> <a class="code hl_function" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structargs.html">args</a> <a class="code hl_struct" href="structargs.html">args</a>) {</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a>(<a class="code hl_struct" href="structargs.html">args</a>);</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">    4</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> <a class="code hl_function" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structargs.html">args</a> <a class="code hl_struct" href="structargs.html">args</a>) {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a>(<a class="code hl_struct" href="structargs.html">args</a>);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
 </div>
-<div class="ttc" id="alaunch__executable_8c_html_a38bdf888e2bfa84a9bcceedf5c037f76"><div class="ttname"><a href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a></div><div class="ttdeci">enum run_result run_launch_executable(const struct args args)</div><div class="ttdoc">Run the executable foreground.</div><div class="ttdef"><b>Definition</b> <a href="#l00003">launch_executable.c:3</a></div></div>
+<div class="ttc" id="alaunch__executable_8c_html_a38bdf888e2bfa84a9bcceedf5c037f76"><div class="ttname"><a href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a></div><div class="ttdeci">enum run_result run_launch_executable(const struct args args)</div><div class="ttdoc">Run the executable foreground.</div><div class="ttdef"><b>Definition</b> <a href="#l00004">launch_executable.c:4</a></div></div>
 <div class="ttc" id="alaunch__executable_8h_html"><div class="ttname"><a href="launch__executable_8h.html">launch_executable.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html_ad0cc1052b5acb162570f973f50ffd0e4"><div class="ttname"><a href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4">launch_executable</a></div><div class="ttdeci">bool launch_executable(const struct args args)</div><div class="ttdoc">Launch the executable.</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35e"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a></div><div class="ttdeci">run_result</div><div class="ttdoc">Result of the execution of a command line.</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00006">res.h:6</a></div></div>
@@ -110,7 +111,7 @@ $(function(){ initResizable(false); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 2 2024 15:26:24 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Sun Jun 16 2024 16:23:54 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>
