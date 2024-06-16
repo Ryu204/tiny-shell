@@ -8,6 +8,7 @@
 #    include <stdio.h>
 #    include <signal.h>
 #    include <tlhelp32.h>
+#    include <signal.h>
 
 void report_error_code(DWORD err);
 
@@ -125,8 +126,10 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool launch_executable(const struct args args) {
-    if (!args.background)
+    if (!args.background) {
         signal(SIGINT, SIG_IGN);
+    }
+
     os_char *command_line = NULL;
 
     extract_from_args(args, &command_line);
