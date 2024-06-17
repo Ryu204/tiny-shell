@@ -108,15 +108,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_DEL;
-            res->val.args.background = arguments.background;
-            res->val.args.argc = arguments.argc;
-            res->val.args.argv = malloc(arguments.argc * sizeof(os_char *));
-            for(int i = 0; i < arguments.argc; ++i) {
-                size_t len = strlen(arguments.argv[i]);
-                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-                res->val.args.argv[i][len] = '\0';
-            }
+
+            const unsigned int dir_len = strlen(arguments.argv[1]);
+            res->val.dir = malloc(dir_len + 1);
+            memcpy(res->val.dir, arguments.argv[1], dir_len);
+            res->val.dir[dir_len] = '\0';
         }
     } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
         if(arguments.argc != 1) {
@@ -146,7 +142,7 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.val);
         break;
     case CMD_DEL:
-        args_destroy(&(obj->val.args));
+        free(obj->val.dir);
         break;
     case CMD_MINIBAT:                   // NOLINT
         args_destroy(&(obj->val.args)); // NOLINT

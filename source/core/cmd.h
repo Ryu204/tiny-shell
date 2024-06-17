@@ -32,6 +32,7 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
+        os_char *dir;
         struct {
             os_char *name;
             os_char *val;

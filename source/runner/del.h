@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Run the executable foreground */
-enum run_result run_del(const struct args args);
+enum run_result run_del(const os_char *dir);

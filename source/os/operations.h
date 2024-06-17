@@ -18,7 +18,7 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief Delete the directory */
-bool del(const struct args args);
+bool del(const os_char *dir);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);

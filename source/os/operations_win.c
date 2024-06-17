@@ -123,12 +123,12 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool del(const struct args args) {
-    if (DeleteFile(args.argv[1])) {
+bool del(const os_char *dir) {
+    if (DeleteFile(dir)) {
         format_output("File removed successfully.\n");
         return true;
     } else
-        format_error("Unable to remove directory: %s\n", args.argv[1]);
+        format_error("Unable to remove directory %s\n", dir);
 
     return false;
 }
