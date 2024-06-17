@@ -3,6 +3,7 @@
 #include "../core/io_wrap.h"
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 #ifdef _WIN32
 #define SEPARATOR ";"
@@ -44,8 +45,8 @@ bool in_path_env(const os_char *path_env, const os_char *new_path) {
 }
 
 bool add_path(const os_char *new_path) {
-    CHAR buffer[SHRT_MAX];
-    DWORD bufferSize = sizeof(buffer) / sizeof(CHAR);
+    char buffer[SHRT_MAX];
+    unsigned int bufferSize = sizeof(buffer) / sizeof(char);
     
     if (!get_shell_env("PATH", bufferSize, buffer)) {
         format_error("Fail to get PATH environment variable!\n");
