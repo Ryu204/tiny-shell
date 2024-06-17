@@ -108,42 +108,33 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_KILL;
-            res->val.args.argc = arguments.argc;
-            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
-            for(int i = 0; i < arguments.argc; ++i) {
-                size_t len = strlen(arguments.argv[i]);
-                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-                res->val.args.argv[i][len] = '\0';
-            }
+            
+            const unsigned int id_len = strlen(arguments.argv[1]);
+            res->val.proc_id = malloc(id_len + 1);
+            memcpy(res->val.proc_id, arguments.argv[1], id_len);
+            res->val.proc_id[id_len] = '\0';
         }
     } else if(strcmp(name, "resume") == 0) {
         if (arguments.argc < 2 || arguments.argc > 2) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_RESUME;
-            res->val.args.argc = arguments.argc;
-            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
-            for(int i = 0; i < arguments.argc; ++i) {
-                size_t len = strlen(arguments.argv[i]);
-                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-                res->val.args.argv[i][len] = '\0';
-            }
+            
+            const unsigned int id_len = strlen(arguments.argv[1]);
+            res->val.proc_id = malloc(id_len + 1);
+            memcpy(res->val.proc_id, arguments.argv[1], id_len);
+            res->val.proc_id[id_len] = '\0';
         }
     } else if(strcmp(name, "child") == 0) {
         if (arguments.argc < 2 || arguments.argc > 2) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_CHILD_PROCESSES;
-            res->val.args.argc = arguments.argc;
-            res->val.args.argv = malloc(arguments.argc * sizeof(os_char*));
-            for(int i = 0; i < arguments.argc; ++i) {
-                size_t len = strlen(arguments.argv[i]);
-                res->val.args.argv[i] = malloc((len + 1) * sizeof(os_char));
-                memcpy(res->val.args.argv[i], arguments.argv[i], len * sizeof(os_char));
-                res->val.args.argv[i][len] = '\0';
-            }
+
+            const unsigned int id_len = strlen(arguments.argv[1]);
+            res->val.proc_id = malloc(id_len + 1);
+            memcpy(res->val.proc_id, arguments.argv[1], id_len);
+            res->val.proc_id[id_len] = '\0';
         }
     } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
         if(arguments.argc != 1) {
@@ -173,7 +164,13 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.val);
         break;
     case CMD_KILL:
-        args_destroy(&(obj->val.args));
+        free(obj->val.proc_id);
+        break;
+    case CMD_CHILD_PROCESSES:
+        free(obj->val.proc_id);
+        break;
+    case CMD_RESUME:
+        free(obj->val.proc_id);
         break;
     case CMD_MINIBAT:                   // NOLINT
         args_destroy(&(obj->val.args)); // NOLINT

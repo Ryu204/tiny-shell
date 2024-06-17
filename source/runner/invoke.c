@@ -31,7 +31,7 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_KILL:
-        return run_kill(cmd->val.args);
+        return run_kill(cmd->val.proc_id);
     case CMD_MINIBAT:
         return run_minibat(cmd->val.args);
     case CMD_SET_ENV:
@@ -51,9 +51,9 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         format_output("%s", "Invalid syntax. Use \"help\" for more information\n");
         return RUN_FAILED;
     case CMD_RESUME:
-        return run_resume(cmd->val.args);
+        return run_resume(cmd->val.proc_id);
     case CMD_CHILD_PROCESSES:
-        return run_child_processes(cmd->val.args);
+        return run_child_processes(cmd->val.proc_id);
     default:
         assert(false && "unimplemented command");
         return RUN_FAILED;

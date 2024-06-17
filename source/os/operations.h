@@ -18,13 +18,13 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief Kill a process */
-bool kill(const struct args args);
+bool kill(const os_char *proc_id);
 
 /*! @brief Resume running a process */
-bool resume(const struct args args);
+bool resume(const os_char *proc_id);
 
 /*! @brief Show child processes */
-bool showChildProcesses(const struct args args);
+bool showChildProcesses(const os_char *proc_id);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);

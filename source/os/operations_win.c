@@ -123,8 +123,8 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool kill(const struct args args){
-    DWORD processID = atoi(args.argv[1]);
+bool kill(const os_char *proc_id){
+    DWORD processID = atoi(proc_id);
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
 
     if (hProcess == NULL){
@@ -142,8 +142,8 @@ bool kill(const struct args args){
     }
 }
 
-bool resume(const struct args args) {
-    int processID = atoi(args.argv[1]);
+bool resume(const os_char *proc_id) {
+    int processID = atoi(proc_id);
     int flag = 0;
 
     HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
@@ -173,8 +173,8 @@ bool resume(const struct args args) {
     return false;
 }
 
-bool showChildProcesses(const struct args args) {
-    DWORD processID = atoi(args.argv[1]); 
+bool showChildProcesses(const os_char *proc_id) {
+    DWORD processID = atoi(proc_id); 
 
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcess == INVALID_HANDLE_VALUE) {
