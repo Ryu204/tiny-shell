@@ -20,26 +20,51 @@ os_char *formatted_path(const os_char *path) {
 
 os_char *formatted_path(const os_char *path) {
     os_char *f_path = (os_char *)malloc((strlen(path) + 2) * sizeof(os_char));
-    strcpy(f_path, SEPARATOR);
+    strncpy(f_path, SEPARATOR, 1);
+    f_path[1] = '\0';
     strncat(f_path, path, strlen(path));
     return f_path;
 }
 
 #endif
 
+char *strtok_r_custom(char *str, const char *delim, char **saveptr) {
+    char *token = NULL;
+    if (str == NULL) {
+        str = *saveptr;
+    }
+    // Skip leading delimiters
+    str += strspn(str, delim);
+    if (*str == '\0') {
+        return NULL;
+    }
+    // Find the end of the token
+    token = str;
+    str = strpbrk(token, delim);
+    if (str == NULL) {
+        // This token finishes the string
+        *saveptr = strchr(token, '\0');
+    } else {
+        // Terminate the token and update the save pointer
+        *str = '\0';
+        *saveptr = str + 1;
+    }
+    return token;
+}
+
 bool in_path_env(const os_char *path_env, const os_char *new_path) {
     size_t len = strlen(path_env);
     os_char tmp_path_env[len + 1];
-    strcpy(tmp_path_env, path_env);
+    strncpy(tmp_path_env, path_env, len);
     tmp_path_env[len] = '\0';
 
     char *rest = NULL;
-    char *token = strtok_r(tmp_path_env, SEPARATOR, &rest);
+    char *token = strtok_r_custom(tmp_path_env, SEPARATOR, &rest);
     while (token != NULL) {
         if (!strcmp(token, new_path)) {
             return true;
         }
-        token = strtok_r(NULL, SEPARATOR, &rest);
+        token = strtok_r_custom(NULL, SEPARATOR, &rest);
     }
     return false;
 }
