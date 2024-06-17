@@ -25,7 +25,7 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         clear_screen();
         return RUN_OK;
     case CMD_LSDIR:
-        return run_lsdir(cmd->val.args);
+        return run_lsdir(cmd->val.dir);
     case CMD_LIST:
         return run_get_list_process();
     case CMD_LAUNCH_EXECUTABLE:
