@@ -125,9 +125,9 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool lsdir(const struct args args) {
+bool lsdir(const os_char *dir) {
     struct dirent *de;  
-	DIR *dr = opendir(args.argv[1]); 
+	DIR *dr = opendir(dir); 
 
 	if (dr == NULL) { 
 		format_output("Could not open current directory"); 

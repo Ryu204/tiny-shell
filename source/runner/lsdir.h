@@ -3,5 +3,5 @@
 #include "../core/args.h"
 #include "res.h"
 
-/*! @brief Kill a process */
+/*! @brief List files/folders in a directory */
 enum run_result run_lsdir(const struct args args);
