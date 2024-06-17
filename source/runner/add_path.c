@@ -2,6 +2,7 @@
 #include "../os/operations.h"
 #include "../core/io_wrap.h"
 #include <stdlib.h>
+#include <string.h>
 
 #ifdef _WIN32
 #define SEPARATOR ";"
