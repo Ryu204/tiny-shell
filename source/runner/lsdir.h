@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief List files/folders in a directory */
-enum run_result run_lsdir(const struct args args);
+enum run_result run_lsdir(const os_char *dir);

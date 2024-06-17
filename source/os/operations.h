@@ -18,7 +18,7 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief List of files or folders in specific directory */
-bool lsdir(const struct args args);
+bool lsdir(const os_char *dir);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
