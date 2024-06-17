@@ -43,5 +43,5 @@ bool enum_proc();
 /*! @brief Launch shell executable and execute the file specified by `args.argv[0]` */
 bool minibat(const struct args args);
 
-/*! @brief add more path to PATH environment variable*/
-bool add_path(const os_char *new_path);
+// /*! @brief add more path to PATH environment variable*/
+// bool add_path(const os_char *new_path);
