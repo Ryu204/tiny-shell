@@ -103,12 +103,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
-    } else if (strcmp(name, "addpath") == 0) {
-        if (arguments.argc != 2) {
+    } else if(strcmp(name, "addpath") == 0) {
+        if(arguments.argc != 2) {
             format_error("Unexpected number of arguments\n");
             res->type = CMD_INVALID_SYNTAX;
-        }
-        else {
+        } else {
             res->type = CMD_ADD_PATH;
             const size_t len = strlen(arguments.argv[1]);
             res->val.new_path = (os_char *)malloc((len + 1) * sizeof(os_char));

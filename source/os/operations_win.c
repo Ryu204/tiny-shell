@@ -6,8 +6,8 @@
 
 #    include <WinBase.h>
 #    include <stdio.h>
-#    include <tlhelp32.h>
 #    include <string.h>
+#    include <tlhelp32.h>
 
 void report_error_code(DWORD err);
 
@@ -317,32 +317,6 @@ bool minibat(const struct args args) {
 
     return true;
 }
-
-// bool add_path(const os_char *new_path) {
-//     CHAR buffer[SHRT_MAX];
-//     DWORD bufferSize = sizeof(buffer) / sizeof(CHAR);
-    
-//     if (!get_shell_env("PATH", bufferSize, buffer)) {
-//         format_error("Fail to get PATH environment variable!\n");
-//         return false;
-//     }
-    
-//     if (strstr(buffer, new_path) != NULL) {
-//         format_output("The path %s is already in the PATH environment variable.\n", new_path);
-//     }
-
-//     strncat(buffer, new_path, strlen(new_path));
-//     strncat(buffer, ";", 2);
-
-//     if (!set_shell_env("PATH", buffer)) {
-//         format_error("Failed to set the PATH environment variable!\n");
-//         return false;
-//     }
-//     else {
-//         format_output("PATH environment variable is updated successfully.\n");
-//     }
-//     return true;
-// }
 
 bool enum_proc() {
     // NOLINTBEGIN

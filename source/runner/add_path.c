@@ -1,12 +1,12 @@
 #include "add_path.h"
-#include "../os/operations.h"
 #include "../core/io_wrap.h"
+#include "../os/operations.h"
+#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
 
 #ifdef _WIN32
-#define SEPARATOR ";"
+#    define SEPARATOR ";"
 
 os_char *formatted_path(const os_char *path) {
     os_char *f_path = (os_char *)malloc((strlen(path) + 2) * sizeof(os_char));
@@ -18,7 +18,7 @@ os_char *formatted_path(const os_char *path) {
 }
 
 #elif defined(__linux__)
-#define SEPARATOR ":"
+#    define SEPARATOR ":"
 
 os_char *formatted_path(const os_char *path) {
     os_char *f_path = (os_char *)malloc((strlen(path) + 2) * sizeof(os_char));
@@ -32,18 +32,18 @@ os_char *formatted_path(const os_char *path) {
 
 char *strtok_r_custom(char *str, const char *delim, char **saveptr) {
     char *token = NULL;
-    if (str == NULL) {
+    if(str == NULL) {
         str = *saveptr;
     }
     // Skip leading delimiters
     str += strspn(str, delim);
-    if (*str == '\0') {
+    if(*str == '\0') {
         return NULL;
     }
     // Find the end of the token
     token = str;
     str = strpbrk(token, delim);
-    if (str == NULL) {
+    if(str == NULL) {
         // This token finishes the string
         *saveptr = strchr(token, '\0');
     } else {
@@ -62,8 +62,8 @@ bool in_path_env(const os_char *path_env, const os_char *new_path) {
 
     char *rest = NULL;
     char *token = strtok_r_custom(tmp_path_env, SEPARATOR, &rest);
-    while (token != NULL) {
-        if (!strcmp(token, new_path)) {
+    while(token != NULL) {
+        if(!strcmp(token, new_path)) {
             return true;
         }
         token = strtok_r_custom(NULL, SEPARATOR, &rest);
@@ -74,13 +74,13 @@ bool in_path_env(const os_char *path_env, const os_char *new_path) {
 bool add_path(const os_char *new_path) {
     char buffer[SHRT_MAX];
     unsigned int bufferSize = sizeof(buffer) / sizeof(char);
-    
-    if (!get_shell_env("PATH", bufferSize, buffer)) {
+
+    if(!get_shell_env("PATH", bufferSize, buffer)) {
         format_error("Fail to get PATH environment variable!\n");
         return false;
     }
 
-    if (in_path_env(buffer, new_path)) {
+    if(in_path_env(buffer, new_path)) {
         format_output("The path %s is already in the PATH environment variable.\n", new_path);
         return true;
     }
@@ -88,7 +88,7 @@ bool add_path(const os_char *new_path) {
     os_char *f_path = formatted_path(new_path);
     strncat(buffer, f_path, strlen(f_path));
 
-    if (!set_shell_env("PATH", buffer)) {
+    if(!set_shell_env("PATH", buffer)) {
         format_error("Failed to set the PATH environment variable!\n");
         free(f_path);
         return false;

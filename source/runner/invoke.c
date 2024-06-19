@@ -1,13 +1,13 @@
 #include "invoke.h"
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
+#include "add_path.h"
 #include "cd.h"
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
 #include "list.h"
 #include "minibat.h"
-#include "add_path.h"
 
 #include <assert.h>
 #include <stdbool.h>
