@@ -45,6 +45,9 @@ void report_error_code(DWORD error) {
     case ERROR_ENVVAR_NOT_FOUND:
         format_error("Environment variable not found\n");
         break;
+    case ERROR_ACCESS_DENIED:
+        format_error("Access is denied\n");
+        break;
     default:
         format_error("System error code: %d\n", error);
     }
@@ -126,15 +129,26 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
+bool delete_file(const os_char *filename) {
+    if(DeleteFile(filename)) {
+        format_output("File removed successfully.\n");
+        return true;
+    }
+    report_error_code(GetLastError());
+    return false;
+}
+
 bool lsdir(const os_char *dir) {
     WIN32_FIND_DATA data;
     LARGE_INTEGER fileSize;
     int countFile = 0;
 
-    os_char *combined = (os_char *)malloc((strlen(dir) + 3) * sizeof(os_char));
+    unsigned int dir_len = strlen(dir);
+    os_char *combined = (os_char *)malloc((dir_len + 3) * sizeof(os_char));
 
-    strcpy(combined, dir);
-    strcpy(combined + strlen(dir), "/*");
+    memcpy(combined, dir, dir_len);
+    memcpy(combined + dir_len, "/*", 2);
+    combined[dir_len + 2] = '\0';
 
     HANDLE hFind = FindFirstFile(combined, &data);
 
@@ -150,7 +164,9 @@ bool lsdir(const os_char *dir) {
     }
 
     FindClose(hFind);
+    free(combined);
     if(countFile) return true;
+    format_error("Cannot get directory information\n");
     return false;
 }
 
@@ -363,7 +379,7 @@ bool enum_proc() {
     pe.dwSize = sizeof(PROCESSENTRY32);
     Process32First(hSnapshot, &pe);
     do {
-        printf("PID: %6u PPID: %6u T: %3u Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
+        printf("PID: %6lu PPID: %6lu T: %3lu Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
     } while(Process32Next(hSnapshot, &pe));
 
     CloseHandle(hSnapshot);

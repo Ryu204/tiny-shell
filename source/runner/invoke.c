@@ -2,6 +2,7 @@
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
 #include "cd.h"
+#include "delete_file.h"
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
@@ -21,6 +22,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_EXIT;
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
+    case CMD_DEL_FILE:
+        return run_del(cmd->val.filename);
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;

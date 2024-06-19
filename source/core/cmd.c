@@ -103,6 +103,17 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
+    } else if(strcmp(name, "delete") == 0) {
+        if(arguments.argc > 2 || arguments.argc < 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_DEL_FILE;
+
+            const unsigned int dir_len = strlen(arguments.argv[1]);
+            res->val.filename = malloc(dir_len + 1);
+            memcpy(res->val.filename, arguments.argv[1], dir_len);
+            res->val.filename[dir_len] = '\0';
+        }
     } else if(strcmp(name, "lsdir") == 0) {
         if(arguments.argc != 2) {
             format_error("Usage: lsdir <dir>\n");
@@ -141,6 +152,9 @@ void cmd_destroy(struct cmd *obj) {
     case CMD_GET_ENV:
         free(obj->val.env.name);
         free(obj->val.env.val);
+        break;
+    case CMD_DEL_FILE:
+        free(obj->val.filename);
         break;
     case CMD_LSDIR:
         free(obj->val.dir);
