@@ -186,14 +186,14 @@ Functions</h2></td></tr>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00045">45</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>                                  {</div>
-<div class="line"><span class="lineno">   46</span>    printf(<span class="stringliteral">&quot;ERROR: &quot;</span>);</div>
-<div class="line"><span class="lineno">   47</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   48</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   49</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   50</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   51</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00046">46</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                  {</div>
+<div class="line"><span class="lineno">   47</span>    printf(<span class="stringliteral">&quot;ERROR: &quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   49</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   50</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   51</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   52</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00018">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 <div class="dynheader">
@@ -243,13 +243,13 @@ Here is the caller graph for this function:</div>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00038">38</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   38</span>                                   {</div>
-<div class="line"><span class="lineno">   39</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   40</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   41</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   42</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   43</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00039">39</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                                   {</div>
+<div class="line"><span class="lineno">   40</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   41</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   42</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   43</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00016">invoke_runner()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
 <div class="dynheader">
@@ -396,7 +396,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> &amp;visible;</div>
 <div class="line"><span class="lineno">   22</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00024">io_set_prompt_visibility()</a>, and <a class="el" href="io__wrap_8c_source.html#l00053">prompt_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00024">io_set_prompt_visibility()</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -442,7 +442,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00015">io_set_last_status()</a>, and <a class="el" href="io__wrap_8c_source.html#l00053">prompt_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00015">io_set_last_status()</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -478,27 +478,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00053">53</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   53</span>                    {</div>
-<div class="line"><span class="lineno">   54</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   58</span>    }</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
-<div class="line"><span class="lineno">   62</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
-<div class="line"><span class="lineno">   67</span>        printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
-<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   70</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
-<div class="line"><span class="lineno">   72</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00054">54</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>                    {</div>
+<div class="line"><span class="lineno">   55</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
+<div class="line"><span class="lineno">   63</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
+<div class="line"><span class="lineno">   68</span>        printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   71</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="line"><span class="lineno">   73</span>}</div>
 <div class="ttc" id="aconfig_8h_html_a1efa72b804973756363ce5be7e24be18"><div class="ttname"><a href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a></div><div class="ttdeci">#define CWD_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00006">config.h:6</a></div></div>
 <div class="ttc" id="aoperations_8h_html_ae3b10c0cd1a1098a893d8b0715953f2c"><div class="ttname"><a href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a></div><div class="ttdeci">void get_cwd(unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Fetch current working directory and copy them into buffer</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
@@ -559,14 +559,15 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   31</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
 <div class="line"><span class="lineno">   33</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
-<div class="line"><span class="lineno">   34</span>    }</div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
-<div class="line"><span class="lineno">   36</span>}</div>
+<div class="line"><span class="lineno">   34</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
+<div class="line"><span class="lineno">   36</span>    }</div>
+<div class="line"><span class="lineno">   37</span>}</div>
 <div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00018">cmd.c:18</a></div></div>
 <div class="ttc" id="aconfig_8h_html_aa9b8dcc02cea15aab8e3d0b7860327a7"><div class="ttname"><a href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define INPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00005">config.h:5</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00053">io_wrap.c:53</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00054">io_wrap.c:54</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="cmd_8c_source.html#l00018">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00053">prompt_input()</a>.</p>
+<p class="reference">References <a class="el" href="cmd_8c_source.html#l00018">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -626,7 +627,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 19 2024 18:17:43 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Wed Jun 19 2024 18:58:32 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>
