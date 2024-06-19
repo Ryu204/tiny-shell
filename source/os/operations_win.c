@@ -6,6 +6,7 @@
 
 #    include <WinBase.h>
 #    include <assert.h>
+#    include <signal.h>
 #    include <stdio.h>
 #    include <string.h>
 #    include <tlhelp32.h>
@@ -154,6 +155,10 @@ bool lsdir(const os_char *dir) {
 }
 
 bool launch_executable(const struct args args) {
+    if(!args.background) {
+        signal(SIGINT, SIG_IGN);
+    }
+
     os_char *command_line = NULL;
 
     extract_from_args(args, &command_line);
@@ -173,16 +178,16 @@ bool launch_executable(const struct args args) {
     free(command_line);
 
     if(!CreateProcess(
-           NULL,             // No module name (use command line)
-           tmp_command_line, // Command line
-           NULL,             // Process handle not inheritable
-           NULL,             // Thread handle not inheritable
-           FALSE,            // Set handle inheritance to FALSE
-           0,                // No creation flags
-           NULL,             // Use parent's environment block
-           NULL,             // Use parent's starting directory
-           &si,              // Pointer to STARTUPINFO structure
-           &pi               // Pointer to PROCESS_INFORMATION structure
+           NULL,                                           // No module name (use command line)
+           tmp_command_line,                               // Command line
+           NULL,                                           // Process handle not inheritable
+           NULL,                                           // Thread handle not inheritable
+           FALSE,                                          // Set handle inheritance to FALSE
+           args.background ? CREATE_NEW_PROCESS_GROUP : 0, // No creation flags
+           NULL,                                           // Use parent's environment block
+           NULL,                                           // Use parent's starting directory
+           &si,                                            // Pointer to STARTUPINFO structure
+           &pi                                             // Pointer to PROCESS_INFORMATION structure
            )) {
         free(tmp_command_line);
         report_error_code(GetLastError());
