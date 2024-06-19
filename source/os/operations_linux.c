@@ -62,16 +62,38 @@ void clear_screen() {
 
 bool delete_file(const char *filename) {
     const int status = unlink(filename);
-    if (status == 0) {
+    if(status == 0) {
         format_output("File removed successfully.\n");
         return true;
-    } 
+    }
     report_error_code(errno);
     return false;
 }
 
-bool lsdir(const char *dir) { // NOLINT
-    return true;
+bool lsdir(const char *dir) {
+    struct dirent *de = NULL;
+    DIR *dr = opendir(dir);
+    int entries_count = 0;
+
+    if(dr == NULL) {
+        goto LS_FAIL;
+    }
+    // NOLINTNEXTLINE
+    while((de = readdir(dr)) != NULL) {
+        if(de->d_type == DT_DIR)
+            format_output("%s/\n", de->d_name);
+        else if(de->d_type == DT_REG)
+            format_output("%s\n", de->d_name);
+        else
+            format_output("%s(?)\n", de->d_name);
+        entries_count++;
+    }
+    closedir(dr);
+    if(entries_count > 0)
+        return true;
+LS_FAIL:
+    format_error("Cannot get directory information\n");
+    return false;
 }
 
 // NOLINTBEGIN(misc-unused-parameters)
@@ -238,9 +260,9 @@ bool enum_proc() {
         if(statusfile == NULL) {
             continue;
         }
-// Read the first line for process name
 #    define NAME_LENGTH 512
         char name[NAME_LENGTH];
+        // Read the first line for process name
         if(fscanf(statusfile, "Name: %s512\n", name) != 1) {
             fclose(statusfile);
             continue;
