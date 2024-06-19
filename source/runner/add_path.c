@@ -54,7 +54,7 @@ char *strtok_r_custom(char *str, const char *delim, char **saveptr) {
 
 bool in_path_env(const os_char *path_env, const os_char *new_path) {
     size_t len = strlen(path_env);
-    os_char tmp_path_env[len + 1];
+    os_char tmp_path_env[SHRT_MAX];
     strncpy(tmp_path_env, path_env, len);
     tmp_path_env[len] = '\0';
 
