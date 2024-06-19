@@ -10,7 +10,9 @@
 
 os_char *formatted_path(const os_char *path) {
     os_char *f_path = (os_char *)malloc((strlen(path) + 2) * sizeof(os_char));
+    size_t len = strlen(path);
     strncpy(f_path, path, strlen(path));
+    f_path[len] = '\0';
     strncat(f_path, SEPARATOR, 2);
     return f_path;
 }
