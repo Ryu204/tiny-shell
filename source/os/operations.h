@@ -20,6 +20,9 @@ void clear_screen();
 /*! @brief Delete a specific file */
 bool delete_file(const os_char *filename);
 
+/*! @brief List of files or folders in specific directory */
+bool lsdir(const os_char *dir);
+
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
 

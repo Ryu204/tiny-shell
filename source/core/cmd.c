@@ -114,6 +114,18 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             memcpy(res->val.filename, arguments.argv[1], dir_len);
             res->val.filename[dir_len] = '\0';
         }
+    } else if(strcmp(name, "lsdir") == 0) {
+        if(arguments.argc != 2) {
+            format_error("Usage: lsdir <dir>\n");
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_LSDIR;
+
+            const unsigned int dir_len = strlen(arguments.argv[1]);
+            res->val.dir = malloc(dir_len + 1);
+            memcpy(res->val.dir, arguments.argv[1], dir_len);
+            res->val.dir[dir_len] = '\0';
+        }
     } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
         if(arguments.argc != 1) {
             format_error("Too many arguments\n");
@@ -144,9 +156,10 @@ void cmd_destroy(struct cmd *obj) {
     case CMD_DEL_FILE:
         free(obj->val.filename);
         break;
-    case CMD_MINIBAT:                   // NOLINT
-        args_destroy(&(obj->val.args)); // NOLINT
-        break;                          // NOLINT
+    case CMD_LSDIR:
+        free(obj->val.dir);
+        break;
+    case CMD_MINIBAT:
     case CMD_LAUNCH_EXECUTABLE:
         args_destroy(&(obj->val.args));
         break;
