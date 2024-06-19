@@ -5,6 +5,8 @@ enum run_result run_help() {
     format_output("%s",
                   "\"help\":    print this message\n"
                   "\"cd\":      change directory\n"
-                  "\"exit\":    exit shell\n");
+                  "\"exit\":    exit shell\n"
+                  "\"list\":    list all running processes\n"
+                  "\"lsdir\":   list of files or folders in specific directory\n");
     return RUN_OK;
 }
