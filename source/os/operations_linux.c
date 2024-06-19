@@ -33,6 +33,9 @@ void report_error_code(int code) {
     case ENOENT:
         format_error("No such file or directory\n");
         break;
+    case EISDIR:
+        format_error("Is a directory\n");
+        break;
     default:
         format_error("System error code: %d\n", code);
     }
@@ -55,6 +58,20 @@ bool change_cwd(const os_char *new_dir) {
 
 void clear_screen() {
     printf("\e[1;1H\e[2J");
+}
+
+bool delete_file(const char *filename) {
+    const int status = unlink(filename);
+    if (status == 0) {
+        format_output("File removed successfully.\n");
+        return true;
+    } 
+    report_error_code(errno);
+    return false;
+}
+
+bool lsdir(const char *dir) { // NOLINT
+    return true;
 }
 
 // NOLINTBEGIN(misc-unused-parameters)
