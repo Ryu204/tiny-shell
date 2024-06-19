@@ -42,6 +42,9 @@ void report_error_code(DWORD error) {
     case ERROR_ENVVAR_NOT_FOUND:
         format_error("Environment variable not found\n");
         break;
+    case ERROR_ACCESS_DENIED:
+        format_error("Access is denied\n");
+        break;
     default:
         format_error("System error code: %d\n", error);
     }
@@ -124,12 +127,11 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool delete_file(const os_char *dir) {
-    if (DeleteFile(dir)) {
+    if(DeleteFile(dir)) {
         format_output("File removed successfully.\n");
         return true;
-    } else
-        format_error("Unable to remove directory %s\n", dir);
-
+    }
+    report_error_code(GetLastError());
     return false;
 }
 

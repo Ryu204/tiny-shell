@@ -103,11 +103,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
-    } else if (strcmp(name, "delete") == 0) {
-        if (arguments.argc > 2 || arguments.argc < 2) {
+    } else if(strcmp(name, "delete") == 0) {
+        if(arguments.argc > 2 || arguments.argc < 2) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
-            res->type = CMD_DEL;
+            res->type = CMD_DEL_FILE;
 
             const unsigned int dir_len = strlen(arguments.argv[1]);
             res->val.dir = malloc(dir_len + 1);
@@ -141,7 +141,7 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.name);
         free(obj->val.env.val);
         break;
-    case CMD_DEL:
+    case CMD_DEL_FILE:
         free(obj->val.dir);
         break;
     case CMD_MINIBAT:                   // NOLINT
