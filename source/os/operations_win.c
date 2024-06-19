@@ -126,7 +126,32 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool lsdir(const os_char *dir) {
-    assert(false && "Unimplemented");
+    WIN32_FIND_DATA data;
+    LARGE_INTEGER fileSize;
+    int countFile = 0;
+
+    os_char* combined = (os_char*)malloc((strlen(dir) + 3) * sizeof(os_char));
+
+    strcpy(combined, dir);
+    strcpy(combined + strlen(dir), "/*");
+
+    HANDLE hFind = FindFirstFile(combined, &data);
+
+    if (hFind != INVALID_HANDLE_VALUE) {
+        do {
+            if (data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+                format_output("%s\n", data.cFileName);
+            } else {
+                format_output("%s\n", data.cFileName);
+            }
+            countFile++;
+        }
+        while (FindNextFile(hFind, &data) != 0);
+    }
+
+    FindClose(hFind);
+    if (countFile) return true;
+    return false;
 }
 
 bool launch_executable(const struct args args) {
