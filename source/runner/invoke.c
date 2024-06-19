@@ -1,6 +1,7 @@
 #include "invoke.h"
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
+#include "add_path.h"
 #include "cd.h"
 #include "delete_file.h"
 #include "env.h"
@@ -33,6 +34,8 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return run_get_list_process();
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
+    case CMD_ADD_PATH:
+        return run_add_path(cmd->val.new_path);
     case CMD_MINIBAT:
         return run_minibat(cmd->val.args);
     case CMD_SET_ENV:
