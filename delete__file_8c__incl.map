@@ -1,0 +1,18 @@
+<map id="source/runner/delete_file.c" name="source/runner/delete_file.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="76,5,215,46"/>
+<area shape="rect" id="Node000002" href="$delete__file_8h.html" title=" " alt="" coords="165,94,254,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,45,192,80,188,83,159,48"/>
+<area shape="rect" id="Node000007" href="$operations_8h.html" title=" " alt="" coords="22,94,141,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="132,48,103,83,99,80,128,45"/>
+<area shape="rect" id="Node000003" href="$args_8h.html" title=" " alt="" coords="119,168,215,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,121,184,156,180,153,200,119"/>
+<area shape="rect" id="Node000006" href="$res_8h.html" title=" " alt="" coords="238,168,288,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="221,118,247,153,243,157,216,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="121,241,194,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="168,194,164,226,159,226,163,193"/>
+<area shape="rect" id="Node000005" href="$type_8h.html" title=" " alt="" coords="5,241,89,267"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="148,196,82,235,79,231,145,192"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="98,118,143,156,140,160,94,122"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="86,119,94,153,109,192,136,228,132,231,105,195,89,155,81,120"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="80,121,66,168,54,227,49,226,60,167,75,119"/>
+</map>

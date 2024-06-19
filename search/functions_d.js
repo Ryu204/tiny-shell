@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verify_5fbackground_0',['verify_background',['../args_8c.html#a0a22420a0220f951164f7da6324a1d84',1,'args.c']]]
+  ['unset_5fshell_5fenv_0',['unset_shell_env',['../operations_8h.html#adfbb09e78ff766d4a02d525844b0a837',1,'operations.h']]]
 ];
