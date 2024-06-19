@@ -1,9 +1,14 @@
 <map id="set_shell_env" name="set_shell_env">
-<area shape="rect" id="Node000001" title="Set environment variable of the shell process." alt="" coords="393,5,495,31"/>
-<area shape="rect" id="Node000002" href="$env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="253,5,345,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,21,346,21,346,16,378,16"/>
-<area shape="rect" id="Node000003" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
-<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+<area shape="rect" id="Node000001" title="Set environment variable of the shell process." alt="" coords="523,31,624,56"/>
+<area shape="rect" id="Node000002" href="$add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="400,5,475,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="507,34,474,28,475,22,508,29"/>
+<area shape="rect" id="Node000006" href="$env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="257,56,349,82"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="507,52,350,67,349,62,507,47"/>
+<area shape="rect" id="Node000003" href="$add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="253,7,352,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,21,353,22,353,16,384,16"/>
+<area shape="rect" id="Node000004" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,32,205,58"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,33,206,39,205,33,237,28"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,55,58"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,48,55,48,55,42,87,42"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="241,62,205,56,206,50,242,56"/>
 </map>

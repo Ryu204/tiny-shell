@@ -1,100 +1,112 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,341,55,366"/>
-<area shape="rect" id="Node000002" href="$cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132" title=" " alt="" coords="133,142,229,168"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,339,159,178,163,181,43,342"/>
-<area shape="rect" id="Node000004" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="925,157,1016,182"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="29,340,33,300,44,244,65,183,81,154,101,128,164,65,194,43,224,27,257,15,294,8,382,3,594,3,647,7,699,19,750,36,798,57,882,104,942,145,939,149,879,108,796,62,748,41,698,24,646,12,594,8,382,8,294,13,259,20,227,32,197,48,167,69,105,131,86,156,70,185,49,245,39,300,35,340"/>
-<area shape="rect" id="Node000005" href="$io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="542,938,643,964"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="34,367,38,492,48,588,69,696,102,806,124,860,151,911,182,959,219,1003,261,1041,308,1072,348,1090,383,1094,418,1088,459,1072,475,1063,485,1051,506,1022,562,972,566,976,510,1026,489,1054,478,1067,462,1077,419,1093,383,1100,347,1095,306,1077,257,1045,215,1006,178,962,146,914,119,862,97,808,63,697,43,589,32,492,28,367"/>
-<area shape="rect" id="Node000006" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="130,714,232,740"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="39,366,171,698,166,700,34,368"/>
-<area shape="rect" id="Node000029" href="$io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="117,341,245,366"/>
-<area shape="poly" id="edge32_Node000001_Node000029" title=" " alt="" coords="55,351,102,351,102,356,55,356"/>
-<area shape="rect" id="Node000031" href="$io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,391,259,417"/>
-<area shape="poly" id="edge34_Node000001_Node000031" title=" " alt="" coords="56,359,104,376,125,383,123,388,102,381,54,364"/>
-<area shape="rect" id="Node000033" href="$io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="139,290,223,316"/>
-<area shape="poly" id="edge36_Node000001_Node000033" title=" " alt="" coords="54,342,102,325,123,318,125,323,104,331,56,347"/>
-<area shape="rect" id="Node000003" href="$args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="545,43,640,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,141,529,68,530,73,230,146"/>
-<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="192,739,236,803,269,841,308,872,347,890,404,907,528,936,526,941,403,912,346,895,306,877,265,845,231,807,187,742"/>
-<area shape="rect" id="Node000007" href="$operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="336,987,431,1013"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="187,739,199,784,223,847,258,915,282,947,309,974,323,983,320,988,305,978,278,950,254,918,218,849,194,785,182,740"/>
-<area shape="rect" id="Node000008" href="$cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="354,442,414,468"/>
-<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="182,713,194,668,218,605,254,536,278,504,305,477,337,460,339,465,309,481,282,508,259,539,223,607,200,670,188,714"/>
-<area shape="rect" id="Node000010" href="$delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd" title="Delete a specific file." alt="" coords="352,491,415,517"/>
-<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="184,712,199,675,224,625,260,572,281,547,305,526,336,510,338,515,309,530,285,551,264,575,229,628,204,678,189,714"/>
-<area shape="rect" id="Node000012" href="$env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="328,837,440,862"/>
-<area shape="poly" id="edge12_Node000006_Node000012" title=" " alt="" coords="197,738,244,780,275,803,308,823,319,828,316,833,306,828,272,807,241,784,194,742"/>
-<area shape="rect" id="Node000014" href="$env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="338,1037,430,1062"/>
-<area shape="poly" id="edge15_Node000006_Node000014" title=" " alt="" coords="186,739,196,792,216,868,233,910,253,951,278,990,309,1023,325,1034,322,1038,305,1027,274,993,248,954,228,912,211,870,190,793,181,740"/>
-<area shape="rect" id="Node000016" href="$list_8c.html#aeea329036ff9f158fec8920193c94d42" title="get list all running processes" alt="" coords="313,541,454,566"/>
-<area shape="poly" id="edge18_Node000006_Node000016" title=" " alt="" coords="187,712,232,647,266,608,305,575,312,571,315,576,309,580,269,612,236,650,192,715"/>
-<area shape="rect" id="Node000018" href="$help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="349,938,419,964"/>
-<area shape="poly" id="edge20_Node000006_Node000018" title=" " alt="" coords="190,739,206,773,231,821,266,872,309,917,336,933,333,938,305,921,262,875,227,824,201,776,185,741"/>
-<area shape="rect" id="Node000019" href="$launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="307,590,460,616"/>
-<area shape="poly" id="edge22_Node000006_Node000019" title=" " alt="" coords="193,711,240,669,272,645,306,624,316,619,319,624,308,629,275,650,244,673,197,715"/>
-<area shape="rect" id="Node000021" href="$lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea" title="List files/folders in a directory." alt="" coords="349,639,419,665"/>
-<area shape="poly" id="edge24_Node000006_Node000021" title=" " alt="" coords="212,711,306,673,333,664,334,669,308,679,214,716"/>
-<area shape="rect" id="Node000023" href="$minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1" title="Run the executable foreground." alt="" coords="340,689,428,714"/>
-<area shape="poly" id="edge26_Node000006_Node000023" title=" " alt="" coords="232,718,324,706,324,711,232,723"/>
-<area shape="rect" id="Node000025" href="$env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="338,738,430,764"/>
-<area shape="poly" id="edge28_Node000006_Node000025" title=" " alt="" coords="232,730,322,741,322,746,232,735"/>
-<area shape="rect" id="Node000027" href="$env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749" title="Unset current process&#39;s environment variable." alt="" coords="331,787,437,813"/>
-<area shape="poly" id="edge30_Node000006_Node000027" title=" " alt="" coords="215,738,308,773,325,779,323,784,306,779,213,743"/>
-<area shape="rect" id="Node000009" href="$operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="545,442,640,468"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="414,452,530,452,530,457,414,457"/>
-<area shape="rect" id="Node000011" href="$operations_8h.html#aa5b7ed720655f184e1d376125fbbc250" title="Delete a specific file." alt="" coords="553,491,632,517"/>
-<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="416,501,537,501,537,507,416,507"/>
-<area shape="poly" id="edge13_Node000012_Node000005" title=" " alt="" coords="419,860,461,879,555,928,553,932,459,884,417,865"/>
-<area shape="rect" id="Node000013" href="$operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5" title="Get all current environment variable." alt="" coords="508,837,677,862"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="440,847,493,847,493,852,440,852"/>
-<area shape="poly" id="edge16_Node000014_Node000005" title=" " alt="" coords="429,1034,459,1023,511,997,557,970,560,974,514,1001,461,1028,431,1039"/>
-<area shape="rect" id="Node000015" href="$operations_8h.html#a481ed52f9b1715b5351a7137211846f6" title="Get value of an an environment variable." alt="" coords="542,1037,643,1062"/>
-<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="430,1047,526,1047,526,1052,430,1052"/>
-<area shape="rect" id="Node000017" href="$operations_8h.html#a7fead987fc0cc2dbabae18cf5eab0319" title="List all running processes." alt="" coords="550,541,635,566"/>
-<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="455,551,535,551,535,556,455,556"/>
-<area shape="poly" id="edge21_Node000018_Node000005" title=" " alt="" coords="419,948,526,948,526,953,419,953"/>
-<area shape="rect" id="Node000020" href="$operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4" title="Launch the executable." alt="" coords="528,590,657,616"/>
-<area shape="poly" id="edge23_Node000019_Node000020" title=" " alt="" coords="461,600,512,600,512,605,461,605"/>
-<area shape="rect" id="Node000022" href="$operations_8h.html#a910211a3690e0f9fa8020e647e8d4bdb" title="List of files or folders in specific directory." alt="" coords="570,639,615,665"/>
-<area shape="poly" id="edge25_Node000021_Node000022" title=" " alt="" coords="419,649,555,649,555,655,419,655"/>
-<area shape="rect" id="Node000024" href="$operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518" title="Launch shell executable and execute the file specified by args.argv[0]" alt="" coords="561,689,624,714"/>
-<area shape="poly" id="edge27_Node000023_Node000024" title=" " alt="" coords="428,699,546,699,546,704,428,704"/>
-<area shape="rect" id="Node000026" href="$operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc" title="Set environment variable of the shell process." alt="" coords="542,738,643,764"/>
-<area shape="poly" id="edge29_Node000025_Node000026" title=" " alt="" coords="430,748,526,748,526,753,430,753"/>
-<area shape="rect" id="Node000028" href="$operations_8h.html#adfbb09e78ff766d4a02d525844b0a837" title="Unset environment variable of the shell process." alt="" coords="535,787,650,813"/>
-<area shape="poly" id="edge31_Node000027_Node000028" title=" " alt="" coords="437,797,519,797,519,803,437,803"/>
-<area shape="rect" id="Node000030" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="537,342,648,368"/>
-<area shape="poly" id="edge33_Node000029_Node000030" title=" " alt="" coords="245,351,522,352,522,357,245,356"/>
-<area shape="rect" id="Node000032" href="$io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="531,391,654,417"/>
-<area shape="poly" id="edge35_Node000031_Node000032" title=" " alt="" coords="260,401,516,401,516,407,260,407"/>
-<area shape="rect" id="Node000034" href="$cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="321,169,446,194"/>
-<area shape="poly" id="edge37_Node000033_Node000034" title=" " alt="" coords="203,287,346,200,349,205,206,291"/>
-<area shape="rect" id="Node000043" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="336,290,432,316"/>
-<area shape="poly" id="edge51_Node000033_Node000043" title=" " alt="" coords="224,300,320,300,320,305,224,305"/>
-<area shape="poly" id="edge39_Node000034_Node000003" title=" " alt="" coords="398,166,445,127,507,86,535,72,537,77,510,90,448,132,401,170"/>
-<area shape="poly" id="edge49_Node000034_Node000004" title=" " alt="" coords="409,166,454,146,508,129,609,112,689,107,769,113,871,129,929,147,927,153,869,135,769,118,689,112,610,118,509,135,456,151,411,170"/>
-<area shape="rect" id="Node000035" href="$args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="523,194,662,220"/>
-<area shape="poly" id="edge38_Node000034_Node000035" title=" " alt="" coords="447,186,508,194,507,199,447,192"/>
-<area shape="rect" id="Node000036" href="$args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="530,145,655,170"/>
-<area shape="poly" id="edge40_Node000034_Node000036" title=" " alt="" coords="447,171,514,164,515,169,447,177"/>
-<area shape="rect" id="Node000042" href="$cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="541,243,644,269"/>
-<area shape="poly" id="edge50_Node000034_Node000042" title=" " alt="" coords="416,192,509,229,528,236,526,241,507,235,414,197"/>
-<area shape="rect" id="Node000037" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="738,145,857,170"/>
-<area shape="poly" id="edge41_Node000036_Node000037" title=" " alt="" coords="656,155,722,155,722,160,656,160"/>
-<area shape="rect" id="Node000038" href="$args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="725,293,870,318"/>
-<area shape="poly" id="edge42_Node000036_Node000038" title=" " alt="" coords="657,167,678,179,690,192,697,205,704,230,709,255,716,267,727,279,730,282,726,286,723,283,711,270,704,257,698,232,692,207,686,195,675,183,654,171"/>
-<area shape="rect" id="Node000040" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="736,243,859,269"/>
-<area shape="poly" id="edge45_Node000036_Node000040" title=" " alt="" coords="655,168,678,179,694,192,703,205,712,218,726,230,734,234,731,239,723,234,708,221,699,208,690,196,675,184,653,173"/>
-<area shape="rect" id="Node000041" href="$args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="734,194,861,220"/>
-<area shape="poly" id="edge48_Node000036_Node000041" title=" " alt="" coords="650,168,727,187,725,192,648,173"/>
-<area shape="poly" id="edge43_Node000038_Node000004" title=" " alt="" coords="848,289,869,279,893,260,915,237,950,194,954,197,919,241,897,264,871,284,851,294"/>
-<area shape="rect" id="Node000039" href="$args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="918,269,1022,294"/>
-<area shape="poly" id="edge44_Node000038_Node000039" title=" " alt="" coords="870,293,902,288,903,293,871,298"/>
-<area shape="poly" id="edge46_Node000040_Node000004" title=" " alt="" coords="843,240,869,230,937,189,940,193,871,234,845,245"/>
-<area shape="poly" id="edge47_Node000040_Node000039" title=" " alt="" coords="860,262,903,269,902,274,859,268"/>
-<area shape="poly" id="edge54_Node000043_Node000030" title=" " alt="" coords="433,312,524,335,523,340,432,317"/>
-<area shape="poly" id="edge53_Node000043_Node000032" title=" " alt="" coords="404,314,451,345,509,378,524,383,522,388,507,382,448,350,401,318"/>
-<area shape="rect" id="Node000044" href="$operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="557,293,628,318"/>
-<area shape="poly" id="edge52_Node000043_Node000044" title=" " alt="" coords="432,301,542,302,542,307,432,306"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,777,55,803"/>
+<area shape="rect" id="Node000002" href="$cmd_8c.html#ab8b62b7e9578f01597cb1500c2c3f132" title=" " alt="" coords="133,777,229,803"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,788,118,788,118,793,55,793"/>
+<area shape="rect" id="Node000004" href="$io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="930,877,1021,903"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,778,102,762,180,747,241,740,382,737,594,737,646,741,699,751,749,767,798,786,883,828,945,866,942,871,880,833,796,791,748,772,697,757,646,746,594,742,382,742,242,745,181,752,103,768,56,783"/>
+<area shape="rect" id="Node000005" href="$io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="747,227,848,252"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="29,777,33,712,45,609,66,488,81,426,100,366,136,251,167,159,187,119,216,82,254,46,306,12,333,6,379,3,501,7,618,16,678,25,702,44,723,66,756,117,779,169,792,211,787,213,774,170,751,119,719,69,699,48,676,30,618,21,501,12,379,8,334,11,308,17,257,50,220,85,192,122,172,161,141,253,105,367,86,427,71,489,50,610,39,712,35,777"/>
+<area shape="rect" id="Node000006" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="130,379,232,404"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="34,776,167,418,172,420,39,778"/>
+<area shape="rect" id="Node000033" href="$io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd" title="Set the result of last command (RUN_OK/RUN_FAIL/...)" alt="" coords="117,964,245,990"/>
+<area shape="poly" id="edge40_Node000001_Node000033" title=" " alt="" coords="39,803,64,854,83,885,105,914,148,953,145,957,101,917,79,888,60,857,35,805"/>
+<area shape="rect" id="Node000035" href="$io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0" title="Config if prompt should be printed." alt="" coords="103,1088,259,1114"/>
+<area shape="poly" id="edge42_Node000001_Node000035" title=" " alt="" coords="37,803,60,888,80,945,105,1001,131,1041,159,1075,155,1079,127,1044,100,1004,75,947,54,890,32,804"/>
+<area shape="rect" id="Node000037" href="$io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="139,877,223,903"/>
+<area shape="poly" id="edge44_Node000001_Node000037" title=" " alt="" coords="53,802,149,866,146,871,50,806"/>
+<area shape="rect" id="Node000003" href="$args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="545,777,640,803"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,788,529,788,529,793,229,793"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="197,376,244,344,306,313,360,296,407,286,489,278,572,274,676,262,731,252,732,257,677,268,572,280,489,283,408,291,362,301,308,318,247,348,200,381"/>
+<area shape="rect" id="Node000007" href="$operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="336,128,431,154"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="183,378,196,337,221,279,256,217,279,188,305,163,320,153,323,158,309,167,283,192,261,220,225,281,201,338,188,380"/>
+<area shape="rect" id="Node000008" href="$add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="334,429,433,455"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="233,402,320,424,318,429,232,407"/>
+<area shape="rect" id="Node000014" href="$cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="354,177,414,203"/>
+<area shape="poly" id="edge16_Node000006_Node000014" title=" " alt="" coords="185,377,202,344,227,300,262,253,305,212,337,197,340,201,309,217,266,256,232,302,206,346,190,379"/>
+<area shape="rect" id="Node000016" href="$delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd" title="Delete a specific file." alt="" coords="352,328,415,354"/>
+<area shape="poly" id="edge18_Node000006_Node000016" title=" " alt="" coords="232,376,336,350,337,355,233,382"/>
+<area shape="rect" id="Node000018" href="$env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="328,227,440,252"/>
+<area shape="poly" id="edge20_Node000006_Node000018" title=" " alt="" coords="191,377,238,326,270,296,306,269,328,257,331,262,308,274,274,300,241,330,195,380"/>
+<area shape="rect" id="Node000020" href="$env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="546,377,639,403"/>
+<area shape="poly" id="edge23_Node000006_Node000020" title=" " alt="" coords="232,389,531,388,531,393,232,394"/>
+<area shape="rect" id="Node000021" href="$list_8c.html#aeea329036ff9f158fec8920193c94d42" title="get list all running processes" alt="" coords="313,528,454,554"/>
+<area shape="poly" id="edge26_Node000006_Node000021" title=" " alt="" coords="194,403,240,457,272,488,308,515,317,519,314,524,306,519,269,492,236,461,190,407"/>
+<area shape="rect" id="Node000023" href="$help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="349,27,419,52"/>
+<area shape="poly" id="edge28_Node000006_Node000023" title=" " alt="" coords="181,378,189,321,209,237,225,190,246,144,272,101,305,63,332,47,335,51,309,67,277,104,250,147,230,192,214,238,194,322,186,379"/>
+<area shape="rect" id="Node000024" href="$launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="307,577,460,603"/>
+<area shape="poly" id="edge30_Node000006_Node000024" title=" " alt="" coords="190,404,206,436,232,479,267,525,309,564,314,568,311,572,305,568,263,529,228,482,202,439,186,406"/>
+<area shape="rect" id="Node000026" href="$lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea" title="List files/folders in a directory." alt="" coords="349,627,419,652"/>
+<area shape="poly" id="edge32_Node000006_Node000026" title=" " alt="" coords="188,404,202,445,226,501,261,562,283,589,309,614,335,628,333,632,305,618,280,593,257,565,221,504,197,447,183,406"/>
+<area shape="rect" id="Node000028" href="$minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1" title="Run the executable foreground." alt="" coords="340,676,428,702"/>
+<area shape="poly" id="edge34_Node000006_Node000028" title=" " alt="" coords="187,404,198,453,220,522,236,560,256,598,280,633,309,663,326,674,323,679,305,667,276,636,251,600,231,563,215,524,192,454,182,405"/>
+<area shape="rect" id="Node000030" href="$env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="338,479,430,504"/>
+<area shape="poly" id="edge36_Node000006_Node000030" title=" " alt="" coords="202,403,249,433,308,465,324,472,322,477,306,470,247,438,199,407"/>
+<area shape="rect" id="Node000031" href="$env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749" title="Unset current process&#39;s environment variable." alt="" coords="331,77,437,103"/>
+<area shape="poly" id="edge38_Node000006_Node000031" title=" " alt="" coords="182,378,192,329,215,258,231,219,251,181,276,145,305,114,315,106,318,110,309,118,280,149,256,184,236,222,220,260,198,330,187,379"/>
+<area shape="rect" id="Node000009" href="$add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="555,427,630,452"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="434,439,540,438,540,443,434,444"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="631,445,771,478,836,497,872,514,905,554,930,600,949,649,962,699,975,792,978,862,973,862,970,793,957,700,944,650,925,602,900,557,868,518,834,502,769,484,629,450"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="629,432,653,425,675,414,699,388,728,348,779,265,783,268,732,351,703,392,678,418,655,430,631,437"/>
+<area shape="rect" id="Node000010" href="$operations_8h.html#a481ed52f9b1715b5351a7137211846f6" title="Get value of an an environment variable." alt="" coords="747,377,848,403"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="629,428,731,404,732,409,631,433"/>
+<area shape="rect" id="Node000011" href="$add__path_8c.html#a042035f395bf6b7dba7b2d76de104c50" title=" " alt="" coords="752,427,843,452"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="630,437,736,437,736,442,630,442"/>
+<area shape="rect" id="Node000013" href="$operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc" title="Set environment variable of the shell process." alt="" coords="747,528,848,554"/>
+<area shape="poly" id="edge15_Node000009_Node000013" title=" " alt="" coords="631,449,678,469,702,488,726,507,749,519,747,524,723,511,699,492,675,474,629,453"/>
+<area shape="rect" id="Node000012" href="$add__path_8c.html#a0400f08589a5ade0ec0723c30f4379e2" title=" " alt="" coords="918,427,1033,452"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="843,437,903,437,903,442,843,442"/>
+<area shape="rect" id="Node000015" href="$operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="545,125,640,151"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="413,180,529,151,531,156,415,186"/>
+<area shape="rect" id="Node000017" href="$operations_8h.html#aa5b7ed720655f184e1d376125fbbc250" title="Delete a specific file." alt="" coords="553,328,632,354"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="416,338,537,338,537,344,416,344"/>
+<area shape="poly" id="edge21_Node000018_Node000005" title=" " alt="" coords="438,224,508,212,593,206,677,212,732,221,732,226,676,217,593,211,509,217,439,229"/>
+<area shape="rect" id="Node000019" href="$operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5" title="Get all current environment variable." alt="" coords="508,227,677,252"/>
+<area shape="poly" id="edge22_Node000018_Node000019" title=" " alt="" coords="440,237,493,237,493,242,440,242"/>
+<area shape="poly" id="edge24_Node000020_Node000005" title=" " alt="" coords="638,379,675,364,706,341,734,315,776,263,781,267,738,318,710,345,678,369,640,384"/>
+<area shape="poly" id="edge25_Node000020_Node000010" title=" " alt="" coords="639,388,731,388,731,393,639,393"/>
+<area shape="rect" id="Node000022" href="$operations_8h.html#a7fead987fc0cc2dbabae18cf5eab0319" title="List all running processes." alt="" coords="550,528,635,554"/>
+<area shape="poly" id="edge27_Node000021_Node000022" title=" " alt="" coords="455,538,535,538,535,544,455,544"/>
+<area shape="poly" id="edge29_Node000023_Node000005" title=" " alt="" coords="419,31,472,25,539,25,611,35,645,46,678,61,718,94,750,134,773,176,789,211,784,214,768,178,745,137,714,97,675,66,643,51,609,40,539,30,472,31,420,36"/>
+<area shape="rect" id="Node000025" href="$operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4" title="Launch the executable." alt="" coords="528,577,657,603"/>
+<area shape="poly" id="edge31_Node000024_Node000025" title=" " alt="" coords="461,588,512,588,512,593,461,593"/>
+<area shape="rect" id="Node000027" href="$operations_8h.html#a910211a3690e0f9fa8020e647e8d4bdb" title="List of files or folders in specific directory." alt="" coords="570,627,615,652"/>
+<area shape="poly" id="edge33_Node000026_Node000027" title=" " alt="" coords="419,637,555,637,555,642,419,642"/>
+<area shape="rect" id="Node000029" href="$operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518" title="Launch shell executable and execute the file specified by args.argv[0]" alt="" coords="561,676,624,702"/>
+<area shape="poly" id="edge35_Node000028_Node000029" title=" " alt="" coords="428,686,546,686,546,692,428,692"/>
+<area shape="poly" id="edge37_Node000030_Node000013" title=" " alt="" coords="430,491,543,498,677,513,732,523,731,528,676,518,542,504,430,496"/>
+<area shape="rect" id="Node000032" href="$operations_8h.html#adfbb09e78ff766d4a02d525844b0a837" title="Unset environment variable of the shell process." alt="" coords="535,76,650,102"/>
+<area shape="poly" id="edge39_Node000031_Node000032" title=" " alt="" coords="437,87,519,87,519,92,437,93"/>
+<area shape="rect" id="Node000034" href="$io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="537,1076,648,1102"/>
+<area shape="poly" id="edge41_Node000033_Node000034" title=" " alt="" coords="198,988,244,1025,275,1045,308,1060,362,1075,419,1084,522,1089,522,1095,418,1089,361,1080,306,1065,273,1049,241,1030,194,992"/>
+<area shape="rect" id="Node000036" href="$io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="531,1125,654,1151"/>
+<area shape="poly" id="edge43_Node000035_Node000036" title=" " alt="" coords="260,1105,516,1129,516,1134,259,1111"/>
+<area shape="rect" id="Node000038" href="$cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="321,877,446,903"/>
+<area shape="poly" id="edge45_Node000037_Node000038" title=" " alt="" coords="224,888,305,888,305,893,224,893"/>
+<area shape="rect" id="Node000047" href="$io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="336,1024,432,1050"/>
+<area shape="poly" id="edge59_Node000037_Node000047" title=" " alt="" coords="202,901,354,1013,351,1017,199,906"/>
+<area shape="poly" id="edge47_Node000038_Node000003" title=" " alt="" coords="401,875,448,844,507,812,529,803,531,808,509,817,451,848,404,879"/>
+<area shape="poly" id="edge57_Node000038_Node000004" title=" " alt="" coords="447,888,914,888,914,893,447,893"/>
+<area shape="rect" id="Node000039" href="$args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="523,928,662,954"/>
+<area shape="poly" id="edge46_Node000038_Node000039" title=" " alt="" coords="440,901,522,921,521,927,439,906"/>
+<area shape="rect" id="Node000040" href="$args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="530,977,655,1003"/>
+<area shape="poly" id="edge48_Node000038_Node000040" title=" " alt="" coords="404,901,451,932,509,964,524,970,522,975,507,969,448,937,401,906"/>
+<area shape="rect" id="Node000046" href="$cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="541,827,644,852"/>
+<area shape="poly" id="edge58_Node000038_Node000046" title=" " alt="" coords="439,874,525,853,526,858,440,879"/>
+<area shape="rect" id="Node000041" href="$args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="738,928,857,954"/>
+<area shape="poly" id="edge49_Node000040_Node000041" title=" " alt="" coords="648,974,725,955,727,961,650,979"/>
+<area shape="rect" id="Node000042" href="$args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="725,977,870,1003"/>
+<area shape="poly" id="edge50_Node000040_Node000042" title=" " alt="" coords="656,988,709,988,709,993,656,993"/>
+<area shape="rect" id="Node000044" href="$args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="736,1076,859,1102"/>
+<area shape="poly" id="edge53_Node000040_Node000044" title=" " alt="" coords="655,1001,678,1012,694,1025,703,1038,712,1051,726,1063,734,1067,731,1072,723,1067,708,1054,699,1041,690,1029,675,1017,653,1006"/>
+<area shape="rect" id="Node000045" href="$args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="734,1027,861,1052"/>
+<area shape="poly" id="edge56_Node000040_Node000045" title=" " alt="" coords="650,1001,727,1020,725,1025,648,1006"/>
+<area shape="poly" id="edge51_Node000042_Node000004" title=" " alt="" coords="845,974,869,964,910,938,946,911,949,915,913,943,871,969,847,979"/>
+<area shape="rect" id="Node000043" href="$args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="924,1027,1028,1052"/>
+<area shape="poly" id="edge52_Node000042_Node000043" title=" " alt="" coords="847,1001,913,1020,911,1025,846,1006"/>
+<area shape="poly" id="edge54_Node000044_Node000004" title=" " alt="" coords="851,1073,868,1063,901,1029,928,990,948,950,962,917,967,919,953,953,933,992,906,1032,872,1067,854,1078"/>
+<area shape="poly" id="edge55_Node000044_Node000043" title=" " alt="" coords="846,1073,911,1055,913,1060,847,1078"/>
+<area shape="poly" id="edge62_Node000047_Node000034" title=" " alt="" coords="433,1046,524,1069,523,1074,432,1052"/>
+<area shape="poly" id="edge61_Node000047_Node000036" title=" " alt="" coords="404,1048,451,1080,509,1112,524,1118,522,1123,507,1117,448,1084,401,1053"/>
+<area shape="rect" id="Node000048" href="$operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="557,1027,628,1052"/>
+<area shape="poly" id="edge60_Node000047_Node000048" title=" " alt="" coords="432,1035,542,1036,542,1042,432,1040"/>
 </map>
