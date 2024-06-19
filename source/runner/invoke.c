@@ -5,7 +5,7 @@
 #include "env.h"
 #include "help.h"
 #include "launch_executable.h"
-#include "del.h"
+#include "delete_file.h"
 #include "list.h"
 #include "minibat.h"
 
