@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Delete a specific file */
-enum run_result run_del(const os_char *dir);
+enum run_result run_del(const os_char *filename);

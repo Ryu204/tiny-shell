@@ -22,7 +22,7 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
     case CMD_DEL_FILE:
-        return run_del(cmd->val.dir);
+        return run_del(cmd->val.filename);
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;

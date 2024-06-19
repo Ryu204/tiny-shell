@@ -126,8 +126,8 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool delete_file(const os_char *dir) {
-    if(DeleteFile(dir)) {
+bool delete_file(const os_char *filename) {
+    if(DeleteFile(filename)) {
         format_output("File removed successfully.\n");
         return true;
     }
