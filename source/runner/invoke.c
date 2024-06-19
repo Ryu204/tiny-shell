@@ -6,8 +6,8 @@
 #include "help.h"
 #include "launch_executable.h"
 #include "list.h"
-#include "minibat.h"
 #include "lsdir.h"
+#include "minibat.h"
 
 #include <assert.h>
 #include <stdbool.h>

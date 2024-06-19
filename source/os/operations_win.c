@@ -5,10 +5,10 @@
 #    include "operations.h"
 
 #    include <WinBase.h>
+#    include <assert.h>
 #    include <stdio.h>
-#    include <tlhelp32.h>
 #    include <string.h>
-#    include <dirent.h>
+#    include <tlhelp32.h>
 
 void report_error_code(DWORD err);
 
@@ -126,22 +126,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
 }
 
 bool lsdir(const os_char *dir) {
-    struct dirent *de;  
-	DIR *dr = opendir(dir); 
-
-	if (dr == NULL) { 
-		format_output("Could not open current directory"); 
-		return false; 
-	} 
-	while ((de = readdir(dr)) != NULL) {
-        if (strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0) {
-            continue;
-        }
-        format_output("%s\n", de->d_name); 
-    }
-
-	closedir(dr);	 
-	return true; 
+    assert(false && "Unimplemented");
 }
 
 bool launch_executable(const struct args args) {

@@ -103,8 +103,9 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
-    } else if (strcmp(name, "lsdir") == 0) {
-        if (arguments.argc > 2 || arguments.argc < 2) {
+    } else if(strcmp(name, "lsdir") == 0) {
+        if(arguments.argc != 2) {
+            format_error("Usage: lsdir <dir>\n");
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_LSDIR;
@@ -137,16 +138,14 @@ void cmd_destroy(struct cmd *obj) {
         break;
     case CMD_SET_ENV:
     case CMD_UNSET_ENV:
-    case CMD_LSDIR:
-        free(obj->val.dir);
-        break;
     case CMD_GET_ENV:
         free(obj->val.env.name);
         free(obj->val.env.val);
         break;
-    case CMD_MINIBAT:                   // NOLINT
-        args_destroy(&(obj->val.args)); // NOLINT
-        break;                          // NOLINT
+    case CMD_LSDIR:
+        free(obj->val.dir);
+        break;
+    case CMD_MINIBAT:
     case CMD_LAUNCH_EXECUTABLE:
         args_destroy(&(obj->val.args));
         break;
