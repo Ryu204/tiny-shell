@@ -4,6 +4,7 @@ Prerequisites:
 * `CMake` version `>=3.21` and `C11` compiler
 * (optional) `clang-format`
 * (optional) `clang-tidy`
+* (optional) `doxygen`
 
 ```sh
 # In project's root directory
@@ -22,7 +23,7 @@ option(ENABLE_TEST "Build test programs" off)
 ## Supported platform: 
 
 * Windows (tested on Windows 11)
-* Unix-like (tested on WSL and Arch Linux) 
+* Unix-like (tested on WSL2 and Arch Linux) 
 
 # Description
 
