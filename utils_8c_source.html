@@ -131,46 +131,47 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> succeed;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#elif defined(__linux__)</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">bool</span> priv_support_color() {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#    define BUFFER_LENGTH 100</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">char</span> buffer[BUFFER_LENGTH];</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span>(!<a class="code hl_function" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a>(<span class="stringliteral">&quot;TERM&quot;</span>, BUFFER_LENGTH, buffer))</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#    include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">bool</span> priv_support_color() {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *term = getenv(<span class="stringliteral">&quot;TERM&quot;</span>); <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span>(term == NULL) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *color_terms[] = {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="stringliteral">&quot;xterm&quot;</span>, <span class="stringliteral">&quot;xterm-color&quot;</span>, <span class="stringliteral">&quot;xterm-256color&quot;</span>, <span class="stringliteral">&quot;screen&quot;</span>, <span class="stringliteral">&quot;screen-256color&quot;</span>,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="stringliteral">&quot;tmux&quot;</span>, <span class="stringliteral">&quot;tmux-256color&quot;</span>, <span class="stringliteral">&quot;linux&quot;</span>, <span class="stringliteral">&quot;cygwin&quot;</span>, <span class="stringliteral">&quot;rxvt-unicode-256color&quot;</span>};</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = <span class="keyword">sizeof</span>(color_terms) / <span class="keyword">sizeof</span>(color_terms[0]);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; len; i++) {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span>(strcmp(buffer, color_terms[i]) == 0) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">   56</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>() {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> res = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> checked = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span>(!checked) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        res = priv_support_color();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        checked = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *color_terms[] = {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="stringliteral">&quot;xterm&quot;</span>, <span class="stringliteral">&quot;xterm-color&quot;</span>, <span class="stringliteral">&quot;xterm-256color&quot;</span>, <span class="stringliteral">&quot;screen&quot;</span>, <span class="stringliteral">&quot;screen-256color&quot;</span>,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="stringliteral">&quot;tmux&quot;</span>, <span class="stringliteral">&quot;tmux-256color&quot;</span>, <span class="stringliteral">&quot;linux&quot;</span>, <span class="stringliteral">&quot;cygwin&quot;</span>, <span class="stringliteral">&quot;rxvt-unicode-256color&quot;</span>,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="stringliteral">&quot;xterm-kitty&quot;</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = <span class="keyword">sizeof</span>(color_terms) / <span class="keyword">sizeof</span>(color_terms[0]);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; len; i++) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span>(strcmp(term, color_terms[i]) == 0) {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">   58</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>() {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> res = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> checked = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">if</span>(!checked) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        res = priv_support_color();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        checked = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
 </div>
 <div class="ttc" id="aoperations_8h_html"><div class="ttname"><a href="operations_8h.html">operations.h</a></div></div>
-<div class="ttc" id="aoperations_8h_html_a481ed52f9b1715b5351a7137211846f6"><div class="ttname"><a href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a></div><div class="ttdeci">bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Get value of an an environment variable.</div></div>
-<div class="ttc" id="autils_8c_html_a465c19a5caf798e52dc9fddde441da6c"><div class="ttname"><a href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a></div><div class="ttdeci">bool support_color()</div><div class="ttdef"><b>Definition</b> <a href="#l00056">utils.c:56</a></div></div>
+<div class="ttc" id="autils_8c_html_a465c19a5caf798e52dc9fddde441da6c"><div class="ttname"><a href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a></div><div class="ttdeci">bool support_color()</div><div class="ttdef"><b>Definition</b> <a href="#l00058">utils.c:58</a></div></div>
 <div class="ttc" id="autils_8c_html_a771b4438b3b5439b22812170b2534f85"><div class="ttname"><a href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a></div><div class="ttdeci">bool is_number(const char *c)</div><div class="ttdef"><b>Definition</b> <a href="#l00008">utils.c:8</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 18:30:16 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 20:44:39 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>
