@@ -4,6 +4,7 @@
 #define APP_NAME                    "@PROJECT_NAME@"
 #define INPUT_BUFFER_SIZE           256
 #define CWD_BUFFER_SIZE             256
-#define ENVS_RESERVE_SIZE           1024
-#define ENV_VAR_BUFFER_SIZE         2048
+#define ENVS_RESERVE_SIZE           2048
+#define ENV_VAR_BUFFER_SIZE         8192
 #define MAX_ARGC                    128
+#define PATH_MAX                    32767

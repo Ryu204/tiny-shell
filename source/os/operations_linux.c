@@ -33,6 +33,9 @@ void report_error_code(int code) {
     case ENOENT:
         format_error("No such file or directory\n");
         break;
+    case EISDIR:
+        format_error("Is a directory\n");
+        break;
     default:
         format_error("System error code: %d\n", code);
     }
@@ -57,6 +60,42 @@ void clear_screen() {
     printf("\e[1;1H\e[2J");
 }
 
+bool delete_file(const char *filename) {
+    const int status = unlink(filename);
+    if(status == 0) {
+        format_output("File removed successfully.\n");
+        return true;
+    }
+    report_error_code(errno);
+    return false;
+}
+
+bool lsdir(const char *dir) {
+    struct dirent *de = NULL;
+    DIR *dr = opendir(dir);
+    int entries_count = 0;
+
+    if(dr == NULL) {
+        goto LS_FAIL;
+    }
+    // NOLINTNEXTLINE
+    while((de = readdir(dr)) != NULL) {
+        if(de->d_type == DT_DIR)
+            format_output("%s/\n", de->d_name);
+        else if(de->d_type == DT_REG)
+            format_output("%s\n", de->d_name);
+        else
+            format_output("%s(?)\n", de->d_name);
+        entries_count++;
+    }
+    closedir(dr);
+    if(entries_count > 0)
+        return true;
+LS_FAIL:
+    format_error("Cannot get directory information\n");
+    return false;
+}
+
 // NOLINTBEGIN(misc-unused-parameters)
 void handle_background_child_exit(int sig) {
     int stat = 0;
@@ -76,6 +115,8 @@ bool launch_executable(const struct args args) {
         return false;
     }
     if(pid == 0) {
+        if(!args.background)
+            signal(SIGINT, SIG_DFL);
         if(execvp(copied_args.argv[0], copied_args.argv) == -1) {
             report_error_code(errno);
             _exit(EXIT_FAILURE);
@@ -219,9 +260,9 @@ bool enum_proc() {
         if(statusfile == NULL) {
             continue;
         }
-// Read the first line for process name
 #    define NAME_LENGTH 512
         char name[NAME_LENGTH];
+        // Read the first line for process name
         if(fscanf(statusfile, "Name: %s512\n", name) != 1) {
             fclose(statusfile);
             continue;

@@ -119,6 +119,40 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
+    } else if(strcmp(name, "addpath") == 0) {
+        if(arguments.argc != 2) {
+            format_error("Unexpected number of arguments\n");
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_ADD_PATH;
+            const size_t len = strlen(arguments.argv[1]);
+            res->val.new_path = (os_char *)malloc((len + 1) * sizeof(os_char));
+            res->val.new_path[len] = '\0';
+            memcpy(res->val.new_path, arguments.argv[1], strlen(arguments.argv[1]) * sizeof(os_char));
+        }
+    } else if(strcmp(name, "delete") == 0) {
+        if(arguments.argc > 2 || arguments.argc < 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_DEL_FILE;
+
+            const unsigned int dir_len = strlen(arguments.argv[1]);
+            res->val.filename = malloc(dir_len + 1);
+            memcpy(res->val.filename, arguments.argv[1], dir_len);
+            res->val.filename[dir_len] = '\0';
+        }
+    } else if(strcmp(name, "lsdir") == 0) {
+        if(arguments.argc != 2) {
+            format_error("Usage: lsdir <dir>\n");
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_LSDIR;
+
+            const unsigned int dir_len = strlen(arguments.argv[1]);
+            res->val.dir = malloc(dir_len + 1);
+            memcpy(res->val.dir, arguments.argv[1], dir_len);
+            res->val.dir[dir_len] = '\0';
+        }
     } else if(arguments.argc && is_minibat_file(arguments.argv[0])) {
         if(arguments.argc != 1) {
             format_error("Too many arguments\n");
@@ -146,9 +180,16 @@ void cmd_destroy(struct cmd *obj) {
         free(obj->val.env.name);
         free(obj->val.env.val);
         break;
-    case CMD_MINIBAT:                   // NOLINT
-        args_destroy(&(obj->val.args)); // NOLINT
-        break;                          // NOLINT
+    case CMD_ADD_PATH:
+        free(obj->val.new_path);
+        break;
+    case CMD_DEL_FILE:
+        free(obj->val.filename);
+        break;
+    case CMD_LSDIR:
+        free(obj->val.dir);
+        break;
+    case CMD_MINIBAT:
     case CMD_LAUNCH_EXECUTABLE:
         args_destroy(&(obj->val.args));
         break;
