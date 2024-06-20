@@ -37,9 +37,10 @@ bool priv_support_color() {
 #elif defined(__linux__)
 #    include <stdlib.h>
 bool priv_support_color() {
-#    define BUFFER_LENGTH 100
-    char buffer[BUFFER_LENGTH];
     const char *term = getenv("TERM"); // NOLINT
+    if (term == NULL) {
+        return false;
+    }
     const char *color_terms[] = {
         "xterm", "xterm-color", "xterm-256color", "screen", "screen-256color",
         "tmux", "tmux-256color", "linux", "cygwin", "rxvt-unicode-256color",
