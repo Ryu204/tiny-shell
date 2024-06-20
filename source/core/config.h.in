@@ -8,3 +8,4 @@
 #define ENV_VAR_BUFFER_SIZE         8192
 #define MAX_ARGC                    128
 #define PATH_MAX                    32767
+#define TIME_DATE_BUFFER_SIZE       100

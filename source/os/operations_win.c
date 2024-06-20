@@ -479,7 +479,7 @@ bool get_time() {
     SYSTEMTIME st = {0};
     GetLocalTime(&st);
 
-    wprintf(L"The current time is: %02d:%02d:%02d.\n", st.wHour, st.wMinute, st.wSecond);
+    format_output("The current time is: %02d:%02d:%02d.\n", st.wHour, st.wMinute, st.wSecond);
     return true;
 }
 
@@ -487,7 +487,7 @@ bool get_date() {
     SYSTEMTIME st = {0};
     GetLocalTime(&st);
 
-    wprintf(L"The current date is: %02d/%02d/%04d.\n", st.wDay, st.wMonth, st.wYear);
+    format_output("The current date is: %02d/%02d/%04d.\n", st.wDay, st.wMonth, st.wYear);
     return true;
 }
 

@@ -14,6 +14,7 @@
 #    include <string.h>
 #    include <sys/stat.h>
 #    include <sys/wait.h>
+#    include <time.h>
 #    include <unistd.h>
 
 extern char **environ; // NOLINT
@@ -36,6 +37,12 @@ void report_error_code(int code) {
         break;
     case EISDIR:
         format_error("Is a directory\n");
+        break;
+    case EPERM:
+        format_error("Operation not permitted\n");
+        break;
+    case ESRCH:
+        format_error("No such process\n");
         break;
     default:
         format_error("System error code: %d\n", code);
@@ -133,10 +140,10 @@ bool launch_executable(const struct args args) {
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
             if(exit_code != 0) {
-                format_success("Exit code: %d\n", exit_code);
+                format_error("Exit code: %d\n", exit_code);
                 goto RETURN_FALSE;
             }
-            goto RETURN_FALSE;
+            goto RETURN_TRUE;
         } else if(WIFSTOPPED(stat_loc)) {
             format_error("Stopped\n");
             goto RETURN_FALSE;
@@ -196,6 +203,10 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
     memcpy(buffer, res, len);
     buffer[len] = '\0';
     return true;
+}
+
+bool has_shell_env(const os_char *var) {
+    return getenv(var) != NULL; // NOLINT
 }
 
 os_char *get_all_shell_env_display() {
@@ -334,25 +345,128 @@ bool minibat(const struct args args) {
     return res;
 };
 
-// NOLINTBEGIN
+bool check_process_exist(int proc_id) {
+    const bool exists = kill(proc_id, 0) == 0;
+    if(!exists) {
+        report_error_code(errno);
+        return false;
+    }
+    return true;
+}
+
 bool show_child_processes(int proc_id) {
+    DIR *dir = opendir("/proc");
+    if(dir == NULL) {
+        format_error("Unable to open /proc");
+        return false;
+    }
+    struct dirent *entry = NULL;
+    char path_buffer[CWD_BUFFER_SIZE];
+    FILE *fp = NULL;
+    pid_t ppid = 0;
+    int countChildProcess = 0;
+
+    // NOLINTNEXTLINE
+    while((entry = readdir(dir)) != NULL) {
+        if(entry->d_type == DT_DIR && is_number(entry->d_name)) {
+            snprintf(path_buffer, sizeof(path_buffer), "/proc/%s/stat", entry->d_name);
+            fp = fopen(path_buffer, "r");
+            if(fp == NULL) {
+                continue;
+            }
+
+            // Fields in /proc/[pid]/stat as per 'man proc'
+            int pid = 0;
+            char comm[CWD_BUFFER_SIZE];
+            char state = '\0';
+            if(fscanf(fp, "%d %s %c %d", &pid, comm, &state, &ppid) != 4) {
+                fclose(fp);
+                continue;
+            }
+            fclose(fp);
+
+            if(ppid == proc_id) {
+                // Get the thread count
+                snprintf(path_buffer, sizeof(path_buffer), "/proc/%d/status", pid);
+                fp = fopen(path_buffer, "r");
+                if(fp != NULL) {
+                    char line[CWD_BUFFER_SIZE];
+                    int threads = 0;
+                    while(fgets(line, sizeof(line), fp)) {
+                        if(sscanf(line, "Threads: %d", &threads) == 1) {
+                            break;
+                        }
+                    }
+                    fclose(fp);
+
+                    // Remove parentheses around the process name
+                    comm[strlen(comm) - 1] = '\0';
+                    format_success("PID: %6d T: %3d Name: %s \n", pid, threads, comm + 1);
+                    countChildProcess++;
+                }
+            }
+        }
+    }
+    closedir(dir);
+
+    if(countChildProcess == 0) {
+        format_success("No process with parent's PID %d\n", proc_id);
+    }
+
     return true;
 }
-bool get_time() {
-    return true;
-}
+
 bool get_date() {
+    os_char buffer[TIME_DATE_BUFFER_SIZE];
+    const time_t current_time = time(NULL);
+    struct tm *local_time = localtime(&current_time); // NOLINT
+    format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon, local_time->tm_year);
     return true;
 }
+
+bool get_time() {
+    os_char buffer[TIME_DATE_BUFFER_SIZE];
+    const time_t current_time = time(NULL);
+    struct tm *local_time = localtime(&current_time); // NOLINT
+    format_output("The current time is: %02d:%02d:%02d.\n", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    return true;
+}
+
 bool kill_process(int proc_id) {
-    return true;
+    if(!check_process_exist(proc_id)) {
+        return false;
+    }
+    if(kill(proc_id, SIGTERM) == 0) {
+        format_success("Process with ID %d is terminated.\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't terminate process with id %d\n.", proc_id);
+    return false;
 }
+
 bool resume(int proc_id) {
-    return true;
+    if(!check_process_exist(proc_id))
+        return false;
+    if(kill(proc_id, SIGCONT) == 0) {
+        format_success("Resume running process with ID %d\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't resume process with id %d\n.", proc_id);
+    return false;
 }
+
 bool stop_proccess(int proc_id) {
-    return true;
+    if(!check_process_exist(proc_id))
+        return false;
+    if(kill(proc_id, SIGSTOP) == 0) {
+        format_success("Stopped running process with ID %d\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't stop process with id %d\n.", proc_id);
+    return false;
 }
-// NOLINTEND
 
 #endif

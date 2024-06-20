@@ -35,17 +35,19 @@ bool priv_support_color() {
     return succeed;
 }
 #elif defined(__linux__)
+#    include <stdlib.h>
 bool priv_support_color() {
-#    define BUFFER_LENGTH 100
-    char buffer[BUFFER_LENGTH];
-    if(!get_shell_env("TERM", BUFFER_LENGTH, buffer))
+    const char *term = getenv("TERM"); // NOLINT
+    if(term == NULL) {
         return false;
+    }
     const char *color_terms[] = {
         "xterm", "xterm-color", "xterm-256color", "screen", "screen-256color",
-        "tmux", "tmux-256color", "linux", "cygwin", "rxvt-unicode-256color"};
+        "tmux", "tmux-256color", "linux", "cygwin", "rxvt-unicode-256color",
+        "xterm-kitty"};
     const unsigned int len = sizeof(color_terms) / sizeof(color_terms[0]);
     for(size_t i = 0; i < len; i++) {
-        if(strcmp(buffer, color_terms[i]) == 0) {
+        if(strcmp(term, color_terms[i]) == 0) {
             return true;
         }
     }
