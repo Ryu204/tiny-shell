@@ -53,7 +53,7 @@ bool get_time();
 bool get_date();
 
 /*! @brief Stop a process use it ID*/
-bool stop_proccess(const struct args args);
+bool stop_proccess(const os_char *proc_id);
 
 /*! @brief Launch shell executable and execute the file specified by `args.argv[0]` */
 bool minibat(const struct args args);

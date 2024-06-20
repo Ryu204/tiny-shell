@@ -11,7 +11,6 @@ enum run_result run_help() {
                   "\"lsdir\":   list of files or folders in specific directory\n"
                   "\"time\":    get current time\n"
                   "\"date\":    get current date\n"
-                  "\"stop\":    stop a process\n"
-                  );
+                  "\"stop\":    stop a process\n");
     return RUN_OK;
 }

@@ -388,15 +388,15 @@ bool enum_proc() {
     return true;
 }
 
-bool get_time(){
-    SYSTEMTIME st  = {0};
+bool get_time() {
+    SYSTEMTIME st = {0};
     GetLocalTime(&st);
 
     wprintf(L"The current time is: %02d:%02d:%02d.\n", st.wHour, st.wMinute, st.wSecond);
     return true;
 }
 
-bool get_date(){
+bool get_date() {
     SYSTEMTIME st = {0};
     GetLocalTime(&st);
 
@@ -404,13 +404,13 @@ bool get_date(){
     return true;
 }
 
-bool stop_proccess(const struct args args){
-    int processID = atoi(args.argv[0]);
+bool stop_proccess(const os_char *proc_id) {
+    int processID = atoi(proc_id);
     int flag = 0;
 
     HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
     threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
-    if (threadsSnapshot == INVALID_HANDLE_VALUE) {
+    if(threadsSnapshot == INVALID_HANDLE_VALUE) {
         format_error("Invalid handle value.\n");
         return false;
     }
@@ -418,8 +418,8 @@ bool stop_proccess(const struct args args){
     threadEntry.dwSize = sizeof(THREADENTRY32);
     Thread32First(threadsSnapshot, &threadEntry);
 
-    do{
-        if (threadEntry.th32OwnerProcessID == processID){
+    do {
+        if(threadEntry.th32OwnerProcessID == processID) {
             HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, threadEntry.th32ThreadID);
             SuspendThread(hThread);
             CloseHandle(hThread);
@@ -427,7 +427,7 @@ bool stop_proccess(const struct args args){
         }
     } while(Thread32Next(threadsSnapshot, &threadEntry));
 
-    if(flag){
+    if(flag) {
         format_output("Stop running process with ID %d", processID);
         return true;
     }

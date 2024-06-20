@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Resume running a process */
-enum run_result run_stop(const struct args args);
+enum run_result run_stop(const os_char *proc_id);
