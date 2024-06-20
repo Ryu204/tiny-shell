@@ -356,7 +356,7 @@ bool check_process_exist(int proc_id) {
 
 bool show_child_processes(int proc_id) {
     DIR *dir = opendir("/proc");
-    if (dir == NULL) {
+    if(dir == NULL) {
         format_error("Unable to open /proc");
         return false;
     }
