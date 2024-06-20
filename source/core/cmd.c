@@ -1,6 +1,7 @@
 #include "cmd.h"
 #include "args.h"
 #include "io_wrap.h"
+#include "utils.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -44,21 +45,11 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
     } else if(strcmp(name, "time") == 0) {
         res->type = CMD_TIME;
     } else if(strcmp(name, "stop") == 0) {
-        if(arguments.argc < 2 || arguments.argc > 2) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_STOP_PROC;
-
-            const unsigned int id_len = strlen(arguments.argv[1]);
-            res->val.proc_id = malloc(id_len + 1);
-            memcpy(res->val.proc_id, arguments.argv[1], id_len);
-            res->val.proc_id[id_len] = '\0';
-            // res->val.args.argc = arguments.argc -1 ;
-            // res->val.args.argv = malloc(sizeof(os_char*));
-            // const unsigned int id_len = strlen(arguments.argv[1]);
-            // res->val.args.argv[0] = malloc((id_len + 1)*sizeof(os_char));
-            // memcpy(res->val.args.argv[0], arguments.argv[1], id_len*sizeof(os_char));
-            // res->val.args.argv[0][id_len] ='\0';
+            res->val.proc_id = atoi(arguments.argv[1]);
         }
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;

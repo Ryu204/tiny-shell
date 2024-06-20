@@ -404,8 +404,7 @@ bool get_date() {
     return true;
 }
 
-bool stop_proccess(const os_char *proc_id) {
-    int processID = atoi(proc_id);
+bool stop_proccess(int proc_id) {
     int flag = 0;
 
     HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
@@ -419,7 +418,7 @@ bool stop_proccess(const os_char *proc_id) {
     Thread32First(threadsSnapshot, &threadEntry);
 
     do {
-        if(threadEntry.th32OwnerProcessID == processID) {
+        if(threadEntry.th32OwnerProcessID == proc_id) {
             HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, threadEntry.th32ThreadID);
             SuspendThread(hThread);
             CloseHandle(hThread);
@@ -428,10 +427,10 @@ bool stop_proccess(const os_char *proc_id) {
     } while(Thread32Next(threadsSnapshot, &threadEntry));
 
     if(flag) {
-        format_output("Stop running process with ID %d", processID);
+        format_output("Stopped running process with ID %d\n", proc_id);
         return true;
     }
-    format_error("Can't find process with ID %d", processID);
+    format_error("Can't find process with ID %d\n", proc_id);
     return false;
 }
 

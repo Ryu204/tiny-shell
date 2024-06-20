@@ -1,6 +1,7 @@
 #ifdef __linux__
 #    include "../core/config.h"
 #    include "../core/io_wrap.h"
+#    include "../core/utils.h"
 #    include "operations.h"
 #    include "type.h"
 
@@ -222,17 +223,6 @@ os_char *get_all_shell_env_display() {
     }
     res[len] = '\0';
     return res;
-}
-
-bool is_number(const char *c) {
-    if(c == NULL || c[0] == '\0')
-        return false;
-    const unsigned int length = strlen(c);
-    for(int i = 0; i < length; ++i) {
-        if(c[i] < '0' || c[i] > '9')
-            return false;
-    }
-    return true;
 }
 
 bool enum_proc() {
