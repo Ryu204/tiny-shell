@@ -7,5 +7,6 @@ var searchData=
   ['stop_2ec_4',['stop.c',['../stop_8c.html',1,'']]],
   ['stop_2eh_5',['stop.h',['../stop_8h.html',1,'']]],
   ['stop_5fproccess_6',['stop_proccess',['../operations_8h.html#a068bce733fc2d4075354c82bef5daed5',1,'operations.h']]],
-  ['strtok_5fr_5fcustom_7',['strtok_r_custom',['../add__path_8c.html#a0400f08589a5ade0ec0723c30f4379e2',1,'add_path.c']]]
+  ['strtok_5fr_5fcustom_7',['strtok_r_custom',['../add__path_8c.html#a0400f08589a5ade0ec0723c30f4379e2',1,'add_path.c']]],
+  ['support_5fcolor_8',['support_color',['../utils_8c.html#a465c19a5caf798e52dc9fddde441da6c',1,'support_color():&#160;utils.c'],['../utils_8h.html#a465c19a5caf798e52dc9fddde441da6c',1,'support_color():&#160;utils.c']]]
 ];

@@ -97,31 +97,36 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c">    4</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> <a class="code hl_function" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c">run_help</a>() {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;\&quot;help\&quot;:    print this message\n&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>                  <span class="stringliteral">&quot;\&quot;cd\&quot;:      change directory\n&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>                  <span class="stringliteral">&quot;\&quot;exit\&quot;:    exit shell\n&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                  <span class="stringliteral">&quot;\&quot;kill\&quot;:    kill a process\n&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                  <span class="stringliteral">&quot;\&quot;resume\&quot;:  resume running a process\n&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                  <span class="stringliteral">&quot;\&quot;child\&quot;:   show all child processes\n&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                  <span class="stringliteral">&quot;\&quot;delete\&quot;:  delete directory\n&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                  <span class="stringliteral">&quot;\&quot;list\&quot;:    list all running processes\n&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                  <span class="stringliteral">&quot;\&quot;lsdir\&quot;:   list of files or folders in specific directory\n&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                  <span class="stringliteral">&quot;\&quot;time\&quot;:    get current time\n&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                  <span class="stringliteral">&quot;\&quot;date\&quot;:    get current date\n&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                  <span class="stringliteral">&quot;\&quot;stop\&quot;:    stop a process\n&quot;</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;addpath  append new path to PATH\n&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>                  <span class="stringliteral">&quot;cd       change directory\n&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>                  <span class="stringliteral">&quot;child    show all child processes\n&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                  <span class="stringliteral">&quot;clear    clear the console\n&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                  <span class="stringliteral">&quot;date     get current date\n&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                  <span class="stringliteral">&quot;delete   delete a file permanently\n&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                  <span class="stringliteral">&quot;env      get environment variables\n&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                  <span class="stringliteral">&quot;exit     exit shell\n&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                  <span class="stringliteral">&quot;help     print this message\n&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                  <span class="stringliteral">&quot;kill     kill a process\n&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                  <span class="stringliteral">&quot;list     list all running processes\n&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                  <span class="stringliteral">&quot;lsdir    list of files and subdirs in a directory\n&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                  <span class="stringliteral">&quot;resume   resume a suspended process\n&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                  <span class="stringliteral">&quot;set      set environment variable\n&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                  <span class="stringliteral">&quot;stop     suspend a process\n&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                  <span class="stringliteral">&quot;time     get current time\n&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                  <span class="stringliteral">&quot;unset    unset environment variable\n&quot;</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 </div>
 <div class="ttc" id="ahelp_8c_html_ab1d6c40565819f71ed827c3c02f70c3c"><div class="ttname"><a href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c">run_help</a></div><div class="ttdeci">enum run_result run_help()</div><div class="ttdoc">Display help message.</div><div class="ttdef"><b>Definition</b> <a href="#l00004">help.c:4</a></div></div>
 <div class="ttc" id="ahelp_8h_html"><div class="ttname"><a href="help_8h.html">help.h</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00039">io_wrap.c:39</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00069">io_wrap.c:69</a></div></div>
 <div class="ttc" id="aio__wrap_8h_html"><div class="ttname"><a href="io__wrap_8h.html">io_wrap.h</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35e"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a></div><div class="ttdeci">run_result</div><div class="ttdoc">Result of the execution of a command line.</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00006">res.h:6</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

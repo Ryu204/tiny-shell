@@ -110,11 +110,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#asource_2core_2utils_8hdep" alt=""/></div>
 <map name="asource_2core_2utils_8hdep" id="asource_2core_2utils_8hdep">
-<area shape="rect" title=" " alt="" coords="82,5,209,31"/>
+<area shape="rect" title=" " alt="" coords="169,5,296,31"/>
 <area shape="rect" href="cmd_8c.html" title=" " alt="" coords="5,79,134,105"/>
-<area shape="poly" title=" " alt="" coords="123,44,84,81,80,77,120,40"/>
-<area shape="rect" href="utils_8c.html" title=" " alt="" coords="158,79,285,105"/>
-<area shape="poly" title=" " alt="" coords="171,40,211,77,207,81,168,44"/>
+<area shape="poly" title=" " alt="" coords="192,40,98,81,96,76,190,35"/>
+<area shape="rect" href="io__wrap_8c.html" title=" " alt="" coords="158,79,306,105"/>
+<area shape="poly" title=" " alt="" coords="235,46,235,79,230,79,230,46"/>
+<area shape="rect" href="utils_8c.html" title=" " alt="" coords="330,79,457,105"/>
+<area shape="poly" title=" " alt="" coords="274,35,367,76,365,81,272,40"/>
 </map>
 </div>
 </div>
@@ -124,6 +126,8 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a771b4438b3b5439b22812170b2534f85" id="r_a771b4438b3b5439b22812170b2534f85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a771b4438b3b5439b22812170b2534f85">is_number</a> (const char *c)</td></tr>
 <tr class="separator:a771b4438b3b5439b22812170b2534f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465c19a5caf798e52dc9fddde441da6c" id="r_a465c19a5caf798e52dc9fddde441da6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a465c19a5caf798e52dc9fddde441da6c">support_color</a> ()</td></tr>
+<tr class="separator:a465c19a5caf798e52dc9fddde441da6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a771b4438b3b5439b22812170b2534f85" name="a771b4438b3b5439b22812170b2534f85"></a>
@@ -141,20 +145,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00005">5</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>                              {</div>
-<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">if</span>(c == NULL || c[0] == <span class="charliteral">&#39;\0&#39;</span>)</div>
-<div class="line"><span class="lineno">    7</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">    8</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = strlen(c);</div>
-<div class="line"><span class="lineno">    9</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> MAX_INT_DIGITS = 10;</div>
-<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">if</span>(length &gt; MAX_INT_DIGITS)</div>
-<div class="line"><span class="lineno">   11</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; length; ++i) {</div>
-<div class="line"><span class="lineno">   13</span>        <span class="keywordflow">if</span>(c[i] &lt; <span class="charliteral">&#39;0&#39;</span> || c[i] &gt; <span class="charliteral">&#39;9&#39;</span>)</div>
-<div class="line"><span class="lineno">   14</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   15</span>    }</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   17</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00008">8</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>                              {</div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">if</span>(c == NULL || c[0] == <span class="charliteral">&#39;\0&#39;</span>)</div>
+<div class="line"><span class="lineno">   10</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = strlen(c);</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> MAX_INT_DIGITS = 10;</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">if</span>(length &gt; MAX_INT_DIGITS)</div>
+<div class="line"><span class="lineno">   14</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; length; ++i) {</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">if</span>(c[i] &lt; <span class="charliteral">&#39;0&#39;</span> || c[i] &gt; <span class="charliteral">&#39;9&#39;</span>)</div>
+<div class="line"><span class="lineno">   17</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   18</span>    }</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   20</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>.</p>
 <div class="dynheader">
@@ -174,10 +178,96 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a465c19a5caf798e52dc9fddde441da6c" name="a465c19a5caf798e52dc9fddde441da6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465c19a5caf798e52dc9fddde441da6c">&#9670;&#160;</a></span>support_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool support_color </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00056">56</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                     {</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> res = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> checked = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span>(!checked) {</div>
+<div class="line"><span class="lineno">   61</span>        res = priv_support_color();</div>
+<div class="line"><span class="lineno">   62</span>        checked = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00078">format_error()</a>, <a class="el" href="io__wrap_8c_source.html#l00069">format_output()</a>, <a class="el" href="io__wrap_8c_source.html#l00058">format_success()</a>, <a class="el" href="io__wrap_8c_source.html#l00046">format_usage()</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_a465c19a5caf798e52dc9fddde441da6c_icgraph.png" border="0" usemap="#autils_8h_a465c19a5caf798e52dc9fddde441da6c_icgraph" alt=""/></div>
+<map name="autils_8h_a465c19a5caf798e52dc9fddde441da6c_icgraph" id="autils_8h_a465c19a5caf798e52dc9fddde441da6c_icgraph">
+<area shape="rect" title=" " alt="" coords="937,307,1037,332"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="787,383,878,408"/>
+<area shape="poly" title=" " alt="" coords="946,342,861,385,859,380,944,337"/>
+<area shape="rect" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="604,80,705,106"/>
+<area shape="poly" title=" " alt="" coords="964,296,930,258,888,220,835,185,781,153,687,109,689,104,783,149,838,180,891,216,934,255,968,293"/>
+<area shape="rect" href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="775,231,889,256"/>
+<area shape="poly" title=" " alt="" coords="944,302,859,259,861,254,946,297"/>
+<area shape="rect" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="782,307,882,332"/>
+<area shape="poly" title=" " alt="" coords="921,322,883,322,883,317,921,317"/>
+<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="250,520,346,546"/>
+<area shape="poly" title=" " alt="" coords="967,346,928,390,873,441,805,490,767,510,728,525,676,537,623,546,516,552,420,549,346,542,346,537,421,544,516,547,622,541,675,532,726,520,765,505,802,485,869,437,924,386,963,343"/>
+<area shape="rect" href="add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="617,256,692,282"/>
+<area shape="poly" title=" " alt="" coords="799,376,672,284,675,280,802,371"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,281,55,307"/>
+<area shape="poly" title=" " alt="" coords="771,391,634,379,472,373,296,373,226,366,158,349,98,327,54,308,56,303,100,322,159,343,227,360,296,368,472,368,635,374,771,386"/>
+<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="235,432,360,458"/>
+<area shape="poly" title=" " alt="" coords="815,423,779,464,755,483,728,498,673,514,616,520,558,519,502,512,401,487,328,461,330,456,403,482,503,507,559,514,616,515,672,509,726,493,752,479,775,460,811,419"/>
+<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="582,408,727,434"/>
+<area shape="poly" title=" " alt="" coords="772,407,728,413,727,408,771,401"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="593,457,716,483"/>
+<area shape="poly" title=" " alt="" coords="794,418,728,449,700,459,698,454,726,444,791,413"/>
+<area shape="rect" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="421,256,521,282"/>
+<area shape="poly" title=" " alt="" coords="602,272,521,272,521,266,602,266"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="247,129,349,155"/>
+<area shape="poly" title=" " alt="" coords="438,249,315,158,318,153,442,245"/>
+<area shape="poly" title=" " alt="" coords="232,153,167,171,134,184,104,202,83,220,65,242,40,282,36,279,61,239,79,216,101,197,132,179,166,166,231,148"/>
+<area shape="rect" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="103,432,187,458"/>
+<area shape="poly" title=" " alt="" coords="219,448,187,448,187,442,219,442"/>
+<area shape="poly" title=" " alt="" coords="122,421,39,309,43,306,127,418"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="408,432,534,458"/>
+<area shape="poly" title=" " alt="" coords="566,435,534,439,534,434,566,430"/>
+<area shape="poly" title=" " alt="" coords="393,448,361,448,361,442,393,442"/>
+<area shape="poly" title=" " alt="" coords="578,462,534,456,534,451,578,457"/>
+<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="415,5,527,31"/>
+<area shape="poly" title=" " alt="" coords="607,76,533,45,506,34,508,29,535,40,609,71"/>
+<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="425,55,517,80"/>
+<area shape="poly" title=" " alt="" coords="588,86,517,77,518,71,589,81"/>
+<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="436,104,506,130"/>
+<area shape="poly" title=" " alt="" coords="589,104,507,115,506,110,588,99"/>
+<area shape="poly" title=" " alt="" coords="417,40,410,44,353,89,312,131,309,127,350,85,407,40,414,36"/>
+<area shape="poly" title=" " alt="" coords="422,89,409,94,328,131,326,126,407,89,419,84"/>
+<area shape="poly" title=" " alt="" coords="421,127,350,137,349,132,420,121"/>
+<area shape="poly" title=" " alt="" coords="760,256,692,266,692,261,759,251"/>
+<area shape="poly" title=" " alt="" coords="776,227,774,226,750,213,726,202,623,177,518,160,423,151,349,146,349,141,424,145,519,155,624,171,728,197,753,208,776,221,779,222"/>
+<area shape="poly" title=" " alt="" coords="759,238,626,227,472,221,296,221,227,228,159,245,100,266,56,285,54,280,98,261,158,240,226,223,296,216,472,216,626,221,759,233"/>
+<area shape="poly" title=" " alt="" coords="768,337,357,434,355,429,766,332"/>
+<area shape="poly" title=" " alt="" coords="259,514,168,461,171,456,262,510"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

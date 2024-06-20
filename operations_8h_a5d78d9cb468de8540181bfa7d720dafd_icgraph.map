@@ -1,5 +1,5 @@
-<map id="kill" name="kill">
-<area shape="rect" id="Node000001" title="Kill a process." alt="" coords="363,5,402,31"/>
+<map id="kill_process" name="kill_process">
+<area shape="rect" id="Node000001" title="Kill a process." alt="" coords="363,5,454,31"/>
 <area shape="rect" id="Node000002" href="$kill_8c.html#a4297032b06e5b8cc628ac9046367ed83" title="Kill a process." alt="" coords="253,5,315,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="348,21,316,21,316,16,348,16"/>
 <area shape="rect" id="Node000003" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>

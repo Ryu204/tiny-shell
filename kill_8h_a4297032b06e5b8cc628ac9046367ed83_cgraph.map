@@ -1,5 +1,5 @@
 <map id="run_kill" name="run_kill">
 <area shape="rect" id="Node000001" title="Kill a process." alt="" coords="5,5,68,31"/>
-<area shape="rect" id="Node000002" href="$operations_8h.html#a31162d5c00dba5591bd823b8ade29ee6" title="Kill a process." alt="" coords="116,5,154,31"/>
+<area shape="rect" id="Node000002" href="$operations_8h.html#a5d78d9cb468de8540181bfa7d720dafd" title="Kill a process." alt="" coords="116,5,206,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,16,100,16,100,21,68,21"/>
 </map>

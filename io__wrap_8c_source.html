@@ -95,104 +95,158 @@ $(function(){ initResizable(false); });
 <a href="io__wrap_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="io__wrap_8h.html">io_wrap.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="operations_8h.html">../os/operations.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="config_8h.html">config.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">   10</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">static</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> res = <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">return</span> &amp;res;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">   11</a></span><span class="preprocessor">#define COLOR_GREEN &quot;\033[32m&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">   12</a></span><span class="preprocessor">#define COLOR_YELLOW &quot;\033[33m&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">   13</a></span><span class="preprocessor">#define COLOR_RED &quot;\033[31m&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a23c70d699a5a775bc2e1ebeb8603f630">   14</a></span><span class="preprocessor">#define COLOR_BLUE &quot;\033[34m&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">   15</a></span><span class="preprocessor">#define COLOR_BLACK &quot;\033[30m&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">   17</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">static</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> res = <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> &amp;res;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a>(<span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> result) {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a>(<span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> result) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">   19</a></span><span class="keywordtype">bool</span> *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> visible = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">return</span> &amp;visible;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">   26</a></span><span class="keywordtype">bool</span> *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> visible = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> &amp;visible;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">io_set_prompt_visibility</a>(<span class="keywordtype">bool</span> visible) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">   31</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">io_set_prompt_visibility</a>(<span class="keywordtype">bool</span> visible) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcmd.html">cmd</a> *obj) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
-</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">   39</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    va_start(argptr, fmt);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    va_end(argptr);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">   36</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcmd.html">cmd</a> *obj) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
 </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    printf(<span class="stringliteral">&quot;ERROR: &quot;</span>);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    va_start(argptr, fmt);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    va_end(argptr);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    printf(<span class="stringliteral">&quot;USAGE: &quot;</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    va_start(argptr, fmt);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    va_end(argptr);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>() {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d">format_success</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    va_start(argptr, fmt);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    va_end(argptr);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">   69</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    va_start(argptr, fmt);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    va_end(argptr);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">   78</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="keywordtype">char</span> *fmt, ...) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    printf(<span class="stringliteral">&quot;ERR: &quot;</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    va_start(argptr, fmt);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    va_end(argptr);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">   90</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>() {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            printf(<a class="code hl_define" href="io__wrap_8c.html#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            printf(<a class="code hl_define" href="io__wrap_8c.html#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a> <span class="stringliteral">&quot;%s\n&quot;</span> <a class="code hl_define" href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a> <span class="stringliteral">&quot;:( -&gt; &quot;</span>, buffer);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>()) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
 </div>
 <div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00019">cmd.c:19</a></div></div>
 <div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div></div>
 <div class="ttc" id="aconfig_8h_html_a1efa72b804973756363ce5be7e24be18"><div class="ttname"><a href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a></div><div class="ttdeci">#define CWD_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00006">config.h:6</a></div></div>
 <div class="ttc" id="aconfig_8h_html_aa9b8dcc02cea15aab8e3d0b7860327a7"><div class="ttname"><a href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define INPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00005">config.h:5</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00039">io_wrap.c:39</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a4f415323e0a26da0f47e59d3b549411c"><div class="ttname"><a href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a></div><div class="ttdeci">void scan_input(struct cmd *obj)</div><div class="ttdoc">Ask and convert user's input into command.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">io_wrap.c:29</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">io_wrap.c:46</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="#l00054">io_wrap.c:54</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_aa83858cd9389e0d5fd5050f78281e3dd"><div class="ttname"><a href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a></div><div class="ttdeci">void io_set_last_status(enum run_result result)</div><div class="ttdoc">Set the result of last command (RUN_OK/RUN_FAIL/...)</div><div class="ttdef"><b>Definition</b> <a href="#l00015">io_wrap.c:15</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_ad46bab1d03261ccbe90df638f3bde4c0"><div class="ttname"><a href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">io_set_prompt_visibility</a></div><div class="ttdeci">void io_set_prompt_visibility(bool visible)</div><div class="ttdoc">Config if prompt should be printed.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">io_wrap.c:24</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="#l00019">io_wrap.c:19</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="#l00010">io_wrap.c:10</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00069">io_wrap.c:69</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a23c70d699a5a775bc2e1ebeb8603f630"><div class="ttname"><a href="io__wrap_8c.html#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a></div><div class="ttdeci">#define COLOR_BLUE</div><div class="ttdef"><b>Definition</b> <a href="#l00014">io_wrap.c:14</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a3b58809dca43364de0ca32bc8d753100"><div class="ttname"><a href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a></div><div class="ttdeci">void format_usage(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">io_wrap.c:46</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a42c9e06f81af8c2a6c95ac3e86988d8d"><div class="ttname"><a href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d">format_success</a></div><div class="ttdeci">void format_success(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">io_wrap.c:58</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a4534b577b74a58b0f4b7be027af664e0"><div class="ttname"><a href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a></div><div class="ttdeci">#define COLOR_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="#l00012">io_wrap.c:12</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a4f415323e0a26da0f47e59d3b549411c"><div class="ttname"><a href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c">scan_input</a></div><div class="ttdeci">void scan_input(struct cmd *obj)</div><div class="ttdoc">Ask and convert user's input into command.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">io_wrap.c:36</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="#l00078">io_wrap.c:78</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="#l00090">io_wrap.c:90</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aa83858cd9389e0d5fd5050f78281e3dd"><div class="ttname"><a href="io__wrap_8c.html#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a></div><div class="ttdeci">void io_set_last_status(enum run_result result)</div><div class="ttdoc">Set the result of last command (RUN_OK/RUN_FAIL/...)</div><div class="ttdef"><b>Definition</b> <a href="#l00022">io_wrap.c:22</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aba2a7fe77a7501e5844370eec0185207"><div class="ttname"><a href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a></div><div class="ttdeci">#define COLOR_BLACK</div><div class="ttdef"><b>Definition</b> <a href="#l00015">io_wrap.c:15</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_ad46bab1d03261ccbe90df638f3bde4c0"><div class="ttname"><a href="io__wrap_8c.html#ad46bab1d03261ccbe90df638f3bde4c0">io_set_prompt_visibility</a></div><div class="ttdeci">void io_set_prompt_visibility(bool visible)</div><div class="ttdoc">Config if prompt should be printed.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">io_wrap.c:31</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_ad86358bf19927183dd7b4ae215a29731"><div class="ttname"><a href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a></div><div class="ttdeci">#define COLOR_RED</div><div class="ttdef"><b>Definition</b> <a href="#l00013">io_wrap.c:13</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="#l00026">io_wrap.c:26</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="#l00017">io_wrap.c:17</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_afc9149f5de51bd9ac4f5ebbfa153f018"><div class="ttname"><a href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a></div><div class="ttdeci">#define COLOR_GREEN</div><div class="ttdef"><b>Definition</b> <a href="#l00011">io_wrap.c:11</a></div></div>
 <div class="ttc" id="aio__wrap_8h_html"><div class="ttname"><a href="io__wrap_8h.html">io_wrap.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html"><div class="ttname"><a href="operations_8h.html">operations.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html_ae3b10c0cd1a1098a893d8b0715953f2c"><div class="ttname"><a href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a></div><div class="ttdeci">void get_cwd(unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Fetch current working directory and copy them into buffer</div></div>
@@ -201,10 +255,12 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a></div><div class="ttdeci">@ RUN_FAILED</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00009">res.h:9</a></div></div>
 <div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00039">cmd.h:39</a></div></div>
+<div class="ttc" id="autils_8c_html_a465c19a5caf798e52dc9fddde441da6c"><div class="ttname"><a href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a></div><div class="ttdeci">bool support_color()</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
+<div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

@@ -165,35 +165,35 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cmd_8c_source.html#l00189">189</a> of file <a class="el" href="cmd_8c_source.html">cmd.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  189</span>                                  {</div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">switch</span>(obj-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
-<div class="line"><span class="lineno">  191</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
-<div class="line"><span class="lineno">  192</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir);</div>
-<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>:</div>
-<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>:</div>
-<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>:</div>
-<div class="line"><span class="lineno">  197</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
-<div class="line"><span class="lineno">  198</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val);</div>
-<div class="line"><span class="lineno">  199</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>:</div>
-<div class="line"><span class="lineno">  201</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path);</div>
-<div class="line"><span class="lineno">  202</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>:</div>
-<div class="line"><span class="lineno">  204</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename);</div>
-<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  206</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>:</div>
-<div class="line"><span class="lineno">  207</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir);</div>
-<div class="line"><span class="lineno">  208</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  209</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>:</div>
-<div class="line"><span class="lineno">  210</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>:</div>
-<div class="line"><span class="lineno">  211</span>        <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args));</div>
-<div class="line"><span class="lineno">  212</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  213</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  214</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  215</span>    }</div>
-<div class="line"><span class="lineno">  216</span>}</div>
+<p class="definition">Definition at line <a class="el" href="cmd_8c_source.html#l00194">194</a> of file <a class="el" href="cmd_8c_source.html">cmd.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  194</span>                                  {</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">switch</span>(obj-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
+<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
+<div class="line"><span class="lineno">  197</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir);</div>
+<div class="line"><span class="lineno">  198</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>:</div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>:</div>
+<div class="line"><span class="lineno">  201</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>:</div>
+<div class="line"><span class="lineno">  202</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
+<div class="line"><span class="lineno">  203</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val);</div>
+<div class="line"><span class="lineno">  204</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>:</div>
+<div class="line"><span class="lineno">  206</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path);</div>
+<div class="line"><span class="lineno">  207</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  208</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>:</div>
+<div class="line"><span class="lineno">  209</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename);</div>
+<div class="line"><span class="lineno">  210</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>:</div>
+<div class="line"><span class="lineno">  212</span>        free(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir);</div>
+<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  214</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>:</div>
+<div class="line"><span class="lineno">  215</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>:</div>
+<div class="line"><span class="lineno">  216</span>        <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;(obj-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args));</div>
+<div class="line"><span class="lineno">  217</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  218</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  219</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  220</span>    }</div>
+<div class="line"><span class="lineno">  221</span>}</div>
 <div class="ttc" id="aargs_8c_html_a6a4079dcdcccf953889346c13f7940d6"><div class="ttname"><a href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a></div><div class="ttdeci">void args_destroy(struct args *obj)</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00135">args.c:135</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a></div><div class="ttdeci">@ CMD_ADD_PATH</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00022">cmd.h:22</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a></div><div class="ttdeci">@ CMD_DEL_FILE</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00023">cmd.h:23</a></div></div>
@@ -263,7 +263,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> valid = <a class="code hl_function" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377">args_init_from_str</a>(&amp;arguments, str);</div>
 <div class="line"><span class="lineno">   25</span> </div>
 <div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>(!valid) {</div>
-<div class="line"><span class="lineno">   27</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
+<div class="line"><span class="lineno">   27</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
 <div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   29</span>    }</div>
 <div class="line"><span class="lineno">   30</span> </div>
@@ -285,145 +285,150 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   46</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547">CMD_TIME</a>;</div>
 <div class="line"><span class="lineno">   47</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;stop&quot;</span>) == 0) {</div>
 <div class="line"><span class="lineno">   48</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
-<div class="line"><span class="lineno">   49</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">   50</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   51</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8053bad71144d5d16150851b4de48f45">CMD_STOP_PROC</a>;</div>
-<div class="line"><span class="lineno">   52</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   53</span>        }</div>
-<div class="line"><span class="lineno">   54</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;exit&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   55</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>;</div>
-<div class="line"><span class="lineno">   56</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;cd&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   57</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>;</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
-<div class="line"><span class="lineno">   59</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Expected directory name, got %d argument(s)\n&quot;</span>, (<span class="keywordtype">int</span>)(arguments.argc - 1));</div>
-<div class="line"><span class="lineno">   60</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">   61</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   62</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   63</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir = malloc(len + 1);</div>
-<div class="line"><span class="lineno">   64</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir, arguments.argv[1], len);</div>
-<div class="line"><span class="lineno">   65</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   66</span>        }</div>
-<div class="line"><span class="lineno">   67</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;clear&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   68</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>;</div>
-<div class="line"><span class="lineno">   69</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;set&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span>(arguments.argc &lt; 2 || arguments.argc &gt; 3) {</div>
-<div class="line"><span class="lineno">   71</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Provide variable name and optionally a value\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   72</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">   73</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 2) {</div>
-<div class="line"><span class="lineno">   74</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>;</div>
-<div class="line"><span class="lineno">   75</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> name_len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   76</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(name_len + 1);</div>
-<div class="line"><span class="lineno">   77</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], name_len);</div>
-<div class="line"><span class="lineno">   78</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[name_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   79</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
-<div class="line"><span class="lineno">   80</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 3) {</div>
-<div class="line"><span class="lineno">   81</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>;</div>
-<div class="line"><span class="lineno">   82</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> name_len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   83</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(name_len + 1);</div>
-<div class="line"><span class="lineno">   84</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], name_len);</div>
-<div class="line"><span class="lineno">   85</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[name_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> val_len = strlen(arguments.argv[2]);</div>
-<div class="line"><span class="lineno">   88</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = malloc(val_len + 1);</div>
-<div class="line"><span class="lineno">   89</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val, arguments.argv[2], val_len);</div>
-<div class="line"><span class="lineno">   90</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val[val_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   91</span>        }</div>
-<div class="line"><span class="lineno">   92</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;unset&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
-<div class="line"><span class="lineno">   94</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Expected variable name\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   95</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">   96</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   97</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>;</div>
-<div class="line"><span class="lineno">   98</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">   99</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(len + 1);</div>
-<div class="line"><span class="lineno">  100</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], len);</div>
-<div class="line"><span class="lineno">  101</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  102</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
-<div class="line"><span class="lineno">  103</span>        }</div>
-<div class="line"><span class="lineno">  104</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;env&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span>(arguments.argc == 1) {</div>
-<div class="line"><span class="lineno">  106</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a">CMD_GET_ENV_ALL</a>;</div>
-<div class="line"><span class="lineno">  107</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 2) {</div>
-<div class="line"><span class="lineno">  108</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>;</div>
-<div class="line"><span class="lineno">  109</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  110</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(len + 1);</div>
-<div class="line"><span class="lineno">  111</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], len);</div>
-<div class="line"><span class="lineno">  112</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  113</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
-<div class="line"><span class="lineno">  114</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  115</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Too many arguments\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  116</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  117</span>        }</div>
-<div class="line"><span class="lineno">  118</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;kill&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
-<div class="line"><span class="lineno">  120</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  121</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  122</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a46c9e4111238a56acbde26d103e53456">CMD_KILL</a>;</div>
-<div class="line"><span class="lineno">  123</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  124</span>        }</div>
-<div class="line"><span class="lineno">  125</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;resume&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
-<div class="line"><span class="lineno">  127</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  128</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  129</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2d964df61e0235c77c674471871738cf">CMD_RESUME</a>;</div>
-<div class="line"><span class="lineno">  130</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  131</span>        }</div>
-<div class="line"><span class="lineno">  132</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;child&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
-<div class="line"><span class="lineno">  134</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  135</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  136</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1aef3ceb29c751ca47e1037a7dcece6d51">CMD_CHILD_PROCESSES</a>;</div>
-<div class="line"><span class="lineno">  137</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  138</span>        }</div>
-<div class="line"><span class="lineno">  139</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;addpath&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
-<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Unexpected number of arguments\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  142</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  143</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  144</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>;</div>
-<div class="line"><span class="lineno">  145</span>            <span class="keyword">const</span> <span class="keywordtype">size_t</span> len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  146</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path = (os_char *)malloc((len + 1) * <span class="keyword">sizeof</span>(os_char));</div>
-<div class="line"><span class="lineno">  147</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  148</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path, arguments.argv[1], strlen(arguments.argv[1]) * <span class="keyword">sizeof</span>(os_char));</div>
-<div class="line"><span class="lineno">  149</span>        }</div>
-<div class="line"><span class="lineno">  150</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;delete&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">if</span>(arguments.argc &gt; 2 || arguments.argc &lt; 2) {</div>
-<div class="line"><span class="lineno">  152</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  153</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  154</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>;</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dir_len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  157</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename = malloc(dir_len + 1);</div>
-<div class="line"><span class="lineno">  158</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename, arguments.argv[1], dir_len);</div>
-<div class="line"><span class="lineno">  159</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename[dir_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  160</span>        }</div>
-<div class="line"><span class="lineno">  161</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;lsdir&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">  162</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
-<div class="line"><span class="lineno">  163</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Usage: lsdir &lt;dir&gt;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  164</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  165</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  166</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>;</div>
-<div class="line"><span class="lineno">  167</span> </div>
-<div class="line"><span class="lineno">  168</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dir_len = strlen(arguments.argv[1]);</div>
-<div class="line"><span class="lineno">  169</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir = malloc(dir_len + 1);</div>
-<div class="line"><span class="lineno">  170</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir, arguments.argv[1], dir_len);</div>
-<div class="line"><span class="lineno">  171</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir[dir_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  172</span>        }</div>
-<div class="line"><span class="lineno">  173</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc &amp;&amp; <a class="code hl_function" href="#abdf323547cf901e783e2fcc9c0c6ae02">is_minibat_file</a>(arguments.argv[0])) {</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">if</span>(arguments.argc != 1) {</div>
-<div class="line"><span class="lineno">  175</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Too many arguments\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  176</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
-<div class="line"><span class="lineno">  177</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  178</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>;</div>
-<div class="line"><span class="lineno">  179</span>            <a class="code hl_function" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08">args_deep_copy_init</a>(&amp;res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args, &amp;arguments);</div>
-<div class="line"><span class="lineno">  180</span>        }</div>
-<div class="line"><span class="lineno">  181</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  182</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>;</div>
-<div class="line"><span class="lineno">  183</span>        <a class="code hl_function" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08">args_deep_copy_init</a>(&amp;res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args, &amp;arguments);</div>
-<div class="line"><span class="lineno">  184</span>    }</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span>    <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
-<div class="line"><span class="lineno">  187</span>}</div>
+<div class="line"><span class="lineno">   49</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;stop &lt;process id&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">   51</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   52</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8053bad71144d5d16150851b4de48f45">CMD_STOP_PROC</a>;</div>
+<div class="line"><span class="lineno">   53</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">   54</span>        }</div>
+<div class="line"><span class="lineno">   55</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;exit&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   56</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>;</div>
+<div class="line"><span class="lineno">   57</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;cd&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   58</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>;</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
+<div class="line"><span class="lineno">   60</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;cd &lt;destination dir&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">   62</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">   64</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir = malloc(len + 1);</div>
+<div class="line"><span class="lineno">   65</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir, arguments.argv[1], len);</div>
+<div class="line"><span class="lineno">   66</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   67</span>        }</div>
+<div class="line"><span class="lineno">   68</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;clear&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   69</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>;</div>
+<div class="line"><span class="lineno">   70</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;set&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">if</span>(arguments.argc &lt; 2 || arguments.argc &gt; 3) {</div>
+<div class="line"><span class="lineno">   72</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;set &lt;VAR&gt; &lt;value&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   73</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">   74</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 2) {</div>
+<div class="line"><span class="lineno">   75</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>;</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> name_len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">   77</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(name_len + 1);</div>
+<div class="line"><span class="lineno">   78</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], name_len);</div>
+<div class="line"><span class="lineno">   79</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[name_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   80</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
+<div class="line"><span class="lineno">   81</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 3) {</div>
+<div class="line"><span class="lineno">   82</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>;</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> name_len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">   84</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(name_len + 1);</div>
+<div class="line"><span class="lineno">   85</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], name_len);</div>
+<div class="line"><span class="lineno">   86</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[name_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> val_len = strlen(arguments.argv[2]);</div>
+<div class="line"><span class="lineno">   89</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = malloc(val_len + 1);</div>
+<div class="line"><span class="lineno">   90</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val, arguments.argv[2], val_len);</div>
+<div class="line"><span class="lineno">   91</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val[val_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;unset&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
+<div class="line"><span class="lineno">   95</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;unset &lt;VAR&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">   97</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   98</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>;</div>
+<div class="line"><span class="lineno">   99</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  100</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(len + 1);</div>
+<div class="line"><span class="lineno">  101</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], len);</div>
+<div class="line"><span class="lineno">  102</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  103</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
+<div class="line"><span class="lineno">  104</span>        }</div>
+<div class="line"><span class="lineno">  105</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;env&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">if</span>(arguments.argc == 1) {</div>
+<div class="line"><span class="lineno">  107</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a">CMD_GET_ENV_ALL</a>;</div>
+<div class="line"><span class="lineno">  108</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc == 2) {</div>
+<div class="line"><span class="lineno">  109</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>;</div>
+<div class="line"><span class="lineno">  110</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  111</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name = malloc(len + 1);</div>
+<div class="line"><span class="lineno">  112</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, arguments.argv[1], len);</div>
+<div class="line"><span class="lineno">  113</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  114</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val = NULL;</div>
+<div class="line"><span class="lineno">  115</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  116</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;env [VAR]\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  117</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  118</span>        }</div>
+<div class="line"><span class="lineno">  119</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;kill&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
+<div class="line"><span class="lineno">  121</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;kill &lt;process id&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  123</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  124</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a46c9e4111238a56acbde26d103e53456">CMD_KILL</a>;</div>
+<div class="line"><span class="lineno">  125</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  126</span>        }</div>
+<div class="line"><span class="lineno">  127</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;resume&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
+<div class="line"><span class="lineno">  129</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;resume &lt;process id&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  131</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  132</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2d964df61e0235c77c674471871738cf">CMD_RESUME</a>;</div>
+<div class="line"><span class="lineno">  133</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  134</span>        }</div>
+<div class="line"><span class="lineno">  135</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;child&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">if</span>(arguments.argc != 2 || !<a class="code hl_function" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a>(arguments.argv[1])) {</div>
+<div class="line"><span class="lineno">  137</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;child &lt;process id&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  138</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  139</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  140</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1aef3ceb29c751ca47e1037a7dcece6d51">CMD_CHILD_PROCESSES</a>;</div>
+<div class="line"><span class="lineno">  141</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id = atoi(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  142</span>        }</div>
+<div class="line"><span class="lineno">  143</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;addpath&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
+<div class="line"><span class="lineno">  145</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;addpath &lt;new path&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  146</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  147</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  148</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>;</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keyword">const</span> <span class="keywordtype">size_t</span> len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  150</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path = (os_char *)malloc((len + 1) * <span class="keyword">sizeof</span>(os_char));</div>
+<div class="line"><span class="lineno">  151</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path[len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  152</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path, arguments.argv[1], strlen(arguments.argv[1]) * <span class="keyword">sizeof</span>(os_char));</div>
+<div class="line"><span class="lineno">  153</span>        }</div>
+<div class="line"><span class="lineno">  154</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;delete&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">if</span>(arguments.argc &gt; 2 || arguments.argc &lt; 2) {</div>
+<div class="line"><span class="lineno">  156</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;delete &lt;path to file&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  157</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  158</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  159</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>;</div>
+<div class="line"><span class="lineno">  160</span> </div>
+<div class="line"><span class="lineno">  161</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dir_len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  162</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename = malloc(dir_len + 1);</div>
+<div class="line"><span class="lineno">  163</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename, arguments.argv[1], dir_len);</div>
+<div class="line"><span class="lineno">  164</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename[dir_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  165</span>        }</div>
+<div class="line"><span class="lineno">  166</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(strcmp(name, <span class="stringliteral">&quot;lsdir&quot;</span>) == 0) {</div>
+<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">if</span>(arguments.argc != 2) {</div>
+<div class="line"><span class="lineno">  168</span>            <a class="code hl_function" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a>(<span class="stringliteral">&quot;Usage: lsdir &lt;dir&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  169</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>;</div>
+<div class="line"><span class="lineno">  170</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  171</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>;</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dir_len = strlen(arguments.argv[1]);</div>
+<div class="line"><span class="lineno">  174</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir = malloc(dir_len + 1);</div>
+<div class="line"><span class="lineno">  175</span>            memcpy(res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir, arguments.argv[1], dir_len);</div>
+<div class="line"><span class="lineno">  176</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir[dir_len] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  177</span>        }</div>
+<div class="line"><span class="lineno">  178</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(arguments.argc &amp;&amp; <a class="code hl_function" href="#abdf323547cf901e783e2fcc9c0c6ae02">is_minibat_file</a>(arguments.argv[0])) {</div>
+<div class="line"><span class="lineno">  179</span>        <span class="keywordflow">if</span>(arguments.argc != 1) {</div>
+<div class="line"><span class="lineno">  180</span>            <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;Too many arguments\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  181</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>;</div>
+<div class="line"><span class="lineno">  182</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  183</span>            res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>;</div>
+<div class="line"><span class="lineno">  184</span>            <a class="code hl_function" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08">args_deep_copy_init</a>(&amp;res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args, &amp;arguments);</div>
+<div class="line"><span class="lineno">  185</span>        }</div>
+<div class="line"><span class="lineno">  186</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  187</span>        res-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a> = <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>;</div>
+<div class="line"><span class="lineno">  188</span>        <a class="code hl_function" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08">args_deep_copy_init</a>(&amp;res-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args, &amp;arguments);</div>
+<div class="line"><span class="lineno">  189</span>    }</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>    <a class="code hl_function" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6">args_destroy</a>(&amp;arguments);</div>
+<div class="line"><span class="lineno">  192</span>}</div>
 <div class="ttc" id="aargs_8c_html_a1a52cb7c0c03feea6ea6ae0c0ecb1b08"><div class="ttname"><a href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08">args_deep_copy_init</a></div><div class="ttdeci">void args_deep_copy_init(struct args *obj, const struct args *source)</div><div class="ttdoc">Initialize the object by deep copying source</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00163">args.c:163</a></div></div>
 <div class="ttc" id="aargs_8c_html_a714bbc27552dc7a57b3b36b8fe9fb377"><div class="ttname"><a href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377">args_init_from_str</a></div><div class="ttdeci">bool args_init_from_str(struct args *obj, const os_char *input)</div><div class="ttdoc">Build args from an input string.</div><div class="ttdef"><b>Definition</b> <a href="args_8c_source.html#l00117">args.c:117</a></div></div>
 <div class="ttc" id="acmd_8c_html_abdf323547cf901e783e2fcc9c0c6ae02"><div class="ttname"><a href="#abdf323547cf901e783e2fcc9c0c6ae02">is_minibat_file</a></div><div class="ttdeci">bool is_minibat_file(const os_char *file)</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00011">cmd.c:11</a></div></div>
@@ -441,44 +446,50 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a></div><div class="ttdeci">@ CMD_HELP</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00015">cmd.h:15</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1aef3ceb29c751ca47e1037a7dcece6d51"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1aef3ceb29c751ca47e1037a7dcece6d51">CMD_CHILD_PROCESSES</a></div><div class="ttdeci">@ CMD_CHILD_PROCESSES</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00027">cmd.h:27</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547">CMD_TIME</a></div><div class="ttdeci">@ CMD_TIME</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00030">cmd.h:30</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00046">io_wrap.c:46</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a3b58809dca43364de0ca32bc8d753100"><div class="ttname"><a href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100">format_usage</a></div><div class="ttdeci">void format_usage(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00046">io_wrap.c:46</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00078">io_wrap.c:78</a></div></div>
 <div class="ttc" id="astructargs_html"><div class="ttname"><a href="structargs.html">args</a></div><div class="ttdoc">Result after parsing an arbitrary string.</div><div class="ttdef"><b>Definition</b> <a href="args_8h_source.html#l00010">args.h:10</a></div></div>
-<div class="ttc" id="autils_8c_html_a771b4438b3b5439b22812170b2534f85"><div class="ttname"><a href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a></div><div class="ttdeci">bool is_number(const char *c)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00005">utils.c:5</a></div></div>
+<div class="ttc" id="autils_8c_html_a771b4438b3b5439b22812170b2534f85"><div class="ttname"><a href="utils_8c.html#a771b4438b3b5439b22812170b2534f85">is_number</a></div><div class="ttdeci">bool is_number(const char *c)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00008">utils.c:8</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8c_source.html#l00163">args_deep_copy_init()</a>, <a class="el" href="args_8c_source.html#l00135">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00117">args_init_from_str()</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="cmd_8h_source.html#l00022">CMD_ADD_PATH</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00027">CMD_CHILD_PROCESSES</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00029">CMD_DATE</a>, <a class="el" href="cmd_8h_source.html#l00023">CMD_DEL_FILE</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00021">CMD_GET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00019">CMD_GET_ENV_ALL</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00025">CMD_KILL</a>, <a class="el" href="cmd_8h_source.html#l00024">CMD_LAUNCH_EXECUTABLE</a>, <a class="el" href="cmd_8h_source.html#l00028">CMD_LIST</a>, <a class="el" href="cmd_8h_source.html#l00033">CMD_LSDIR</a>, <a class="el" href="cmd_8h_source.html#l00032">CMD_MINIBAT</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00026">CMD_RESUME</a>, <a class="el" href="cmd_8h_source.html#l00018">CMD_SET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00031">CMD_STOP_PROC</a>, <a class="el" href="cmd_8h_source.html#l00030">CMD_TIME</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="cmd_8h_source.html#l00020">CMD_UNSET_ENV</a>, <a class="el" href="io__wrap_8c_source.html#l00046">format_error()</a>, <a class="el" href="cmd_8c_source.html#l00011">is_minibat_file()</a>, <a class="el" href="utils_8c_source.html#l00005">is_number()</a>, <a class="el" href="cmd_8h_source.html#l00040">cmd::type</a>, and <a class="el" href="cmd_8h_source.html#l00049">cmd::val</a>.</p>
+<p class="reference">References <a class="el" href="args_8h_source.html#l00012">args::argc</a>, <a class="el" href="args_8c_source.html#l00163">args_deep_copy_init()</a>, <a class="el" href="args_8c_source.html#l00135">args_destroy()</a>, <a class="el" href="args_8c_source.html#l00117">args_init_from_str()</a>, <a class="el" href="args_8h_source.html#l00011">args::argv</a>, <a class="el" href="cmd_8h_source.html#l00022">CMD_ADD_PATH</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00027">CMD_CHILD_PROCESSES</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00029">CMD_DATE</a>, <a class="el" href="cmd_8h_source.html#l00023">CMD_DEL_FILE</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00021">CMD_GET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00019">CMD_GET_ENV_ALL</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00025">CMD_KILL</a>, <a class="el" href="cmd_8h_source.html#l00024">CMD_LAUNCH_EXECUTABLE</a>, <a class="el" href="cmd_8h_source.html#l00028">CMD_LIST</a>, <a class="el" href="cmd_8h_source.html#l00033">CMD_LSDIR</a>, <a class="el" href="cmd_8h_source.html#l00032">CMD_MINIBAT</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00026">CMD_RESUME</a>, <a class="el" href="cmd_8h_source.html#l00018">CMD_SET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00031">CMD_STOP_PROC</a>, <a class="el" href="cmd_8h_source.html#l00030">CMD_TIME</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="cmd_8h_source.html#l00020">CMD_UNSET_ENV</a>, <a class="el" href="io__wrap_8c_source.html#l00078">format_error()</a>, <a class="el" href="io__wrap_8c_source.html#l00046">format_usage()</a>, <a class="el" href="cmd_8c_source.html#l00011">is_minibat_file()</a>, <a class="el" href="utils_8c_source.html#l00008">is_number()</a>, <a class="el" href="cmd_8h_source.html#l00040">cmd::type</a>, and <a class="el" href="cmd_8h_source.html#l00049">cmd::val</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00029">scan_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00036">scan_input()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="cmd_8c_a58137792e4db17d1b7ec39f3bead7259_cgraph.png" border="0" usemap="#acmd_8c_a58137792e4db17d1b7ec39f3bead7259_cgraph" alt=""/></div>
 <map name="acmd_8c_a58137792e4db17d1b7ec39f3bead7259_cgraph" id="acmd_8c_a58137792e4db17d1b7ec39f3bead7259_cgraph">
-<area shape="rect" title="Build command from raw input." alt="" coords="5,131,131,156"/>
+<area shape="rect" title="Build command from raw input." alt="" coords="5,229,131,255"/>
 <area shape="rect" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="179,5,318,31"/>
-<area shape="poly" title=" " alt="" coords="79,128,119,85,147,61,177,40,185,35,188,40,180,44,150,65,123,89,82,132"/>
+<area shape="poly" title=" " alt="" coords="70,228,83,191,104,141,135,87,155,62,177,40,181,37,184,41,180,44,159,66,139,90,109,143,88,193,75,230"/>
 <area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="201,55,296,80"/>
-<area shape="poly" title=" " alt="" coords="100,128,201,84,203,89,102,133"/>
-<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="186,156,311,182"/>
-<area shape="poly" title=" " alt="" coords="131,150,171,155,170,161,131,155"/>
-<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="566,156,657,182"/>
-<area shape="poly" title=" " alt="" coords="131,136,303,130,407,132,512,141,553,149,552,154,511,146,407,137,303,135,131,141"/>
-<area shape="rect" href="cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="197,205,300,231"/>
-<area shape="poly" title=" " alt="" coords="98,155,180,192,194,197,192,202,178,197,95,159"/>
-<area shape="rect" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85" title=" " alt="" coords="208,255,289,280"/>
-<area shape="poly" title=" " alt="" coords="82,155,123,197,150,220,180,241,194,249,192,253,177,246,147,225,119,201,79,159"/>
-<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="379,304,498,330"/>
-<area shape="poly" title=" " alt="" coords="304,180,320,191,331,204,338,217,345,242,351,267,357,279,368,291,371,293,368,298,364,295,353,282,346,269,339,244,333,219,327,207,316,195,301,185"/>
-<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="366,205,511,231"/>
-<area shape="poly" title=" " alt="" coords="302,180,372,198,371,203,300,185"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="378,156,500,182"/>
-<area shape="poly" title=" " alt="" coords="312,166,362,166,362,172,312,172"/>
-<area shape="rect" href="args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="376,255,502,280"/>
-<area shape="poly" title=" " alt="" coords="299,180,319,191,335,204,344,217,353,229,368,241,375,246,372,250,364,246,349,233,340,220,331,207,317,195,296,185"/>
-<area shape="poly" title=" " alt="" coords="486,202,551,183,552,188,487,207"/>
-<area shape="rect" href="args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="559,205,664,231"/>
-<area shape="poly" title=" " alt="" coords="512,216,544,216,544,221,512,221"/>
-<area shape="poly" title=" " alt="" coords="500,166,550,166,550,172,500,172"/>
-<area shape="poly" title=" " alt="" coords="487,180,550,198,548,203,486,185"/>
+<area shape="poly" title=" " alt="" coords="74,228,113,167,143,130,177,97,195,86,198,90,180,102,147,134,118,170,79,231"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="186,229,311,255"/>
+<area shape="poly" title=" " alt="" coords="131,240,170,240,170,245,131,245"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="566,255,657,280"/>
+<area shape="poly" title=" " alt="" coords="99,253,215,299,289,322,366,340,440,351,471,350,510,340,552,318,586,289,589,294,555,322,512,345,472,355,439,356,366,345,288,327,213,304,97,258"/>
+<area shape="rect" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="561,119,662,144"/>
+<area shape="poly" title=" " alt="" coords="99,226,215,182,289,159,366,141,460,130,546,127,546,133,460,135,366,146,290,164,216,187,101,231"/>
+<area shape="rect" href="cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="197,405,300,431"/>
+<area shape="poly" title=" " alt="" coords="79,254,117,315,147,351,180,384,198,396,195,400,177,388,143,355,113,318,74,257"/>
+<area shape="rect" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85" title=" " alt="" coords="208,455,289,480"/>
+<area shape="poly" title=" " alt="" coords="75,255,87,292,109,342,139,395,159,420,180,441,195,451,192,455,177,446,155,423,135,398,104,344,82,293,70,256"/>
+<area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="379,255,498,280"/>
+<area shape="poly" title=" " alt="" coords="312,248,364,255,363,260,311,253"/>
+<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="366,156,511,182"/>
+<area shape="poly" title=" " alt="" coords="279,226,365,190,380,185,382,190,367,195,281,231"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="378,304,500,330"/>
+<area shape="poly" title=" " alt="" coords="280,253,367,290,382,296,380,301,365,295,277,258"/>
+<area shape="rect" href="args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="376,205,502,231"/>
+<area shape="poly" title=" " alt="" coords="311,232,360,225,361,231,312,237"/>
+<area shape="poly" title=" " alt="" coords="488,180,513,190,552,216,586,242,583,247,549,220,510,195,486,185"/>
+<area shape="rect" href="args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="559,181,664,207"/>
+<area shape="poly" title=" " alt="" coords="512,177,544,182,543,187,511,182"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="712,205,811,231"/>
+<area shape="poly" title=" " alt="" coords="652,251,705,234,707,239,654,257"/>
+<area shape="poly" title=" " alt="" coords="486,301,551,282,552,287,487,306"/>
+<area shape="poly" title=" " alt="" coords="489,301,510,291,535,268,557,240,583,216,586,220,561,244,539,271,513,295,491,306"/>
+<area shape="poly" title=" " alt="" coords="637,142,726,195,723,199,634,147"/>
 </map>
 </div>
 <div class="dynheader">
@@ -541,7 +552,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

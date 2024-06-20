@@ -105,7 +105,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a>();</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="operations_8h.html#a31162d5c00dba5591bd823b8ade29ee6">   21</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#a31162d5c00dba5591bd823b8ade29ee6">kill</a>(<span class="keywordtype">int</span> proc_id);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="operations_8h.html#a5d78d9cb468de8540181bfa7d720dafd">   21</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#a5d78d9cb468de8540181bfa7d720dafd">kill_process</a>(<span class="keywordtype">int</span> proc_id);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="operations_8h.html#affbe9f93c27548ce0b747cc7403b6a0b">   24</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="operations_8h.html#affbe9f93c27548ce0b747cc7403b6a0b">resume</a>(<span class="keywordtype">int</span> proc_id);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -137,10 +137,10 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aargs_8h_html"><div class="ttname"><a href="args_8h.html">args.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html_a068bce733fc2d4075354c82bef5daed5"><div class="ttname"><a href="operations_8h.html#a068bce733fc2d4075354c82bef5daed5">stop_proccess</a></div><div class="ttdeci">bool stop_proccess(int proc_id)</div><div class="ttdoc">Stop a process use it ID.</div></div>
 <div class="ttc" id="aoperations_8h_html_a07d263ef481c88c5f9bec6a651f9f8d4"><div class="ttname"><a href="operations_8h.html#a07d263ef481c88c5f9bec6a651f9f8d4">get_date</a></div><div class="ttdeci">bool get_date()</div><div class="ttdoc">Get current date.</div></div>
-<div class="ttc" id="aoperations_8h_html_a31162d5c00dba5591bd823b8ade29ee6"><div class="ttname"><a href="operations_8h.html#a31162d5c00dba5591bd823b8ade29ee6">kill</a></div><div class="ttdeci">bool kill(int proc_id)</div><div class="ttdoc">Kill a process.</div></div>
 <div class="ttc" id="aoperations_8h_html_a33b01aa2fbf453d9646b29576b6bbba3"><div class="ttname"><a href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3">change_cwd</a></div><div class="ttdeci">bool change_cwd(const os_char *new_dir)</div><div class="ttdoc">Attempt to change current working directory.</div></div>
 <div class="ttc" id="aoperations_8h_html_a481ed52f9b1715b5351a7137211846f6"><div class="ttname"><a href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a></div><div class="ttdeci">bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Get value of an an environment variable.</div></div>
 <div class="ttc" id="aoperations_8h_html_a4953d1edcbbfc7e420c423ded1d5621a"><div class="ttname"><a href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a></div><div class="ttdeci">void clear_screen()</div><div class="ttdoc">Clear the console.</div></div>
+<div class="ttc" id="aoperations_8h_html_a5d78d9cb468de8540181bfa7d720dafd"><div class="ttname"><a href="operations_8h.html#a5d78d9cb468de8540181bfa7d720dafd">kill_process</a></div><div class="ttdeci">bool kill_process(int proc_id)</div><div class="ttdoc">Kill a process.</div></div>
 <div class="ttc" id="aoperations_8h_html_a6999926359d3538d5801e9c6a55b3f9d"><div class="ttname"><a href="operations_8h.html#a6999926359d3538d5801e9c6a55b3f9d">show_child_processes</a></div><div class="ttdeci">bool show_child_processes(int proc_id)</div><div class="ttdoc">Show child processes.</div></div>
 <div class="ttc" id="aoperations_8h_html_a7fead987fc0cc2dbabae18cf5eab0319"><div class="ttname"><a href="operations_8h.html#a7fead987fc0cc2dbabae18cf5eab0319">enum_proc</a></div><div class="ttdeci">bool enum_proc()</div><div class="ttdoc">List all running processes.</div></div>
 <div class="ttc" id="aoperations_8h_html_a910211a3690e0f9fa8020e647e8d4bdb"><div class="ttname"><a href="operations_8h.html#a910211a3690e0f9fa8020e647e8d4bdb">lsdir</a></div><div class="ttdeci">bool lsdir(const os_char *dir)</div><div class="ttdoc">List of files or folders in specific directory.</div></div>
@@ -158,7 +158,7 @@ $(function(){ initResizable(false); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

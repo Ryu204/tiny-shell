@@ -90,6 +90,7 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">io_wrap.c File Reference</div></div>
 </div><!--header-->
@@ -97,6 +98,7 @@ $(function(){ initResizable(false); });
 <div class="textblock"><code>#include &quot;<a class="el" href="io__wrap_8h_source.html">io_wrap.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="operations_8h_source.html">../os/operations.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
@@ -106,40 +108,56 @@ Include dependency graph for io_wrap.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="io__wrap_8c__incl.png" border="0" usemap="#asource_2core_2io__wrap_8c" alt=""/></div>
 <map name="asource_2core_2io__wrap_8c" id="asource_2core_2io__wrap_8c">
-<area shape="rect" title=" " alt="" coords="211,5,359,31"/>
-<area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="152,79,228,105"/>
-<area shape="poly" title=" " alt="" coords="270,34,220,72,216,67,267,29"/>
-<area shape="rect" title=" " alt="" coords="5,300,79,326"/>
-<area shape="poly" title=" " alt="" coords="220,34,168,50,114,74,65,108,45,129,28,154,18,179,14,201,22,251,32,285,27,287,17,253,9,201,12,178,24,151,41,126,62,104,112,69,167,45,218,29"/>
-<area shape="rect" href="operations_8h.html" title=" " alt="" coords="54,153,174,178"/>
-<area shape="poly" title=" " alt="" coords="224,34,180,52,159,65,141,81,126,108,119,138,113,137,121,106,137,77,156,60,177,47,222,29"/>
-<area shape="rect" href="config_8h.html" title=" " alt="" coords="252,79,317,105"/>
-<area shape="poly" title=" " alt="" coords="287,31,287,63,282,63,282,31"/>
-<area shape="rect" title=" " alt="" coords="342,79,409,105"/>
-<area shape="poly" title=" " alt="" coords="302,29,350,67,347,72,298,34"/>
-<area shape="rect" title=" " alt="" coords="434,79,501,105"/>
-<area shape="poly" title=" " alt="" coords="317,29,423,71,421,75,315,34"/>
-<area shape="rect" title=" " alt="" coords="526,79,585,105"/>
-<area shape="poly" title=" " alt="" coords="332,29,511,76,510,81,331,34"/>
-<area shape="poly" title=" " alt="" coords="152,99,124,105,94,116,66,132,44,154,31,186,27,221,30,255,36,284,31,286,25,256,22,221,26,185,40,151,63,127,91,111,122,100,151,94"/>
-<area shape="rect" href="res_8h.html" title=" " alt="" coords="278,153,377,178"/>
-<area shape="poly" title=" " alt="" coords="215,103,292,143,289,147,212,108"/>
-<area shape="rect" href="cmd_8h.html" title=" " alt="" coords="198,153,254,178"/>
-<area shape="poly" title=" " alt="" coords="198,104,216,138,211,140,194,106"/>
-<area shape="rect" href="type_8h.html" title=" " alt="" coords="156,300,240,326"/>
-<area shape="poly" title=" " alt="" coords="228,179,219,253,210,286,205,284,214,251,223,178"/>
-<area shape="rect" href="args_8h.html" title=" " alt="" coords="105,226,161,252"/>
-<area shape="poly" title=" " alt="" coords="212,181,162,219,159,215,209,177"/>
-<area shape="poly" title=" " alt="" coords="119,255,71,293,67,288,116,250"/>
-<area shape="poly" title=" " alt="" coords="145,250,179,287,175,290,141,254"/>
-<area shape="poly" title=" " alt="" coords="110,180,57,287,52,285,106,177"/>
-<area shape="poly" title=" " alt="" coords="131,177,154,198,175,225,188,255,196,284,191,286,183,257,170,228,150,201,128,181"/>
-<area shape="poly" title=" " alt="" coords="120,178,128,211,123,212,115,179"/>
+<area shape="rect" title=" " alt="" coords="208,5,356,31"/>
+<area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="133,79,209,105"/>
+<area shape="poly" title=" " alt="" coords="265,34,204,73,201,68,262,29"/>
+<area shape="rect" title=" " alt="" coords="89,300,163,326"/>
+<area shape="poly" title=" " alt="" coords="208,32,149,49,121,63,96,81,52,121,20,160,11,181,8,202,12,225,23,251,46,276,76,293,73,298,43,280,18,253,6,227,3,202,6,179,15,157,48,117,92,77,118,59,148,44,207,26"/>
+<area shape="rect" href="operations_8h.html" title=" " alt="" coords="282,153,402,178"/>
+<area shape="poly" title=" " alt="" coords="280,32,272,65,272,85,276,104,291,125,310,142,306,146,287,128,271,106,266,86,267,65,275,31"/>
+<area shape="rect" href="config_8h.html" title=" " alt="" coords="285,79,351,105"/>
+<area shape="poly" title=" " alt="" coords="290,30,307,64,303,66,285,32"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="33,226,88,252"/>
+<area shape="poly" title=" " alt="" coords="213,34,165,52,142,65,123,81,99,111,83,147,72,182,66,212,61,211,67,180,78,145,95,109,119,77,139,60,162,47,211,29"/>
+<area shape="rect" title=" " alt="" coords="375,79,442,105"/>
+<area shape="poly" title=" " alt="" coords="305,29,375,69,373,73,302,34"/>
+<area shape="rect" title=" " alt="" coords="467,79,534,105"/>
+<area shape="poly" title=" " alt="" coords="320,29,453,72,451,77,318,34"/>
+<area shape="rect" title=" " alt="" coords="559,79,618,105"/>
+<area shape="poly" title=" " alt="" coords="339,29,544,76,543,81,338,34"/>
+<area shape="poly" title=" " alt="" coords="168,106,150,153,136,224,130,284,125,284,131,223,145,152,163,104"/>
+<area shape="rect" href="res_8h.html" title=" " alt="" coords="159,153,258,178"/>
+<area shape="poly" title=" " alt="" coords="180,104,198,138,193,140,175,106"/>
+<area shape="rect" href="cmd_8h.html" title=" " alt="" coords="426,153,482,178"/>
+<area shape="poly" title=" " alt="" coords="211,100,411,149,410,154,209,105"/>
+<area shape="rect" href="type_8h.html" title=" " alt="" coords="362,300,445,326"/>
+<area shape="poly" title=" " alt="" coords="452,180,415,286,410,284,447,178"/>
+<area shape="rect" href="args_8h.html" title=" " alt="" coords="310,226,366,252"/>
+<area shape="poly" title=" " alt="" coords="436,181,372,220,369,216,433,177"/>
+<area shape="poly" title=" " alt="" coords="310,253,178,297,176,292,308,248"/>
+<area shape="poly" title=" " alt="" coords="351,250,384,287,380,290,347,254"/>
+<area shape="poly" title=" " alt="" coords="325,181,158,294,155,289,322,177"/>
+<area shape="poly" title=" " alt="" coords="353,177,380,225,400,284,395,286,375,227,348,180"/>
+<area shape="poly" title=" " alt="" coords="344,179,342,211,337,211,339,178"/>
+<area shape="poly" title=" " alt="" coords="73,250,107,287,103,290,69,254"/>
 </map>
 </div>
 </div>
 <p><a href="io__wrap_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afc9149f5de51bd9ac4f5ebbfa153f018" id="r_afc9149f5de51bd9ac4f5ebbfa153f018"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a>&#160;&#160;&#160;&quot;\033[32m&quot;</td></tr>
+<tr class="separator:afc9149f5de51bd9ac4f5ebbfa153f018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4534b577b74a58b0f4b7be027af664e0" id="r_a4534b577b74a58b0f4b7be027af664e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a>&#160;&#160;&#160;&quot;\033[33m&quot;</td></tr>
+<tr class="separator:a4534b577b74a58b0f4b7be027af664e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86358bf19927183dd7b4ae215a29731" id="r_ad86358bf19927183dd7b4ae215a29731"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a>&#160;&#160;&#160;&quot;\033[31m&quot;</td></tr>
+<tr class="separator:ad86358bf19927183dd7b4ae215a29731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c70d699a5a775bc2e1ebeb8603f630" id="r_a23c70d699a5a775bc2e1ebeb8603f630"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a>&#160;&#160;&#160;&quot;\033[34m&quot;</td></tr>
+<tr class="separator:a23c70d699a5a775bc2e1ebeb8603f630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba2a7fe77a7501e5844370eec0185207" id="r_aba2a7fe77a7501e5844370eec0185207"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>&#160;&#160;&#160;&quot;\033[30m&quot;</td></tr>
+<tr class="separator:aba2a7fe77a7501e5844370eec0185207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af715a04fd9342804225de608eff64b60" id="r_af715a04fd9342804225de608eff64b60"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af715a04fd9342804225de608eff64b60">last_run_status</a> ()</td></tr>
@@ -157,6 +175,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a4f415323e0a26da0f47e59d3b549411c" id="r_a4f415323e0a26da0f47e59d3b549411c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f415323e0a26da0f47e59d3b549411c">scan_input</a> (struct <a class="el" href="structcmd.html">cmd</a> *obj)</td></tr>
 <tr class="memdesc:a4f415323e0a26da0f47e59d3b549411c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ask and convert user's input into command.  <br /></td></tr>
 <tr class="separator:a4f415323e0a26da0f47e59d3b549411c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b58809dca43364de0ca32bc8d753100" id="r_a3b58809dca43364de0ca32bc8d753100"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b58809dca43364de0ca32bc8d753100">format_usage</a> (char *fmt,...)</td></tr>
+<tr class="memdesc:a3b58809dca43364de0ca32bc8d753100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output.  <br /></td></tr>
+<tr class="separator:a3b58809dca43364de0ca32bc8d753100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c9e06f81af8c2a6c95ac3e86988d8d" id="r_a42c9e06f81af8c2a6c95ac3e86988d8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42c9e06f81af8c2a6c95ac3e86988d8d">format_success</a> (char *fmt,...)</td></tr>
+<tr class="memdesc:a42c9e06f81af8c2a6c95ac3e86988d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output.  <br /></td></tr>
+<tr class="separator:a42c9e06f81af8c2a6c95ac3e86988d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1900da0ddbfd365205ea57db964eddf6" id="r_a1900da0ddbfd365205ea57db964eddf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1900da0ddbfd365205ea57db964eddf6">format_output</a> (char *fmt,...)</td></tr>
 <tr class="memdesc:a1900da0ddbfd365205ea57db964eddf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output.  <br /></td></tr>
 <tr class="separator:a1900da0ddbfd365205ea57db964eddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +188,97 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5fdfb142bb891ecc6fc7db90c387f1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output.  <br /></td></tr>
 <tr class="separator:a5fdfb142bb891ecc6fc7db90c387f1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aba2a7fe77a7501e5844370eec0185207" name="aba2a7fe77a7501e5844370eec0185207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba2a7fe77a7501e5844370eec0185207">&#9670;&#160;</a></span>COLOR_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_BLACK&#160;&#160;&#160;&quot;\033[30m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00015">15</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00078">format_error()</a>, <a class="el" href="io__wrap_8c_source.html#l00069">format_output()</a>, <a class="el" href="io__wrap_8c_source.html#l00058">format_success()</a>, <a class="el" href="io__wrap_8c_source.html#l00046">format_usage()</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
+
+</div>
+</div>
+<a id="a23c70d699a5a775bc2e1ebeb8603f630" name="a23c70d699a5a775bc2e1ebeb8603f630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23c70d699a5a775bc2e1ebeb8603f630">&#9670;&#160;</a></span>COLOR_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_BLUE&#160;&#160;&#160;&quot;\033[34m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00014">14</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
+
+</div>
+</div>
+<a id="afc9149f5de51bd9ac4f5ebbfa153f018" name="afc9149f5de51bd9ac4f5ebbfa153f018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc9149f5de51bd9ac4f5ebbfa153f018">&#9670;&#160;</a></span>COLOR_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_GREEN&#160;&#160;&#160;&quot;\033[32m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00011">11</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00058">format_success()</a>.</p>
+
+</div>
+</div>
+<a id="ad86358bf19927183dd7b4ae215a29731" name="ad86358bf19927183dd7b4ae215a29731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86358bf19927183dd7b4ae215a29731">&#9670;&#160;</a></span>COLOR_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_RED&#160;&#160;&#160;&quot;\033[31m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00013">13</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00078">format_error()</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
+
+</div>
+</div>
+<a id="a4534b577b74a58b0f4b7be027af664e0" name="a4534b577b74a58b0f4b7be027af664e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4534b577b74a58b0f4b7be027af664e0">&#9670;&#160;</a></span>COLOR_YELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_YELLOW&#160;&#160;&#160;&quot;\033[33m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00012">12</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00046">format_usage()</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a5fdfb142bb891ecc6fc7db90c387f1bf" name="a5fdfb142bb891ecc6fc7db90c387f1bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fdfb142bb891ecc6fc7db90c387f1bf">&#9670;&#160;</a></span>format_error()</h2>
@@ -186,16 +301,35 @@ Functions</h2></td></tr>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00046">46</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>                                  {</div>
-<div class="line"><span class="lineno">   47</span>    printf(<span class="stringliteral">&quot;ERROR: &quot;</span>);</div>
-<div class="line"><span class="lineno">   48</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   49</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   50</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   51</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00078">78</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                  {</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   80</span>        printf(<a class="code hl_define" href="#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a>);</div>
+<div class="line"><span class="lineno">   81</span>    printf(<span class="stringliteral">&quot;ERR: &quot;</span>);</div>
+<div class="line"><span class="lineno">   82</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   83</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   84</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   85</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   87</span>        printf(<a class="code hl_define" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_aba2a7fe77a7501e5844370eec0185207"><div class="ttname"><a href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a></div><div class="ttdeci">#define COLOR_BLACK</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00015">io_wrap.c:15</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_ad86358bf19927183dd7b4ae215a29731"><div class="ttname"><a href="#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a></div><div class="ttdeci">#define COLOR_RED</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00013">io_wrap.c:13</a></div></div>
+<div class="ttc" id="autils_8c_html_a465c19a5caf798e52dc9fddde441da6c"><div class="ttname"><a href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a></div><div class="ttdeci">bool support_color()</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00013">COLOR_RED</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+
 <p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a5fdfb142bb891ecc6fc7db90c387f1bf_cgraph.png" border="0" usemap="#aio__wrap_8c_a5fdfb142bb891ecc6fc7db90c387f1bf_cgraph" alt=""/></div>
+<map name="aio__wrap_8c_a5fdfb142bb891ecc6fc7db90c387f1bf_cgraph" id="aio__wrap_8c_a5fdfb142bb891ecc6fc7db90c387f1bf_cgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="5,5,97,31"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="145,5,244,31"/>
+<area shape="poly" title=" " alt="" coords="97,16,129,16,129,21,97,21"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -250,40 +384,180 @@ Here is the caller graph for this function:</div>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00039">39</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>                                   {</div>
-<div class="line"><span class="lineno">   40</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   41</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   42</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   43</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   44</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00069">69</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                                   {</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   71</span>        printf(<a class="code hl_define" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><span class="lineno">   72</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   73</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   74</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   75</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   76</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="invoke_8c_source.html#l00022">invoke_runner()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_cgraph.png" border="0" usemap="#aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_cgraph" alt=""/></div>
+<map name="aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_cgraph" id="aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_cgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="5,5,107,31"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="155,5,254,31"/>
+<area shape="poly" title=" " alt="" coords="107,16,139,16,139,21,107,21"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="io__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_icgraph.png" border="0" usemap="#aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_icgraph" alt=""/></div>
 <map name="aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_icgraph" id="aio__wrap_8c_a1900da0ddbfd365205ea57db964eddf6_icgraph">
-<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="554,123,655,149"/>
-<area shape="rect" href="add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="422,47,497,73"/>
-<area shape="poly" title=" " alt="" coords="564,118,485,76,487,71,566,113"/>
-<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,123,205,149"/>
-<area shape="poly" title=" " alt="" coords="538,135,506,133,341,133,205,137,205,131,341,128,506,128,538,129"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,61,55,86"/>
-<area shape="poly" title=" " alt="" coords="585,111,551,71,529,52,505,37,443,18,378,9,312,9,248,16,188,27,134,41,56,66,54,61,133,36,186,22,247,11,311,4,378,4,444,13,507,32,533,47,555,67,589,108"/>
-<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="253,198,365,224"/>
-<area shape="poly" title=" " alt="" coords="539,155,364,200,363,195,538,150"/>
-<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="413,250,506,276"/>
-<area shape="poly" title=" " alt="" coords="582,162,507,233,483,251,479,247,504,229,579,158"/>
-<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="274,149,344,174"/>
-<area shape="poly" title=" " alt="" coords="539,144,345,161,345,156,538,139"/>
-<area shape="rect" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="260,47,359,73"/>
-<area shape="poly" title=" " alt="" coords="407,63,359,63,359,57,407,57"/>
-<area shape="poly" title=" " alt="" coords="268,83,183,125,181,120,266,78"/>
-<area shape="poly" title=" " alt="" coords="112,118,54,88,56,83,115,113"/>
-<area shape="poly" title=" " alt="" coords="261,193,252,189,179,152,181,147,254,184,264,189"/>
-<area shape="poly" title=" " alt="" coords="398,268,326,261,288,252,252,238,222,219,197,195,162,151,166,148,201,192,226,215,254,234,289,247,327,256,398,262"/>
-<area shape="poly" title=" " alt="" coords="258,156,205,147,206,142,259,151"/>
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="413,55,515,80"/>
+<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="253,5,365,31"/>
+<area shape="poly" title=" " alt="" coords="406,52,351,34,353,29,408,47"/>
+<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="263,55,355,80"/>
+<area shape="poly" title=" " alt="" coords="398,70,356,70,356,65,398,65"/>
+<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="274,104,344,130"/>
+<area shape="poly" title=" " alt="" coords="407,88,346,108,344,103,406,83"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,55,205,80"/>
+<area shape="poly" title=" " alt="" coords="253,39,198,57,196,51,251,34"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
+<area shape="poly" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
+<area shape="poly" title=" " alt="" coords="247,70,205,70,205,65,247,65"/>
+<area shape="poly" title=" " alt="" coords="258,104,196,84,198,78,260,99"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a42c9e06f81af8c2a6c95ac3e86988d8d" name="a42c9e06f81af8c2a6c95ac3e86988d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c9e06f81af8c2a6c95ac3e86988d8d">&#9670;&#160;</a></span>format_success()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void format_success </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00058">58</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                    {</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   60</span>        printf(<a class="code hl_define" href="#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a>);</div>
+<div class="line"><span class="lineno">   61</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   62</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   63</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   64</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   66</span>        printf(<a class="code hl_define" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_afc9149f5de51bd9ac4f5ebbfa153f018"><div class="ttname"><a href="#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a></div><div class="ttdeci">#define COLOR_GREEN</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00011">io_wrap.c:11</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00011">COLOR_GREEN</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="invoke_8c_source.html#l00022">invoke_runner()</a>, and <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_cgraph.png" border="0" usemap="#aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_cgraph" alt=""/></div>
+<map name="aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_cgraph" id="aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_cgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="5,5,120,31"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="168,5,267,31"/>
+<area shape="poly" title=" " alt="" coords="120,16,152,16,152,21,120,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_icgraph.png" border="0" usemap="#aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_icgraph" alt=""/></div>
+<map name="aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_icgraph" id="aio__wrap_8c_a42c9e06f81af8c2a6c95ac3e86988d8d_icgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="523,56,637,82"/>
+<area shape="rect" href="add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="400,5,475,31"/>
+<area shape="poly" title=" " alt="" coords="526,53,474,34,476,29,528,48"/>
+<area shape="rect" href="invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,56,205,82"/>
+<area shape="poly" title=" " alt="" coords="507,72,206,72,206,66,507,66"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,107"/>
+<area shape="poly" title=" " alt="" coords="508,78,368,88,205,97,55,97,55,92,205,92,367,83,507,72"/>
+<area shape="rect" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="253,5,352,31"/>
+<area shape="poly" title=" " alt="" coords="384,21,353,21,353,16,384,16"/>
+<area shape="poly" title=" " alt="" coords="249,39,195,58,193,53,248,34"/>
+<area shape="poly" title=" " alt="" coords="88,85,55,92,54,87,87,80"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3b58809dca43364de0ca32bc8d753100" name="a3b58809dca43364de0ca32bc8d753100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b58809dca43364de0ca32bc8d753100">&#9670;&#160;</a></span>format_usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void format_usage </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00046">46</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                  {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   48</span>        printf(<a class="code hl_define" href="#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a>);</div>
+<div class="line"><span class="lineno">   49</span>    printf(<span class="stringliteral">&quot;USAGE: &quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   51</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   52</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   53</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   55</span>        printf(<a class="code hl_define" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_a4534b577b74a58b0f4b7be027af664e0"><div class="ttname"><a href="#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a></div><div class="ttdeci">#define COLOR_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00012">io_wrap.c:12</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00012">COLOR_YELLOW</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a3b58809dca43364de0ca32bc8d753100_cgraph.png" border="0" usemap="#aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_cgraph" alt=""/></div>
+<map name="aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_cgraph" id="aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_cgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="5,5,106,31"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="154,5,253,31"/>
+<area shape="poly" title=" " alt="" coords="106,16,138,16,138,21,106,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8c_a3b58809dca43364de0ca32bc8d753100_icgraph.png" border="0" usemap="#aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_icgraph" alt=""/></div>
+<map name="aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_icgraph" id="aio__wrap_8c_a3b58809dca43364de0ca32bc8d753100_icgraph">
+<area shape="rect" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="408,5,509,31"/>
+<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="235,5,360,31"/>
+<area shape="poly" title=" " alt="" coords="393,21,361,21,361,16,393,16"/>
+<area shape="rect" href="io__wrap_8c.html#a4f415323e0a26da0f47e59d3b549411c" title="Ask and convert user&#39;s input into command." alt="" coords="103,5,187,31"/>
+<area shape="poly" title=" " alt="" coords="219,21,187,21,187,16,219,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
@@ -306,13 +580,13 @@ Here is the caller graph for this function:</div>
 
 <p>Set the result of last command (RUN_OK/RUN_FAIL/...) </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00015">15</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                {</div>
-<div class="line"><span class="lineno">   16</span>    *<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
-<div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00010">io_wrap.c:10</a></div></div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00022">22</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                {</div>
+<div class="line"><span class="lineno">   23</span>    *<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
+<div class="line"><span class="lineno">   24</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00017">io_wrap.c:17</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00010">last_run_status()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00017">last_run_status()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -355,13 +629,13 @@ Here is the caller graph for this function:</div>
 
 <p>Config if prompt should be printed. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00024">24</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>                                            {</div>
-<div class="line"><span class="lineno">   25</span>    *<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
-<div class="line"><span class="lineno">   26</span>}</div>
-<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00019">io_wrap.c:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00031">31</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>                                            {</div>
+<div class="line"><span class="lineno">   32</span>    *<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
+<div class="line"><span class="lineno">   33</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00026">io_wrap.c:26</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00019">is_prompt_visible()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00026">is_prompt_visible()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -402,13 +676,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00019">19</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                          {</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> visible = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> &amp;visible;</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00026">26</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                          {</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> visible = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> &amp;visible;</div>
+<div class="line"><span class="lineno">   29</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00024">io_set_prompt_visibility()</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00031">io_set_prompt_visibility()</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -444,17 +718,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00010">10</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>                                   {</div>
-<div class="line"><span class="lineno">   11</span>    <span class="keyword">static</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> res = <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> &amp;res;</div>
-<div class="line"><span class="lineno">   13</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00017">17</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                                   {</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keyword">static</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> res = <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> &amp;res;</div>
+<div class="line"><span class="lineno">   20</span>}</div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35e"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a></div><div class="ttdeci">run_result</div><div class="ttdoc">Result of the execution of a command line.</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00006">res.h:6</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00015">io_set_last_status()</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00022">io_set_last_status()</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -490,47 +764,57 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00054">54</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>                    {</div>
-<div class="line"><span class="lineno">   55</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
-<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
-<div class="line"><span class="lineno">   63</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
-<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
-<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
-<div class="line"><span class="lineno">   68</span>        printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   71</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><span class="lineno">   72</span>    }</div>
-<div class="line"><span class="lineno">   73</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00090">90</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                    {</div>
+<div class="line"><span class="lineno">   91</span>    os_char buffer[<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>];</div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_function" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a>(<a class="code hl_define" href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a>, buffer);</div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">if</span>(!*<a class="code hl_function" href="#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>()) {</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   95</span>    }</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">switch</span>(*<a class="code hl_function" href="#af715a04fd9342804225de608eff64b60">last_run_status</a>()) {</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>:</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   99</span>            printf(<a class="code hl_define" href="#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a>);</div>
+<div class="line"><span class="lineno">  100</span>        printf(<span class="stringliteral">&quot;%s\n-&gt; &quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>:</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>:</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">  106</span>            printf(<a class="code hl_define" href="#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a> <span class="stringliteral">&quot;%s\n&quot;</span> <a class="code hl_define" href="#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a> <span class="stringliteral">&quot;:( -&gt; &quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  108</span>            printf(<span class="stringliteral">&quot;%s\n:( -&gt; &quot;</span>, buffer);</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  111</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
+<div class="line"><span class="lineno">  112</span>    }</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>()) {</div>
+<div class="line"><span class="lineno">  114</span>        printf(<a class="code hl_define" href="#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
+<div class="line"><span class="lineno">  115</span>    }</div>
+<div class="line"><span class="lineno">  116</span>}</div>
 <div class="ttc" id="aconfig_8h_html_a1efa72b804973756363ce5be7e24be18"><div class="ttname"><a href="config_8h.html#a1efa72b804973756363ce5be7e24be18">CWD_BUFFER_SIZE</a></div><div class="ttdeci">#define CWD_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00006">config.h:6</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a23c70d699a5a775bc2e1ebeb8603f630"><div class="ttname"><a href="#a23c70d699a5a775bc2e1ebeb8603f630">COLOR_BLUE</a></div><div class="ttdeci">#define COLOR_BLUE</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00014">io_wrap.c:14</a></div></div>
 <div class="ttc" id="aoperations_8h_html_ae3b10c0cd1a1098a893d8b0715953f2c"><div class="ttname"><a href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd</a></div><div class="ttdeci">void get_cwd(unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Fetch current working directory and copy them into buffer</div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a></div><div class="ttdeci">@ RUN_FAILED</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00009">res.h:9</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="config_8h_source.html#l00006">CWD_BUFFER_SIZE</a>, <a class="el" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd()</a>, <a class="el" href="io__wrap_8c_source.html#l00019">is_prompt_visible()</a>, <a class="el" href="io__wrap_8c_source.html#l00010">last_run_status()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, and <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00014">COLOR_BLUE</a>, <a class="el" href="io__wrap_8c_source.html#l00013">COLOR_RED</a>, <a class="el" href="config_8h_source.html#l00006">CWD_BUFFER_SIZE</a>, <a class="el" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c">get_cwd()</a>, <a class="el" href="io__wrap_8c_source.html#l00026">is_prompt_visible()</a>, <a class="el" href="io__wrap_8c_source.html#l00017">last_run_status()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00029">scan_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io__wrap_8c_source.html#l00036">scan_input()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="io__wrap_8c_aa572e540f03fa44a2533e1e170e562d7_cgraph.png" border="0" usemap="#aio__wrap_8c_aa572e540f03fa44a2533e1e170e562d7_cgraph" alt=""/></div>
 <map name="aio__wrap_8c_aa572e540f03fa44a2533e1e170e562d7_cgraph" id="aio__wrap_8c_aa572e540f03fa44a2533e1e170e562d7_cgraph">
-<area shape="rect" title=" " alt="" coords="5,55,102,80"/>
+<area shape="rect" title=" " alt="" coords="5,80,102,106"/>
 <area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="176,5,246,31"/>
-<area shape="poly" title=" " alt="" coords="96,51,160,31,162,36,98,57"/>
+<area shape="poly" title=" " alt="" coords="77,77,149,40,160,35,162,40,151,45,79,82"/>
 <area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="150,55,272,80"/>
-<area shape="poly" title=" " alt="" coords="102,65,134,65,134,70,102,70"/>
+<area shape="poly" title=" " alt="" coords="102,82,134,77,135,82,103,88"/>
 <area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="156,104,266,130"/>
-<area shape="poly" title=" " alt="" coords="98,78,154,96,152,101,96,84"/>
+<area shape="poly" title=" " alt="" coords="102,98,141,103,140,109,102,103"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="161,153,261,179"/>
+<area shape="poly" title=" " alt="" coords="80,104,151,140,161,144,159,149,149,145,78,109"/>
 </map>
 </div>
 <div class="dynheader">
@@ -565,21 +849,21 @@ Here is the caller graph for this function:</div>
 
 <p>Ask and convert user's input into command. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00029">29</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>                                 {</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
-<div class="line"><span class="lineno">   33</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
-<div class="line"><span class="lineno">   34</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
-<div class="line"><span class="lineno">   36</span>    }</div>
-<div class="line"><span class="lineno">   37</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00036">36</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>                                 {</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_function" href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
+<div class="line"><span class="lineno">   41</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 <div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00019">cmd.c:19</a></div></div>
 <div class="ttc" id="aconfig_8h_html_aa9b8dcc02cea15aab8e3d0b7860327a7"><div class="ttname"><a href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define INPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00005">config.h:5</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00054">io_wrap.c:54</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00090">io_wrap.c:90</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00054">prompt_input()</a>.</p>
+<p class="reference">References <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -587,42 +871,48 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="io__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph.png" border="0" usemap="#aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph" alt=""/></div>
 <map name="aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph" id="aio__wrap_8c_a4f415323e0a26da0f47e59d3b549411c_cgraph">
-<area shape="rect" title="Ask and convert user&#39;s input into command." alt="" coords="5,303,90,328"/>
-<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="138,203,263,228"/>
-<area shape="poly" title=" " alt="" coords="68,300,165,235,168,239,71,304"/>
-<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="152,377,249,403"/>
-<area shape="poly" title=" " alt="" coords="77,326,159,367,157,372,74,331"/>
-<area shape="rect" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="311,203,450,228"/>
-<area shape="poly" title=" " alt="" coords="263,213,295,213,295,218,263,218"/>
-<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="333,252,428,278"/>
-<area shape="poly" title=" " alt="" coords="251,226,319,245,318,251,250,232"/>
-<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="318,55,443,80"/>
-<area shape="poly" title=" " alt="" coords="208,201,247,147,276,116,309,89,316,85,319,90,313,94,280,120,251,151,212,204"/>
-<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="698,153,790,179"/>
-<area shape="poly" title=" " alt="" coords="217,227,257,259,283,276,312,288,350,297,380,299,450,288,523,267,594,240,705,185,708,189,596,245,525,272,451,293,380,304,349,302,310,293,281,280,254,264,213,231"/>
-<area shape="rect" href="cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="329,104,432,130"/>
-<area shape="poly" title=" " alt="" coords="217,200,258,170,310,138,320,133,323,138,312,143,261,174,220,204"/>
-<area shape="rect" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85" title=" " alt="" coords="340,153,421,179"/>
-<area shape="poly" title=" " alt="" coords="250,199,324,179,326,184,251,205"/>
+<area shape="rect" title="Ask and convert user&#39;s input into command." alt="" coords="5,304,90,330"/>
+<area shape="rect" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259" title="Build command from raw input." alt="" coords="138,179,263,204"/>
+<area shape="poly" title=" " alt="" coords="63,301,170,213,173,217,67,305"/>
+<area shape="rect" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7" title=" " alt="" coords="152,405,249,431"/>
+<area shape="poly" title=" " alt="" coords="70,328,168,394,165,399,67,332"/>
+<area shape="rect" href="args_8c.html#a1a52cb7c0c03feea6ea6ae0c0ecb1b08" title="Initialize the object by deep copying source" alt="" coords="311,153,450,179"/>
+<area shape="poly" title=" " alt="" coords="263,180,295,175,296,181,264,185"/>
+<area shape="rect" href="args_8c.html#a6a4079dcdcccf953889346c13f7940d6" title=" " alt="" coords="333,203,428,228"/>
+<area shape="poly" title=" " alt="" coords="264,197,318,204,317,210,263,202"/>
+<area shape="rect" href="args_8c.html#a714bbc27552dc7a57b3b36b8fe9fb377" title="Build args from an input string." alt="" coords="318,104,443,130"/>
+<area shape="poly" title=" " alt="" coords="228,176,310,138,324,133,326,138,312,143,230,180"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="698,241,790,267"/>
+<area shape="poly" title=" " alt="" coords="225,202,265,222,312,238,412,255,514,261,607,261,683,257,683,262,608,266,514,266,412,260,310,243,263,227,223,207"/>
+<area shape="rect" href="io__wrap_8c.html#a3b58809dca43364de0ca32bc8d753100" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="694,304,794,330"/>
+<area shape="poly" title=" " alt="" coords="218,203,258,235,284,251,312,264,409,291,509,307,602,315,678,316,678,321,602,320,508,313,408,297,310,269,282,255,255,239,215,207"/>
+<area shape="rect" href="cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02" title=" " alt="" coords="329,5,432,31"/>
+<area shape="poly" title=" " alt="" coords="206,177,243,112,273,74,309,40,315,36,318,41,313,44,277,77,248,115,210,180"/>
+<area shape="rect" href="utils_8c.html#a771b4438b3b5439b22812170b2534f85" title=" " alt="" coords="340,55,421,80"/>
+<area shape="poly" title=" " alt="" coords="211,176,252,134,279,110,310,89,324,82,327,86,312,94,283,115,255,138,215,180"/>
 <area shape="rect" href="args_8c.html#aada7b648db427f986baaeb9873a41ebc" title="Transform MAGIC_TOKEN inside arg into space." alt="" coords="511,104,631,130"/>
-<area shape="poly" title=" " alt="" coords="434,78,504,97,503,102,433,84"/>
-<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="498,5,644,31"/>
-<area shape="poly" title=" " alt="" coords="433,51,503,33,504,38,434,57"/>
-<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="510,153,632,179"/>
-<area shape="poly" title=" " alt="" coords="431,79,452,89,467,102,476,115,485,128,500,140,507,144,505,149,497,144,482,131,472,118,463,106,449,94,428,83"/>
+<area shape="poly" title=" " alt="" coords="444,114,496,114,496,120,444,120"/>
+<area shape="rect" href="args_8c.html#a235ee92debd6a415cb2becda003c4d85" title=" " alt="" coords="498,153,644,179"/>
+<area shape="poly" title=" " alt="" coords="434,128,504,146,503,151,433,133"/>
+<area shape="rect" href="args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578" title="Transform whitespaces inside quotes into MAGIC_TOKEN" alt="" coords="510,203,632,228"/>
+<area shape="poly" title=" " alt="" coords="431,128,452,139,467,152,476,165,485,177,500,189,507,194,505,198,497,194,482,181,472,168,463,155,449,143,428,133"/>
 <area shape="rect" href="args_8c.html#a0a22420a0220f951164f7da6324a1d84" title=" " alt="" coords="508,55,634,80"/>
-<area shape="poly" title=" " alt="" coords="444,65,493,65,493,70,444,70"/>
-<area shape="poly" title=" " alt="" coords="625,29,645,40,685,83,727,139,723,142,681,86,642,44,623,34"/>
-<area shape="rect" href="args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="692,55,796,80"/>
-<area shape="poly" title=" " alt="" coords="620,29,682,47,681,52,618,34"/>
-<area shape="poly" title=" " alt="" coords="633,164,683,164,683,169,633,169"/>
-<area shape="poly" title=" " alt="" coords="618,150,642,140,682,115,715,88,719,93,685,119,645,145,620,155"/>
-<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="346,353,416,379"/>
-<area shape="poly" title=" " alt="" coords="248,381,330,370,330,375,249,386"/>
-<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="320,403,442,428"/>
-<area shape="poly" title=" " alt="" coords="249,394,305,402,304,407,248,400"/>
-<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="326,452,436,478"/>
-<area shape="poly" title=" " alt="" coords="230,401,312,438,326,444,324,449,310,443,228,406"/>
+<area shape="poly" title=" " alt="" coords="433,101,503,82,504,87,434,106"/>
+<area shape="poly" title=" " alt="" coords="619,177,645,188,714,230,711,234,642,193,617,182"/>
+<area shape="rect" href="args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084" title="!" alt="" coords="692,179,796,204"/>
+<area shape="poly" title=" " alt="" coords="644,174,676,179,676,184,644,179"/>
+<area shape="rect" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c" title=" " alt="" coords="844,304,943,330"/>
+<area shape="poly" title=" " alt="" coords="778,265,848,295,846,300,776,270"/>
+<area shape="poly" title=" " alt="" coords="632,226,683,238,682,243,631,232"/>
+<area shape="poly" title=" " alt="" coords="632,204,676,198,676,204,633,210"/>
+<area shape="poly" title=" " alt="" coords="795,314,829,314,829,320,795,320"/>
+<area shape="poly" title=" " alt="" coords="248,403,311,390,447,373,554,366,660,359,796,340,832,332,833,337,796,345,661,364,554,371,447,378,311,395,249,409"/>
+<area shape="rect" href="operations_8h.html#ae3b10c0cd1a1098a893d8b0715953f2c" title="Fetch current working directory and copy them into buffer" alt="" coords="346,405,416,431"/>
+<area shape="poly" title=" " alt="" coords="249,416,330,416,330,421,249,421"/>
+<area shape="rect" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1" title=" " alt="" coords="320,455,442,480"/>
+<area shape="poly" title=" " alt="" coords="250,429,317,447,316,453,248,434"/>
+<area shape="rect" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60" title=" " alt="" coords="326,504,436,530"/>
+<area shape="poly" title=" " alt="" coords="220,429,261,459,312,490,323,495,320,500,310,495,258,464,217,434"/>
 </map>
 </div>
 <div class="dynheader">
@@ -641,7 +931,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

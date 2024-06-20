@@ -180,8 +180,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="add__path_8c.html#a042035f395bf6b7dba7b2d76de104c50">in_path_env</a>(buffer, new_path)) {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;The path %s is already in the PATH environment variable.\n&quot;</span>, new_path);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a>(<span class="stringliteral">&quot;The path %s is already in the PATH environment variable.\n&quot;</span>, new_path);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    os_char *f_path = formatted_path(new_path);</div>
@@ -192,7 +192,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        free(f_path);</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;PATH environment variable is updated successfully.\n&quot;</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_function" href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d">format_success</a>(<span class="stringliteral">&quot;PATH environment variable is updated successfully.\n&quot;</span>);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    free(f_path);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
@@ -208,8 +208,8 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aadd__path_8c_html_a32635663f007aca75521d6be08e3c755"><div class="ttname"><a href="add__path_8c.html#a32635663f007aca75521d6be08e3c755">add_path</a></div><div class="ttdeci">bool add_path(const os_char *new_path)</div><div class="ttdef"><b>Definition</b> <a href="#l00074">add_path.c:74</a></div></div>
 <div class="ttc" id="aadd__path_8c_html_ab599ae78ad84e843163167866f4a267e"><div class="ttname"><a href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e">run_add_path</a></div><div class="ttdeci">enum run_result run_add_path(const os_char *new_path)</div><div class="ttdef"><b>Definition</b> <a href="#l00101">add_path.c:101</a></div></div>
 <div class="ttc" id="aadd__path_8h_html"><div class="ttname"><a href="add__path_8h.html">add_path.h</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a1900da0ddbfd365205ea57db964eddf6"><div class="ttname"><a href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a></div><div class="ttdeci">void format_output(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00039">io_wrap.c:39</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00046">io_wrap.c:46</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a42c9e06f81af8c2a6c95ac3e86988d8d"><div class="ttname"><a href="io__wrap_8c.html#a42c9e06f81af8c2a6c95ac3e86988d8d">format_success</a></div><div class="ttdeci">void format_success(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00058">io_wrap.c:58</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_a5fdfb142bb891ecc6fc7db90c387f1bf"><div class="ttname"><a href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf">format_error</a></div><div class="ttdeci">void format_error(char *fmt,...)</div><div class="ttdoc">Used format_xxx instead of printf and such for uniform output.</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00078">io_wrap.c:78</a></div></div>
 <div class="ttc" id="aio__wrap_8h_html"><div class="ttname"><a href="io__wrap_8h.html">io_wrap.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html"><div class="ttname"><a href="operations_8h.html">operations.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html_a481ed52f9b1715b5351a7137211846f6"><div class="ttname"><a href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6">get_shell_env</a></div><div class="ttdeci">bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer)</div><div class="ttdoc">Get value of an an environment variable.</div></div>
@@ -220,7 +220,7 @@ $(function(){ initResizable(false); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>
