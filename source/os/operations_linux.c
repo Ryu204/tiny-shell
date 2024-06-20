@@ -38,6 +38,12 @@ void report_error_code(int code) {
     case EISDIR:
         format_error("Is a directory\n");
         break;
+    case EPERM:
+        format_error("Operation not permitted\n");
+        break;
+    case ESRCH:
+        format_error("No such process\n");
+        break;
     default:
         format_error("System error code: %d\n", code);
     }
@@ -134,7 +140,7 @@ bool launch_executable(const struct args args) {
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
             if(exit_code != 0) {
-                format_success("Exit code: %d\n", exit_code);
+                format_error("Exit code: %d\n", exit_code);
                 goto RETURN_FALSE;
             }
             goto RETURN_FALSE;
@@ -340,6 +346,15 @@ bool minibat(const struct args args) {
 };
 
 // NOLINTBEGIN
+
+bool check_process_exist(int proc_id) {
+    const bool exists = kill(proc_id, 0) == 0;
+    if(!exists) {
+        report_error_code(errno);
+        return false;
+    }
+    return true;
+}
 bool show_child_processes(int proc_id) {
     return true;
 }
@@ -347,27 +362,50 @@ bool show_child_processes(int proc_id) {
 bool get_date() {
     os_char buffer[TIME_DATE_BUFFER_SIZE];
     const time_t current_time = time(NULL);
-    struct tm* local_time = localtime(&current_time);
+    struct tm *local_time = localtime(&current_time);
     format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon, local_time->tm_year);
 }
 
 bool get_time() {
     os_char buffer[TIME_DATE_BUFFER_SIZE];
     const time_t current_time = time(NULL);
-    struct tm* local_time = localtime(&current_time);
+    struct tm *local_time = localtime(&current_time);
     format_output("The current time is: %02d:%02d:%02d.\n", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 }
 
 bool kill_process(int proc_id) {
-    return true;
+    if (!check_process_exist(proc_id)) {
+        return false;
+    }
+    if(kill(proc_id, SIGTERM) == 0) {
+        format_success("Process with ID %d is terminated.\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't terminate process with id %d\n.", proc_id);
+    return false;
 }
 
 bool resume(int proc_id) {
-    return true;
+    if (!check_process_exist(proc_id)) 
+        return false;
+    if (kill(proc_id, SIGCONT) == 0) {
+        format_success("Resume running process with ID %d\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't resume process with id %d\n.", proc_id);
 }
 
 bool stop_proccess(int proc_id) {
-    return true;
+    if (!check_process_exist(proc_id)) 
+        return false;
+    if (kill(proc_id, SIGSTOP) == 0) {
+        format_success("Stopped running process with ID %d\n", proc_id);
+        return true;
+    }
+    report_error_code(errno);
+    format_error("Can't stop process with id %d\n.", proc_id);
 }
 // NOLINTEND
 
