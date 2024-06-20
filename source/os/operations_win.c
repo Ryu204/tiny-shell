@@ -354,9 +354,7 @@ bool has_shell_env(const os_char *var) {
     os_char buffer[PATH_MAX];
     DWORD res = GetEnvironmentVariable(var, buffer, PATH_MAX);
     DWORD last_err = GetLastError();
-    if(res == 0 && last_err != ERROR_SUCCESS) {
-        return false;
-    } else if(res >= PATH_MAX) {
+    if((res == 0 && last_err != ERROR_SUCCESS) || res >= PATH_MAX) {
         return false;
     }
     return true;
