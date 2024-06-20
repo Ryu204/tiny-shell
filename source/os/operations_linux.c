@@ -14,6 +14,7 @@
 #    include <string.h>
 #    include <sys/stat.h>
 #    include <sys/wait.h>
+#    include <time.h>
 #    include <unistd.h>
 
 extern char **environ; // NOLINT
@@ -198,6 +199,10 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
     return true;
 }
 
+bool has_shell_env(const os_char *var) {
+    return getenv(var) != NULL; // NOLINT
+}
+
 os_char *get_all_shell_env_display() {
     os_char *res = malloc(ENVS_RESERVE_SIZE);
     unsigned int len = 0;
@@ -338,18 +343,29 @@ bool minibat(const struct args args) {
 bool show_child_processes(int proc_id) {
     return true;
 }
-bool get_time() {
-    return true;
-}
+
 bool get_date() {
-    return true;
+    os_char buffer[TIME_DATE_BUFFER_SIZE];
+    const time_t current_time = time(NULL);
+    struct tm* local_time = localtime(&current_time);
+    format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon, local_time->tm_year);
 }
+
+bool get_time() {
+    os_char buffer[TIME_DATE_BUFFER_SIZE];
+    const time_t current_time = time(NULL);
+    struct tm* local_time = localtime(&current_time);
+    format_output("The current time is: %02d:%02d:%02d.\n", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+}
+
 bool kill_process(int proc_id) {
     return true;
 }
+
 bool resume(int proc_id) {
     return true;
 }
+
 bool stop_proccess(int proc_id) {
     return true;
 }

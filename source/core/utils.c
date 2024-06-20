@@ -42,7 +42,8 @@ bool priv_support_color() {
         return false;
     const char *color_terms[] = {
         "xterm", "xterm-color", "xterm-256color", "screen", "screen-256color",
-        "tmux", "tmux-256color", "linux", "cygwin", "rxvt-unicode-256color"};
+        "tmux", "tmux-256color", "linux", "cygwin", "rxvt-unicode-256color",
+        "xterm-kitty"};
     const unsigned int len = sizeof(color_terms) / sizeof(color_terms[0]);
     for(size_t i = 0; i < len; i++) {
         if(strcmp(buffer, color_terms[i]) == 0) {
