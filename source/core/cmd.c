@@ -115,6 +115,27 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             format_error("Too many arguments\n");
             res->type = CMD_INVALID_SYNTAX;
         }
+    } else if(strcmp(name, "kill") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_KILL;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
+    } else if(strcmp(name, "resume") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_RESUME;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
+    } else if(strcmp(name, "child") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_CHILD_PROCESSES;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
     } else if(strcmp(name, "addpath") == 0) {
         if(arguments.argc != 2) {
             format_error("Unexpected number of arguments\n");

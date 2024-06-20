@@ -17,6 +17,15 @@ bool change_cwd(const os_char *new_dir);
 /*! @brief Clear the console */
 void clear_screen();
 
+/*! @brief Kill a process */
+bool kill(int proc_id);
+
+/*! @brief Resume running a process */
+bool resume(int proc_id);
+
+/*! @brief Show child processes */
+bool show_child_processes(int proc_id);
+
 /*! @brief Delete a specific file */
 bool delete_file(const os_char *filename);
 

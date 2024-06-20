@@ -22,10 +22,12 @@ enum cmd_type {
     CMD_ADD_PATH,
     CMD_DEL_FILE,
     CMD_LAUNCH_EXECUTABLE,
+    CMD_KILL,
+    CMD_RESUME,
+    CMD_CHILD_PROCESSES,
     CMD_LIST,
     CMD_DATE,
     CMD_TIME,
-
     CMD_STOP_PROC,
     CMD_MINIBAT,
     CMD_LSDIR,

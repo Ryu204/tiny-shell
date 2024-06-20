@@ -130,6 +130,83 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
+bool kill(int proc_id) {
+    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, proc_id);
+
+    if(hProcess == NULL) {
+        CloseHandle(hProcess);
+        format_error("Invalid process ID.\n");
+        return false;
+    } else if(TerminateProcess(hProcess, 0)) {
+        CloseHandle(hProcess);
+        format_output("Process with ID %d is terminated.\n", proc_id);
+        return true;
+    } else {
+        CloseHandle(hProcess);
+        format_error("Can't terminate process with id %d\n.", proc_id);
+        return false;
+    }
+}
+
+bool resume(int proc_id) {
+    int flag = 0;
+
+    HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
+    threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+
+    if(threadsSnapshot == INVALID_HANDLE_VALUE) {
+        format_error("Invalid process ID.\n");
+        return false;
+    }
+
+    THREADENTRY32 threadEntry;
+    threadEntry.dwSize = sizeof(THREADENTRY32);
+    Thread32First(threadsSnapshot, &threadEntry);
+    do {
+        if(threadEntry.th32OwnerProcessID == proc_id) {
+            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE,
+                                        threadEntry.th32ThreadID);
+            ResumeThread(hThread);
+            CloseHandle(hThread);
+            flag = 1;
+        }
+    } while(Thread32Next(threadsSnapshot, &threadEntry));
+
+    if(flag) {
+        format_output("Resume running process with ID %d", proc_id);
+        return true;
+    }
+    format_error("Can't find process with ID %d", proc_id);
+    return false;
+}
+
+bool show_child_processes(int proc_id) {
+    HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if(hProcess == INVALID_HANDLE_VALUE) {
+        format_error("Invalid process ID");
+        return false;
+    }
+
+    PROCESSENTRY32 pe;
+    pe.dwSize = sizeof(PROCESSENTRY32);
+    Process32First(hProcess, &pe);
+
+    int countChildProcess = 0;
+    do {
+        if(pe.th32ParentProcessID == proc_id) {
+            format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID,
+                          pe.cntThreads, pe.szExeFile);
+            countChildProcess++;
+        }
+    } while(Process32Next(hProcess, &pe));
+
+    CloseHandle(hProcess);
+    if(!countChildProcess) {
+        format_output("Process %d doesn't have any child processes.\n", proc_id);
+    }
+    return true;
+}
+
 bool delete_file(const os_char *filename) {
     if(DeleteFile(filename)) {
         format_output("File removed successfully.\n");
