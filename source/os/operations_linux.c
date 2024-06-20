@@ -345,8 +345,6 @@ bool minibat(const struct args args) {
     return res;
 };
 
-// NOLINTBEGIN
-
 bool check_process_exist(int proc_id) {
     const bool exists = kill(proc_id, 0) == 0;
     if(!exists) {
@@ -355,26 +353,87 @@ bool check_process_exist(int proc_id) {
     }
     return true;
 }
+
 bool show_child_processes(int proc_id) {
+    DIR *dir = opendir("/proc");
+    if (dir == NULL) {
+        format_error("Unable to open /proc");
+        return false;
+    }
+    struct dirent *entry = NULL;
+    char path_buffer[CWD_BUFFER_SIZE];
+    FILE *fp = NULL;
+    pid_t ppid = 0;
+    int countChildProcess = 0;
+
+    // NOLINTNEXTLINE
+    while((entry = readdir(dir)) != NULL) {
+        if(entry->d_type == DT_DIR && is_number(entry->d_name)) {
+            snprintf(path_buffer, sizeof(path_buffer), "/proc/%s/stat", entry->d_name);
+            fp = fopen(path_buffer, "r");
+            if(fp == NULL) {
+                continue;
+            }
+
+            // Fields in /proc/[pid]/stat as per 'man proc'
+            int pid = 0;
+            char comm[CWD_BUFFER_SIZE];
+            char state = '\0';
+            if(fscanf(fp, "%d %s %c %d", &pid, comm, &state, &ppid) != 4) {
+                fclose(fp);
+                continue;
+            }
+            fclose(fp);
+
+            if(ppid == proc_id) {
+                // Get the thread count
+                snprintf(path_buffer, sizeof(path_buffer), "/proc/%d/status", pid);
+                fp = fopen(path_buffer, "r");
+                if(fp != NULL) {
+                    char line[CWD_BUFFER_SIZE];
+                    int threads = 0;
+                    while(fgets(line, sizeof(line), fp)) {
+                        if(sscanf(line, "Threads: %d", &threads) == 1) {
+                            break;
+                        }
+                    }
+                    fclose(fp);
+
+                    // Remove parentheses around the process name
+                    comm[strlen(comm) - 1] = '\0';
+                    format_success("PID: %6d T: %3d Name: %s \n", pid, threads, comm + 1);
+                    countChildProcess++;
+                }
+            }
+        }
+    }
+    closedir(dir);
+
+    if(countChildProcess == 0) {
+        format_success("No process with parent's PID %d\n", proc_id);
+    }
+
     return true;
 }
 
 bool get_date() {
     os_char buffer[TIME_DATE_BUFFER_SIZE];
     const time_t current_time = time(NULL);
-    struct tm *local_time = localtime(&current_time);
+    struct tm *local_time = localtime(&current_time); // NOLINT
     format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon, local_time->tm_year);
+    return true;
 }
 
 bool get_time() {
     os_char buffer[TIME_DATE_BUFFER_SIZE];
     const time_t current_time = time(NULL);
-    struct tm *local_time = localtime(&current_time);
+    struct tm *local_time = localtime(&current_time); // NOLINT
     format_output("The current time is: %02d:%02d:%02d.\n", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    return true;
 }
 
 bool kill_process(int proc_id) {
-    if (!check_process_exist(proc_id)) {
+    if(!check_process_exist(proc_id)) {
         return false;
     }
     if(kill(proc_id, SIGTERM) == 0) {
@@ -387,26 +446,27 @@ bool kill_process(int proc_id) {
 }
 
 bool resume(int proc_id) {
-    if (!check_process_exist(proc_id)) 
+    if(!check_process_exist(proc_id))
         return false;
-    if (kill(proc_id, SIGCONT) == 0) {
+    if(kill(proc_id, SIGCONT) == 0) {
         format_success("Resume running process with ID %d\n", proc_id);
         return true;
     }
     report_error_code(errno);
     format_error("Can't resume process with id %d\n.", proc_id);
+    return false;
 }
 
 bool stop_proccess(int proc_id) {
-    if (!check_process_exist(proc_id)) 
+    if(!check_process_exist(proc_id))
         return false;
-    if (kill(proc_id, SIGSTOP) == 0) {
+    if(kill(proc_id, SIGSTOP) == 0) {
         format_success("Stopped running process with ID %d\n", proc_id);
         return true;
     }
     report_error_code(errno);
     format_error("Can't stop process with id %d\n.", proc_id);
+    return false;
 }
-// NOLINTEND
 
 #endif
