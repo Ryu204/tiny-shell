@@ -143,7 +143,7 @@ bool launch_executable(const struct args args) {
                 format_error("Exit code: %d\n", exit_code);
                 goto RETURN_FALSE;
             }
-            goto RETURN_FALSE;
+            goto RETURN_TRUE;
         } else if(WIFSTOPPED(stat_loc)) {
             format_error("Stopped\n");
             goto RETURN_FALSE;

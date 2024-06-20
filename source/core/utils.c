@@ -38,7 +38,7 @@ bool priv_support_color() {
 #    include <stdlib.h>
 bool priv_support_color() {
     const char *term = getenv("TERM"); // NOLINT
-    if (term == NULL) {
+    if(term == NULL) {
         return false;
     }
     const char *color_terms[] = {
