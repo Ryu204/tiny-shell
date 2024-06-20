@@ -159,6 +159,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa83858cd9389e0d5fd5050f78281e3dd" id="r_aa83858cd9389e0d5fd5050f78281e3dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa83858cd9389e0d5fd5050f78281e3dd">io_set_last_status</a> (enum <a class="el" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> result)</td></tr>
 <tr class="memdesc:aa83858cd9389e0d5fd5050f78281e3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the result of last command (RUN_OK/RUN_FAIL/...)  <br /></td></tr>
 <tr class="separator:aa83858cd9389e0d5fd5050f78281e3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273650c3fa5cab9bd9240be0e57307dd" id="r_a273650c3fa5cab9bd9240be0e57307dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a273650c3fa5cab9bd9240be0e57307dd">io_set_text_white</a> ()</td></tr>
+<tr class="memdesc:a273650c3fa5cab9bd9240be0e57307dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set default text color to white.  <br /></td></tr>
+<tr class="separator:a273650c3fa5cab9bd9240be0e57307dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad46bab1d03261ccbe90df638f3bde4c0" id="r_ad46bab1d03261ccbe90df638f3bde4c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad46bab1d03261ccbe90df638f3bde4c0">io_set_prompt_visibility</a> (bool visible)</td></tr>
 <tr class="memdesc:ad46bab1d03261ccbe90df638f3bde4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config if prompt should be printed.  <br /></td></tr>
 <tr class="separator:ad46bab1d03261ccbe90df638f3bde4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,25 +203,25 @@ Functions</h2></td></tr>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00078">78</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   78</span>                                  {</div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   80</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a>);</div>
-<div class="line"><span class="lineno">   81</span>    printf(<span class="stringliteral">&quot;ERR: &quot;</span>);</div>
-<div class="line"><span class="lineno">   82</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   83</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   84</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   85</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   87</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
-<div class="line"><span class="lineno">   88</span>}</div>
-<div class="ttc" id="aio__wrap_8c_html_aba2a7fe77a7501e5844370eec0185207"><div class="ttname"><a href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a></div><div class="ttdeci">#define COLOR_BLACK</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00015">io_wrap.c:15</a></div></div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00089">89</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                  {</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   91</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a>);</div>
+<div class="line"><span class="lineno">   92</span>    printf(<span class="stringliteral">&quot;ERR: &quot;</span>);</div>
+<div class="line"><span class="lineno">   93</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   94</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   95</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   96</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   98</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8">COLOR_DEFAULT</a>);</div>
+<div class="line"><span class="lineno">   99</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_a56e1aea61ee305e3648158362333b3a8"><div class="ttname"><a href="io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8">COLOR_DEFAULT</a></div><div class="ttdeci">#define COLOR_DEFAULT</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00018">io_wrap.c:18</a></div></div>
 <div class="ttc" id="aio__wrap_8c_html_ad86358bf19927183dd7b4ae215a29731"><div class="ttname"><a href="io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731">COLOR_RED</a></div><div class="ttdeci">#define COLOR_RED</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00013">io_wrap.c:13</a></div></div>
 <div class="ttc" id="autils_8c_html_a465c19a5caf798e52dc9fddde441da6c"><div class="ttname"><a href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a></div><div class="ttdeci">bool support_color()</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00013">COLOR_RED</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00018">COLOR_DEFAULT</a>, <a class="el" href="io__wrap_8c_source.html#l00013">COLOR_RED</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00010">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="main_8c_source.html#l00011">main()</a>, <a class="el" href="args_8c_source.html#l00052">split_by_whitespaces()</a>, and <a class="el" href="args_8c_source.html#l00016">transform_quotes()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -283,17 +286,17 @@ Here is the caller graph for this function:</div>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00069">69</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>                                   {</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   71</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
-<div class="line"><span class="lineno">   72</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   73</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   74</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   75</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   76</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00080">80</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                   {</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   82</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8">COLOR_DEFAULT</a>);</div>
+<div class="line"><span class="lineno">   83</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   84</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   85</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   86</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00018">COLOR_DEFAULT</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, and <a class="el" href="help_8c_source.html#l00004">run_help()</a>.</p>
 <div class="dynheader">
@@ -350,22 +353,22 @@ Here is the caller graph for this function:</div>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00058">58</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>                                    {</div>
-<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   60</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a>);</div>
-<div class="line"><span class="lineno">   61</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   62</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   63</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   64</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   66</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
-<div class="line"><span class="lineno">   67</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00069">69</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                                    {</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   71</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a>);</div>
+<div class="line"><span class="lineno">   72</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   73</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   74</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   75</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   77</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8">COLOR_DEFAULT</a>);</div>
+<div class="line"><span class="lineno">   78</span>}</div>
 <div class="ttc" id="aio__wrap_8c_html_afc9149f5de51bd9ac4f5ebbfa153f018"><div class="ttname"><a href="io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018">COLOR_GREEN</a></div><div class="ttdeci">#define COLOR_GREEN</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00011">io_wrap.c:11</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00011">COLOR_GREEN</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00018">COLOR_DEFAULT</a>, <a class="el" href="io__wrap_8c_source.html#l00011">COLOR_GREEN</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="invoke_8c_source.html#l00022">invoke_runner()</a>, and <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="add__path_8c_source.html#l00074">add_path()</a>, <a class="el" href="invoke_8c_source.html#l00022">invoke_runner()</a>, and <a class="el" href="main_8c_source.html#l00011">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -418,21 +421,21 @@ Here is the caller graph for this function:</div>
 
 <p>Used <code>format_xxx</code> instead of <code>printf</code> and such for uniform output. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00046">46</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>                                  {</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   48</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a>);</div>
-<div class="line"><span class="lineno">   49</span>    printf(<span class="stringliteral">&quot;USAGE: &quot;</span>);</div>
-<div class="line"><span class="lineno">   50</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
-<div class="line"><span class="lineno">   51</span>    va_start(argptr, fmt);</div>
-<div class="line"><span class="lineno">   52</span>    vfprintf(stdout, fmt, argptr);</div>
-<div class="line"><span class="lineno">   53</span>    va_end(argptr);</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
-<div class="line"><span class="lineno">   55</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207">COLOR_BLACK</a>);</div>
-<div class="line"><span class="lineno">   56</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00057">57</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                                  {</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   59</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a>);</div>
+<div class="line"><span class="lineno">   60</span>    printf(<span class="stringliteral">&quot;USAGE: &quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>    va_list argptr; <span class="comment">// NOLINT</span></div>
+<div class="line"><span class="lineno">   62</span>    va_start(argptr, fmt);</div>
+<div class="line"><span class="lineno">   63</span>    vfprintf(stdout, fmt, argptr);</div>
+<div class="line"><span class="lineno">   64</span>    va_end(argptr);</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="utils_8c.html#a465c19a5caf798e52dc9fddde441da6c">support_color</a>())</div>
+<div class="line"><span class="lineno">   66</span>        printf(<a class="code hl_define" href="io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8">COLOR_DEFAULT</a>);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 <div class="ttc" id="aio__wrap_8c_html_a4534b577b74a58b0f4b7be027af664e0"><div class="ttname"><a href="io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0">COLOR_YELLOW</a></div><div class="ttdeci">#define COLOR_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00012">io_wrap.c:12</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00015">COLOR_BLACK</a>, <a class="el" href="io__wrap_8c_source.html#l00012">COLOR_YELLOW</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00018">COLOR_DEFAULT</a>, <a class="el" href="io__wrap_8c_source.html#l00012">COLOR_YELLOW</a>, and <a class="el" href="utils_8c_source.html#l00056">support_color()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>.</p>
 <div class="dynheader">
@@ -479,15 +482,15 @@ Here is the caller graph for this function:</div>
 
 <p>Set the result of last command (RUN_OK/RUN_FAIL/...) </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00022">22</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                {</div>
-<div class="line"><span class="lineno">   23</span>    *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
-<div class="line"><span class="lineno">   24</span>}</div>
-<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00017">io_wrap.c:17</a></div></div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00029">29</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                {</div>
+<div class="line"><span class="lineno">   30</span>    *<a class="code hl_function" href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a>() = result;</div>
+<div class="line"><span class="lineno">   31</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_af715a04fd9342804225de608eff64b60"><div class="ttname"><a href="io__wrap_8c.html#af715a04fd9342804225de608eff64b60">last_run_status</a></div><div class="ttdeci">enum run_result * last_run_status()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00024">io_wrap.c:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00017">last_run_status()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00024">last_run_status()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00011">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -528,15 +531,15 @@ Here is the caller graph for this function:</div>
 
 <p>Config if prompt should be printed. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00031">31</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   31</span>                                            {</div>
-<div class="line"><span class="lineno">   32</span>    *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
-<div class="line"><span class="lineno">   33</span>}</div>
-<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00026">io_wrap.c:26</a></div></div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00042">42</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                            {</div>
+<div class="line"><span class="lineno">   43</span>    *<a class="code hl_function" href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a>() = visible;</div>
+<div class="line"><span class="lineno">   44</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_af63f602ef591cebe6346ddb8149285c1"><div class="ttname"><a href="io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1">is_prompt_visible</a></div><div class="ttdeci">bool * is_prompt_visible()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00037">io_wrap.c:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00026">is_prompt_visible()</a>.</p>
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00037">is_prompt_visible()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00011">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -553,6 +556,55 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="io__wrap_8h_ad46bab1d03261ccbe90df638f3bde4c0_icgraph.png" border="0" usemap="#aio__wrap_8h_ad46bab1d03261ccbe90df638f3bde4c0_icgraph" alt=""/></div>
 <map name="aio__wrap_8h_ad46bab1d03261ccbe90df638f3bde4c0_icgraph" id="aio__wrap_8h_ad46bab1d03261ccbe90df638f3bde4c0_icgraph">
 <area shape="rect" title="Config if prompt should be printed." alt="" coords="103,5,259,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a273650c3fa5cab9bd9240be0e57307dd" name="a273650c3fa5cab9bd9240be0e57307dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273650c3fa5cab9bd9240be0e57307dd">&#9670;&#160;</a></span>io_set_text_white()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void io_set_text_white </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set default text color to white. </p>
+
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00033">33</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                         {</div>
+<div class="line"><span class="lineno">   34</span>    *<a class="code hl_function" href="io__wrap_8c.html#a3ff05d91dd783e369ab8d83f012cf3b2">io_use_white_text</a>() = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   35</span>}</div>
+<div class="ttc" id="aio__wrap_8c_html_a3ff05d91dd783e369ab8d83f012cf3b2"><div class="ttname"><a href="io__wrap_8c.html#a3ff05d91dd783e369ab8d83f012cf3b2">io_use_white_text</a></div><div class="ttdeci">static bool * io_use_white_text()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00019">io_wrap.c:19</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="io__wrap_8c_source.html#l00019">io_use_white_text()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00011">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_cgraph.png" border="0" usemap="#aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_cgraph" alt=""/></div>
+<map name="aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_cgraph" id="aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_cgraph">
+<area shape="rect" title="Set default text color to white." alt="" coords="5,5,128,31"/>
+<area shape="rect" href="io__wrap_8c.html#a3ff05d91dd783e369ab8d83f012cf3b2" title=" " alt="" coords="176,5,301,31"/>
+<area shape="poly" title=" " alt="" coords="128,16,160,16,160,21,128,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="io__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_icgraph.png" border="0" usemap="#aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_icgraph" alt=""/></div>
+<map name="aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_icgraph" id="aio__wrap_8h_a273650c3fa5cab9bd9240be0e57307dd_icgraph">
+<area shape="rect" title="Set default text color to white." alt="" coords="103,5,225,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -577,23 +629,23 @@ Here is the caller graph for this function:</div>
 
 <p>Ask and convert user's input into command. </p>
 
-<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00036">36</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>                                 {</div>
-<div class="line"><span class="lineno">   37</span>    <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
-<div class="line"><span class="lineno">   41</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   42</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>}</div>
+<p class="definition">Definition at line <a class="el" href="io__wrap_8c_source.html#l00047">47</a> of file <a class="el" href="io__wrap_8c_source.html">io_wrap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                 {</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a>();</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">char</span> buffer[<a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>] = {0};</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">if</span>(!fgets(buffer, <a class="code hl_define" href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a>, stdin)) {</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, <span class="stringliteral">&quot;exit&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_function" href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a>(obj, buffer);</div>
+<div class="line"><span class="lineno">   54</span>    }</div>
+<div class="line"><span class="lineno">   55</span>}</div>
 <div class="ttc" id="acmd_8c_html_a58137792e4db17d1b7ec39f3bead7259"><div class="ttname"><a href="cmd_8c.html#a58137792e4db17d1b7ec39f3bead7259">cmd_init_from_str</a></div><div class="ttdeci">void cmd_init_from_str(struct cmd *res, const char *str)</div><div class="ttdoc">Build command from raw input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8c_source.html#l00019">cmd.c:19</a></div></div>
 <div class="ttc" id="aconfig_8h_html_aa9b8dcc02cea15aab8e3d0b7860327a7"><div class="ttname"><a href="config_8h.html#aa9b8dcc02cea15aab8e3d0b7860327a7">INPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define INPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="config_8h_source.html#l00005">config.h:5</a></div></div>
-<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00090">io_wrap.c:90</a></div></div>
+<div class="ttc" id="aio__wrap_8c_html_aa572e540f03fa44a2533e1e170e562d7"><div class="ttname"><a href="io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7">prompt_input</a></div><div class="ttdeci">void prompt_input()</div><div class="ttdef"><b>Definition</b> <a href="io__wrap_8c_source.html#l00101">io_wrap.c:101</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00090">prompt_input()</a>.</p>
+<p class="reference">References <a class="el" href="cmd_8c_source.html#l00019">cmd_init_from_str()</a>, <a class="el" href="config_8h_source.html#l00005">INPUT_BUFFER_SIZE</a>, and <a class="el" href="io__wrap_8c_source.html#l00101">prompt_input()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00011">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -659,7 +711,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 17:41:11 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 18:02:27 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

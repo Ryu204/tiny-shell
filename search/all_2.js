@@ -37,9 +37,11 @@ var searchData=
   ['cmd_5funset_5fenv_34',['CMD_UNSET_ENV',['../cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507',1,'cmd.h']]],
   ['color_5fblack_35',['COLOR_BLACK',['../io__wrap_8c.html#aba2a7fe77a7501e5844370eec0185207',1,'io_wrap.c']]],
   ['color_5fblue_36',['COLOR_BLUE',['../io__wrap_8c.html#a23c70d699a5a775bc2e1ebeb8603f630',1,'io_wrap.c']]],
-  ['color_5fgreen_37',['COLOR_GREEN',['../io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018',1,'io_wrap.c']]],
-  ['color_5fred_38',['COLOR_RED',['../io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731',1,'io_wrap.c']]],
-  ['color_5fyellow_39',['COLOR_YELLOW',['../io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0',1,'io_wrap.c']]],
-  ['config_2eh_40',['config.h',['../config_8h.html',1,'']]],
-  ['cwd_5fbuffer_5fsize_41',['CWD_BUFFER_SIZE',['../config_8h.html#a1efa72b804973756363ce5be7e24be18',1,'config.h']]]
+  ['color_5fdefault_37',['COLOR_DEFAULT',['../io__wrap_8c.html#a56e1aea61ee305e3648158362333b3a8',1,'io_wrap.c']]],
+  ['color_5fgreen_38',['COLOR_GREEN',['../io__wrap_8c.html#afc9149f5de51bd9ac4f5ebbfa153f018',1,'io_wrap.c']]],
+  ['color_5fred_39',['COLOR_RED',['../io__wrap_8c.html#ad86358bf19927183dd7b4ae215a29731',1,'io_wrap.c']]],
+  ['color_5fwhite_40',['COLOR_WHITE',['../io__wrap_8c.html#a9b44987ffdc2af19b635206b94334b69',1,'io_wrap.c']]],
+  ['color_5fyellow_41',['COLOR_YELLOW',['../io__wrap_8c.html#a4534b577b74a58b0f4b7be027af664e0',1,'io_wrap.c']]],
+  ['config_2eh_42',['config.h',['../config_8h.html',1,'']]],
+  ['cwd_5fbuffer_5fsize_43',['CWD_BUFFER_SIZE',['../config_8h.html#a1efa72b804973756363ce5be7e24be18',1,'config.h']]]
 ];
