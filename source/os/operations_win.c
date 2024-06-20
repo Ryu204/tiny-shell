@@ -175,7 +175,7 @@ bool resume(const os_char *proc_id) {
     return false;
 }
 
-bool showChildProcesses(const os_char *proc_id) {
+bool show_child_processes(const os_char *proc_id) {
     DWORD processID = atoi(proc_id); 
 
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);

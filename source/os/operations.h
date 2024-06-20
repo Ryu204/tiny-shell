@@ -24,7 +24,7 @@ bool kill(const os_char *proc_id);
 bool resume(const os_char *proc_id);
 
 /*! @brief Show child processes */
-bool showChildProcesses(const os_char *proc_id);
+bool show_child_processes(const os_char *proc_id);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
