@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['unset_5fshell_5fenv_0',['unset_shell_env',['../operations_8h.html#adfbb09e78ff766d4a02d525844b0a837',1,'operations.h']]],
-  ['utils_2ec_1',['utils.c',['../utils_8c.html',1,'']]],
-  ['utils_2eh_2',['utils.h',['../utils_8h.html',1,'']]]
+  ['transform_5fquotes_0',['transform_quotes',['../args_8c.html#a7ab4dd8e5a33194a5a4bab7fb7fd4578',1,'args.c']]],
+  ['type_1',['type',['../structcmd.html#acf3c35f2b809b63b3155b91534689b74',1,'cmd']]],
+  ['type_2eh_2',['type.h',['../type_8h.html',1,'']]]
 ];

@@ -152,8 +152,8 @@ Functions</h2></td></tr>
 <p>Delete a specific file. </p>
 
 <p class="definition">Definition at line <a class="el" href="delete__file_8c_source.html#l00004">4</a> of file <a class="el" href="delete__file_8c_source.html">delete_file.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>                                            {</div>
-<div class="line"><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a>(dir);</div>
+<div class="fragment"><div class="line"><span class="lineno">    4</span>                                                 {</div>
+<div class="line"><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a>(filename);</div>
 <div class="line"><span class="lineno">    6</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
 <div class="line"><span class="lineno">    7</span>}</div>
 <div class="ttc" id="aoperations_8h_html_aa5b7ed720655f184e1d376125fbbc250"><div class="ttname"><a href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a></div><div class="ttdeci">bool delete_file(const os_char *filename)</div><div class="ttdoc">Delete a specific file.</div></div>
@@ -162,7 +162,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file()</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, and <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00019">invoke_runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="invoke_8c_source.html#l00022">invoke_runner()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -191,7 +191,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 09:58:50 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

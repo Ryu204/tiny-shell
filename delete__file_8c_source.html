@@ -96,12 +96,12 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="operations_8h.html">../os/operations.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">    4</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> <a class="code hl_function" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">run_del</a>(<span class="keyword">const</span> os_char *dir) {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a>(dir);</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="delete__file_8c.html#a2a6c757e5c5c3174df59d4ab390b2e10">    4</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35e">run_result</a> <a class="code hl_function" href="delete__file_8c.html#a2a6c757e5c5c3174df59d4ab390b2e10">run_del</a>(<span class="keyword">const</span> os_char *filename) {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">bool</span> result = <a class="code hl_function" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a>(filename);</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">return</span> result ? <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a> : <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
 </div>
-<div class="ttc" id="adelete__file_8c_html_a96ca18e95327c6315347bf64cfccfbbd"><div class="ttname"><a href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">run_del</a></div><div class="ttdeci">enum run_result run_del(const os_char *dir)</div><div class="ttdoc">Delete a specific file.</div><div class="ttdef"><b>Definition</b> <a href="#l00004">delete_file.c:4</a></div></div>
+<div class="ttc" id="adelete__file_8c_html_a2a6c757e5c5c3174df59d4ab390b2e10"><div class="ttname"><a href="delete__file_8c.html#a2a6c757e5c5c3174df59d4ab390b2e10">run_del</a></div><div class="ttdeci">enum run_result run_del(const os_char *filename)</div><div class="ttdoc">Delete a specific file.</div><div class="ttdef"><b>Definition</b> <a href="#l00004">delete_file.c:4</a></div></div>
 <div class="ttc" id="adelete__file_8h_html"><div class="ttname"><a href="delete__file_8h.html">delete_file.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html"><div class="ttname"><a href="operations_8h.html">operations.h</a></div></div>
 <div class="ttc" id="aoperations_8h_html_aa5b7ed720655f184e1d376125fbbc250"><div class="ttname"><a href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250">delete_file</a></div><div class="ttdeci">bool delete_file(const os_char *filename)</div><div class="ttdoc">Delete a specific file.</div></div>
@@ -111,7 +111,7 @@ $(function(){ initResizable(false); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 20 2024 09:58:49 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 10:54:37 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

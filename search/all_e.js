@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['quotation_5fmark_0',['QUOTATION_MARK',['../args_8c.html#a06fc87d81c62e9abb8790b6e5713c55bae1c225693cc531db0ad0cd0229e34207',1,'args.c']]],
-  ['quotation_5fmark_5fstr_1',['QUOTATION_MARK_STR',['../args_8c.html#ac961b0571eb0bc6248bb760936e89a51',1,'args.c']]]
+  ['path_5fmax_0',['PATH_MAX',['../config_8h.html#ae688d728e1acdfe5988c7db45d6f0166',1,'config.h']]],
+  ['proc_5fid_1',['proc_id',['../structcmd.html#ad485a2cb328e42d3f2a427cdbd359488',1,'cmd']]],
+  ['prompt_5finput_2',['prompt_input',['../io__wrap_8c.html#aa572e540f03fa44a2533e1e170e562d7',1,'io_wrap.c']]]
 ];
