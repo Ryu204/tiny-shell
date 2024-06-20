@@ -24,7 +24,7 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_HELP:
         return run_help();
     case CMD_EXIT:
-        format_output("%s", "Goodbye\n");
+        format_success("%s", "Goodbye\n");
         return RUN_EXIT;
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
@@ -60,12 +60,12 @@ enum run_result invoke_runner(const struct cmd *cmd) {
     case CMD_GET_ENV:
         return run_get_env(cmd->val.env.name);
     case CMD_UNKNOWN:
-        format_output("%s", "Unknown command. Use \"help\" for more information\n");
+        format_success("%s", "Unknown command. Use \"help\" for more information\n");
         return RUN_FAILED;
     case CMD_NOOP:
         return RUN_OK;
     case CMD_INVALID_SYNTAX:
-        format_output("%s", "Invalid syntax. Use \"help\" for more information\n");
+        format_success("%s", "Invalid syntax. Use \"help\" for more information\n");
         return RUN_FAILED;
     case CMD_RESUME:
         return run_resume(cmd->val.proc_id);

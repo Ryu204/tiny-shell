@@ -10,7 +10,7 @@
 int main(int argc, char *argv[]) {
     // Version report
     if(argc >= 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0)) {
-        format_output("%s, version %s\n", APP_NAME, APP_VERSION);
+        format_success("%s, version %s\n", APP_NAME, APP_VERSION);
         return EXIT_SUCCESS;
     }
     // No prompt
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
         io_set_last_status(res);
         // Deallocate the command
         cmd_destroy(&cmd);
-        format_output("\n");
+        format_success("\n");
         if(res == RUN_EXIT) {
             return EXIT_SUCCESS;
         }

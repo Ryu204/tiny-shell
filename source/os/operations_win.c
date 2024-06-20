@@ -130,7 +130,7 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool kill(int proc_id) {
+bool kill_process(int proc_id) {
     HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, proc_id);
 
     if(hProcess == NULL) {
@@ -139,7 +139,7 @@ bool kill(int proc_id) {
         return false;
     } else if(TerminateProcess(hProcess, 0)) {
         CloseHandle(hProcess);
-        format_output("Process with ID %d is terminated.\n", proc_id);
+        format_success("Process with ID %d is terminated.\n", proc_id);
         return true;
     } else {
         CloseHandle(hProcess);
@@ -173,17 +173,17 @@ bool resume(int proc_id) {
     } while(Thread32Next(threadsSnapshot, &threadEntry));
 
     if(flag) {
-        format_output("Resume running process with ID %d", proc_id);
+        format_success("Resume running process with ID %d\n", proc_id);
         return true;
     }
-    format_error("Can't find process with ID %d", proc_id);
+    format_error("Can't find process with ID %d\n", proc_id);
     return false;
 }
 
 bool show_child_processes(int proc_id) {
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if(hProcess == INVALID_HANDLE_VALUE) {
-        format_error("Invalid process ID");
+        format_error("Invalid process ID\n");
         return false;
     }
 
@@ -194,22 +194,22 @@ bool show_child_processes(int proc_id) {
     int countChildProcess = 0;
     do {
         if(pe.th32ParentProcessID == proc_id) {
-            format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID,
-                          pe.cntThreads, pe.szExeFile);
+            format_success("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID,
+                           pe.cntThreads, pe.szExeFile);
             countChildProcess++;
         }
     } while(Process32Next(hProcess, &pe));
 
     CloseHandle(hProcess);
     if(!countChildProcess) {
-        format_output("Process %d doesn't have any child processes.\n", proc_id);
+        format_success("No process with parent's PID %d\n", proc_id);
     }
     return true;
 }
 
 bool delete_file(const os_char *filename) {
     if(DeleteFile(filename)) {
-        format_output("File removed successfully.\n");
+        format_success("File removed successfully\n");
         return true;
     }
     report_error_code(GetLastError());
@@ -233,7 +233,7 @@ bool lsdir(const os_char *dir) {
     if(hFind != INVALID_HANDLE_VALUE) {
         do {
             if(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
-                format_output("%s/\n", data.cFileName);
+                format_success("%s/\n", data.cFileName);
             } else {
                 format_output("%s\n", data.cFileName);
             }
@@ -399,7 +399,7 @@ bool minibat(const struct args args) {
         NULL);
 
     if(hFIle == INVALID_HANDLE_VALUE) {
-        format_error("Cannot open file %s, exit code: %d!\n", file, GetLastError());
+        format_error("Cannot open file %s", file);
         return false;
     }
 
@@ -504,7 +504,7 @@ bool stop_proccess(int proc_id) {
     } while(Thread32Next(threadsSnapshot, &threadEntry));
 
     if(flag) {
-        format_output("Stopped running process with ID %d\n", proc_id);
+        format_success("Stopped running process with ID %d\n", proc_id);
         return true;
     }
     format_error("Can't find process with ID %d\n", proc_id);

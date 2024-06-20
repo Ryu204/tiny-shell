@@ -18,7 +18,7 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief Kill a process */
-bool kill(int proc_id);
+bool kill_process(int proc_id);
 
 /*! @brief Resume running a process */
 bool resume(int proc_id);
