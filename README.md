@@ -19,14 +19,14 @@ option(ENABLE_DOCS "Generate documentation with doxygen" off)
 option(ENABLE_TEST "Build test programs" off)
 ```
 
-# Description
-
-This project features a simple interactive shell capable of running executable and scripts, as well as executing limited local commands.
-
 ## Supported platform: 
 
 * Windows (tested on Windows 11)
 * Unix-like (tested on WSL and Arch Linux) 
+
+# Description
+
+This project features a simple interactive shell capable of running executable and scripts, as well as executing limited local commands.
 
 ## Semantics:
 
@@ -46,4 +46,34 @@ OS-specific operations are separatedly implemented via `#ifdef` directive.
 
 # Usage
 
-To be documented.
+## Color
+By default, `tiny-shell` uses black for default text color. To set it to white, set environment variable `TINY_SHELL_WHITE` before launching the shell.
+
+## Commands
+Check version:
+```sh
+tiny-shell -v
+tiny-shell --version
+```
+Run a script:
+```sh
+tiny-shell -f path/to/script
+tiny-shell --file path/to/script
+```
+Interactive mode:
+```sh
+tiny-shell # :)
+```
+Disable prompt:
+```sh
+tiny-shell -s
+tiny-shell --silent
+```
+
+In interactive mode, use `help` for more details. 
+
+To launch an executable, use the path to where it is located. 
+
+Append a separate `&` if background mode is intended.
+
+To stop a foreground process, trigger `SIG_INT` by your platform method (for e.g `CTRL+C` on Windows).

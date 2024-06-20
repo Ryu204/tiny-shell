@@ -1,6 +1,7 @@
 #include "cmd.h"
 #include "args.h"
 #include "io_wrap.h"
+#include "utils.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -23,7 +24,7 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
     const bool valid = args_init_from_str(&arguments, str);
 
     if(!valid) {
-        res->type = CMD_INVALID_SYNTAX;
+        res->type = CMD_NOOP;
         return;
     }
 
@@ -39,13 +40,25 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         res->type = CMD_HELP;
     } else if(strcmp(name, "list") == 0) {
         res->type = CMD_LIST;
+    } else if(strcmp(name, "date") == 0) {
+        res->type = CMD_DATE;
+    } else if(strcmp(name, "time") == 0) {
+        res->type = CMD_TIME;
+    } else if(strcmp(name, "stop") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            format_usage("stop <process id>\n");
+            res->type = CMD_NOOP;
+        } else {
+            res->type = CMD_STOP_PROC;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {
         res->type = CMD_CHANGE_DIR;
         if(arguments.argc != 2) {
-            format_error("Expected directory name, got %d argument(s)\n", (int)(arguments.argc - 1));
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("cd <destination dir>\n");
+            res->type = CMD_NOOP;
         } else {
             const unsigned int len = strlen(arguments.argv[1]);
             res->val.new_dir = malloc(len + 1);
@@ -56,8 +69,8 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         res->type = CMD_CLEAR;
     } else if(strcmp(name, "set") == 0) {
         if(arguments.argc < 2 || arguments.argc > 3) {
-            format_error("Provide variable name and optionally a value\n");
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("set <VAR> <value>\n");
+            res->type = CMD_NOOP;
         } else if(arguments.argc == 2) {
             res->type = CMD_SET_ENV;
             const unsigned int name_len = strlen(arguments.argv[1]);
@@ -79,8 +92,8 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else if(strcmp(name, "unset") == 0) {
         if(arguments.argc != 2) {
-            format_error("Expected variable name\n");
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("unset <VAR>\n");
+            res->type = CMD_NOOP;
         } else {
             res->type = CMD_UNSET_ENV;
             const unsigned int len = strlen(arguments.argv[1]);
@@ -100,13 +113,37 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->val.env.name[len] = '\0';
             res->val.env.val = NULL;
         } else {
-            format_error("Too many arguments\n");
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("env [VAR]\n");
+            res->type = CMD_NOOP;
+        }
+    } else if(strcmp(name, "kill") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            format_usage("kill <process id>\n");
+            res->type = CMD_NOOP;
+        } else {
+            res->type = CMD_KILL;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
+    } else if(strcmp(name, "resume") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            format_usage("resume <process id>\n");
+            res->type = CMD_NOOP;
+        } else {
+            res->type = CMD_RESUME;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
+    } else if(strcmp(name, "child") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            format_usage("child <process id>\n");
+            res->type = CMD_NOOP;
+        } else {
+            res->type = CMD_CHILD_PROCESSES;
+            res->val.proc_id = atoi(arguments.argv[1]);
         }
     } else if(strcmp(name, "addpath") == 0) {
         if(arguments.argc != 2) {
-            format_error("Unexpected number of arguments\n");
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("addpath <new path>\n");
+            res->type = CMD_NOOP;
         } else {
             res->type = CMD_ADD_PATH;
             const size_t len = strlen(arguments.argv[1]);
@@ -116,7 +153,8 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else if(strcmp(name, "delete") == 0) {
         if(arguments.argc > 2 || arguments.argc < 2) {
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("delete <path to file>\n");
+            res->type = CMD_NOOP;
         } else {
             res->type = CMD_DEL_FILE;
 
@@ -127,8 +165,8 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         }
     } else if(strcmp(name, "lsdir") == 0) {
         if(arguments.argc != 2) {
-            format_error("Usage: lsdir <dir>\n");
-            res->type = CMD_INVALID_SYNTAX;
+            format_usage("Usage: lsdir <dir>\n");
+            res->type = CMD_NOOP;
         } else {
             res->type = CMD_LSDIR;
 

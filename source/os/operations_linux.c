@@ -1,6 +1,7 @@
 #ifdef __linux__
 #    include "../core/config.h"
 #    include "../core/io_wrap.h"
+#    include "../core/utils.h"
 #    include "operations.h"
 #    include "type.h"
 
@@ -63,7 +64,7 @@ void clear_screen() {
 bool delete_file(const char *filename) {
     const int status = unlink(filename);
     if(status == 0) {
-        format_output("File removed successfully.\n");
+        format_success("File removed successfully.\n");
         return true;
     }
     report_error_code(errno);
@@ -81,7 +82,7 @@ bool lsdir(const char *dir) {
     // NOLINTNEXTLINE
     while((de = readdir(dr)) != NULL) {
         if(de->d_type == DT_DIR)
-            format_output("%s/\n", de->d_name);
+            format_success("%s/\n", de->d_name);
         else if(de->d_type == DT_REG)
             format_output("%s\n", de->d_name);
         else
@@ -132,7 +133,7 @@ bool launch_executable(const struct args args) {
         if(WIFEXITED(stat_loc)) {
             const int exit_code = WEXITSTATUS(stat_loc);
             if(exit_code != 0) {
-                format_output("Exit code: %d\n", exit_code);
+                format_success("Exit code: %d\n", exit_code);
                 goto RETURN_FALSE;
             }
             goto RETURN_FALSE;
@@ -222,17 +223,6 @@ os_char *get_all_shell_env_display() {
     }
     res[len] = '\0';
     return res;
-}
-
-bool is_number(const char *c) {
-    if(c == NULL || c[0] == '\0')
-        return false;
-    const unsigned int length = strlen(c);
-    for(int i = 0; i < length; ++i) {
-        if(c[i] < '0' || c[i] > '9')
-            return false;
-    }
-    return true;
 }
 
 bool enum_proc() {
@@ -343,5 +333,26 @@ bool minibat(const struct args args) {
     free(mod);
     return res;
 };
+
+// NOLINTBEGIN
+bool show_child_processes(int proc_id) {
+    return true;
+}
+bool get_time() {
+    return true;
+}
+bool get_date() {
+    return true;
+}
+bool kill_process(int proc_id) {
+    return true;
+}
+bool resume(int proc_id) {
+    return true;
+}
+bool stop_proccess(int proc_id) {
+    return true;
+}
+// NOLINTEND
 
 #endif

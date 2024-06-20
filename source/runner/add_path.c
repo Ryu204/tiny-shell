@@ -81,8 +81,8 @@ bool add_path(const os_char *new_path) {
     }
 
     if(in_path_env(buffer, new_path)) {
-        format_output("The path %s is already in the PATH environment variable.\n", new_path);
-        return true;
+        format_error("The path %s is already in the PATH environment variable.\n", new_path);
+        return false;
     }
 
     os_char *f_path = formatted_path(new_path);
@@ -93,7 +93,7 @@ bool add_path(const os_char *new_path) {
         free(f_path);
         return false;
     }
-    format_output("PATH environment variable is updated successfully.\n");
+    format_success("PATH environment variable is updated successfully.\n");
     free(f_path);
     return true;
 }

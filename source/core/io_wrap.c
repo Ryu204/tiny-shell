@@ -1,11 +1,25 @@
 #include "io_wrap.h"
 #include "../os/operations.h"
 #include "config.h"
+#include "utils.h"
 
 #include <assert.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
+
+#define COLOR_GREEN "\033[32m"
+#define COLOR_YELLOW "\033[33m"
+#define COLOR_RED "\033[31m"
+#define COLOR_BLUE "\033[34m"
+#define COLOR_BLACK "\033[30m"
+#define COLOR_WHITE "\033[97m"
+
+#define COLOR_DEFAULT (*io_use_white_text() ? COLOR_WHITE : COLOR_BLACK)
+static bool *io_use_white_text() {
+    static bool res = false;
+    return &res;
+}
 
 enum run_result *last_run_status() {
     static enum run_result res = RUN_OK;
@@ -14,6 +28,10 @@ enum run_result *last_run_status() {
 
 void io_set_last_status(enum run_result result) {
     *last_run_status() = result;
+}
+
+void io_set_text_white() {
+    *io_use_white_text() = true;
 }
 
 bool *is_prompt_visible() {
@@ -36,7 +54,32 @@ void scan_input(struct cmd *obj) {
     }
 }
 
+void format_usage(char *fmt, ...) {
+    if(support_color())
+        printf(COLOR_YELLOW);
+    printf("USAGE: ");
+    va_list argptr; // NOLINT
+    va_start(argptr, fmt);
+    vfprintf(stdout, fmt, argptr);
+    va_end(argptr);
+    if(support_color())
+        printf(COLOR_DEFAULT);
+}
+
+void format_success(char *fmt, ...) {
+    if(support_color())
+        printf(COLOR_GREEN);
+    va_list argptr; // NOLINT
+    va_start(argptr, fmt);
+    vfprintf(stdout, fmt, argptr);
+    va_end(argptr);
+    if(support_color())
+        printf(COLOR_DEFAULT);
+}
+
 void format_output(char *fmt, ...) {
+    if(support_color())
+        printf(COLOR_DEFAULT);
     va_list argptr; // NOLINT
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
@@ -44,11 +87,15 @@ void format_output(char *fmt, ...) {
 }
 
 void format_error(char *fmt, ...) {
-    printf("ERROR: ");
+    if(support_color())
+        printf(COLOR_RED);
+    printf("ERR: ");
     va_list argptr; // NOLINT
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
+    if(support_color())
+        printf(COLOR_DEFAULT);
 }
 
 void prompt_input() {
@@ -57,17 +104,24 @@ void prompt_input() {
     if(!*is_prompt_visible()) {
         return;
     }
-
     switch(*last_run_status()) {
     case RUN_OK:
+        if(support_color())
+            printf(COLOR_BLUE);
         printf("%s\n-> ", buffer);
         break;
     case RUN_EXIT:
         break;
     case RUN_FAILED:
-        printf("%s\n:( -> ", buffer);
+        if(support_color())
+            printf(COLOR_BLUE "%s\n" COLOR_RED ":( -> ", buffer);
+        else
+            printf("%s\n:( -> ", buffer);
         break;
     default:
         assert(false && "unimplemented");
+    }
+    if(support_color()) {
+        printf(COLOR_DEFAULT);
     }
 }
