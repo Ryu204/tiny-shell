@@ -129,7 +129,7 @@ bool kill(const os_char *proc_id){
 
     if (hProcess == NULL){
         CloseHandle(hProcess);
-        format_error("NULL handle.\n");
+        format_error("Invalid process ID.\n");
         return false;
     } else if (TerminateProcess(hProcess, 0)){
         CloseHandle(hProcess);
@@ -137,7 +137,7 @@ bool kill(const os_char *proc_id){
         return true;
     } else {
         CloseHandle(hProcess);
-        format_error("Can't find this process with id = %d\n.", processID);
+        format_error("Can't terminate process with id %d\n.", processID);
         return false;
     }
 }
@@ -148,10 +148,12 @@ bool resume(const os_char *proc_id) {
 
     HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
     threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+
     if (threadsSnapshot == INVALID_HANDLE_VALUE) {
-        format_error("Invalid handle value.\n");
+        format_error("Invalid process ID.\n");
         return false;
     }
+
     THREADENTRY32 threadEntry;
     threadEntry.dwSize = sizeof(THREADENTRY32);
     Thread32First(threadsSnapshot, &threadEntry);
@@ -178,7 +180,7 @@ bool showChildProcesses(const os_char *proc_id) {
 
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcess == INVALID_HANDLE_VALUE) {
-        format_error("Invalid handlde value");
+        format_error("Invalid process ID");
         return false;
     }
 
@@ -199,7 +201,7 @@ bool showChildProcesses(const os_char *proc_id) {
 
     CloseHandle(hProcess);
     if (!countChildProcess) {
-        format_output("Process %d doesn't have any child processes.\n");
+        format_output("Process %d doesn't have any child processes.\n", processID);
     }
     return true;
 }

@@ -15,6 +15,13 @@ bool is_minibat_file(const os_char *file) {
     return !strcmp(dot + 1, "mb");
 }
 
+bool is_valid_process_id(os_char *proc_id) {
+    for (int index = 0; index < strlen(proc_id); index++) {
+        if (proc_id[index] < '0' || proc_id[index] > '9') return false;
+    }
+    return true;
+}
+
 void cmd_init_from_str(struct cmd *res, const char *str) {
     assert(res && "NULL input");
     res->type = CMD_UNKNOWN;
@@ -104,7 +111,10 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->type = CMD_INVALID_SYNTAX;
         }
     } else if(strcmp(name, "kill") == 0) {
-        if (arguments.argc < 2 || arguments.argc > 2) {
+        if (arguments.argc != 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else if (!is_valid_process_id(arguments.argv[1])) {
+            format_error("Invalid process ID.\n");
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_KILL;
@@ -115,7 +125,10 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->val.proc_id[id_len] = '\0';
         }
     } else if(strcmp(name, "resume") == 0) {
-        if (arguments.argc < 2 || arguments.argc > 2) {
+        if (arguments.argc != 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else if (!is_valid_process_id(arguments.argv[1])) {
+            format_error("Invalid process ID.\n");
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_RESUME;
@@ -126,7 +139,10 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
             res->val.proc_id[id_len] = '\0';
         }
     } else if(strcmp(name, "child") == 0) {
-        if (arguments.argc < 2 || arguments.argc > 2) {
+        if (arguments.argc != 2) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else if (!is_valid_process_id(arguments.argv[1])) {
+            format_error("Invalid process ID.\n");
             res->type = CMD_INVALID_SYNTAX;
         } else {
             res->type = CMD_CHILD_PROCESSES;
