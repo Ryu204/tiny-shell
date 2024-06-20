@@ -99,6 +99,7 @@ $(function(){ initResizable(false); });
 <code>#include &quot;<a class="el" href="operations_8h_source.html">../os/operations.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="add__path_8h_source.html">add_path.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cd_8h_source.html">cd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="datetime_8h_source.html">datetime.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="delete__file_8h_source.html">delete_file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="env_8h_source.html">env.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="help_8h_source.html">help.h</a>&quot;</code><br />
@@ -106,6 +107,7 @@ $(function(){ initResizable(false); });
 <code>#include &quot;<a class="el" href="list_8h_source.html">list.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lsdir_8h_source.html">lsdir.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="minibat_8h_source.html">minibat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stop_8h_source.html">stop.h</a>&quot;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -113,70 +115,77 @@ Include dependency graph for invoke.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="invoke_8c__incl.png" border="0" usemap="#asource_2runner_2invoke_8c" alt=""/></div>
 <map name="asource_2runner_2invoke_8c" id="asource_2runner_2invoke_8c">
-<area shape="rect" title=" " alt="" coords="478,5,630,31"/>
-<area shape="rect" href="invoke_8h.html" title=" " alt="" coords="654,79,723,105"/>
-<area shape="poly" title=" " alt="" coords="578,29,654,69,651,74,576,34"/>
-<area shape="rect" title=" " alt="" coords="279,300,352,326"/>
-<area shape="poly" title=" " alt="" coords="478,25,352,32,210,43,89,60,48,70,27,81,15,98,9,115,9,131,14,147,37,178,75,208,121,235,171,258,264,293,263,298,169,263,118,239,72,212,33,182,9,149,4,132,4,114,10,96,23,77,46,65,88,54,210,38,352,27,477,20"/>
-<area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="747,79,862,105"/>
-<area shape="poly" title=" " alt="" coords="597,29,749,72,747,77,596,34"/>
-<area shape="rect" href="operations_8h.html" title=" " alt="" coords="152,153,271,178"/>
-<area shape="poly" title=" " alt="" coords="477,25,355,33,217,44,100,60,61,70,40,81,32,94,33,104,40,115,52,124,91,139,137,151,136,156,89,144,50,128,36,118,28,106,27,92,36,77,59,65,99,55,217,39,355,27,477,20"/>
-<area shape="rect" href="add__path_8h.html" title=" " alt="" coords="963,79,1047,105"/>
-<area shape="poly" title=" " alt="" coords="631,27,774,47,948,76,947,81,774,53,630,32"/>
-<area shape="rect" href="cd_8h.html" title=" " alt="" coords="1071,79,1117,105"/>
-<area shape="poly" title=" " alt="" coords="631,21,821,38,937,54,1057,76,1056,81,936,59,820,43,630,26"/>
-<area shape="rect" href="delete__file_8h.html" title=" " alt="" coords="461,79,551,105"/>
-<area shape="poly" title=" " alt="" coords="548,33,525,67,521,64,544,30"/>
-<area shape="rect" href="env_8h.html" title=" " alt="" coords="887,79,939,105"/>
-<area shape="poly" title=" " alt="" coords="631,29,741,48,872,76,871,81,740,54,630,34"/>
-<area shape="rect" href="help_8h.html" title=" " alt="" coords="574,79,630,105"/>
-<area shape="poly" title=" " alt="" coords="564,30,588,64,583,67,560,33"/>
-<area shape="rect" href="launch__executable_8h.html" title=" " alt="" coords="220,79,358,105"/>
-<area shape="poly" title=" " alt="" coords="510,34,349,77,348,72,508,29"/>
-<area shape="rect" href="list_8h.html" title=" " alt="" coords="50,79,98,105"/>
-<area shape="poly" title=" " alt="" coords="478,28,314,47,215,62,114,81,113,76,215,56,313,41,477,23"/>
-<area shape="rect" href="lsdir_8h.html" title=" " alt="" coords="382,79,438,105"/>
-<area shape="poly" title=" " alt="" coords="531,34,449,74,447,69,528,29"/>
-<area shape="rect" href="minibat_8h.html" title=" " alt="" coords="123,79,196,105"/>
-<area shape="poly" title=" " alt="" coords="478,34,212,81,211,76,477,29"/>
-<area shape="rect" title=" " alt="" coords="1140,79,1208,105"/>
-<area shape="poly" title=" " alt="" coords="631,21,850,39,986,55,1126,76,1125,81,985,60,849,45,631,27"/>
-<area shape="rect" href="cmd_8h.html" title=" " alt="" coords="661,153,756,178"/>
-<area shape="poly" title=" " alt="" coords="695,104,704,137,699,138,689,106"/>
-<area shape="rect" href="res_8h.html" title=" " alt="" coords="577,153,627,178"/>
-<area shape="poly" title=" " alt="" coords="676,107,630,145,627,141,672,103"/>
-<area shape="rect" href="type_8h.html" title=" " alt="" coords="763,300,846,326"/>
-<area shape="poly" title=" " alt="" coords="719,177,791,285,786,288,714,180"/>
-<area shape="rect" href="args_8h.html" title=" " alt="" coords="357,226,413,252"/>
-<area shape="poly" title=" " alt="" coords="661,180,429,231,428,226,660,175"/>
-<area shape="poly" title=" " alt="" coords="413,243,748,299,747,305,413,248"/>
-<area shape="poly" title=" " alt="" coords="375,254,340,291,336,287,371,250"/>
-<area shape="poly" title=" " alt="" coords="790,107,738,146,735,141,787,103"/>
-<area shape="poly" title=" " alt="" coords="806,106,795,142,785,163,771,180,723,216,671,244,616,267,559,284,453,305,367,313,367,308,452,299,558,279,614,262,669,240,720,211,767,176,781,160,790,140,800,104"/>
-<area shape="poly" title=" " alt="" coords="771,108,642,153,640,148,769,103"/>
-<area shape="poly" title=" " alt="" coords="227,177,277,214,310,234,346,250,399,266,454,280,565,298,667,307,748,309,748,315,667,312,565,303,453,285,397,272,344,254,308,238,274,218,224,181"/>
-<area shape="poly" title=" " alt="" coords="242,176,343,218,341,223,240,181"/>
-<area shape="poly" title=" " alt="" coords="222,177,300,286,296,289,218,180"/>
-<area shape="poly" title=" " alt="" coords="996,107,828,291,824,287,992,103"/>
-<area shape="poly" title=" " alt="" coords="963,105,952,107,800,131,649,155,643,157,641,151,648,150,800,125,951,102,962,100"/>
-<area shape="poly" title=" " alt="" coords="1081,107,890,254,836,293,833,289,887,250,1078,103"/>
-<area shape="poly" title=" " alt="" coords="1071,104,1060,107,945,127,855,134,764,140,649,155,643,157,642,151,648,150,764,134,854,129,945,122,1059,102,1070,99"/>
-<area shape="poly" title=" " alt="" coords="498,107,407,216,402,213,494,103"/>
-<area shape="poly" title=" " alt="" coords="524,103,576,141,573,146,521,107"/>
-<area shape="poly" title=" " alt="" coords="909,106,820,288,815,285,905,104"/>
-<area shape="poly" title=" " alt="" coords="887,104,875,107,762,132,649,155,643,157,641,152,648,150,761,127,873,102,886,99"/>
-<area shape="poly" title=" " alt="" coords="605,105,605,137,599,137,599,105"/>
-<area shape="poly" title=" " alt="" coords="299,104,371,212,366,215,294,106"/>
-<area shape="poly" title=" " alt="" coords="343,103,563,152,561,158,342,108"/>
-<area shape="poly" title=" " alt="" coords="277,107,237,144,234,140,274,103"/>
-<area shape="poly" title=" " alt="" coords="99,99,111,102,239,125,367,142,562,159,562,165,366,147,238,131,110,107,98,104"/>
-<area shape="poly" title=" " alt="" coords="99,103,176,143,173,147,96,108"/>
-<area shape="poly" title=" " alt="" coords="411,105,392,211,387,210,405,105"/>
-<area shape="poly" title=" " alt="" coords="439,101,564,147,562,152,437,106"/>
-<area shape="poly" title=" " alt="" coords="191,103,236,123,285,150,328,182,363,213,360,217,324,186,282,155,234,128,189,108"/>
-<area shape="poly" title=" " alt="" coords="197,100,208,102,406,135,562,157,561,162,406,141,207,107,196,105"/>
-<area shape="poly" title=" " alt="" coords="170,103,196,138,192,142,166,106"/>
+<area shape="rect" title=" " alt="" coords="603,5,755,31"/>
+<area shape="rect" href="invoke_8h.html" title=" " alt="" coords="886,79,955,105"/>
+<area shape="poly" title=" " alt="" coords="721,29,872,73,870,78,719,34"/>
+<area shape="rect" title=" " alt="" coords="426,300,500,326"/>
+<area shape="poly" title=" " alt="" coords="603,24,449,28,269,38,113,56,59,67,31,81,15,104,9,126,11,146,21,165,39,183,62,200,124,230,198,255,276,275,411,301,410,307,275,281,197,260,122,235,60,204,35,187,17,168,6,147,3,125,10,102,28,77,58,62,112,50,269,33,449,23,602,18"/>
+<area shape="rect" href="io__wrap_8h.html" title=" " alt="" coords="979,79,1094,105"/>
+<area shape="poly" title=" " alt="" coords="741,29,964,73,963,79,740,34"/>
+<area shape="rect" href="operations_8h.html" title=" " alt="" coords="337,153,456,178"/>
+<area shape="poly" title=" " alt="" coords="603,26,484,33,352,45,239,61,201,70,181,81,172,97,173,111,185,122,204,133,260,148,322,156,321,162,259,153,202,137,182,127,169,113,166,96,177,77,199,65,238,56,351,39,484,28,602,20"/>
+<area shape="rect" href="add__path_8h.html" title=" " alt="" coords="1194,79,1279,105"/>
+<area shape="poly" title=" " alt="" coords="756,24,945,43,1180,76,1179,81,944,49,756,29"/>
+<area shape="rect" href="cd_8h.html" title=" " alt="" coords="1303,79,1348,105"/>
+<area shape="poly" title=" " alt="" coords="756,19,859,24,991,34,1138,51,1288,76,1287,82,1137,56,990,39,859,29,756,24"/>
+<area shape="rect" href="datetime_8h.html" title=" " alt="" coords="353,79,434,105"/>
+<area shape="poly" title=" " alt="" coords="631,34,450,79,449,74,630,29"/>
+<area shape="rect" href="delete__file_8h.html" title=" " alt="" coords="772,79,861,105"/>
+<area shape="poly" title=" " alt="" coords="704,29,781,69,778,74,701,34"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="1118,79,1171,105"/>
+<area shape="poly" title=" " alt="" coords="756,24,912,43,1103,76,1103,81,912,48,755,29"/>
+<area shape="rect" href="help_8h.html" title=" " alt="" coords="611,79,667,105"/>
+<area shape="poly" title=" " alt="" coords="675,33,655,67,651,64,670,30"/>
+<area shape="rect" href="launch__executable_8h.html" title=" " alt="" coords="191,79,330,105"/>
+<area shape="poly" title=" " alt="" coords="608,34,346,79,345,74,607,29"/>
+<area shape="rect" href="list_8h.html" title=" " alt="" coords="459,79,507,105"/>
+<area shape="poly" title=" " alt="" coords="647,34,523,79,521,74,645,29"/>
+<area shape="rect" href="lsdir_8h.html" title=" " alt="" coords="531,79,587,105"/>
+<area shape="poly" title=" " alt="" coords="660,34,594,73,591,68,657,29"/>
+<area shape="rect" href="minibat_8h.html" title=" " alt="" coords="42,79,116,105"/>
+<area shape="poly" title=" " alt="" coords="603,28,392,49,135,82,131,82,131,77,135,76,391,43,602,23"/>
+<area shape="rect" href="stop_8h.html" title=" " alt="" coords="691,79,747,105"/>
+<area shape="poly" title=" " alt="" coords="688,30,707,64,703,67,683,33"/>
+<area shape="rect" title=" " alt="" coords="1372,79,1439,105"/>
+<area shape="poly" title=" " alt="" coords="756,20,1018,36,1185,52,1357,76,1356,81,1185,58,1018,41,756,25"/>
+<area shape="rect" href="cmd_8h.html" title=" " alt="" coords="881,153,976,178"/>
+<area shape="poly" title=" " alt="" coords="924,105,928,137,923,138,919,105"/>
+<area shape="rect" href="res_8h.html" title=" " alt="" coords="694,153,744,178"/>
+<area shape="poly" title=" " alt="" coords="887,108,759,153,757,148,885,103"/>
+<area shape="rect" href="type_8h.html" title=" " alt="" coords="992,300,1075,326"/>
+<area shape="poly" title=" " alt="" coords="939,177,1018,286,1014,289,935,180"/>
+<area shape="rect" href="args_8h.html" title=" " alt="" coords="503,226,559,252"/>
+<area shape="poly" title=" " alt="" coords="881,178,575,233,574,228,880,173"/>
+<area shape="poly" title=" " alt="" coords="560,242,977,301,976,306,560,247"/>
+<area shape="poly" title=" " alt="" coords="522,254,487,291,483,287,518,250"/>
+<area shape="poly" title=" " alt="" coords="1020,107,961,146,958,141,1017,103"/>
+<area shape="poly" title=" " alt="" coords="1035,106,1020,143,1007,163,990,180,932,218,869,248,803,271,736,288,612,308,515,314,515,309,611,302,735,283,801,266,867,243,929,213,987,176,1003,160,1015,140,1031,104"/>
+<area shape="poly" title=" " alt="" coords="983,108,760,158,759,153,982,103"/>
+<area shape="poly" title=" " alt="" coords="407,177,442,214,465,234,492,250,532,263,586,274,721,291,862,301,977,307,976,312,861,307,720,296,586,279,531,268,490,254,462,238,438,218,403,180"/>
+<area shape="poly" title=" " alt="" coords="420,177,496,216,494,221,418,181"/>
+<area shape="poly" title=" " alt="" coords="404,178,454,285,449,287,399,180"/>
+<area shape="poly" title=" " alt="" coords="1227,107,1057,291,1053,287,1224,103"/>
+<area shape="poly" title=" " alt="" coords="1194,105,1183,107,943,142,760,163,759,158,943,137,1183,102,1193,100"/>
+<area shape="poly" title=" " alt="" coords="1312,107,1121,254,1066,293,1063,289,1117,250,1309,103"/>
+<area shape="poly" title=" " alt="" coords="1303,104,1292,107,1181,124,1029,141,759,164,759,158,1029,135,1180,119,1291,102,1302,99"/>
+<area shape="poly" title=" " alt="" coords="435,100,680,153,679,158,434,105"/>
+<area shape="poly" title=" " alt="" coords="397,105,398,137,393,137,391,105"/>
+<area shape="poly" title=" " alt="" coords="814,106,793,143,777,163,758,181,713,205,664,222,616,232,575,238,574,232,615,227,662,217,711,200,755,176,773,160,789,140,809,104"/>
+<area shape="poly" title=" " alt="" coords="801,107,749,146,746,141,798,103"/>
+<area shape="poly" title=" " alt="" coords="1141,106,1049,288,1044,285,1136,104"/>
+<area shape="poly" title=" " alt="" coords="1119,104,1106,107,1009,127,912,142,759,162,759,157,912,137,1008,121,1105,102,1117,99"/>
+<area shape="poly" title=" " alt="" coords="654,103,696,140,693,144,651,107"/>
+<area shape="poly" title=" " alt="" coords="319,103,405,125,443,137,470,150,500,180,521,211,516,214,496,183,467,155,441,142,403,130,318,108"/>
+<area shape="poly" title=" " alt="" coords="330,101,679,155,679,161,330,107"/>
+<area shape="poly" title=" " alt="" coords="285,103,361,143,359,147,282,108"/>
+<area shape="poly" title=" " alt="" coords="509,99,520,102,680,150,679,155,518,107,507,104"/>
+<area shape="poly" title=" " alt="" coords="470,107,424,145,421,141,467,103"/>
+<area shape="poly" title=" " alt="" coords="559,106,539,211,534,210,554,104"/>
+<area shape="poly" title=" " alt="" coords="587,103,681,144,679,149,585,108"/>
+<area shape="poly" title=" " alt="" coords="113,103,325,176,489,224,487,229,324,181,111,108"/>
+<area shape="poly" title=" " alt="" coords="116,95,179,102,679,157,678,162,179,107,116,100"/>
+<area shape="poly" title=" " alt="" coords="117,99,328,146,327,151,115,104"/>
+<area shape="poly" title=" " alt="" coords="722,105,722,137,716,137,716,105"/>
 </map>
 </div>
 </div>
@@ -207,52 +216,58 @@ Functions</h2></td></tr>
 <p>Invoke corresponding functions based on <code>cmd</code>'s type and value. </p>
 <dl class="section return"><dt>Returns</dt><dd>Result of the operation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="invoke_8c_source.html#l00017">17</a> of file <a class="el" href="invoke_8c_source.html">invoke.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                     {</div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">switch</span>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a>:</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c">run_help</a>();</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>:</div>
-<div class="line"><span class="lineno">   22</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Goodbye\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>;</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14">run_cd</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir);</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>:</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">run_del</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename);</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>:</div>
-<div class="line"><span class="lineno">   29</span>        <a class="code hl_function" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a>();</div>
-<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>:</div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea">run_lsdir</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir);</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a3e98c17356a41ea6840cd0241211d99d">CMD_LIST</a>:</div>
-<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="list_8c.html#aeea329036ff9f158fec8920193c94d42">run_get_list_process</a>();</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>:</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args);</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>:</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e">run_add_path</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path);</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>:</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1">run_minibat</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>:</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a9d708db685b79b4e173361551abc5e4c">run_set_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, <a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val);</div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>:</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749">run_unset_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a">CMD_GET_ENV_ALL</a>:</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6">run_get_all_env</a>();</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>:</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763">run_get_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7">CMD_UNKNOWN</a>:</div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Unknown command. Use \&quot;help\&quot; for more information\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>:</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>:</div>
-<div class="line"><span class="lineno">   55</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Invalid syntax. Use \&quot;help\&quot; for more information\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   58</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented command&quot;</span>);</div>
+<p class="definition">Definition at line <a class="el" href="invoke_8c_source.html#l00019">19</a> of file <a class="el" href="invoke_8c_source.html">invoke.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                     {</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">switch</span>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">type</a>) {</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a>:</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c">run_help</a>();</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a423988140dabaa461f133924ca772294">CMD_EXIT</a>:</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Goodbye\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a>;</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a>:</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14">run_cd</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_dir);</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a2822ce2838b3755cea5b9cacde84d794">CMD_DEL_FILE</a>:</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">run_del</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.filename);</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a>:</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_function" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen</a>();</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a>:</div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea">run_lsdir</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.dir);</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a3e98c17356a41ea6840cd0241211d99d">CMD_LIST</a>:</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="list_8c.html#aeea329036ff9f158fec8920193c94d42">run_get_list_process</a>();</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547">CMD_TIME</a>:</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="datetime_8c.html#aaf7cd228ab94d79daa4a2a6f84434694">run_get_time</a>();</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a86e8e7aeaa2295e4450f9f995bdaf2a8">CMD_DATE</a>:</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="datetime_8c.html#a6ffb3d20f55f8469196768189165e0ad">run_get_date</a>();</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8053bad71144d5d16150851b4de48f45">CMD_STOP_PROC</a>:</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="stop_8c.html#a2bd63bed09a80521d55f3ec6951c579d">run_stop</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.proc_id);</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a428e97b54bb432addf5b79906aa4b91f">CMD_LAUNCH_EXECUTABLE</a>:</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76">run_launch_executable</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args);</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a>:</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e">run_add_path</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.new_path);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a>:</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1">run_minibat</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.args);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a>:</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a9d708db685b79b4e173361551abc5e4c">run_set_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name, <a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.val);</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a>:</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749">run_unset_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a">CMD_GET_ENV_ALL</a>:</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6">run_get_all_env</a>();</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a>:</div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763">run_get_env</a>(<a class="code hl_struct" href="structcmd.html">cmd</a>-&gt;<a class="code hl_variable" href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">val</a>.env.name);</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7">CMD_UNKNOWN</a>:</div>
+<div class="line"><span class="lineno">   58</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Unknown command. Use \&quot;help\&quot; for more information\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a302da01d454974ac98a6bc2e9f8a0d4c">CMD_NOOP</a>:</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a>;</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a>:</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6">format_output</a>(<span class="stringliteral">&quot;%s&quot;</span>, <span class="stringliteral">&quot;Invalid syntax. Use \&quot;help\&quot; for more information\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   66</span>        assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;unimplemented command&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a>;</div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>}</div>
 <div class="ttc" id="aadd__path_8c_html_ab599ae78ad84e843163167866f4a267e"><div class="ttname"><a href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e">run_add_path</a></div><div class="ttdeci">enum run_result run_add_path(const os_char *new_path)</div><div class="ttdef"><b>Definition</b> <a href="add__path_8c_source.html#l00101">add_path.c:101</a></div></div>
 <div class="ttc" id="acd_8c_html_acc83ef2bdb143e1a68bc7c34d20b2a14"><div class="ttname"><a href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14">run_cd</a></div><div class="ttdeci">enum run_result run_cd(os_char *new_dir)</div><div class="ttdoc">Change current working directory.</div><div class="ttdef"><b>Definition</b> <a href="cd_8c_source.html#l00004">cd.c:4</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a187ac4bc603afedac4c27162dccfe50f">CMD_ADD_PATH</a></div><div class="ttdeci">@ CMD_ADD_PATH</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00022">cmd.h:22</a></div></div>
@@ -264,14 +279,19 @@ Functions</h2></td></tr>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a48745a9033f2ea28ebffffa720860ae9">CMD_GET_ENV</a></div><div class="ttdeci">@ CMD_GET_ENV</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00021">cmd.h:21</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a59c51f88aeda3ea6351f01c9c70b9ac7">CMD_UNKNOWN</a></div><div class="ttdeci">@ CMD_UNKNOWN</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00010">cmd.h:10</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a60f70b11b9ccf1b357853e5148543436">CMD_CLEAR</a></div><div class="ttdeci">@ CMD_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00017">cmd.h:17</a></div></div>
-<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a></div><div class="ttdeci">@ CMD_MINIBAT</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00026">cmd.h:26</a></div></div>
+<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a79b4b8b24c4d15a708ebf67d8cd9bfb4">CMD_MINIBAT</a></div><div class="ttdeci">@ CMD_MINIBAT</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00030">cmd.h:30</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a7fc2b63d30f1f2527aceef8df9525507">CMD_UNSET_ENV</a></div><div class="ttdeci">@ CMD_UNSET_ENV</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00020">cmd.h:20</a></div></div>
+<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a8053bad71144d5d16150851b4de48f45"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8053bad71144d5d16150851b4de48f45">CMD_STOP_PROC</a></div><div class="ttdeci">@ CMD_STOP_PROC</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00029">cmd.h:29</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a85aa47dcd3bc4e806e99f88e85cdc8f6">CMD_CHANGE_DIR</a></div><div class="ttdeci">@ CMD_CHANGE_DIR</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00014">cmd.h:14</a></div></div>
+<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a86e8e7aeaa2295e4450f9f995bdaf2a8"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a86e8e7aeaa2295e4450f9f995bdaf2a8">CMD_DATE</a></div><div class="ttdeci">@ CMD_DATE</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00026">cmd.h:26</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a8d9ff408f542671555325fd2567df02a">CMD_GET_ENV_ALL</a></div><div class="ttdeci">@ CMD_GET_ENV_ALL</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00019">cmd.h:19</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a94057893c8a461b57b6de0918c177b25">CMD_INVALID_SYNTAX</a></div><div class="ttdeci">@ CMD_INVALID_SYNTAX</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00011">cmd.h:11</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1a9c9c12ebe33d0cee368405e9230d107a">CMD_SET_ENV</a></div><div class="ttdeci">@ CMD_SET_ENV</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00018">cmd.h:18</a></div></div>
 <div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1ac370f7a4093cca35301ea2e00b3c47a3">CMD_HELP</a></div><div class="ttdeci">@ CMD_HELP</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00015">cmd.h:15</a></div></div>
-<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a></div><div class="ttdeci">@ CMD_LSDIR</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00027">cmd.h:27</a></div></div>
+<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1acfd0f252cb9156aa19cbd5504c6c94f5">CMD_LSDIR</a></div><div class="ttdeci">@ CMD_LSDIR</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00031">cmd.h:31</a></div></div>
+<div class="ttc" id="acmd_8h_html_a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547"><div class="ttname"><a href="cmd_8h.html#a41a2fe54b18ab7ba405a7e7da6d041f1af10cc7cbd61c71bdfa6d3291097bc547">CMD_TIME</a></div><div class="ttdeci">@ CMD_TIME</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00027">cmd.h:27</a></div></div>
+<div class="ttc" id="adatetime_8c_html_a6ffb3d20f55f8469196768189165e0ad"><div class="ttname"><a href="datetime_8c.html#a6ffb3d20f55f8469196768189165e0ad">run_get_date</a></div><div class="ttdeci">enum run_result run_get_date()</div><div class="ttdoc">get date</div><div class="ttdef"><b>Definition</b> <a href="datetime_8c_source.html#l00007">datetime.c:7</a></div></div>
+<div class="ttc" id="adatetime_8c_html_aaf7cd228ab94d79daa4a2a6f84434694"><div class="ttname"><a href="datetime_8c.html#aaf7cd228ab94d79daa4a2a6f84434694">run_get_time</a></div><div class="ttdeci">enum run_result run_get_time()</div><div class="ttdoc">get time</div><div class="ttdef"><b>Definition</b> <a href="datetime_8c_source.html#l00003">datetime.c:3</a></div></div>
 <div class="ttc" id="adelete__file_8c_html_a96ca18e95327c6315347bf64cfccfbbd"><div class="ttname"><a href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd">run_del</a></div><div class="ttdeci">enum run_result run_del(const os_char *dir)</div><div class="ttdoc">Delete a specific file.</div><div class="ttdef"><b>Definition</b> <a href="delete__file_8c_source.html#l00004">delete_file.c:4</a></div></div>
 <div class="ttc" id="aenv_8c_html_a09ae7485dcd85f561f5cd71acfb4c749"><div class="ttname"><a href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749">run_unset_env</a></div><div class="ttdeci">enum run_result run_unset_env(const os_char *name)</div><div class="ttdoc">Unset current process's environment variable.</div><div class="ttdef"><b>Definition</b> <a href="env_8c_source.html#l00011">env.c:11</a></div></div>
 <div class="ttc" id="aenv_8c_html_a38a2173e2a01cdf39293cefab0398bf6"><div class="ttname"><a href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6">run_get_all_env</a></div><div class="ttdeci">enum run_result run_get_all_env()</div><div class="ttdoc">Set current process's environment variable.</div><div class="ttdef"><b>Definition</b> <a href="env_8c_source.html#l00015">env.c:15</a></div></div>
@@ -287,11 +307,12 @@ Functions</h2></td></tr>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea43cf458b781f1c5d50925d2d65028c8a">RUN_OK</a></div><div class="ttdeci">@ RUN_OK</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00007">res.h:7</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35ea639a8f38938e9592e1e87637ab396d58">RUN_EXIT</a></div><div class="ttdeci">@ RUN_EXIT</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00008">res.h:8</a></div></div>
 <div class="ttc" id="ares_8h_html_ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc"><div class="ttname"><a href="res_8h.html#ab7b3c91490395bc0ecacc5056b29b35eaa9f8856bd2278880b84bc071bdd1b3fc">RUN_FAILED</a></div><div class="ttdeci">@ RUN_FAILED</div><div class="ttdef"><b>Definition</b> <a href="res_8h_source.html#l00009">res.h:9</a></div></div>
-<div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00033">cmd.h:33</a></div></div>
-<div class="ttc" id="astructcmd_html_a7c2794f3a3768b25b11597ac5cc96cd5"><div class="ttname"><a href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">cmd::val</a></div><div class="ttdeci">os_char * val</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00042">cmd.h:42</a></div></div>
-<div class="ttc" id="astructcmd_html_acf3c35f2b809b63b3155b91534689b74"><div class="ttname"><a href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">cmd::type</a></div><div class="ttdeci">enum cmd_type type</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00034">cmd.h:34</a></div></div>
+<div class="ttc" id="astop_8c_html_a2bd63bed09a80521d55f3ec6951c579d"><div class="ttname"><a href="stop_8c.html#a2bd63bed09a80521d55f3ec6951c579d">run_stop</a></div><div class="ttdeci">enum run_result run_stop(int proc_id)</div><div class="ttdoc">Resume running a process.</div><div class="ttdef"><b>Definition</b> <a href="stop_8c_source.html#l00005">stop.c:5</a></div></div>
+<div class="ttc" id="astructcmd_html"><div class="ttname"><a href="structcmd.html">cmd</a></div><div class="ttdoc">Resulting struct after parsing the input.</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00037">cmd.h:37</a></div></div>
+<div class="ttc" id="astructcmd_html_a7c2794f3a3768b25b11597ac5cc96cd5"><div class="ttname"><a href="structcmd.html#a7c2794f3a3768b25b11597ac5cc96cd5">cmd::val</a></div><div class="ttdeci">os_char * val</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00047">cmd.h:47</a></div></div>
+<div class="ttc" id="astructcmd_html_acf3c35f2b809b63b3155b91534689b74"><div class="ttname"><a href="structcmd.html#acf3c35f2b809b63b3155b91534689b74">cmd::type</a></div><div class="ttdeci">enum cmd_type type</div><div class="ttdef"><b>Definition</b> <a href="cmd_8h_source.html#l00038">cmd.h:38</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen()</a>, <a class="el" href="cmd_8h_source.html#l00022">CMD_ADD_PATH</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00023">CMD_DEL_FILE</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00021">CMD_GET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00019">CMD_GET_ENV_ALL</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00024">CMD_LAUNCH_EXECUTABLE</a>, <a class="el" href="cmd_8h_source.html#l00025">CMD_LIST</a>, <a class="el" href="cmd_8h_source.html#l00027">CMD_LSDIR</a>, <a class="el" href="cmd_8h_source.html#l00026">CMD_MINIBAT</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00018">CMD_SET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="cmd_8h_source.html#l00020">CMD_UNSET_ENV</a>, <a class="el" href="io__wrap_8c_source.html#l00039">format_output()</a>, <a class="el" href="add__path_8c_source.html#l00101">run_add_path()</a>, <a class="el" href="cd_8c_source.html#l00004">run_cd()</a>, <a class="el" href="delete__file_8c_source.html#l00004">run_del()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, <a class="el" href="list_8c_source.html#l00003">run_get_list_process()</a>, <a class="el" href="help_8c_source.html#l00004">run_help()</a>, <a class="el" href="launch__executable_8c_source.html#l00004">run_launch_executable()</a>, <a class="el" href="lsdir_8c_source.html#l00005">run_lsdir()</a>, <a class="el" href="minibat_8c_source.html#l00003">run_minibat()</a>, <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>, <a class="el" href="env_8c_source.html#l00007">run_set_env()</a>, <a class="el" href="env_8c_source.html#l00011">run_unset_env()</a>, <a class="el" href="cmd_8h_source.html#l00034">cmd::type</a>, and <a class="el" href="cmd_8h_source.html#l00042">cmd::val</a>.</p>
+<p class="reference">References <a class="el" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a">clear_screen()</a>, <a class="el" href="cmd_8h_source.html#l00022">CMD_ADD_PATH</a>, <a class="el" href="cmd_8h_source.html#l00014">CMD_CHANGE_DIR</a>, <a class="el" href="cmd_8h_source.html#l00017">CMD_CLEAR</a>, <a class="el" href="cmd_8h_source.html#l00026">CMD_DATE</a>, <a class="el" href="cmd_8h_source.html#l00023">CMD_DEL_FILE</a>, <a class="el" href="cmd_8h_source.html#l00016">CMD_EXIT</a>, <a class="el" href="cmd_8h_source.html#l00021">CMD_GET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00019">CMD_GET_ENV_ALL</a>, <a class="el" href="cmd_8h_source.html#l00015">CMD_HELP</a>, <a class="el" href="cmd_8h_source.html#l00011">CMD_INVALID_SYNTAX</a>, <a class="el" href="cmd_8h_source.html#l00024">CMD_LAUNCH_EXECUTABLE</a>, <a class="el" href="cmd_8h_source.html#l00025">CMD_LIST</a>, <a class="el" href="cmd_8h_source.html#l00031">CMD_LSDIR</a>, <a class="el" href="cmd_8h_source.html#l00030">CMD_MINIBAT</a>, <a class="el" href="cmd_8h_source.html#l00012">CMD_NOOP</a>, <a class="el" href="cmd_8h_source.html#l00018">CMD_SET_ENV</a>, <a class="el" href="cmd_8h_source.html#l00029">CMD_STOP_PROC</a>, <a class="el" href="cmd_8h_source.html#l00027">CMD_TIME</a>, <a class="el" href="cmd_8h_source.html#l00010">CMD_UNKNOWN</a>, <a class="el" href="cmd_8h_source.html#l00020">CMD_UNSET_ENV</a>, <a class="el" href="io__wrap_8c_source.html#l00039">format_output()</a>, <a class="el" href="add__path_8c_source.html#l00101">run_add_path()</a>, <a class="el" href="cd_8c_source.html#l00004">run_cd()</a>, <a class="el" href="delete__file_8c_source.html#l00004">run_del()</a>, <a class="el" href="res_8h_source.html#l00008">RUN_EXIT</a>, <a class="el" href="res_8h_source.html#l00009">RUN_FAILED</a>, <a class="el" href="env_8c_source.html#l00015">run_get_all_env()</a>, <a class="el" href="datetime_8c_source.html#l00007">run_get_date()</a>, <a class="el" href="env_8c_source.html#l00026">run_get_env()</a>, <a class="el" href="list_8c_source.html#l00003">run_get_list_process()</a>, <a class="el" href="datetime_8c_source.html#l00003">run_get_time()</a>, <a class="el" href="help_8c_source.html#l00004">run_help()</a>, <a class="el" href="launch__executable_8c_source.html#l00004">run_launch_executable()</a>, <a class="el" href="lsdir_8c_source.html#l00005">run_lsdir()</a>, <a class="el" href="minibat_8c_source.html#l00003">run_minibat()</a>, <a class="el" href="res_8h_source.html#l00007">RUN_OK</a>, <a class="el" href="env_8c_source.html#l00007">run_set_env()</a>, <a class="el" href="stop_8c_source.html#l00005">run_stop()</a>, <a class="el" href="env_8c_source.html#l00011">run_unset_env()</a>, <a class="el" href="cmd_8h_source.html#l00038">cmd::type</a>, and <a class="el" href="cmd_8h_source.html#l00047">cmd::val</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00010">main()</a>.</p>
 <div class="dynheader">
@@ -299,69 +320,81 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="invoke_8c_a4fe088a3ed0e78e3fec69efe1c4f0196_cgraph.png" border="0" usemap="#ainvoke_8c_a4fe088a3ed0e78e3fec69efe1c4f0196_cgraph" alt=""/></div>
 <map name="ainvoke_8c_a4fe088a3ed0e78e3fec69efe1c4f0196_cgraph" id="ainvoke_8c_a4fe088a3ed0e78e3fec69efe1c4f0196_cgraph">
-<area shape="rect" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="5,381,108,407"/>
+<area shape="rect" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="5,407,108,432"/>
 <area shape="rect" href="operations_8h.html#a4953d1edcbbfc7e420c423ded1d5621a" title="Clear the console." alt="" coords="185,5,280,31"/>
-<area shape="poly" title=" " alt="" coords="55,381,56,320,67,229,79,179,97,129,121,82,154,40,169,29,172,33,158,44,126,85,102,131,84,181,72,230,61,321,60,381"/>
-<area shape="rect" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="573,155,675,180"/>
-<area shape="poly" title=" " alt="" coords="60,380,93,315,120,278,154,245,203,216,255,194,310,178,366,167,472,158,558,159,558,164,472,163,367,173,311,183,257,199,205,221,157,250,124,281,97,318,65,382"/>
-<area shape="rect" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="183,55,282,80"/>
-<area shape="poly" title=" " alt="" coords="56,381,61,330,76,255,88,213,105,172,127,133,154,98,168,86,171,90,158,101,131,136,110,174,94,215,81,256,66,331,61,381"/>
-<area shape="rect" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="202,405,263,431"/>
-<area shape="poly" title=" " alt="" coords="108,398,187,409,186,415,108,404"/>
-<area shape="rect" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd" title="Delete a specific file." alt="" coords="201,455,264,480"/>
-<area shape="poly" title=" " alt="" coords="83,405,157,441,186,452,185,457,155,446,81,410"/>
-<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="176,305,289,331"/>
-<area shape="poly" title=" " alt="" coords="80,378,155,341,172,334,174,339,157,346,82,383"/>
-<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="395,104,487,130"/>
-<area shape="poly" title=" " alt="" coords="56,380,62,335,77,271,89,237,106,204,127,174,154,148,180,132,208,119,268,105,327,102,380,105,380,110,327,107,269,111,210,124,182,136,157,152,131,177,111,207,94,239,82,273,67,336,61,381"/>
-<area shape="rect" href="list_8c.html#aeea329036ff9f158fec8920193c94d42" title="get list all running processes" alt="" coords="162,504,303,530"/>
-<area shape="poly" title=" " alt="" coords="69,406,105,447,130,471,157,491,165,495,163,500,154,495,126,475,101,451,65,409"/>
-<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="406,205,476,231"/>
-<area shape="poly" title=" " alt="" coords="65,379,100,335,126,311,154,291,215,262,278,242,339,228,390,220,391,226,340,234,280,247,217,267,157,295,129,315,104,339,69,382"/>
-<area shape="rect" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="156,555,309,580"/>
-<area shape="poly" title=" " alt="" coords="65,406,98,470,124,508,157,540,165,545,162,549,154,544,120,511,93,473,61,409"/>
-<area shape="rect" href="lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea" title="List files/folders in a directory." alt="" coords="197,604,268,630"/>
-<area shape="poly" title=" " alt="" coords="63,407,73,443,91,493,119,546,137,570,157,591,184,605,181,610,154,595,133,573,114,548,86,495,68,445,58,408"/>
-<area shape="rect" href="minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1" title="Run the executable foreground." alt="" coords="188,653,277,679"/>
-<area shape="poly" title=" " alt="" coords="62,407,69,451,85,514,113,582,133,613,157,640,175,652,172,656,154,644,129,616,108,584,80,516,63,452,56,408"/>
-<area shape="rect" href="env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="186,356,279,382"/>
-<area shape="poly" title=" " alt="" coords="108,384,170,375,171,380,108,389"/>
-<area shape="rect" href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749" title="Unset current process&#39;s environment variable." alt="" coords="179,703,286,728"/>
-<area shape="poly" title=" " alt="" coords="61,407,65,460,79,535,91,577,108,618,130,656,158,690,167,697,164,701,154,693,125,659,103,620,86,578,74,537,60,460,55,408"/>
-<area shape="rect" href="add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="404,55,478,80"/>
-<area shape="poly" title=" " alt="" coords="283,65,388,65,388,70,283,70"/>
-<area shape="poly" title=" " alt="" coords="480,71,503,78,527,89,542,102,552,114,561,127,575,140,581,144,578,149,572,144,557,130,548,117,539,105,524,94,502,83,478,76"/>
-<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="578,55,670,80"/>
-<area shape="poly" title=" " alt="" coords="479,65,563,65,563,70,479,70"/>
-<area shape="rect" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6" title="Get value of an an environment variable." alt="" coords="573,104,675,130"/>
-<area shape="poly" title=" " alt="" coords="480,75,560,97,558,102,478,80"/>
-<area shape="rect" href="add__path_8c.html#a042035f395bf6b7dba7b2d76de104c50" title=" " alt="" coords="578,5,670,31"/>
-<area shape="poly" title=" " alt="" coords="478,55,563,32,564,37,480,60"/>
-<area shape="rect" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc" title="Set environment variable of the shell process." alt="" coords="573,280,675,306"/>
-<area shape="poly" title=" " alt="" coords="479,69,504,76,527,89,548,113,558,137,565,162,576,192,612,265,607,268,571,194,559,163,553,138,544,116,524,94,502,81,478,74"/>
-<area shape="rect" href="add__path_8c.html#a0400f08589a5ade0ec0723c30f4379e2" title=" " alt="" coords="723,5,838,31"/>
-<area shape="poly" title=" " alt="" coords="670,16,707,16,707,21,670,21"/>
-<area shape="rect" href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="394,407,488,432"/>
-<area shape="poly" title=" " alt="" coords="263,416,378,416,378,422,263,421"/>
-<area shape="rect" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250" title="Delete a specific file." alt="" coords="402,456,481,482"/>
-<area shape="poly" title=" " alt="" coords="265,465,386,466,386,471,265,470"/>
-<area shape="poly" title=" " alt="" coords="289,323,342,326,402,324,465,313,495,304,524,291,552,270,575,245,608,193,613,196,579,248,555,274,527,295,497,309,466,318,403,329,341,332,289,329"/>
-<area shape="rect" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5" title="Get all current environment variable." alt="" coords="357,255,525,280"/>
-<area shape="poly" title=" " alt="" coords="288,302,370,282,371,287,289,307"/>
-<area shape="poly" title=" " alt="" coords="489,127,561,147,559,152,487,132"/>
-<area shape="poly" title=" " alt="" coords="488,114,558,114,558,120,488,120"/>
+<area shape="poly" title=" " alt="" coords="57,406,68,331,88,222,117,113,135,70,154,40,169,29,172,33,158,44,139,72,122,115,94,223,73,332,62,407"/>
+<area shape="rect" href="io__wrap_8c.html#a1900da0ddbfd365205ea57db964eddf6" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="573,156,675,182"/>
+<area shape="poly" title=" " alt="" coords="57,406,64,365,81,310,110,252,130,227,154,205,186,190,229,179,338,167,456,163,558,164,558,169,456,168,338,172,230,185,187,195,157,210,134,230,114,255,86,312,69,366,62,407"/>
+<area shape="rect" href="add__path_8c.html#ab599ae78ad84e843163167866f4a267e" title=" " alt="" coords="183,257,282,283"/>
+<area shape="poly" title=" " alt="" coords="62,405,97,351,123,319,154,292,167,284,170,289,157,296,127,323,101,354,67,408"/>
+<area shape="rect" href="cd_8c.html#acc83ef2bdb143e1a68bc7c34d20b2a14" title="Change current working directory." alt="" coords="202,357,263,383"/>
+<area shape="poly" title=" " alt="" coords="104,403,186,380,188,385,106,409"/>
+<area shape="rect" href="delete__file_8c.html#a96ca18e95327c6315347bf64cfccfbbd" title="Delete a specific file." alt="" coords="201,407,264,432"/>
+<area shape="poly" title=" " alt="" coords="108,417,185,417,185,422,108,422"/>
+<area shape="rect" href="env_8c.html#a38a2173e2a01cdf39293cefab0398bf6" title="Set current process&#39;s environment variable." alt="" coords="176,55,289,80"/>
+<area shape="poly" title=" " alt="" coords="55,406,59,351,73,269,86,224,103,179,125,136,154,98,167,86,170,90,158,101,130,139,107,181,91,226,78,270,65,351,61,406"/>
+<area shape="rect" href="datetime_8c.html#a6ffb3d20f55f8469196768189165e0ad" title="get date" alt="" coords="184,456,281,482"/>
+<area shape="poly" title=" " alt="" coords="106,430,170,449,169,454,104,436"/>
+<area shape="rect" href="env_8c.html#a61a1970304b4859bcfb917d60cb85763" title="Set current process&#39;s environment variable." alt="" coords="395,207,487,232"/>
+<area shape="poly" title=" " alt="" coords="58,405,68,371,87,326,115,280,133,260,154,243,181,228,209,218,269,206,328,203,379,207,379,212,328,209,270,211,211,223,183,233,157,247,137,263,119,283,91,328,73,373,63,407"/>
+<area shape="rect" href="list_8c.html#aeea329036ff9f158fec8920193c94d42" title="get list all running processes" alt="" coords="162,505,303,531"/>
+<area shape="poly" title=" " alt="" coords="74,431,110,461,157,492,167,497,165,502,154,496,107,465,70,435"/>
+<area shape="rect" href="datetime_8c.html#aaf7cd228ab94d79daa4a2a6f84434694" title="get time" alt="" coords="184,555,281,580"/>
+<area shape="poly" title=" " alt="" coords="67,431,101,485,127,515,157,541,171,549,168,554,154,546,123,519,97,488,63,434"/>
+<area shape="rect" href="help_8c.html#ab1d6c40565819f71ed827c3c02f70c3c" title="Display help message." alt="" coords="406,105,476,131"/>
+<area shape="poly" title=" " alt="" coords="55,406,60,356,73,285,86,247,103,210,125,177,154,148,181,131,211,118,275,104,337,102,391,107,390,112,337,107,275,109,213,123,184,135,157,152,129,180,108,213,91,249,79,287,65,357,61,406"/>
+<area shape="rect" href="launch__executable_8c.html#a38bdf888e2bfa84a9bcceedf5c037f76" title="Run the executable foreground." alt="" coords="156,604,309,630"/>
+<area shape="poly" title=" " alt="" coords="64,432,75,464,94,507,121,552,157,591,162,594,159,598,154,595,117,555,89,509,70,466,59,433"/>
+<area shape="rect" href="lsdir_8c.html#adbfc350eed5ce195afd8ffafa05bacea" title="List files/folders in a directory." alt="" coords="197,653,268,679"/>
+<area shape="poly" title=" " alt="" coords="62,432,71,473,88,529,116,588,135,616,157,640,184,655,181,660,154,644,131,619,111,591,83,531,66,474,57,433"/>
+<area shape="rect" href="minibat_8c.html#a865d66eab185cc2a89d9c5a01ba48ff1" title="Run the executable foreground." alt="" coords="188,703,277,728"/>
+<area shape="poly" title=" " alt="" coords="61,432,67,480,82,549,94,587,111,624,131,659,157,690,175,701,172,706,154,693,127,662,106,627,89,589,77,551,62,481,56,433"/>
+<area shape="rect" href="env_8c.html#a9d708db685b79b4e173361551abc5e4c" title="Set current process&#39;s environment variable." alt="" coords="186,307,279,332"/>
+<area shape="poly" title=" " alt="" coords="70,404,107,374,154,343,171,335,173,340,157,347,110,378,74,408"/>
+<area shape="rect" href="stop_8c.html#a2bd63bed09a80521d55f3ec6951c579d" title="Resume running a process." alt="" coords="197,752,268,778"/>
+<area shape="poly" title=" " alt="" coords="60,433,63,489,76,571,88,616,105,660,128,702,157,739,183,754,180,759,154,743,124,705,100,663,83,617,71,572,58,489,55,433"/>
+<area shape="rect" href="env_8c.html#a09ae7485dcd85f561f5cd71acfb4c749" title="Unset current process&#39;s environment variable." alt="" coords="179,801,286,827"/>
+<area shape="poly" title=" " alt="" coords="60,433,60,496,70,591,82,644,100,696,125,745,158,788,167,796,164,800,154,792,120,748,95,698,77,645,65,592,55,496,54,433"/>
+<area shape="rect" href="add__path_8c.html#a32635663f007aca75521d6be08e3c755" title=" " alt="" coords="404,256,478,282"/>
+<area shape="poly" title=" " alt="" coords="283,267,388,266,389,272,283,273"/>
+<area shape="poly" title=" " alt="" coords="478,260,502,253,524,243,539,231,548,219,557,206,572,192,578,188,581,192,575,196,561,209,552,222,542,235,527,247,503,258,480,265"/>
+<area shape="rect" href="io__wrap_8c.html#a5fdfb142bb891ecc6fc7db90c387f1bf" title="Used format_xxx instead of printf and such for uniform output." alt="" coords="578,305,670,331"/>
+<area shape="poly" title=" " alt="" coords="480,276,564,299,563,305,478,281"/>
+<area shape="rect" href="operations_8h.html#a481ed52f9b1715b5351a7137211846f6" title="Get value of an an environment variable." alt="" coords="573,207,675,232"/>
+<area shape="poly" title=" " alt="" coords="478,256,558,234,560,239,480,261"/>
+<area shape="rect" href="add__path_8c.html#a042035f395bf6b7dba7b2d76de104c50" title=" " alt="" coords="578,256,670,282"/>
+<area shape="poly" title=" " alt="" coords="479,266,563,266,563,272,479,272"/>
+<area shape="rect" href="operations_8h.html#acf6ad592caa212e7263c6e4acf363bbc" title="Set environment variable of the shell process." alt="" coords="573,355,675,380"/>
+<area shape="poly" title=" " alt="" coords="480,277,527,299,551,320,575,341,580,344,577,349,572,346,548,324,524,303,478,282"/>
+<area shape="rect" href="add__path_8c.html#a0400f08589a5ade0ec0723c30f4379e2" title=" " alt="" coords="723,256,838,282"/>
+<area shape="poly" title=" " alt="" coords="670,266,707,266,707,272,670,272"/>
+<area shape="rect" href="operations_8h.html#a33b01aa2fbf453d9646b29576b6bbba3" title="Attempt to change current working directory." alt="" coords="394,357,488,383"/>
+<area shape="poly" title=" " alt="" coords="263,368,378,368,378,373,263,373"/>
+<area shape="rect" href="operations_8h.html#aa5b7ed720655f184e1d376125fbbc250" title="Delete a specific file." alt="" coords="402,407,481,432"/>
+<area shape="poly" title=" " alt="" coords="265,417,386,417,386,422,265,422"/>
+<area shape="poly" title=" " alt="" coords="288,52,357,41,405,33,444,26,482,26,527,41,556,61,580,87,613,141,609,143,576,91,552,65,524,46,481,31,444,31,406,38,357,46,289,57"/>
+<area shape="rect" href="operations_8h.html#a9b8140d2a722bd1d656bf86b52c576a5" title="Get all current environment variable." alt="" coords="357,56,525,82"/>
+<area shape="poly" title=" " alt="" coords="289,65,341,66,341,71,289,71"/>
+<area shape="rect" href="operations_8h.html#a07d263ef481c88c5f9bec6a651f9f8d4" title="Get current date." alt="" coords="406,456,477,482"/>
+<area shape="poly" title=" " alt="" coords="281,466,390,466,390,472,281,472"/>
+<area shape="poly" title=" " alt="" coords="487,204,559,184,561,189,489,209"/>
+<area shape="poly" title=" " alt="" coords="488,217,558,217,558,222,488,222"/>
 <area shape="rect" href="operations_8h.html#a7fead987fc0cc2dbabae18cf5eab0319" title="List all running processes." alt="" coords="399,505,484,531"/>
-<area shape="poly" title=" " alt="" coords="303,515,383,515,383,520,303,520"/>
-<area shape="poly" title=" " alt="" coords="476,206,560,182,561,188,478,211"/>
-<area shape="rect" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4" title="Launch the executable." alt="" coords="377,555,505,580"/>
-<area shape="poly" title=" " alt="" coords="309,565,361,565,361,570,309,570"/>
-<area shape="rect" href="operations_8h.html#a910211a3690e0f9fa8020e647e8d4bdb" title="List of files or folders in specific directory." alt="" coords="419,604,464,630"/>
-<area shape="poly" title=" " alt="" coords="268,614,403,614,403,620,268,620"/>
-<area shape="rect" href="operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518" title="Launch shell executable and execute the file specified by args.argv[0]" alt="" coords="410,653,473,679"/>
-<area shape="poly" title=" " alt="" coords="277,664,394,664,394,669,277,669"/>
-<area shape="poly" title=" " alt="" coords="279,366,392,358,459,349,525,334,584,311,586,315,526,339,460,354,392,363,279,371"/>
-<area shape="rect" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837" title="Unset environment variable of the shell process." alt="" coords="384,703,499,728"/>
-<area shape="poly" title=" " alt="" coords="286,713,368,713,368,718,286,718"/>
+<area shape="poly" title=" " alt="" coords="303,516,383,516,383,521,303,521"/>
+<area shape="rect" href="operations_8h.html#adec7cd9941a4e99eeba619e7ecaed4c7" title="Get current time." alt="" coords="406,555,477,580"/>
+<area shape="poly" title=" " alt="" coords="281,565,390,565,390,570,281,570"/>
+<area shape="poly" title=" " alt="" coords="478,125,561,149,560,154,476,130"/>
+<area shape="rect" href="operations_8h.html#ad0cc1052b5acb162570f973f50ffd0e4" title="Launch the executable." alt="" coords="377,604,505,630"/>
+<area shape="poly" title=" " alt="" coords="309,614,361,614,361,620,309,620"/>
+<area shape="rect" href="operations_8h.html#a910211a3690e0f9fa8020e647e8d4bdb" title="List of files or folders in specific directory." alt="" coords="419,653,464,679"/>
+<area shape="poly" title=" " alt="" coords="268,664,403,664,403,669,268,669"/>
+<area shape="rect" href="operations_8h.html#a97007a8e7c7b512f5c0b56bf139be518" title="Launch shell executable and execute the file specified by args.argv[0]" alt="" coords="410,703,473,728"/>
+<area shape="poly" title=" " alt="" coords="277,713,394,713,394,718,277,718"/>
+<area shape="poly" title=" " alt="" coords="279,319,391,326,526,342,559,349,558,354,525,347,391,332,279,324"/>
+<area shape="rect" href="operations_8h.html#a068bce733fc2d4075354c82bef5daed5" title="Stop a process use it ID." alt="" coords="388,752,494,778"/>
+<area shape="poly" title=" " alt="" coords="269,762,373,762,373,768,269,768"/>
+<area shape="rect" href="operations_8h.html#adfbb09e78ff766d4a02d525844b0a837" title="Unset environment variable of the shell process." alt="" coords="384,801,499,827"/>
+<area shape="poly" title=" " alt="" coords="286,812,368,812,368,817,286,817"/>
 </map>
 </div>
 <div class="dynheader">
@@ -380,7 +413,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 19 2024 19:57:29 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Thu Jun 20 2024 09:58:50 for tiny-shell by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

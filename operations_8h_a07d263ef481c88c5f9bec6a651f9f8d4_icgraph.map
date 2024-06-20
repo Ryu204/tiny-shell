@@ -1,0 +1,9 @@
+<map id="get_date" name="get_date">
+<area shape="rect" id="Node000001" title="Get current date." alt="" coords="397,5,469,31"/>
+<area shape="rect" id="Node000002" href="$datetime_8c.html#a6ffb3d20f55f8469196768189165e0ad" title="get date" alt="" coords="253,5,349,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,21,350,21,350,16,381,16"/>
+<area shape="rect" id="Node000003" href="$invoke_8c.html#a4fe088a3ed0e78e3fec69efe1c4f0196" title="Invoke corresponding functions based on cmd&#39;s type and value." alt="" coords="103,5,205,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,206,21,206,16,237,16"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

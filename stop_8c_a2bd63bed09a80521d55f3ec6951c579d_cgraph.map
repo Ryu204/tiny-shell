@@ -1,0 +1,5 @@
+<map id="run_stop" name="run_stop">
+<area shape="rect" id="Node000001" title="Resume running a process." alt="" coords="5,5,77,31"/>
+<area shape="rect" id="Node000002" href="$operations_8h.html#a068bce733fc2d4075354c82bef5daed5" title="Stop a process use it ID." alt="" coords="125,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,16,109,16,109,21,77,21"/>
+</map>

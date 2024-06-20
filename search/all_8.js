@@ -10,6 +10,7 @@ var searchData=
   ['io_5fwrap_2ec_7',['io_wrap.c',['../io__wrap_8c.html',1,'']]],
   ['io_5fwrap_2eh_8',['io_wrap.h',['../io__wrap_8h.html',1,'']]],
   ['is_5fminibat_5ffile_9',['is_minibat_file',['../cmd_8c.html#abdf323547cf901e783e2fcc9c0c6ae02',1,'cmd.c']]],
-  ['is_5fprompt_5fvisible_10',['is_prompt_visible',['../io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1',1,'io_wrap.c']]],
-  ['is_5fwhitespace_11',['is_whitespace',['../args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084',1,'is_whitespace(os_char c):&#160;args.c'],['../args_8h.html#a631add08e4b4b7b6a1d3354cfbb63084',1,'is_whitespace(os_char c):&#160;args.c']]]
+  ['is_5fnumber_10',['is_number',['../utils_8c.html#a771b4438b3b5439b22812170b2534f85',1,'is_number(const char *c):&#160;utils.c'],['../utils_8h.html#a771b4438b3b5439b22812170b2534f85',1,'is_number(const char *c):&#160;utils.c']]],
+  ['is_5fprompt_5fvisible_11',['is_prompt_visible',['../io__wrap_8c.html#af63f602ef591cebe6346ddb8149285c1',1,'io_wrap.c']]],
+  ['is_5fwhitespace_12',['is_whitespace',['../args_8c.html#a631add08e4b4b7b6a1d3354cfbb63084',1,'is_whitespace(os_char c):&#160;args.c'],['../args_8h.html#a631add08e4b4b7b6a1d3354cfbb63084',1,'is_whitespace(os_char c):&#160;args.c']]]
 ];

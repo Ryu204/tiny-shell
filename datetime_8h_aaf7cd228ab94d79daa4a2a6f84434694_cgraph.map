@@ -1,0 +1,5 @@
+<map id="run_get_time" name="run_get_time">
+<area shape="rect" id="Node000001" title="get time" alt="" coords="5,5,102,31"/>
+<area shape="rect" id="Node000002" href="$operations_8h.html#adec7cd9941a4e99eeba619e7ecaed4c7" title="Get current time." alt="" coords="150,5,221,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,16,134,16,134,21,102,21"/>
+</map>
