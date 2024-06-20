@@ -350,6 +350,18 @@ bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer
     return true;
 }
 
+bool has_shell_env(const os_char *var) {
+    os_char buffer[PATH_MAX];
+    DWORD res = GetEnvironmentVariable(var, buffer, PATH_MAX);
+    DWORD last_err = GetLastError();
+    if(res == 0 && last_err != ERROR_SUCCESS) {
+        return false;
+    } else if(res >= PATH_MAX) {
+        return false;
+    }
+    return true;
+}
+
 os_char *get_all_shell_env_display() {
     os_char *res = malloc(ENVS_RESERVE_SIZE);
     unsigned int res_len = 0;

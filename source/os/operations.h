@@ -49,6 +49,9 @@ bool unset_shell_env(const os_char *name);
 /*! @brief Get value of an an environment variable */
 bool get_shell_env(const os_char *var, unsigned int buffer_size, os_char *buffer);
 
+/*! @brief Check if a variable environment exists */
+bool has_shell_env(const os_char *var);
+
 /*! @brief Get all current environment variable */
 os_char *get_all_shell_env_display();
 

@@ -13,6 +13,13 @@
 #define COLOR_RED "\033[31m"
 #define COLOR_BLUE "\033[34m"
 #define COLOR_BLACK "\033[30m"
+#define COLOR_WHITE "\033[97m"
+
+#define COLOR_DEFAULT (*io_use_white_text() ? COLOR_WHITE : COLOR_BLACK)
+static bool *io_use_white_text() {
+    static bool res = false;
+    return &res;
+}
 
 enum run_result *last_run_status() {
     static enum run_result res = RUN_OK;
@@ -21,6 +28,10 @@ enum run_result *last_run_status() {
 
 void io_set_last_status(enum run_result result) {
     *last_run_status() = result;
+}
+
+void io_set_text_white() {
+    *io_use_white_text() = true;
 }
 
 bool *is_prompt_visible() {
@@ -52,7 +63,7 @@ void format_usage(char *fmt, ...) {
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
     if(support_color())
-        printf(COLOR_BLACK);
+        printf(COLOR_DEFAULT);
 }
 
 void format_success(char *fmt, ...) {
@@ -63,12 +74,12 @@ void format_success(char *fmt, ...) {
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
     if(support_color())
-        printf(COLOR_BLACK);
+        printf(COLOR_DEFAULT);
 }
 
 void format_output(char *fmt, ...) {
     if(support_color())
-        printf(COLOR_BLACK);
+        printf(COLOR_DEFAULT);
     va_list argptr; // NOLINT
     va_start(argptr, fmt);
     vfprintf(stdout, fmt, argptr);
@@ -84,7 +95,7 @@ void format_error(char *fmt, ...) {
     vfprintf(stdout, fmt, argptr);
     va_end(argptr);
     if(support_color())
-        printf(COLOR_BLACK);
+        printf(COLOR_DEFAULT);
 }
 
 void prompt_input() {
@@ -111,6 +122,6 @@ void prompt_input() {
         assert(false && "unimplemented");
     }
     if(support_color()) {
-        printf(COLOR_BLACK);
+        printf(COLOR_DEFAULT);
     }
 }

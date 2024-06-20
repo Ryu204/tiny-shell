@@ -8,6 +8,9 @@
 /*! @brief Set the result of last command (RUN_OK/RUN_FAIL/...) */
 void io_set_last_status(enum run_result result);
 
+/*! @brief Set default text color to white */
+void io_set_text_white();
+
 /*! @brief Config if prompt should be printed */
 void io_set_prompt_visibility(bool visible);
 

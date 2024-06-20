@@ -1,5 +1,6 @@
 #include "core/config.h"
 #include "core/io_wrap.h"
+#include "os/operations.h"
 #include "runner/invoke.h"
 
 #include <stdbool.h>
@@ -24,6 +25,11 @@ int main(int argc, char *argv[]) {
             return EXIT_FAILURE;
         }
         io_set_prompt_visibility(false);
+    }
+
+    // Use white text if `TINY_SHELL_WHITE` environment variable is set
+    if(has_shell_env("TINY_SHELL_WHITE")) {
+        io_set_text_white();
     }
 
     while(true) {
