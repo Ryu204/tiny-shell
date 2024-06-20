@@ -23,6 +23,10 @@ enum cmd_type {
     CMD_DEL_FILE,
     CMD_LAUNCH_EXECUTABLE,
     CMD_LIST,
+    CMD_DATE,
+    CMD_TIME,
+
+    CMD_STOP_PROC,
     CMD_MINIBAT,
     CMD_LSDIR,
 };
@@ -34,6 +38,7 @@ struct cmd {
     enum cmd_type type;
     union {
         os_char *new_dir;
+        int proc_id;
         os_char *new_path;
         os_char *filename;
         os_char *dir;

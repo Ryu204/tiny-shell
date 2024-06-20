@@ -3,6 +3,7 @@
 #include "../os/operations.h"
 #include "add_path.h"
 #include "cd.h"
+#include "datetime.h"
 #include "delete_file.h"
 #include "env.h"
 #include "help.h"
@@ -10,6 +11,7 @@
 #include "list.h"
 #include "lsdir.h"
 #include "minibat.h"
+#include "stop.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -32,6 +34,12 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return run_lsdir(cmd->val.dir);
     case CMD_LIST:
         return run_get_list_process();
+    case CMD_TIME:
+        return run_get_time();
+    case CMD_DATE:
+        return run_get_date();
+    case CMD_STOP_PROC:
+        return run_stop(cmd->val.proc_id);
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_ADD_PATH:

@@ -1,6 +1,7 @@
 #include "cmd.h"
 #include "args.h"
 #include "io_wrap.h"
+#include "utils.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -39,6 +40,17 @@ void cmd_init_from_str(struct cmd *res, const char *str) {
         res->type = CMD_HELP;
     } else if(strcmp(name, "list") == 0) {
         res->type = CMD_LIST;
+    } else if(strcmp(name, "date") == 0) {
+        res->type = CMD_DATE;
+    } else if(strcmp(name, "time") == 0) {
+        res->type = CMD_TIME;
+    } else if(strcmp(name, "stop") == 0) {
+        if(arguments.argc != 2 || !is_number(arguments.argv[1])) {
+            res->type = CMD_INVALID_SYNTAX;
+        } else {
+            res->type = CMD_STOP_PROC;
+            res->val.proc_id = atoi(arguments.argv[1]);
+        }
     } else if(strcmp(name, "exit") == 0) {
         res->type = CMD_EXIT;
     } else if(strcmp(name, "cd") == 0) {
