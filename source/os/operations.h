@@ -18,13 +18,19 @@ bool change_cwd(const os_char *new_dir);
 void clear_screen();
 
 /*! @brief Kill a process */
-bool kill(const os_char *proc_id);
+bool kill(int proc_id);
 
 /*! @brief Resume running a process */
-bool resume(const os_char *proc_id);
+bool resume(int proc_id);
 
 /*! @brief Show child processes */
-bool show_child_processes(const os_char *proc_id);
+bool show_child_processes(int proc_id);
+
+/*! @brief Delete a specific file */
+bool delete_file(const os_char *filename);
+
+/*! @brief List of files or folders in specific directory */
+bool lsdir(const os_char *dir);
 
 /*! @brief Launch the executable */
 bool launch_executable(const struct args args);
@@ -48,6 +54,15 @@ os_char *get_all_shell_env_display();
 
 /*! @brief List all running processes */
 bool enum_proc();
+
+/*! @brief Get current time*/
+bool get_time();
+
+/*! @brief Get current date*/
+bool get_date();
+
+/*! @brief Stop a process use it ID*/
+bool stop_proccess(int proc_id);
 
 /*! @brief Launch shell executable and execute the file specified by `args.argv[0]` */
 bool minibat(const struct args args);

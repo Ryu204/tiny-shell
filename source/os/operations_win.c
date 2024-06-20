@@ -5,8 +5,12 @@
 #    include "operations.h"
 
 #    include <WinBase.h>
+#    include <assert.h>
+#    include <signal.h>
 #    include <stdio.h>
+#    include <string.h>
 #    include <tlhelp32.h>
+#    include <wchar.h>
 
 void report_error_code(DWORD err);
 
@@ -41,6 +45,9 @@ void report_error_code(DWORD error) {
         break;
     case ERROR_ENVVAR_NOT_FOUND:
         format_error("Environment variable not found\n");
+        break;
+    case ERROR_ACCESS_DENIED:
+        format_error("Access is denied\n");
         break;
     default:
         format_error("System error code: %d\n", error);
@@ -123,33 +130,31 @@ void extract_from_args(const struct args args, os_char **p_command_line) {
     *p_command_line = command_line;
 }
 
-bool kill(const os_char *proc_id){
-    DWORD processID = atoi(proc_id);
-    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, processID);
+bool kill(int proc_id) {
+    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, false, proc_id);
 
-    if (hProcess == NULL){
+    if(hProcess == NULL) {
         CloseHandle(hProcess);
         format_error("Invalid process ID.\n");
         return false;
-    } else if (TerminateProcess(hProcess, 0)){
+    } else if(TerminateProcess(hProcess, 0)) {
         CloseHandle(hProcess);
-        format_output("Process with ID %d is terminated.\n", processID);
+        format_output("Process with ID %d is terminated.\n", proc_id);
         return true;
     } else {
         CloseHandle(hProcess);
-        format_error("Can't terminate process with id %d\n.", processID);
+        format_error("Can't terminate process with id %d\n.", proc_id);
         return false;
     }
 }
 
-bool resume(const os_char *proc_id) {
-    int processID = atoi(proc_id);
+bool resume(int proc_id) {
     int flag = 0;
 
     HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
     threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
 
-    if (threadsSnapshot == INVALID_HANDLE_VALUE) {
+    if(threadsSnapshot == INVALID_HANDLE_VALUE) {
         format_error("Invalid process ID.\n");
         return false;
     }
@@ -158,28 +163,26 @@ bool resume(const os_char *proc_id) {
     threadEntry.dwSize = sizeof(THREADENTRY32);
     Thread32First(threadsSnapshot, &threadEntry);
     do {
-        if (threadEntry.th32OwnerProcessID == processID) {
+        if(threadEntry.th32OwnerProcessID == proc_id) {
             HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE,
-                threadEntry.th32ThreadID);
+                                        threadEntry.th32ThreadID);
             ResumeThread(hThread);
             CloseHandle(hThread);
             flag = 1;
         }
     } while(Thread32Next(threadsSnapshot, &threadEntry));
 
-    if (flag) {
-        format_output("Resume running process with ID %d", processID);
+    if(flag) {
+        format_output("Resume running process with ID %d", proc_id);
         return true;
     }
-    format_error("Can't find process with ID %d", processID);
+    format_error("Can't find process with ID %d", proc_id);
     return false;
 }
 
-bool show_child_processes(const os_char *proc_id) {
-    DWORD processID = atoi(proc_id); 
-
+bool show_child_processes(int proc_id) {
     HANDLE hProcess = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hProcess == INVALID_HANDLE_VALUE) {
+    if(hProcess == INVALID_HANDLE_VALUE) {
         format_error("Invalid process ID");
         return false;
     }
@@ -189,24 +192,67 @@ bool show_child_processes(const os_char *proc_id) {
     Process32First(hProcess, &pe);
 
     int countChildProcess = 0;
-    do
-    {
-        if (pe.th32ParentProcessID == processID)
-        {
-            format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID, 
+    do {
+        if(pe.th32ParentProcessID == proc_id) {
+            format_output("PID: %6u T: %3u Name: %s \n", pe.th32ProcessID,
                           pe.cntThreads, pe.szExeFile);
             countChildProcess++;
         }
-    } while (Process32Next(hProcess, &pe));
+    } while(Process32Next(hProcess, &pe));
 
     CloseHandle(hProcess);
-    if (!countChildProcess) {
-        format_output("Process %d doesn't have any child processes.\n", processID);
+    if(!countChildProcess) {
+        format_output("Process %d doesn't have any child processes.\n", proc_id);
     }
     return true;
 }
 
+bool delete_file(const os_char *filename) {
+    if(DeleteFile(filename)) {
+        format_output("File removed successfully.\n");
+        return true;
+    }
+    report_error_code(GetLastError());
+    return false;
+}
+
+bool lsdir(const os_char *dir) {
+    WIN32_FIND_DATA data;
+    LARGE_INTEGER fileSize;
+    int countFile = 0;
+
+    unsigned int dir_len = strlen(dir);
+    os_char *combined = (os_char *)malloc((dir_len + 3) * sizeof(os_char));
+
+    memcpy(combined, dir, dir_len);
+    memcpy(combined + dir_len, "/*", 2);
+    combined[dir_len + 2] = '\0';
+
+    HANDLE hFind = FindFirstFile(combined, &data);
+
+    if(hFind != INVALID_HANDLE_VALUE) {
+        do {
+            if(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+                format_output("%s/\n", data.cFileName);
+            } else {
+                format_output("%s\n", data.cFileName);
+            }
+            countFile++;
+        } while(FindNextFile(hFind, &data) != 0);
+    }
+
+    FindClose(hFind);
+    free(combined);
+    if(countFile) return true;
+    format_error("Cannot get directory information\n");
+    return false;
+}
+
 bool launch_executable(const struct args args) {
+    if(!args.background) {
+        signal(SIGINT, SIG_IGN);
+    }
+
     os_char *command_line = NULL;
 
     extract_from_args(args, &command_line);
@@ -226,16 +272,16 @@ bool launch_executable(const struct args args) {
     free(command_line);
 
     if(!CreateProcess(
-           NULL,             // No module name (use command line)
-           tmp_command_line, // Command line
-           NULL,             // Process handle not inheritable
-           NULL,             // Thread handle not inheritable
-           FALSE,            // Set handle inheritance to FALSE
-           0,                // No creation flags
-           NULL,             // Use parent's environment block
-           NULL,             // Use parent's starting directory
-           &si,              // Pointer to STARTUPINFO structure
-           &pi               // Pointer to PROCESS_INFORMATION structure
+           NULL,                                           // No module name (use command line)
+           tmp_command_line,                               // Command line
+           NULL,                                           // Process handle not inheritable
+           NULL,                                           // Thread handle not inheritable
+           FALSE,                                          // Set handle inheritance to FALSE
+           args.background ? CREATE_NEW_PROCESS_GROUP : 0, // No creation flags
+           NULL,                                           // Use parent's environment block
+           NULL,                                           // Use parent's starting directory
+           &si,                                            // Pointer to STARTUPINFO structure
+           &pi                                             // Pointer to PROCESS_INFORMATION structure
            )) {
         free(tmp_command_line);
         report_error_code(GetLastError());
@@ -411,12 +457,58 @@ bool enum_proc() {
     pe.dwSize = sizeof(PROCESSENTRY32);
     Process32First(hSnapshot, &pe);
     do {
-        printf("PID: %6u PPID: %6u T: %3u Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
+        printf("PID: %6lu PPID: %6lu T: %3lu Name: %s \n", pe.th32ProcessID, pe.th32ParentProcessID, pe.cntThreads, pe.szExeFile);
     } while(Process32Next(hSnapshot, &pe));
 
     CloseHandle(hSnapshot);
     // NOLINTEND
     return true;
+}
+
+bool get_time() {
+    SYSTEMTIME st = {0};
+    GetLocalTime(&st);
+
+    wprintf(L"The current time is: %02d:%02d:%02d.\n", st.wHour, st.wMinute, st.wSecond);
+    return true;
+}
+
+bool get_date() {
+    SYSTEMTIME st = {0};
+    GetLocalTime(&st);
+
+    wprintf(L"The current date is: %02d/%02d/%04d.\n", st.wDay, st.wMonth, st.wYear);
+    return true;
+}
+
+bool stop_proccess(int proc_id) {
+    int flag = 0;
+
+    HANDLE threadsSnapshot = INVALID_HANDLE_VALUE;
+    threadsSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+    if(threadsSnapshot == INVALID_HANDLE_VALUE) {
+        format_error("Invalid handle value.\n");
+        return false;
+    }
+    THREADENTRY32 threadEntry;
+    threadEntry.dwSize = sizeof(THREADENTRY32);
+    Thread32First(threadsSnapshot, &threadEntry);
+
+    do {
+        if(threadEntry.th32OwnerProcessID == proc_id) {
+            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, threadEntry.th32ThreadID);
+            SuspendThread(hThread);
+            CloseHandle(hThread);
+            flag = 1;
+        }
+    } while(Thread32Next(threadsSnapshot, &threadEntry));
+
+    if(flag) {
+        format_output("Stopped running process with ID %d\n", proc_id);
+        return true;
+    }
+    format_error("Can't find process with ID %d\n", proc_id);
+    return false;
 }
 
 #endif

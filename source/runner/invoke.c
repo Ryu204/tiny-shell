@@ -1,15 +1,20 @@
 #include "invoke.h"
 #include "../core/io_wrap.h"
 #include "../os/operations.h"
+#include "add_path.h"
 #include "cd.h"
+#include "child_processes.h"
+#include "datetime.h"
+#include "delete_file.h"
 #include "env.h"
 #include "help.h"
-#include "launch_executable.h"
 #include "kill.h"
-#include "resume.h"
-#include "child_processes.h"
+#include "launch_executable.h"
 #include "list.h"
+#include "lsdir.h"
 #include "minibat.h"
+#include "resume.h"
+#include "stop.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -23,15 +28,27 @@ enum run_result invoke_runner(const struct cmd *cmd) {
         return RUN_EXIT;
     case CMD_CHANGE_DIR:
         return run_cd(cmd->val.new_dir);
+    case CMD_DEL_FILE:
+        return run_del(cmd->val.filename);
     case CMD_CLEAR:
         clear_screen();
         return RUN_OK;
+    case CMD_LSDIR:
+        return run_lsdir(cmd->val.dir);
     case CMD_LIST:
         return run_get_list_process();
+    case CMD_TIME:
+        return run_get_time();
+    case CMD_DATE:
+        return run_get_date();
+    case CMD_STOP_PROC:
+        return run_stop(cmd->val.proc_id);
     case CMD_LAUNCH_EXECUTABLE:
         return run_launch_executable(cmd->val.args);
     case CMD_KILL:
         return run_kill(cmd->val.proc_id);
+    case CMD_ADD_PATH:
+        return run_add_path(cmd->val.new_path);
     case CMD_MINIBAT:
         return run_minibat(cmd->val.args);
     case CMD_SET_ENV:

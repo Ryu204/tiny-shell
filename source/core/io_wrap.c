@@ -30,9 +30,10 @@ void scan_input(struct cmd *obj) {
     prompt_input();
     char buffer[INPUT_BUFFER_SIZE] = {0};
     if(!fgets(buffer, INPUT_BUFFER_SIZE, stdin)) {
-        return cmd_init_from_str(obj, "exit");
+        cmd_init_from_str(obj, "exit");
+    } else {
+        cmd_init_from_str(obj, buffer);
     }
-    return cmd_init_from_str(obj, buffer);
 }
 
 void format_output(char *fmt, ...) {

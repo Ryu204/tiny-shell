@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Resume running a process */
-enum run_result run_child_processes(const os_char *proc_id);
+enum run_result run_child_processes(int proc_id);

@@ -4,4 +4,4 @@
 #include "res.h"
 
 /*! @brief Kill a process */
-enum run_result run_kill(const os_char *proc_id);
+enum run_result run_kill(int proc_id);

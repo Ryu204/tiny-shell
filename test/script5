@@ -1,0 +1,5 @@
+lsdir .
+lsdir ../
+
+delete ../
+delete build/

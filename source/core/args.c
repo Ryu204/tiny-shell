@@ -50,7 +50,7 @@ os_char *transform_quotes(const os_char *str) {
 }
 
 void split_by_whitespaces(const os_char *str, struct args *buffer) {
-    os_char **argv = malloc(MAX_ARGC * sizeof(os_char *));
+    os_char **argv = (os_char **)malloc(MAX_ARGC * sizeof(os_char *));
     unsigned int argc = 0;
 
     bool is_space = true;
@@ -139,7 +139,7 @@ void args_destroy(struct args *obj) {
     for(int i = 0; i < obj->argc; ++i) {
         free(obj->argv[i]);
     }
-    free(obj->argv);
+    free((void *)obj->argv);
 }
 
 struct args *args_deep_copy(const struct args *obj) {
@@ -149,7 +149,7 @@ struct args *args_deep_copy(const struct args *obj) {
     struct args *res = malloc(sizeof(struct args));
     res->argc = obj->argc;
     res->background = obj->background;
-    res->argv = malloc((obj->argc + 1) * sizeof(os_char *));
+    res->argv = (os_char **)malloc((obj->argc + 1) * sizeof(os_char *));
     for(int i = 0; i < obj->argc; ++i) {
         const unsigned int len = strlen(obj->argv[i]);
         res->argv[i] = malloc((len + 1) * sizeof(os_char));
@@ -164,7 +164,7 @@ void args_deep_copy_init(struct args *obj, const struct args *source) {
     assert(source != NULL && "Cannot deep copy null");
     obj->argc = source->argc;
     obj->background = source->background;
-    obj->argv = malloc((source->argc + 1) * sizeof(os_char *));
+    obj->argv = (os_char **)malloc((source->argc + 1) * sizeof(os_char *));
     for(int i = 0; i < source->argc; ++i) {
         const unsigned int len = strlen(source->argv[i]);
         obj->argv[i] = malloc((len + 1) * sizeof(os_char));
