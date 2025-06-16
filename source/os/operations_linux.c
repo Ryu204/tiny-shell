@@ -420,7 +420,8 @@ bool get_date() {
     os_char buffer[TIME_DATE_BUFFER_SIZE];
     const time_t current_time = time(NULL);
     struct tm *local_time = localtime(&current_time); // NOLINT
-    format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon, local_time->tm_year);
+    const int initial_year = 1900;
+    format_output("The current date is: %02d/%02d/%04d.\n", local_time->tm_mday, local_time->tm_mon + 1, local_time->tm_year + initial_year);
     return true;
 }
 

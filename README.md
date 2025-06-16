@@ -1,3 +1,41 @@
+# Features
+
+* Process management (kill, suspend, resume, processes stats, child processes)
+* Utilities (query date and time, delete files)
+* Environment variables modifications and query
+
+Child processes query:
+
+![child](docs/media/child.svg)
+
+Displays date and time info:
+
+![datetime](docs/media/datetime.svg)
+
+Read and modify PATH:
+
+![env](docs/media/env.svg)
+
+Modify environment variables:
+
+![envsetget](docs/media/envsetget.svg)
+
+Exit:
+
+![exit](docs/media/exit.svg)
+
+Query running processes:
+
+![list](docs/media/list.svg)
+
+Directory listing and file deletion:
+
+![lsdir_del](docs/media/lsdir_del.svg)
+
+Process suspension and continuation:
+
+![process_management](docs/media/process_management.gif)
+
 # How to build
 
 Prerequisites:
