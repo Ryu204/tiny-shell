@@ -1,17 +1,17 @@
 <map id="cmd" name="cmd">
 <area shape="rect" id="Node000001" title="Resulting struct after parsing the input." alt="" coords="288,258,334,283"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,94,118,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,133,99,184,118,210,141,231,178,250,218,261,256,266,288,267,287,273,256,271,217,266,176,255,138,236,114,214,94,187,68,135"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="141,94,217,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,133,99,184,119,210,143,231,179,250,218,261,287,267,287,272,217,266,177,255,140,236,115,214,95,187,68,135"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,94,216,120"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,135,178,184,184,210,197,232,217,248,240,258,288,266,287,272,239,264,214,253,193,235,179,212,172,185,172,135"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="241,94,279,120"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="260,135,260,182,265,208,274,232,282,245,294,255,290,259,278,248,269,235,260,210,255,183,254,135"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="304,94,411,120"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,136,317,258,312,257,347,134"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="435,94,547,120"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="474,134,429,183,372,236,336,259,333,255,369,232,426,179,470,130"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="435,94,546,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="474,133,431,183,374,236,336,260,333,255,371,232,427,179,470,130"/>
 <area shape="rect" id="Node000007" href="$structargs.html" title="Result after parsing an arbitrary string." alt="" coords="570,94,617,120"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="582,135,546,187,520,214,491,236,450,254,407,265,335,272,334,267,407,260,449,249,488,231,517,210,542,183,578,132"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="582,135,546,187,521,214,492,236,451,254,408,265,334,272,334,267,407,260,449,249,489,231,518,210,542,184,578,132"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="444,5,524,31"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="513,39,580,91,576,95,510,43"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="548,5,639,31"/>
